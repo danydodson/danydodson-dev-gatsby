@@ -6,6 +6,10 @@
   "author": "Dany Dodson",
   "license": "MIT",
   "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danydodson/danydodson.dev"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000",
@@ -46,10 +50,6 @@
     "gatsby-remark-code-titles": "^1.1.0"
   },
   "browserslist": "> 0.25%, not dead",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danydodson/danydodson.dev"
-  },
   "keywords": [
     "gatsby"
   ]

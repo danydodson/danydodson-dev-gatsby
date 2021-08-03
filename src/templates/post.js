@@ -1,28 +1,50 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Sidebar from '../components/Sidebar'
+import Post from '../components/Post'
+import { useSiteMetadata } from '../hooks'
 
-import Layout from '../components/layout'
-
-const Page = props => {
-  const page = props.data.page
+const PostTemplate = ({ data, pageContext }) => {
+  const { title: siteTitle, subtitle: siteSubtitle, keywords } = useSiteMetadata()
+  const { title: postTitle, description: postDescription } = data.markdownRemark.frontmatter
+  const metaDescription = postDescription !== null ? postDescription : siteSubtitle
 
   return (
-    <Layout location={props.location}>
-      {/* {page.body} */}
+    <Layout
+      title={`${postTitle} - ${siteTitle}`}
+      description={metaDescription}
+      keywords={keywords}
+      article={{
+        title: postTitle,
+        description: metaDescription
+      }}
+    >
+      <Sidebar hideMobile={true} />
+      <Post post={data.markdownRemark} allCategories={pageContext.allCategories} />
     </Layout>
   )
 }
 
-export default Page
-
-export const pageQuery = graphql`
-  query($slug: String!) {
-    page: allMarkdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      html
+      fields {
         slug
+        tagSlugs
+        categorySlug
+      }
+      frontmatter {
+        date
+        description
+        category
+        tags
+        title
       }
     }
   }
 `
+
+export default PostTemplate

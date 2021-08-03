@@ -1,4 +1,5 @@
 ---
+template: Project
 title: Hello World
 slug: hello-world
 date: 07-10-20

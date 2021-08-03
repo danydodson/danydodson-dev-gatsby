@@ -1,28 +1,85 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Sidebar from '../components/Sidebar'
+import Feed from '../components/Feed'
+import Page from '../components/Page'
+import Pagination from '../components/Pagination'
+import { useSiteMetadata } from '../hooks'
 
-import Layout from '../components/layout'
+const TagTemplate = ({ data, pageContext }) => {
+  const { title: siteTitle, subtitle: siteSubtitle, keywords } = useSiteMetadata()
 
-const Page = props => {
-  const page = props.data.page
+  const {
+    tag,
+    currentPage,
+    prevPagePath,
+    nextPagePath,
+    hasPrevPage,
+    hasNextPage,
+    allCategories
+  } = pageContext
+
+  const { edges } = data.allMarkdownRemark
+  const pageTitle =
+    currentPage > 0
+      ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}`
+      : `All Posts tagged as "${tag}" - ${siteTitle}`
 
   return (
-    <Layout location={props.location}>
-      {/* {page.body} */}
+    <Layout title={pageTitle} description={siteSubtitle} keywords={keywords}>
+      <Sidebar />
+      <Page title={`Tag: ${tag}`}>
+        <Feed edges={edges} allCategories={allCategories} />
+        <Pagination
+          prevPagePath={prevPagePath}
+          nextPagePath={nextPagePath}
+          hasPrevPage={hasPrevPage}
+          hasNextPage={hasNextPage}
+        />
+      </Page>
     </Layout>
   )
 }
 
-export default Page
-
-export const pageQuery = graphql`
-  query($slug: String!) {
-    page: allMarkdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
+export const query = graphql`
+  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
+    site {
+      siteMetadata {
         title
-        date(formatString: "MMMM DD, YYYY")
-        slug
+        subtitle
+      }
+    }
+    allMarkdownRemark(
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: {
+          tags: { in: [$tag] }
+          template: { eq: "post" }
+          draft: { ne: true }
+        }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            categorySlug
+            tagSlugs
+          }
+          frontmatter {
+            title
+            date
+            tags
+            category
+            description
+          }
+        }
       }
     }
   }
 `
+
+export default TagTemplate

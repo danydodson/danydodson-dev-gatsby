@@ -1,6 +1,5 @@
 const config = {
 
-  // 
   title: 'Dany Dodson',
   subtitle: 'Dany Dodson',
   description: 'Dany Dodson is a software engineer...',
@@ -11,7 +10,6 @@ const config = {
   disqusShortname: 'shortname',
   postsPerPage: 6,
 
-  // 
   author: {
     name: 'Dany Dodson',
     email: 'danydodson@gmail.com',
@@ -20,32 +18,27 @@ const config = {
     image: 'src/images/og@1x.png',
   },
 
-  //
   header: {
     title: 'Header Title',
   },
 
-  // colors
   colors: {
     gray: '#b8b8b8',
     blue: '#5eafff',
     green: '#32a852',
   },
 
-  //
   algolia: {
     appId: process.env.ALGOLIA_APP_ID,
     searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
     indexName: process.env.ALGOLIA_INDEX_NAME,
   },
 
-  //
   host: {
     name: 'GitHub',
     url: 'https://github.com/danydodson/danydodson.dev',
   },
 
-  //
   manifest: {
     icon: 'src/images/logo@4x.png',
     theme_color: '#222222',
@@ -53,7 +46,6 @@ const config = {
     display: 'standalone',
   },
 
-  // 
   socialLinks: [
     { name: 'GitHub', url: 'https://github.com/danydodson' },
     { name: 'Instagram', url: 'https://www.instagram.com/danydodson' },
@@ -62,7 +54,6 @@ const config = {
     { name: 'Codepen', url: 'https://codepen.io/danydodson' },
   ],
 
-  // 
   navLinks: [
     { name: 'About', url: '/#about' },
     { name: 'Experience', url: '/#jobs' },

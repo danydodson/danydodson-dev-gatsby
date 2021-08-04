@@ -9,33 +9,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
-    'gatsby-plugin-sitemap',
-    `gatsby-plugin-robots-txt`,
     'gatsby-plugin-react-helmet',
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
-        queries: require(`./src/utils/algolia-queries`),
-        chunkSize: 10000
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/pages`,
-        name: 'pages',
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/posts`,
-        name: 'posts',
-      }
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -48,6 +22,16 @@ module.exports = {
       options: {
         path: `${__dirname}/static`,
         name: `static`,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries: require(`./src/utils/algolia-queries`),
+        chunkSize: 10000,
       }
     },
     'gatsby-plugin-image',
@@ -145,6 +129,8 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-robots-txt`,
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -160,7 +146,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'U-abc',
+        trackingId: process.env.GOOGLE_TRACKING_ID,
       },
     },
   ],

@@ -22,7 +22,7 @@ module.exports = async (graphql, actions) => {
   for (let i = 0; i < numPages; i += 1) {
     createPage({
       path: i === 0 ? '/' : `/page/${i}`,
-      component: path.resolve('./src/templates/index-template.js'),
+      component: path.resolve('./src/templates/index.js'),
       context: {
         allCategories,
         currentPage: i,

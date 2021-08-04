@@ -1,43 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import Feed from '../components/Feed'
-import Page from '../components/Page'
-import Pagination from '../components/Pagination'
-import { useSiteMetadata } from '../hooks'
+import { Layout } from '../components'
 
 const TagTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, subtitle: siteSubtitle, keywords } = useSiteMetadata()
-
-  const {
-    tag,
-    currentPage,
-    prevPagePath,
-    nextPagePath,
-    hasPrevPage,
-    hasNextPage,
-    allCategories
-  } = pageContext
-
+  const { } = pageContext
   const { edges } = data.allMarkdownRemark
-  const pageTitle =
-    currentPage > 0
-      ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}`
-      : `All Posts tagged as "${tag}" - ${siteTitle}`
+
+  // console.log(JSON.stringify(edges, null, 2))
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle} keywords={keywords}>
-      <Sidebar />
-      <Page title={`Tag: ${tag}`}>
-        <Feed edges={edges} allCategories={allCategories} />
-        <Pagination
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-        />
-      </Page>
+    <Layout >
+      Tag Page
     </Layout>
   )
 }

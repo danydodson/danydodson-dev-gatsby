@@ -6,17 +6,15 @@ const useSiteMetadata = () => {
       query SiteMetaData {
         site {
           siteMetadata {
-            site {
-              title
-              subtitle
-              description
-              siteUrl
-              pathPrefix
-              image
-              copyright
-              disqusShortname
-              postsPerPage
-            }
+            title
+            subtitle
+            description
+            siteUrl
+            pathPrefix
+            image
+            copyright
+            disqusShortname
+            postsPerPage
             author {
               name
               email
@@ -31,7 +29,7 @@ const useSiteMetadata = () => {
               name
               url
             }
-            metadata {
+            manifest {
               icon
               theme_color
               background_color
@@ -44,10 +42,6 @@ const useSiteMetadata = () => {
             navLinks {
               name
               url
-            },
-            colors {
-              grey
-              blue
             }
           }
         }

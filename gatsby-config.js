@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 const config = require('./data/config')
 
 module.exports = {
@@ -6,29 +10,47 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'static/logos/logo-512.png',
-        name: 'DanyDodson',
-        short_name: 'DanyDodson',
-        start_url: '/',
-        background_color: config.colors.grey,
-        theme_color: config.colors.blue,
-        display: 'minimal-ui',
-      },
-    },
     `gatsby-plugin-robots-txt`,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries: require(`./src/utils/algolia-queries`),
+        chunkSize: 10000
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/pages`,
+        name: 'pages',
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: 'posts',
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content`,
+        name: 'content',
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`,
-      },
-      __key: 'projects',
+        path: `${__dirname}/static`,
+        name: `static`,
+      }
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -121,6 +143,18 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/logos/logo@4x.png',
+        name: 'DanyDodson',
+        short_name: 'DanyDodson',
+        start_url: '/',
+        background_color: config.manifest.background_color,
+        theme_color: config.manifest.theme_color,
+        display: 'minimal-ui',
       },
     },
     {

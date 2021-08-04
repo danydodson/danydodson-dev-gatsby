@@ -4,47 +4,47 @@ const createTagsPages = require('./pagination/tags.js')
 const createPostsPages = require('./pagination/posts.js')
 const { getAllCategories } = require('./constants/categories')
 
-const createPages = async ({ graphql, actions }) => {
+const createPages = async ({ graphql, actions, reporter }) => {
 
   const { createPage } = actions
   const allCategories = await getAllCategories(graphql)
 
-  // 404
   createPage({
     path: '/404',
-    component: path.resolve('./src/templates/not-found-template.js')
+    component: path.resolve('./src/templates/not-found.js')
   })
 
-  // Tags list
   createPage({
     path: '/tags',
-    component: path.resolve('./src/templates/tags-list-template.js'),
-    context: { allCategories }
+    component: path.resolve('./src/templates/tags-list.js'),
+    context: {
+      allCategories
+    }
   })
 
-  // Categories list
   createPage({
     path: '/categories',
-    component: path.resolve('./src/templates/categories-list-template.js'),
-    context: { allCategories }
+    component: path.resolve('./src/templates/categories-list.js'),
+    context: {
+      allCategories
+    }
   })
 
   createPage({
-    path: '/cv',
-    component: path.resolve('./src/templates/cv-template.js')
+    path: '/resume',
+    component: path.resolve('./src/templates/resume.js')
   })
 
-  // Posts and pages from markdown
   const result = await graphql(`
     {
       allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
         edges {
           node {
-            frontmatter {
-              template
-            }
             fields {
               slug
+            }
+            frontmatter {
+              template
             }
           }
         }
@@ -52,6 +52,15 @@ const createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  reporter.success(JSON.stringify(result, null, 2))
+
+  console.log(process.env.ALGOLIA_API_KEY)
+  
   const { edges } = result.data.allMarkdownRemark
 
   edges.map(edge => {
@@ -64,8 +73,11 @@ const createPages = async ({ graphql, actions }) => {
     ) {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page-template.js'),
-        context: { slug: edge.node.fields.slug, allCategories }
+        component: path.resolve('./src/templates/page.js'),
+        context: {
+          slug: edge.node.fields.slug,
+          allCategories
+        }
       })
     } else if (
       edge &&
@@ -76,14 +88,17 @@ const createPages = async ({ graphql, actions }) => {
     ) {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post-template.js'),
-        context: { slug: edge.node.fields.slug, allCategories }
+        component: path.resolve('./src/templates/post.js'),
+        context: {
+          slug: edge.node.fields.slug,
+          allCategories
+        }
       })
     }
+
     return null
   })
 
-  // Feeds
   await createTagsPages(graphql, actions)
   await createCategoriesPages(graphql, actions)
   await createPostsPages(graphql, actions)

@@ -5,6 +5,7 @@ const { getAllCategories } = require('../constants/categories.js')
 module.exports = async (graphql, actions) => {
   const { createPage } = actions
   const { postsPerPage } = siteConfig
+
   const allCategories = await getAllCategories(graphql)
 
   const result = await graphql(`
@@ -27,7 +28,7 @@ module.exports = async (graphql, actions) => {
     for (let i = 0; i < numPages; i += 1) {
       createPage({
         path: i === 0 ? categorySlug : `${categorySlug}/page/${i}`,
-        component: path.resolve('./src/templates/category-template.js'),
+        component: path.resolve('./src/templates/category.js'),
         context: {
           category: category.fieldValue,
           allCategories,

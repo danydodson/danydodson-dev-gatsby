@@ -1,12 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle, theme } from '../styles'
 
-const Layout = ({ children }) => {
-  return children
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired
+function Layout({ children }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <main>
+        {children}
+      </main>
+    </ThemeProvider>
+  )
 }
 
 export default Layout

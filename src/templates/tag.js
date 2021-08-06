@@ -2,10 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components'
 
-const TagTemplate = ({ data, pageContext }) => {
-  const { } = pageContext
-  const { edges } = data.allMarkdownRemark
+const TagTemplate = () => {
 
+  // const TagTemplate = ({ data, pageContext }) => {
+  // const { } = pageContext
+  // const { edges } = data.allMarkdownRemark
   // console.log(JSON.stringify(edges, null, 2))
 
   return (

@@ -30,11 +30,6 @@ const createPages = async ({ graphql, actions, reporter }) => {
     }
   })
 
-  createPage({
-    path: '/resume',
-    component: path.resolve('./src/templates/resume.js')
-  })
-
   const result = await graphql(`
     {
       allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
@@ -60,7 +55,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
   reporter.success(JSON.stringify(result, null, 2))
 
   console.log(process.env.ALGOLIA_API_KEY)
-  
+
   const { edges } = result.data.allMarkdownRemark
 
   edges.map(edge => {

@@ -1,8 +1,7 @@
 .cache
-*.env.*
 .vscode
+.env.*
+public
 node_modules
 yarn-error.log
 package-lock.json
-.DS_Store
-public

@@ -13,8 +13,29 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content`,
-        name: 'content',
+        path: `${__dirname}/content/jobs`,
+        name: 'jobs',
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/pages`,
+        name: 'pages',
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: 'posts',
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: 'projects',
       }
     },
     {
@@ -22,16 +43,6 @@ module.exports = {
       options: {
         path: `${__dirname}/static`,
         name: `static`,
-      }
-    },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
-        queries: require(`./src/utils/algolia-queries`),
-        chunkSize: 10000,
       }
     },
     'gatsby-plugin-image',
@@ -129,12 +140,22 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries: require(`./src/utils/algolia-queries`),
+        chunkSize: 10000,
+      }
+    },
     `gatsby-plugin-robots-txt`,
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/logos/logo@4x.png',
+        icon: 'static/logos/logo@4x.png',
         name: 'DanyDodson',
         short_name: 'DanyDodson',
         start_url: '/',

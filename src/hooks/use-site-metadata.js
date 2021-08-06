@@ -9,6 +9,7 @@ const useSiteMetadata = () => {
             title
             subtitle
             description
+            username
             siteUrl
             pathPrefix
             image

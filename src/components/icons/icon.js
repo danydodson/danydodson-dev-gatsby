@@ -3,23 +3,29 @@ import PropTypes from 'prop-types'
 
 import {
   IconExternal,
+  IconFolder,
   IconGitHub,
   IconInstagram,
   IconLinkedin,
+  IconLoader,
   IconRss,
   IconTwitter
-} from '../components/icons'
+} from '.'
 
-const getIcon = (name) => {
+const Icon = (name) => {
   switch (name) {
     case 'external':
       return <IconExternal />
+    case 'folder':
+      return <IconFolder />
     case 'gitHub':
       return <IconGitHub />
     case 'instagram':
       return <IconInstagram />
     case 'linkedin':
       return <IconLinkedin />
+    case 'loader':
+      return <IconLoader />
     case 'rss':
       return <IconRss />
     case 'twitter':
@@ -29,8 +35,8 @@ const getIcon = (name) => {
   }
 }
 
-getIcon.propTypes = {
+Icon.propTypes = {
   name: PropTypes.string.isRequired,
 }
 
-export default getIcon
+export default Icon

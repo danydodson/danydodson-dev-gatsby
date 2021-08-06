@@ -1,16 +1,27 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from '../styles'
+import { Head, Nav } from '../components'
 
-function Layout({ children }) {
+function Layout({ children, location }) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <main>
-        {children}
-      </main>
-    </ThemeProvider>
+    <>
+      <Head />
+      <div id='root'>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <StyledContent>
+            <Nav />
+            <div id='content'>
+              {children}
+            </div>
+          </StyledContent>
+        </ThemeProvider>
+      </div>
+    </>
   )
 }
 
 export default Layout
+
+const StyledContent = styled.div``

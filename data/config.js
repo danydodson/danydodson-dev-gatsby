@@ -3,9 +3,10 @@ const config = {
   title: 'Dany Dodson',
   subtitle: 'Dany Dodson',
   description: 'Dany Dodson is a software engineer...',
+  username: 'danydodson',
   siteUrl: 'https://danydodson.dev',
   pathPrefix: '',
-  image: 'src/images/logo@1x.png',
+  image: 'static/logos/logo@1x.png',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 6,
@@ -15,7 +16,7 @@ const config = {
     email: 'danydodson@gmail.com',
     bio: 'My bio goes here...',
     location: `Evansville, IN`,
-    image: 'src/images/og@1x.png',
+    image: 'static/cards/og@1x.png',
   },
 
   header: {
@@ -40,7 +41,7 @@ const config = {
   },
 
   manifest: {
-    icon: 'src/images/logo@4x.png',
+    icon: 'static/logos/logo@4x.png',
     theme_color: '#222222',
     background_color: '#ffffff',
     display: 'standalone',

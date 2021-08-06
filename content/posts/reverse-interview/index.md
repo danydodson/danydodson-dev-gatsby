@@ -1,16 +1,14 @@
 ---
 template: post
-title: '[Reverse interview](https://github.com/dospolov/reverse-interview)'
+title: '[Reverse interview: Questions to ask the company during your interview](https://github.com/dospolov/reverse-interview)'
+slug: /posts/reverse-interview
 draft: false
-date: 2020-05-06
-subtitle: sub title reverse interview
-slug: /post/reverse-interview
-color: '#E95800'
-description: Questions to ask the company during your interview.
-excerpt:  List of the questions.
+priority: 0
+date: 2020-05-06T13:23:37.121Z
+description: >-
+  List of the questions from dev to the company.
+  Fork it or use it as is.
 category: programming
 tags:
   - interview
 ---
-
-# Reverse Interview

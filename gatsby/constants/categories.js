@@ -9,6 +9,7 @@ const CATEGORY_COLOR_EXTRA = 'gray-800'
 module.exports = {
   CATEGORY_COLORS,
   CATEGORY_COLOR_EXTRA,
+  
   getAllCategories: async graphql => {
     const {
       data: {

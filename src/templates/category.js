@@ -1,16 +1,43 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout } from '../components'
+// import Feed from '../components/Feed'
+// import Page from '../components/Page'
+import Pagination from '../components/pagination'
+import { useSiteMetadata } from '../hooks'
 
-const CategoryTemplate = ({ data, pageContext }) => {
-  const { } = pageContext
-  const { edges } = data.allMarkdownRemark
-  
+const CategoryTemplate = ({ pageContext }) => {
+
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
+
+  const {
+    category,
+    currentPage,
+    prevPagePath,
+    nextPagePath,
+    hasPrevPage,
+    hasNextPage,
+    allCategories
+  } = pageContext
+
+  // const { edges } = data.allMarkdownRemark
+
   // console.log(JSON.stringify(edges, null, 2))
-  
+
+  const pageTitle =
+    currentPage > 0
+      ? `${category} - Page ${currentPage} - ${siteTitle}`
+      : `${category} - ${siteTitle}`
+
+
   return (
-    <Layout>
-      Category Page
+    <Layout title={pageTitle} description={siteSubtitle}>
+      Category Page: ({category})
+      <Pagination
+        prevPagePath={prevPagePath}
+        nextPagePath={nextPagePath}
+        hasPrevPage={hasPrevPage}
+        hasNextPage={hasNextPage} />
     </Layout>
   )
 }
@@ -50,3 +77,4 @@ export const query = graphql`
 `
 
 export default CategoryTemplate
+

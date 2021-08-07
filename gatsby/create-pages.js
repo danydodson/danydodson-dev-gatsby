@@ -2,6 +2,7 @@ const path = require('path')
 const createCategoriesPages = require('./pagination/categories.js')
 const createTagsPages = require('./pagination/tags.js')
 const createPostsPages = require('./pagination/posts.js')
+
 const { getAllCategories } = require('./constants/categories')
 
 const createPages = async ({ graphql, actions, reporter }) => {

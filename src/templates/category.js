@@ -17,7 +17,7 @@ const CategoryTemplate = ({ pageContext }) => {
     nextPagePath,
     hasPrevPage,
     hasNextPage,
-    allCategories
+    // allCategories
   } = pageContext
 
   // const { edges } = data.allMarkdownRemark

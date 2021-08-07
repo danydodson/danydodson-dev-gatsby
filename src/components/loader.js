@@ -48,7 +48,7 @@ const Loader = ({ finishLoading }) => {
     const timeout = setTimeout(() => setIsMounted(true), 10)
     animate()
     return () => clearTimeout(timeout)
-  }, [])
+  }, [animate])
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>

@@ -22,7 +22,7 @@ const pageQuery = `{
           title
           subtitle
         }
-        excerpt(pruneLength: 5000)
+        excerpt(pruneLength: 50)
       }
     }
   }

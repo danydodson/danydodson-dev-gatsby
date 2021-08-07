@@ -12,12 +12,12 @@ const createPages = async ({ graphql, actions, reporter }) => {
 
   createPage({
     path: '/404',
-    component: path.resolve('./src/templates/not-found.js')
+    component: path.resolve('./src/templates/not-found-template.js')
   })
 
   createPage({
     path: '/tags',
-    component: path.resolve('./src/templates/tags-list.js'),
+    component: path.resolve('./src/templates/tags-list-template.js'),
     context: {
       allCategories
     }
@@ -25,7 +25,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
 
   createPage({
     path: '/categories',
-    component: path.resolve('./src/templates/categories-list.js'),
+    component: path.resolve('./src/templates/categories-list-template.js'),
     context: {
       allCategories
     }
@@ -69,7 +69,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
     ) {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page.js'),
+        component: path.resolve('./src/templates/page-template.js'),
         context: {
           slug: edge.node.fields.slug,
           allCategories
@@ -84,7 +84,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
     ) {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post.js'),
+        component: path.resolve('./src/templates/post-template.js'),
         context: {
           slug: edge.node.fields.slug,
           allCategories

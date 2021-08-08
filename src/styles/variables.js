@@ -9,6 +9,7 @@ const variables = css`
     --green-dark: #32a852;
     
     --font-sans: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    --font-sans-serif: 'Bitter';
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
 
     --fz-xxs: 12px;

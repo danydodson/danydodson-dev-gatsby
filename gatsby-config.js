@@ -7,7 +7,6 @@ const config = require('./data/config')
 module.exports = {
   siteMetadata: config,
   plugins: [
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-react-helmet',
     {
@@ -39,14 +38,22 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/assets`,
+        name: 'assets',
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static`,
         name: `static`,
       }
     },
-    'gatsby-plugin-image',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

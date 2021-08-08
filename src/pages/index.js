@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Layout, Projects } from '../components'
+import { Layout, Projects, Jobs } from '../components'
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
     <MainContainer>
       <Projects />
+      <Jobs />
     </MainContainer>
   </Layout>
 )

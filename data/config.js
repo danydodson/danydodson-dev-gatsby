@@ -9,7 +9,7 @@ const config = {
   image: 'static/logos/logo@1x.png',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
-  postsPerPage: 6,
+  postsPerPage: 2,
 
   author: {
     name: 'Dany Dodson',

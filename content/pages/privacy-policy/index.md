@@ -2,7 +2,7 @@
 template: page
 title: Privacy Policy
 draft: false
-slug: pages/privacy-policy
+slug: /privacy-policy
 ---
 
 # Privacy Policy

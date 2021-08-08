@@ -1,62 +1,6 @@
 import { css } from 'styled-components'
 
-import CalibreRegularWoff from '../../static/fonts/Calibre/Calibre-Regular.woff'
-import CalibreRegularWoff2 from '../../static/fonts/Calibre/Calibre-Regular.woff2'
-import CalibreMediumWoff from '../../static/fonts/Calibre/Calibre-Medium.woff'
-import CalibreMediumWoff2 from '../../static/fonts/Calibre/Calibre-Medium.woff2'
-import CalibreSemiboldWoff from '../../static/fonts/Calibre/Calibre-Semibold.woff'
-import CalibreSemiboldWoff2 from '../../static/fonts/Calibre/Calibre-Semibold.woff2'
-
-import CalibreRegularItalicWoff from '../../static/fonts/Calibre/Calibre-RegularItalic.woff'
-import CalibreRegularItalicWoff2 from '../../static/fonts/Calibre/Calibre-RegularItalic.woff2'
-import CalibreMediumItalicWoff from '../../static/fonts/Calibre/Calibre-MediumItalic.woff'
-import CalibreMediumItalicWoff2 from '../../static/fonts/Calibre/Calibre-MediumItalic.woff2'
-import CalibreSemiboldItalicWoff from '../../static/fonts/Calibre/Calibre-SemiboldItalic.woff'
-import CalibreSemiboldItalicWoff2 from '../../static/fonts/Calibre/Calibre-SemiboldItalic.woff2'
-
-import SFMonoRegularWoff from '../../static/fonts/SFMono/SFMono-Regular.woff'
-import SFMonoRegularWoff2 from '../../static/fonts/SFMono/SFMono-Regular.woff2'
-import SFMonoSemiboldWoff from '../../static/fonts/SFMono/SFMono-Semibold.woff'
-import SFMonoSemiboldWoff2 from '../../static/fonts/SFMono/SFMono-Semibold.woff2'
-
-import SFMonoRegularItalicWoff from '../../static/fonts/SFMono/SFMono-RegularItalic.woff'
-import SFMonoRegularItalicWoff2 from '../../static/fonts/SFMono/SFMono-RegularItalic.woff2'
-import SFMonoSemiboldItalicWoff from '../../static/fonts/SFMono/SFMono-SemiboldItalic.woff'
-import SFMonoSemiboldItalicWoff2 from '../../static/fonts/SFMono/SFMono-SemiboldItalic.woff2'
-
-const calibreNormalWeights = {
-  400: [CalibreRegularWoff, CalibreRegularWoff2],
-  500: [CalibreMediumWoff, CalibreMediumWoff2],
-  600: [CalibreSemiboldWoff, CalibreSemiboldWoff2],
-}
-
-const calibreItalicWeights = {
-  400: [CalibreRegularItalicWoff, CalibreRegularItalicWoff2],
-  500: [CalibreMediumItalicWoff, CalibreMediumItalicWoff2],
-  600: [CalibreSemiboldItalicWoff, CalibreSemiboldItalicWoff2],
-}
-
-const sfMonoNormalWeights = {
-  400: [SFMonoRegularWoff, SFMonoRegularWoff2],
-  600: [SFMonoSemiboldWoff, SFMonoSemiboldWoff2],
-}
-
-const sfMonoItalicWeights = {
-  400: [SFMonoRegularItalicWoff, SFMonoRegularItalicWoff2],
-  600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2],
-}
-
-const calibre = {
-  name: 'Calibre',
-  normal: calibreNormalWeights,
-  italic: calibreItalicWeights,
-}
-
-const sfMono = {
-  name: 'SF Mono',
-  normal: sfMonoNormalWeights,
-  italic: sfMonoItalicWeights,
-}
+import { calibre, bitter, notosans, sfMono } from '../assets/fonts'
 
 const createFontFaces = (family, style = 'normal') => {
   let styles = ''
@@ -79,12 +23,18 @@ const createFontFaces = (family, style = 'normal') => {
   return styles
 }
 
+const bitterNormal = createFontFaces(bitter)
+const bitterItalic = createFontFaces(bitter, 'italic')
+
 const calibreNormal = createFontFaces(calibre)
 const calibreItalic = createFontFaces(calibre, 'italic')
+
+const notoSansNormal = createFontFaces(notosans)
+const notoSansItalic = createFontFaces(notosans, 'italic')
 
 const sfMonoNormal = createFontFaces(sfMono)
 const sfMonoItalic = createFontFaces(sfMono, 'italic')
 
-const Fonts = css`${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic}`
+const Fonts = css`${bitterNormal + bitterItalic + calibreNormal + calibreItalic + notoSansNormal + notoSansItalic + sfMonoNormal + sfMonoItalic}`
 
 export default Fonts

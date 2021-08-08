@@ -9,7 +9,7 @@ const IconLoader = (props) => (
     id="logo"
     className=""
     {...props}>
-    <title>Loader Logo</title>
+    <title>loader</title>
     <g>
       <g 
         id="B" 

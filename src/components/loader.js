@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
@@ -51,7 +52,7 @@ const Loader = ({ finishLoading }) => {
   }, [animate])
 
   return (
-    <StyledLoader className="loader" isMounted={isMounted}>
+    <StyledLoader className='loader' isMounted={isMounted}>
       <Helmet bodyAttributes={{ class: `hidden` }} />
 
       <div className="logo-wrapper">
@@ -68,7 +69,6 @@ Loader.propTypes = {
 export default Loader
 
 const StyledLoader = styled.div`
-  ${({ theme }) => theme.mixins.flexCenter};
   position: fixed;
   top: 0;
   bottom: 0;
@@ -76,6 +76,7 @@ const StyledLoader = styled.div`
   right: 0;
   width: 100%;
   height: 100%;
+  ${({ theme }) => theme.mixins.flexCenter};
   background-color: var(--dark-navy);
   z-index: 99;
 

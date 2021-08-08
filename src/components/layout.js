@@ -3,6 +3,10 @@ import styled, { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from '../styles'
 import { Head, Nav } from '../components'
 
+if (typeof window !== 'undefined') {
+  require('smooth-scroll')('a[href*="#"]')
+}
+
 function Layout({ children, location }) {
   return (
     <>

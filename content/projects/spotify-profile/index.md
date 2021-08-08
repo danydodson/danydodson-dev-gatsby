@@ -1,6 +1,7 @@
 ---
 template: project
 title: Spotify Profile
+slug: /projects/spotify-profile
 showInProjects: true
 date: 2018-12-18
 github: https://github.com/bchiang7/spotify-profile

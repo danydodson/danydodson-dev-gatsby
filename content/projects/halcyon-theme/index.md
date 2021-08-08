@@ -1,6 +1,7 @@
 ---
 template: project
 title: Halcyon Theme
+slug: /projects/halcyon-theme
 showInProjects: true
 date: 2017-12-27
 github: https://github.com/bchiang7/halcyon-site

@@ -1,6 +1,7 @@
 ---
 template: project
 title: blistabloc
+slug: /projects/blistabloc
 showInProjects: true
 date: 2018-05-01
 github: ''

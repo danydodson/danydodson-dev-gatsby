@@ -1,6 +1,6 @@
 ---
 template: post
-title: '[Petition: Ban Anti-Vaccination propaganda at Facebook/Youtube/Instagram/Twitter](https://www.change.org/ban-anti-vaccination-propaganda)'
+title: 'Petition: Ban Anti-Vaccination propaganda at Facebook/Youtube/Instagram/Twitter'
 slug: /posts/petition-ban-anti-vaccination-propaganda
 draft: false
 priority: 0

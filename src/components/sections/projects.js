@@ -1,6 +1,8 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import BgYellow from '../../assets/svgs/bg-yellow.svg'
+import BorderBlue from '../../assets/svgs/border-blue.svg'
 import { IconGitHub, IconFolder, IconExternal } from '../icons'
 
 const Projects = () => {
@@ -20,6 +22,7 @@ const Projects = () => {
                 tech
                 github
                 external
+                tags
               }
             }
           }
@@ -32,58 +35,62 @@ const Projects = () => {
 
   const projectInner = node => {
     const { frontmatter, html } = node
-    const { github, external, title, tech } = frontmatter
+    const { github, external, title, tech, } = frontmatter
 
     return (
-      <div className='project-inner'>
+      <>
         <header>
-          <div className='project-top'>
-            <div className='folder'>
+          <div>
+            <div>
               <IconFolder />
             </div>
-            <div className='project-links'>
+            <div>
               {github && (
                 <a href={github} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
                   <IconGitHub />
                 </a>
               )}
               {external && (
-                <a href={external} aria-label='External Link' className='external' target='_blank' rel='noreferrer'>
+                <a href={external} aria-label='External Link' target='_blank' rel='noreferrer'>
                   <IconExternal />
                 </a>
               )}
             </div>
           </div>
 
-          <h3 className='project-title'>
+          <h3>
             <a href={external} target='_blank' rel='noreferrer'>
               {title}
             </a>
           </h3>
 
-          <div className='project-description' dangerouslySetInnerHTML={{ __html: html }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </header>
 
         <footer>
           {tech && (
-            <ul className='project-tech-list'>
+            <ul >
               {tech.map((tech, i) => (
                 <li key={i}>{tech}</li>
               ))}
             </ul>
           )}
         </footer>
-      </div>
+      </>
     )
   }
 
   return (
-    <ProjectsSection>
-      {projects &&
-        projects.map(({ node }, i) => (
-          <StyledProject key={i}>{projectInner(node)}</StyledProject>
-        ))
-      }
+    <ProjectsSection id="projects">
+      <div>
+
+        {projects &&
+          projects.map(({ node }, i) => (
+            <StyledProject key={i}>{projectInner(node)}</StyledProject>
+          ))
+        }
+      </ div>
+      <StyledBorder />
     </ProjectsSection>
   )
 }
@@ -91,10 +98,22 @@ const Projects = () => {
 export default Projects
 
 const ProjectsSection = styled.section`
+  background: url(${BgYellow});
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
-const StyledProject = styled.li`
+const StyledBorder = styled.div`
+  background-image: url(${BorderBlue});
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  width: 100%;
+  height: 5vh;
+  position: absolute;
+  bottom: -5px;
+`
+
+const StyledProject = styled.article`
 `

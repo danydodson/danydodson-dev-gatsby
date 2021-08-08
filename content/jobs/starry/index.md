@@ -1,7 +1,9 @@
 ---
 template: job
 date: 2016-12-21
+showInJobs: true
 title: Software Engineer Co-op
+slug: /jobs/software-engineer-co-op
 company: Starry
 location: Boston, MA
 range: July - December 2016

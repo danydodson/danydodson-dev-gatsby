@@ -1,5 +1,6 @@
 const path = require('path')
 const siteConfig = require('../../data/config')
+
 const { getAllCategories } = require('../constants/categories.js')
 
 module.exports = async (graphql, actions) => {
@@ -28,7 +29,7 @@ module.exports = async (graphql, actions) => {
     for (let i = 0; i < numPages; i += 1) {
       createPage({
         path: i === 0 ? categorySlug : `${categorySlug}/page/${i}`,
-        component: path.resolve('./src/templates/category-template.js'),
+        component: path.resolve('./src/templates/category.js'),
         context: {
           category: category.fieldValue,
           allCategories,
@@ -36,7 +37,7 @@ module.exports = async (graphql, actions) => {
           postsLimit: postsPerPage,
           postsOffset: i * postsPerPage,
           prevPagePath: i <= 1 ? categorySlug : `${categorySlug}/page/${i - 1}`,
-          nextPagePath: `/${categorySlug}/page/${i + 1}`,
+          nextPagePath: `${categorySlug}/page/${i + 1}`,
           hasPrevPage: i !== 0,
           hasNextPage: i !== numPages - 1
         }

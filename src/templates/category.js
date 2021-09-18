@@ -67,7 +67,7 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query CategoryPage($category: String, $postsLimit: Int!, $postsOffset: Int!) {
+  query CategoryQuery($category: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
@@ -77,21 +77,22 @@ export const query = graphql`
       edges {
         node {
           fields {
-            categorySlug
             slug
+            categorySlug
             tagSlugs
           }
           frontmatter {
             title
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 700)
+              }
+            }
+            alt
             date(formatString: "MMM D YYYY")
             description
             category
             tags
-            cover {
-              childImageSharp {
-                gatsbyImageData(width: 200)
-              }
-            }
           }
         }
       }

@@ -61,13 +61,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-      }
-    }
+  query TagQuery($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
@@ -83,15 +77,16 @@ export const query = graphql`
           }
           frontmatter {
             title
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 700)
+              }
+            }
+            alt
             date(formatString: "MMM D YYYY")
             description
             category
             tags
-            cover {
-              childImageSharp {
-                gatsbyImageData(width: 200)
-              }
-            }
           }
         }
       }

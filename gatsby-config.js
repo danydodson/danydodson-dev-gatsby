@@ -1,7 +1,8 @@
+// tracedSVG: { color: '#a2e5b1' },
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
-
 const config = require('./data/config')
 
 module.exports = {
@@ -60,7 +61,20 @@ module.exports = {
         name: `static`,
       }
     },
-    'gatsby-plugin-mdx',
+    // 'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -75,15 +89,14 @@ module.exports = {
               rel: 'nofollow noopener noreferrer',
             },
           },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              quality: 90,
-              maxWidth: 700,
-              linkImagesToOriginal: true,
-              tracedSVG: { color: '#a2e5b1' },
-            },
-          },
+          // {
+          //   resolve: 'gatsby-remark-images',
+          //   options: {
+          //     quality: 90,
+          //     maxWidth: 1200,
+          //     linkImagesToOriginal: true
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-code-titles',
           },
@@ -140,8 +153,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'DanyDodson',
-        short_name: 'DanyDodson',
+        name: 'Dany Dodson',
+        short_name: 'danydodson',
         start_url: '/',
         icon: config.manifest.icon,
         background_color: config.manifest.background_color,

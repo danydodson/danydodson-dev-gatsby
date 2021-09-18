@@ -1,6 +1,6 @@
 const escapeStringRegexp = require('escape-string-regexp')
 
-const pagePath = `content`
+const pagePath = `content/posts`
 const indexName = `Content`
 
 const pageQuery = `{
@@ -20,8 +20,17 @@ const pageQuery = `{
         }
         frontmatter {
           title
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 700)
+            }
+          }
+          date(formatString: "MMM D YYYY")
+          description
+          priority
+          category
+          tags
         }
-        excerpt(pruneLength: 10)
       }
     }
   }
@@ -50,7 +59,7 @@ const queries = [
     query: pageQuery,
     indexName,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    settings: { attributesToSnippet: [`excerpt:10`] },
+    settings: { attributesToSnippet: [`excerpt:20`] },
   },
 ]
 

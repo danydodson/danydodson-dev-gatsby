@@ -51,6 +51,11 @@ const createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               template
+              cover {
+                childImageSharp {
+                  gatsbyImageData(width: 1200)
+                }
+              }
             }
           }
         }

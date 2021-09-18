@@ -9,7 +9,7 @@ import { Layout } from '../components'
 
 const TagsTemplate = ({ data, location }) => {
   const tags = data.allMarkdownRemark.group
-
+  
   return (
     <Layout location={location} description={`Search posts by tag`}>
 
@@ -35,7 +35,7 @@ const TagsTemplate = ({ data, location }) => {
 }
 
 export const query = graphql`
-  query TagsList {
+  query TagsQuery {
     allMarkdownRemark(
       filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
     ) {

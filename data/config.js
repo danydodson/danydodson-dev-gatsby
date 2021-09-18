@@ -2,10 +2,10 @@ const config = {
 
   title: 'Dany Dodson',
   subtitle: '♡',
-  image: 'static/og.png',
+  image: 'og.png',
   description: '♡ Web & Software Engineer',
   username: 'danydodson',
-  siteUrl: 'https://danydodson-dev.netlify.app/',
+  siteUrl: 'https://danydodson-dev.netlify.app',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 10,

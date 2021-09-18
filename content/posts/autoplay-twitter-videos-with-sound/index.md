@@ -2,22 +2,18 @@
 template: post
 title: Autoplay Twitter videos with sound
 subtitle: autoplay
-slug: /posts/twitter-videos-with-sound
+slug: /posts/autoplay-twitter-videos-with-sound
 draft: false
 priority: 0
 cover: index.png
+alt: beach
 date: 2020-01-31T00:40:32.893Z
-description: >-
-  It might be annoying scroll Twitter videos and click on each to hear sound.
-  Here is the quick hack. It will unmute video when you hover and mute again
-  when your cursor is out video.
+description: It might be annoying scroll Twitter videos and click on each to hear sound. Here is the quick hack. It will unmute video when you hover and mute again when your cursor is out video.
 category: Productivity
 tags:
   - twitter
   - javascript
 ---
-
-It might be annoying scroll Twitter videos and click on each to hear sound. Here is the quick hack. It will unmute video when you hover and mute again when your cursor is out video.
 
 1. Install [Custom JavaScript for websites](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija) plugin
 

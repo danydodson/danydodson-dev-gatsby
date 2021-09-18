@@ -64,7 +64,7 @@ PostTemplate.propTypes = {
 }
 
 export const query = graphql`
-  query PostPage($postsLimit: Int!, $postsOffset: Int!) {
+  query PostsQuery($postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
         title
@@ -85,15 +85,16 @@ export const query = graphql`
           }
           frontmatter {
             title
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 700)
+              }
+            }
+            alt
             date(formatString: "MMM D YYYY")
             description
             category
             tags
-            cover {
-              childImageSharp {
-                gatsbyImageData(width: 200)
-              }
-            }
           }
         }
       }

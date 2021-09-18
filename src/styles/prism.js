@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 const prismColors = {
   bg: `#112340`,
   lineHighlight: `#1d2d50`,
+  title: '#efefef',
   blue: `#5ccfe6`,
   purple: `#c3a6ff`,
   green: `#bae67e`,
@@ -11,6 +12,7 @@ const prismColors = {
   red: `#ef6b73`,
   grey: `#a2aabc`,
   comment: `#8695b799`,
+  variable: `#efefef`,
 }
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs
@@ -93,18 +95,21 @@ const PrismStyles = css`
 
   /* Language badges */
   .gatsby-highlight pre[class*='language-']::before {
-    background: var(--white_200);
-    color: var(--white);
+    top: 0;
+    left: 1.25rem;
+    position: absolute;
+    padding: 0.25rem 0.5rem;
+    background: #5471a0;
+    color: ${prismColors.title};
     font-size: var(--fz_xxs);
     font-family: var(--ff_mono);
     line-height: 1.5;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    border-bottom: 1px solid var(--blue_200);
+    border-right: 1px solid var(--blue_200);
+    border-left: 1px solid var(--blue_200);
     border-radius: 0 0 3px 3px;
-    position: absolute;
-    top: 0;
-    left: 1.25rem;
-    padding: 0.25rem 0.5rem;
   }
 
   .gatsby-highlight pre[class='language-javascript']::before {
@@ -216,6 +221,7 @@ const PrismStyles = css`
   }
 
   .token.tag,
+  .token.parameter,
   .token.selector,
   .token.important,
   .token.atrule,
@@ -225,13 +231,17 @@ const PrismStyles = css`
     color: ${prismColors.blue};
   }
 
+  .token.variable,
   .token.string,
   .token.char,
   .token.attr-value,
   .token.regex,
-  .token.variable,
   .token.inserted {
     color: ${prismColors.green};
+  }
+  
+  .token.parameter {
+    color: ${prismColors.variable};
   }
 
   .token.important,

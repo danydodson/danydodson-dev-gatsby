@@ -11,15 +11,13 @@ import { Layout } from '../components'
 const PostTemplate = ({ data, pageContext, location }) => {
   const { html: pageBody } = data.markdownRemark
   const frontmatter = data.markdownRemark.frontmatter
-
   const { title, cover, alt, date, description, category, tags } = frontmatter
-  
   const image = getImage(cover)
 
   return (
     <Layout location={location}>
 
-      <Helmet title={`Post: ${title} `} description={description} />
+      <Helmet title={`Post: ${title} `} description={`${description}`} />
 
       <StyledPostSection>
         <article>
@@ -54,7 +52,12 @@ const PostTemplate = ({ data, pageContext, location }) => {
 }
 
 export const query = graphql`
-  query PostBySlug($slug: String!) {
+  query PostBySlugQuery($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(
       fields: { slug: { eq: $slug } }
     ) {
@@ -68,7 +71,7 @@ export const query = graphql`
         title
         cover {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 700)
           }
         }
         alt

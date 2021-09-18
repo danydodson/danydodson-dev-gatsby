@@ -6,6 +6,7 @@ slug: /posts/chrome-custom-js-and-css-extension
 draft: false
 priority: 0
 cover: index.png
+alt: beach
 date: 2020-04-18T22:22:02.039Z
 description: Chrome custom JS and CSS extension
 category: Productivity

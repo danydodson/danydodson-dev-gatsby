@@ -6,10 +6,9 @@ slug: /posts/crlf-to-lf
 draft: false
 priority: 0
 cover: index.png
+alt: beach
 date: 2019-07-14T12:22:42.826Z
-description: >-
-  Complete guide to force setup LF End-of-line for all your Git projects working
-  on Windows.
+description: Complete guide to force setup LF End-of-line for all your Git projects work on Windows.
 category: Programming
 tags:
   - vscode

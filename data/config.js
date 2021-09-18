@@ -6,7 +6,7 @@ const config = {
   username: 'danydodson',
   siteUrl: 'https://danydodson.dev',
   pathPrefix: '',
-  image: 'src/images/og/logo@1.png',
+  image: 'src/images/logos/logo@1.png',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 10,
@@ -16,7 +16,7 @@ const config = {
     email: 'danydodson@gmail.com',
     bio: 'My bio goes here...',
     location: `Evansville, IN`,
-    image: 'src/images/og/og@1.png',
+    image: 'static/og@1.png',
   },
 
   header: {
@@ -35,7 +35,7 @@ const config = {
   },
 
   manifest: {
-    icon: 'src/images/og/logo@4.png',
+    icon: 'src/images/logos/logo@4.png',
     theme_color: '#222222',
     background_color: '#ffffff',
     display: 'standalone',

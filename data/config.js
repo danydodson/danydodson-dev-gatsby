@@ -16,7 +16,7 @@ const config = {
     email: 'danydodson@gmail.com',
     bio: 'My bio goes here...',
     location: `Evansville, IN`,
-    image: 'static/og@1.png',
+    image: 'static/og@square.png',
   },
 
   header: {

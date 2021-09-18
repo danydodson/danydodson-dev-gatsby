@@ -1,6 +1,7 @@
 ---
 template: post
 title: Trello + GTD = Trello Bookmark
+subtitle: trello
 slug: /posts/trello-plus-gtd-equals-trello-bookmark
 draft: false
 priority: 5
@@ -11,7 +12,7 @@ description: >-
 
   But one of the greatest things about being a programmer is that you can
   automate your routine.
-category: productivity
+category: Productivity
 tags:
   - trello
   - chrome

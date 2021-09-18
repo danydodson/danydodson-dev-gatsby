@@ -6,12 +6,12 @@ const config = require('./data/config')
 
 module.exports = {
   flags: {
-    DEV_WEBPACK_CACHE: true,
-    FAST_DEV: false,
     DEV_SSR: false,
-    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    FAST_DEV: false,
+    LMDB_STORE: false,
     PARALLEL_SOURCING: false,
-    LMDB_STORE: false
+    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    DEV_WEBPACK_CACHE: true
   },
   siteMetadata: config,
   plugins: [
@@ -81,7 +81,7 @@ module.exports = {
               quality: 90,
               maxWidth: 700,
               linkImagesToOriginal: true,
-              tracedSVG: { color: config.colors.green },
+              tracedSVG: { color: '#a2e5b1' },
             },
           },
           {

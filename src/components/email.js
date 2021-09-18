@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { author } from '../../data/config'
+import { email } from '../../data/config'
 import { Side } from '../components'
 
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation='right'>
     <StyledLinkWrapper>
-      <a href={`mailto:${author.email}`}>{author.email}</a>
+      <a href={`mailto:${email}`}>{email}</a>
     </StyledLinkWrapper>
   </Side>
 )

@@ -34,8 +34,8 @@ module.exports = async (graphql, actions) => {
         component: path.resolve('./src/templates/tag.js'),
         context: {
           tag: tag.fieldValue,
-          categories,
           tags,
+          categories,
           currentPage: i,
           postsLimit: postsPerPage,
           postsOffset: i * postsPerPage,

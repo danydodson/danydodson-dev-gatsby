@@ -29,8 +29,8 @@ module.exports = async (graphql, actions) => {
       path: i === 0 ? postsSlug : `${postsSlug}/page/${i}`,
       component: path.resolve('./src/templates/posts.js'),
       context: {
-        categories,
         tags,
+        categories,
         currentPage: i,
         postsLimit: postsPerPage,
         postsOffset: i * postsPerPage,

@@ -1,6 +1,7 @@
 ---
 template: post
 title: Block Youtube suggested videos overlay
+subtitle: block
 slug: /posts/block-youtube-suggested-videos-overlay
 draft: false
 priority: 0
@@ -9,7 +10,7 @@ date: 2020-01-17T16:38:53.596Z
 description: >-
   Often a part of a video is obstructed by the suggested video overlay. Here’s
   how you can hide the overlay.
-category: productivity
+category: Productivity
 tags:
   - javascript
   - youtube

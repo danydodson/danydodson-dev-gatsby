@@ -1,45 +1,26 @@
 const config = {
 
-  title: 'Dany Dodson',
-  subtitle: 'Dany Dodson',
-  description: 'Dany Dodson is a software engineer...',
+  title: '♡ Dany Dodson',
+  subtitle: '♡',
+  image: 'static/og.png',
+  description: '🤍 Web & Software Engineer',
   username: 'danydodson',
   siteUrl: 'https://danydodson-dev.netlify.app/',
-  pathPrefix: '',
-  image: 'src/images/logos/logo@1.png',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 10,
 
-  author: {
-    name: 'Dany Dodson',
-    email: 'danydodson@gmail.com',
-    bio: 'My bio goes here...',
-    location: `Evansville, IN`,
-    image: 'static/og@square.png',
-  },
-
-  header: {
-    title: 'Header Title',
-  },
-
-  colors: {
-    grey: '#b8b8b8',
-    blue: '#5eafff',
-    green: '#32a852',
-  },
-
-  host: {
-    name: 'GitHub',
-    url: 'https://github.com/danydodson/danydodson.dev',
-  },
-
-  manifest: {
-    icon: 'src/images/logos/logo@4.png',
-    theme_color: '#222222',
-    background_color: '#ffffff',
-    display: 'standalone',
-  },
+  name: 'Dany Dodson',
+  bio: 'Award-winning writer. Subtly charming travel advocate. Web practitioner.',
+  email: 'danydodson@gmail.com',
+  location: `Evansville, IN`,
+  
+  navLinks: [
+    { name: 'About', url: '/#about' },
+    { name: 'Experience', url: '/#jobs' },
+    { name: 'Work', url: '/#featured' },
+    { name: 'Contact', url: '/#contact' },
+  ],
 
   socialLinks: [
     { name: 'GitHub', url: 'https://github.com/danydodson' },
@@ -49,12 +30,23 @@ const config = {
     { name: 'Codepen', url: 'https://codepen.io/danydodson' },
   ],
 
-  navLinks: [
-    { name: 'About', url: '/#about' },
-    { name: 'Experience', url: '/#jobs' },
-    { name: 'Work', url: '/#featured' },
-    { name: 'Contact', url: '/#contact' },
-  ],
+  manifest: {
+    display: 'standalone',
+    theme_color: '#1b1f23',
+    background_color: '#fafffd',
+    icon: 'src/images/logos/logo@4x.png',
+  },
+
+  host: {
+    name: 'GitHub',
+    url: 'https://github.com/danydodson/danydodson-dev',
+  },
+
+  algolia: {
+    appId: process.env.ALGOLIA_APP_ID,
+    searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
+    indexName: process.env.ALGOLIA_INDEX_NAME,
+  },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     origin: 'bottom',
@@ -70,14 +62,7 @@ const config = {
     useDelay: 'always',
     viewFactor,
     viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
-  }),
-
-  algolia: {
-    appId: process.env.ALGOLIA_APP_ID,
-    searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
-    indexName: process.env.ALGOLIA_INDEX_NAME,
-  },
-
+  })
 }
 
 module.exports = config

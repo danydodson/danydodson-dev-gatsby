@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import { Layout } from '../components'
 
 // site.com/categories
@@ -10,18 +12,25 @@ const CategoriesTemplate = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <p>
-        Catagories list Page
-      </p>
-      <ul>
-        {categories.map(category => (
-          <li key={category.fieldValue}>
-            <Link to={`/category/${category.fieldValue}/`}>
-              {category.fieldValue} ({category.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+      <Helmet title={`Filter by Category `} />
+
+      <StyledCategoriesSection>
+
+        <h2>All Catagories</h2>
+
+        <ul>
+          {categories.map(category => (
+            <li key={category.fieldValue}>
+              <Link to={`/category/${category.fieldValue}/`}>
+                {category.fieldValue} ({category.totalCount})
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+      </StyledCategoriesSection>
+
     </Layout>
   )
 }
@@ -45,3 +54,11 @@ CategoriesTemplate.propTypes = {
 }
 
 export default CategoriesTemplate
+
+const StyledCategoriesSection = styled.section`
+  padding: 100px 0 0 50px;
+
+  h2 {
+    padding-top: 20px;
+  }
+`

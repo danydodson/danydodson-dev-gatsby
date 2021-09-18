@@ -1,50 +1,62 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { Layout, Paging } from '../components'
-import config from '../../data/config'
 
 // site.com/tag/<tag>
 
 const TagTemplate = ({ data, pageContext, location }) => {
 
   const { tag, categories, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext
-  const pageTitle = currentPage > 0 ? `#${tag} - Page ${currentPage}` : `#${tag}`
   const { edges } = data.allMarkdownRemark
+
+  const pageTitle = currentPage > 0
+    ? `Tagged: #${tag} - Page ${currentPage} `
+    : `Tagged: #${tag} `
 
   return (
     <Layout location={location}>
-      <Helmet title={`${pageTitle}`} description={`${config.description}`} />
-      Tag Page: ({tag})
 
-      <ul>
-        <li>page: ({currentPage})</li>
-        {edges.map((edge, i) => {
-          return (
-            <li key={i}>
-              <span>title: </span>
-              <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <Helmet title={`${pageTitle}`} description={`Blog posts with the tag: #${tag}`} />
 
-      <ul>
-        <li>all categories:</li>
-        {categories.map((category, i) => {
-          return (
-            <li key={i}>
-              <Link to={`/category/${category.fieldValue}`}>{category.fieldValue}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <StyledTagSection>
 
-      <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
+        {currentPage > 0
+          ? (<h2>Tag: {`#${tag} - Page ${currentPage}`}</h2>)
+          : (<h2>Tag: {`#${tag}`}</h2>)
+        }
+
+        <ul>
+          {edges.map((edge, i) => {
+            return (
+              <li key={i}>
+                <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+
+        <h2>all categories:</h2>
+
+        <ul>
+          {categories.map((category, i) => {
+            return (
+              <li key={i}>
+                <Link to={`/category/${category.fieldValue}`}>
+                  {category.fieldValue}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+
+        <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
+
+      </StyledTagSection>
 
     </Layout>
-
   )
 }
 
@@ -94,3 +106,11 @@ TagTemplate.propTypes = {
 }
 
 export default TagTemplate
+
+const StyledTagSection = styled.section`
+  padding: 100px 0 0 50px;
+
+  h2 {
+    padding-top: 20px;
+  }
+`

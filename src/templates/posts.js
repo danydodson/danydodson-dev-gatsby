@@ -1,57 +1,67 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import { Layout, Paging } from '../components'
-import { useSiteMetadata } from '../hooks'
 
-// site.com/post/<post>
+// site.com/posts
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
-  const { post, categories, currentPage, hasPrev, prevPath, hasNext, nextPath} = pageContext
-
+  const { categories, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext
   const { edges } = data.allMarkdownRemark
 
-  // console.log(JSON.stringify(edges, null, 2))
-
-  const pageTitle =
-    currentPage > 0
-      ? `${post} - Page ${currentPage} - ${siteTitle}`
-      : `${post} - ${siteTitle}`
+  const pageTitle = currentPage > 0
+    ? `Posts - Page ${currentPage} `
+    : `Posts `
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle} location={location}>
-      Post Page: ({post})
+    <Layout location={location}>
 
-      <ul>
-        <li>page: ({currentPage})</li>
-        {edges.map((edge, i) => {
-          return (
-            <li key={i}>
-              <span>title: </span>
-              <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <Helmet title={pageTitle} />
 
-      <ul>
-        <li>all categories:</li>
-        {categories.map((category, i) => {
-          return (
-            <li key={i}>
-              <Link to={`/category/${category.fieldValue}`}>{category.fieldValue}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <StyledPostsSection>
 
-      <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
+        {currentPage > 0
+          ? <h2>Posts Archive: Page - {currentPage}</h2>
+          : <h3>Posts Archive </h3>
+        }
+
+        <ul>
+          {edges.map((edge, i) => {
+            return (
+              <li key={i}>
+                <span>title: </span>
+                <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+
+        <h2>All Categories</h2>
+
+        <ul>
+          {categories.map((category, i) => {
+            return (
+              <li key={i}>
+                <Link to={`/category/${category.fieldValue}`}>{category.fieldValue}</Link>
+              </li>
+            )
+          })}
+        </ul>
+
+        <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
+
+      </StyledPostsSection>
 
     </Layout>
-
   )
+}
+
+PostTemplate.propTypes = {
+  data: PropTypes.object,
+  pageContext: PropTypes.object,
+  location: PropTypes.object,
 }
 
 export const query = graphql`
@@ -59,7 +69,6 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        subtitle
       }
     }
     allMarkdownRemark(
@@ -93,10 +102,12 @@ export const query = graphql`
   }
 `
 
-PostTemplate.propTypes = {
-  data: PropTypes.object,
-  pageContext: PropTypes.object,
-  location: PropTypes.object,
-}
-
 export default PostTemplate
+
+const StyledPostsSection = styled.section`
+  padding: 100px 0 0 50px;
+
+  h2 {
+    padding-top: 20px;
+  }
+`

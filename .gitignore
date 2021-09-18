@@ -1,9 +1,8 @@
 .cache
 .vscode
 .env.*
+.netlify
 public
 node_modules
 yarn-error.log
 package-lock.json
-# Local Netlify folder
-.netlify

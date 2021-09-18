@@ -1,13 +1,14 @@
 ---
 template: post
 title: Automatically add friends to Facebook
+subtitle: ♫
 slug: /posts/add-friends-fb
 draft: false
 priority: 0
 cover: index.png
 date: 2019-07-19T01:14:45.562Z
 description: Adds people with more than 10 common friends.
-category: automation
+category: Automation
 tags:
   - facebook
   - javascript

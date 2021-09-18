@@ -43,7 +43,7 @@ const config = {
 
   socialLinks: [
     { name: 'GitHub', url: 'https://github.com/danydodson' },
-    { name: 'Instagram', url: 'https://www.instagram.com/danydodson' },
+    { name: 'Instagram', url: 'https://www.instagram.com/dany_dodson' },
     { name: 'Twitter', url: 'https://twitter.com/danydodson' },
     { name: 'Linkedin', url: 'https://www.linkedin.com/in/danydodson' },
     { name: 'Codepen', url: 'https://codepen.io/danydodson' },

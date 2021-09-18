@@ -1,14 +1,17 @@
 const path = require('path')
 
-const createCategoriesPages = require('./pagination/categories.js')
-const createTagsPages = require('./pagination/tags.js')
-const createPostsPages = require('./pagination/posts.js')
+const createCategoriesPages = require('./paging/categories.js')
+const createTagsPages = require('./paging/tags.js')
+const createPostsPages = require('./paging/posts.js')
 
-const { getAllCategories } = require('./constants/categories')
+const { getCategories } = require('./constants/categories')
+const { getTags } = require('./constants/tags')
 
 const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  const allCategories = await getAllCategories(graphql)
+
+  const categories = await getCategories(graphql)
+  const tags = await getTags(graphql)
 
   // site.com/404
   createPage({
@@ -19,18 +22,20 @@ const createPages = async ({ graphql, actions, reporter }) => {
   // site.com/tags
   createPage({
     path: '/tags',
-    component: path.resolve('./src/templates/tags-list.js'),
+    component: path.resolve('./src/templates/tags.js'),
     context: {
-      allCategories
+      categories,
+      tags
     }
   })
 
   // site.com/categories
   createPage({
     path: '/categories',
-    component: path.resolve('./src/templates/categories-list.js'),
+    component: path.resolve('./src/templates/categories.js'),
     context: {
-      allCategories
+      categories,
+      tags
     }
   })
 
@@ -58,28 +63,12 @@ const createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  reporter.success(JSON.stringify(result, null, 2))
+  // reporter.success(JSON.stringify(result, null, 2))
 
   const { edges } = result.data.allMarkdownRemark
 
   edges.map(edge => {
     if (
-      edge &&
-      edge.node &&
-      edge.node.frontmatter &&
-      edge.node.frontmatter.template &&
-      edge.node.frontmatter.template === 'page'
-    ) {
-      // site.com/<page>
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page.js'),
-        context: {
-          slug: edge.node.fields.slug,
-          allCategories
-        }
-      })
-    } else if (
       edge &&
       edge.node &&
       edge.node.frontmatter &&
@@ -91,8 +80,9 @@ const createPages = async ({ graphql, actions, reporter }) => {
         path: edge.node.fields.slug,
         component: path.resolve('./src/templates/post.js'),
         context: {
-          slug: `/post/${edge.node.fields.slug}`,
-          allCategories
+          slug: `${edge.node.fields.slug}`,
+          categories,
+          tags
         }
       })
     }

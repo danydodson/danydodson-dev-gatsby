@@ -1,14 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Layout, Projects, Jobs } from '../components'
+
+import {
+  Layout,
+  Hero,
+  About,
+  Featured,
+  Projects,
+  Jobs,
+  Posts,
+  Contact
+} from '../components'
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
-    <MainContainer>
-      <Projects />
-      <Jobs />
-    </MainContainer>
+    <Hero />
+    <About />
+    <Featured />
+    <Projects />
+    <Jobs />
+    <Posts />
+    <Contact />
   </Layout>
 )
 
@@ -17,7 +29,3 @@ IndexPage.propTypes = {
 }
 
 export default IndexPage
-
-const MainContainer = styled.main`
-  backgroundColor: #000;
-`

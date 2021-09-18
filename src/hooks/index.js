@@ -1,6 +1,4 @@
-export { default as useCategoriesList } from './use-categories-list'
 export { default as useOnClickOutside } from './use-onclick-outside'
+export { default as useReducedMotion } from './use-reduced-motion'
 export { default as useScrollDirection } from './use-scroll-direction'
-export { default as useSiteImages } from './use-site-images'
 export { default as useSiteMetadata } from './use-site-metadata'
-export { default as useTagsList } from './use-tags-list'

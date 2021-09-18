@@ -1,25 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
 
 const IconFolder = (props) => (
-  <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
+  <svg
+    id="folder"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className=""
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-folder"
     {...props}>
-    <title>folder</title>
-    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-  </Svg>
+    <title>Folder</title>
+    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round">
+      <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z" />
+    </g>
+  </svg>
 )
 
 export default IconFolder
-
-const Svg = styled.svg`
-  height: 1rem
-`

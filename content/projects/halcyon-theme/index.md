@@ -2,10 +2,12 @@
 template: project
 title: Halcyon Theme
 slug: /projects/halcyon-theme
-showInProjects: true
+draft: false
+featured: false
 date: 2017-12-27
-github: https://github.com/bchiang7/halcyon-site
+github: https://github.com/danydodson
 external: https://halcyon-theme.netlify.com/
+cover: cover.png
 tech:
   - VS Code
   - Sublime Text

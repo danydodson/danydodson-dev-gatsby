@@ -7,12 +7,12 @@ const KEY_CODES = {
   ARROW_UP_IE11: 'Up',
   ARROW_DOWN: 'ArrowDown',
   ARROW_DOWN_IE11: 'Down',
-  ESCAPE: 'Escape',
-  ESCAPE_IE11: 'Esc',
-  TAB: 'Tab',
-  SPACE: ' ',
-  SPACE_IE11: 'Spacebar',
   ENTER: 'Enter',
+  ESCAPE_IE11: 'Esc',
+  ESCAPE: 'Escape',
+  SPACE_IE11: 'Spacebar',
+  SPACE: ' ',
+  TAB: 'Tab',
 }
 
 export default KEY_CODES

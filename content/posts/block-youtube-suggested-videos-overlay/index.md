@@ -4,6 +4,7 @@ title: Block Youtube suggested videos overlay
 slug: /posts/block-youtube-suggested-videos-overlay
 draft: false
 priority: 0
+cover: index.png
 date: 2020-01-17T16:38:53.596Z
 description: >-
   Often a part of a video is obstructed by the suggested video overlay. Here’s

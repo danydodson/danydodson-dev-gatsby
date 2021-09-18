@@ -1,35 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
 
 const IconLoader = (props) => (
-  <Svg
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    viewBox="0 0 100 100"
+  <svg
     id="logo"
-    className=""
+    viewBox="0 0 100 100"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
     {...props}>
-    <title>loader</title>
-    <g>
-      <g 
-        id="B" 
-        transform="translate(11.000000, 5.000000)">
-        <path 
-          fill="currentColor" 
-          d="M45.691667,45.15 C48.591667,46.1 50.691667,48.95 50.691667,52.2 C50.691667,57.95 46.691667,61 40.291667,61 L28.541667,61 L28.541667,30.3 L39.291667,30.3 C45.691667,30.3 49.691667,33.15 49.691667,38.65 C49.691667,41.95 47.941667,44.35 45.691667,45.15 Z M33.591667,43.2 L39.241667,43.2 C42.791667,43.2 44.691667,41.85 44.691667,38.95 C44.691667,36.05 42.791667,34.8 39.241667,34.8 L33.591667,34.8 L33.591667,43.2 Z M33.591667,47.5 L33.591667,56.5 L40.191667,56.5 C43.691667,56.5 45.591667,54.75 45.591667,52 C45.591667,49.2 43.691667,47.5 40.191667,47.5 L33.591667,47.5 Z" />
-      </g>
-      <path 
-        stroke="currentColor" 
-        strokeWidth="5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        d="M 50, 5 L 11, 27 L 11, 72 L 50, 95 L 89, 73 L 89, 28 z" />
+    <title>Loader</title>
+    <g id="D" transform="translate(11.000000, 5.000000)">
+      <path fill="currentColor" d="M 38 30 C 44 30 52 32 52 46 C 52 59 44 61 38 61 L 28 61 L 28 30 Z M 38 55 C 42 55 46 53 46 46 C 46 39 42 36 38 36 L 33.5 36 L 33.5 55 Z Z" />
     </g>
-  </Svg>
+    <path id="Shape" fill="none" stroke="currentColor" strokeWidth="7" strokeLinejoin="round" strokeLinecap="round" d="M 50, 5 L 11, 27 L 11, 72 L 50, 95 L 89, 73 L 89, 28 z" />
+  </svg>
 )
 
 export default IconLoader
-
-const Svg = styled.svg`
-  height: 1rem
-`

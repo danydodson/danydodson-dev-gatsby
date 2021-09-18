@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
 const useSiteMetadata = () => {
+
   const { site } = useStaticQuery(
     graphql`
       query SiteMetaData {
@@ -10,11 +11,10 @@ const useSiteMetadata = () => {
             subtitle
             description
             username
+            image
             siteUrl
             pathPrefix
-            image
             copyright
-            disqusShortname
             postsPerPage
             author {
               name
@@ -49,7 +49,9 @@ const useSiteMetadata = () => {
       }
     `
   )
+
   return site.siteMetadata
+
 }
 
 export default useSiteMetadata

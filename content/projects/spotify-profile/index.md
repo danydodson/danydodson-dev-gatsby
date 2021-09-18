@@ -1,11 +1,13 @@
 ---
 template: project
 title: Spotify Profile
-slug: /projects/spotify-profile
-showInProjects: true
+slug: /featured/spotify-profile
+draft: false
+featured: true
 date: 2018-12-18
 github: https://github.com/bchiang7/spotify-profile
 external: https://spotify-profile.herokuapp.com/
+cover: cover.png
 tech:
   - React
   - Express

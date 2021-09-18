@@ -4,6 +4,7 @@ title: Trello + GTD = Trello Bookmark
 slug: /posts/trello-plus-gtd-equals-trello-bookmark
 draft: false
 priority: 5
+cover: index.png
 date: 2016-01-09T00:46:37.121Z
 description: >-
   You know, I hate routine.
@@ -13,7 +14,6 @@ description: >-
 category: productivity
 tags:
   - trello
-  - gtd
   - chrome
   - plugin
 ---

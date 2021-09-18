@@ -6,17 +6,17 @@ const config = {
   username: 'danydodson',
   siteUrl: 'https://danydodson.dev',
   pathPrefix: '',
-  image: 'static/logos/logo@1x.png',
+  image: 'src/images/og/logo@1.png',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
-  postsPerPage: 2,
+  postsPerPage: 10,
 
   author: {
     name: 'Dany Dodson',
     email: 'danydodson@gmail.com',
     bio: 'My bio goes here...',
     location: `Evansville, IN`,
-    image: 'static/cards/og@1x.png',
+    image: 'src/images/og/og@1.png',
   },
 
   header: {
@@ -24,15 +24,9 @@ const config = {
   },
 
   colors: {
-    gray: '#b8b8b8',
+    grey: '#b8b8b8',
     blue: '#5eafff',
     green: '#32a852',
-  },
-
-  algolia: {
-    appId: process.env.ALGOLIA_APP_ID,
-    searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
-    indexName: process.env.ALGOLIA_INDEX_NAME,
   },
 
   host: {
@@ -41,7 +35,7 @@ const config = {
   },
 
   manifest: {
-    icon: 'static/logos/logo@4x.png',
+    icon: 'src/images/og/logo@4.png',
     theme_color: '#222222',
     background_color: '#ffffff',
     display: 'standalone',
@@ -58,9 +52,31 @@ const config = {
   navLinks: [
     { name: 'About', url: '/#about' },
     { name: 'Experience', url: '/#jobs' },
-    { name: 'Work', url: '/#projects' },
+    { name: 'Work', url: '/#featured' },
     { name: 'Contact', url: '/#contact' },
   ],
+
+  srConfig: (delay = 200, viewFactor = 0.25) => ({
+    origin: 'bottom',
+    distance: '20px',
+    duration: 500,
+    delay,
+    rotate: { x: 0, y: 0, z: 0 },
+    opacity: 0,
+    scale: 1,
+    easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+    mobile: true,
+    reset: false,
+    useDelay: 'always',
+    viewFactor,
+    viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
+  }),
+
+  algolia: {
+    appId: process.env.ALGOLIA_APP_ID,
+    searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
+    indexName: process.env.ALGOLIA_INDEX_NAME,
+  },
 
 }
 

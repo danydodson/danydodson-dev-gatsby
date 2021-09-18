@@ -2,33 +2,45 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
+  IconBookmark,
+  IconCodepen,
   IconExternal,
   IconFolder,
+  IconFork,
   IconGitHub,
   IconInstagram,
   IconLinkedin,
   IconLoader,
-  IconRss,
+  IconLogo,
+  IconStar,
   IconTwitter
 } from '.'
 
-const Icon = (name) => {
+const Icon = ({ name }) => {
   switch (name) {
-    case 'external':
+    case 'Bookmark':
+      return <IconBookmark />
+    case 'Codepen':
+      return <IconCodepen />
+    case 'External':
       return <IconExternal />
-    case 'folder':
+    case 'Folder':
       return <IconFolder />
-    case 'gitHub':
+    case 'Fork':
+      return <IconFork />
+    case 'GitHub':
       return <IconGitHub />
-    case 'instagram':
+    case 'Instagram':
       return <IconInstagram />
-    case 'linkedin':
+    case 'Linkedin':
       return <IconLinkedin />
-    case 'loader':
+    case 'Loader':
       return <IconLoader />
-    case 'rss':
-      return <IconRss />
-    case 'twitter':
+    case 'Logo':
+      return <IconLogo />
+    case 'Star':
+      return <IconStar />
+    case 'Twitter':
       return <IconTwitter />
     default:
       return <IconExternal />

@@ -1,18 +1,19 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { Layout } from '../components'
-import Pagination from '../components/pagination'
+import PropTypes from 'prop-types'
+import { Layout, Paging } from '../components'
 import { useSiteMetadata } from '../hooks'
 
 // site.com/post/<post>
 
-const PostTemplate = ({ data, pageContext }) => {
+const PostTemplate = ({ data, pageContext, location }) => {
+  
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
-  const { post, currentPage, prevPagePath, nextPagePath, hasPrevPage, hasNextPage, allCategories } = pageContext
+  const { post, categories, currentPage, hasPrev, prevPath, hasNext, nextPath} = pageContext
+
   const { edges } = data.allMarkdownRemark
 
-  console.log(JSON.stringify(edges, null, 2))
-  console.log(JSON.stringify(pageContext, null, 2))
+  // console.log(JSON.stringify(edges, null, 2))
 
   const pageTitle =
     currentPage > 0
@@ -20,7 +21,7 @@ const PostTemplate = ({ data, pageContext }) => {
       : `${post} - ${siteTitle}`
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
+    <Layout title={pageTitle} description={siteSubtitle} location={location}>
       Post Page: ({post})
 
       <ul>
@@ -37,7 +38,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
       <ul>
         <li>all categories:</li>
-        {allCategories.map((category, i) => {
+        {categories.map((category, i) => {
           return (
             <li key={i}>
               <Link to={`/category/${category.fieldValue}`}>{category.fieldValue}</Link>
@@ -46,11 +47,7 @@ const PostTemplate = ({ data, pageContext }) => {
         })}
       </ul>
 
-      <Pagination
-        prevPagePath={prevPagePath}
-        nextPagePath={nextPagePath}
-        hasPrevPage={hasPrevPage}
-        hasNextPage={hasNextPage} />
+      <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
 
     </Layout>
 
@@ -68,12 +65,7 @@ export const query = graphql`
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
-      filter: {
-        frontmatter: {
-          template: { eq: "post" }
-          draft: { ne: true }
-        }
-      }
+      filter: { frontmatter: { template: { eq: "post" } draft: { ne: true } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -85,15 +77,26 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date
-            tags
-            category
+            date(formatString: "MMM D YYYY")
             description
+            category
+            tags
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 200)
+              }
+            }
           }
         }
       }
     }
   }
 `
+
+PostTemplate.propTypes = {
+  data: PropTypes.object,
+  pageContext: PropTypes.object,
+  location: PropTypes.object,
+}
 
 export default PostTemplate

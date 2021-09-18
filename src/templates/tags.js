@@ -1,99 +1,47 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Layout } from '../components'
-import Pagination from '../components/pagination'
-import { useSiteMetadata } from '../hooks'
 
-// site.com/tag/<tag>
+// site.com/tags
 
-const TagTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata()
-  const { tag, currentPage, prevPagePath, nextPagePath, hasPrevPage, hasNextPage, allCategories } = pageContext
-  const { edges } = data.allMarkdownRemark
-  
-  // console.log(JSON.stringify(pageContext, null, 2))
-
-  const pageTitle =
-    currentPage > 0
-      ? `${tag} - Page ${currentPage} - ${siteTitle}`
-      : `${tag} - ${siteTitle}`
+const TagsTemplate = ({ data, location }) => {
+  const tags = data.allMarkdownRemark.group
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
-      Tag Page: ({tag})
-
+    <Layout location={location}>
+      <p>
+        Tags list Page
+      </p>
       <ul>
-        <li>page: ({currentPage})</li>
-        {edges.map((edge, i) => {
-          return (
-            <li key={i}>
-              <span>title: </span>
-              <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
-            </li>
-          )
-        })}
+        {tags.map(tag => (
+          <li key={tag.fieldValue}>
+            <Link to={`/tag/${tag.fieldValue}`}>
+              {tag.fieldValue} ({tag.totalCount})
+            </Link>
+          </li>
+        ))}
       </ul>
-
-      <ul>
-        <li>all categories:</li>
-        {allCategories.map((category, i) => {
-          return (
-            <li key={i}>
-              <Link to={`/category/${category.fieldValue}`}>{category.fieldValue}</Link>
-            </li>
-          )
-        })}
-      </ul>
-
-      <Pagination
-        prevPagePath={prevPagePath}
-        nextPagePath={nextPagePath}
-        hasPrevPage={hasPrevPage}
-        hasNextPage={hasNextPage} />
-
     </Layout>
-
   )
 }
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-      }
-    }
+  query TagsList {
     allMarkdownRemark(
-      limit: $postsLimit
-      skip: $postsOffset
-      filter: {
-        frontmatter: {
-          tags: { in: [$tag] }
-          template: { eq: "post" }
-          draft: { ne: true }
-        }
-      }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
     ) {
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
-            tagSlugs
-          }
-          frontmatter {
-            title
-            date
-            tags
-            category
-            description
-          }
-        }
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
       }
     }
   }
 `
 
-export default TagTemplate
+TagsTemplate.propTypes = {
+  data: PropTypes.object,
+  location: PropTypes.object,
+}
+
+export default TagsTemplate

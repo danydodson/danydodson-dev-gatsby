@@ -1,10 +1,11 @@
-/* eslint-disable */ 
+/* eslint-disable */
 import React, { useState, useEffect } from 'react'
-import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
-import anime from 'animejs'
+import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
-import { IconLoader } from '../components/icons'
+import anime from 'animejs'
+
+import { Icon } from '../components/icons'
 
 const Loader = ({ finishLoading }) => {
   const [isMounted, setIsMounted] = useState(false)
@@ -23,7 +24,7 @@ const Loader = ({ finishLoading }) => {
         strokeDashoffset: [anime.setDashoffset, 0],
       })
       .add({
-        targets: '#logo #B',
+        targets: '#logo #D',
         duration: 700,
         easing: 'easeInOutQuart',
         opacity: 1,
@@ -49,14 +50,13 @@ const Loader = ({ finishLoading }) => {
     const timeout = setTimeout(() => setIsMounted(true), 10)
     animate()
     return () => clearTimeout(timeout)
-  }, [animate])
+  }, [])
 
   return (
     <StyledLoader className='loader' isMounted={isMounted}>
       <Helmet bodyAttributes={{ class: `hidden` }} />
-
-      <div className="logo-wrapper">
-        <IconLoader />
+      <div className='logo-wrapper'>
+        <Icon name='Loader' />
       </div>
     </StyledLoader>
   )
@@ -77,7 +77,7 @@ const StyledLoader = styled.div`
   width: 100%;
   height: 100%;
   ${({ theme }) => theme.mixins.flexCenter};
-  background-color: var(--dark-navy);
+  background-color: var(--white_100);
   z-index: 99;
 
   .logo-wrapper {
@@ -92,7 +92,7 @@ const StyledLoader = styled.div`
       margin: 0 auto;
       fill: none;
       user-select: none;
-      #B {
+      #D {
         opacity: 0;
       }
     }

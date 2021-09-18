@@ -6,11 +6,24 @@ import { useSiteMetadata } from '../hooks'
 
 const Head = ({ title, description, image }) => {
   const { pathname } = useLocation()
-  const { title: defTitle, description: defDescription, username, image: defImage, siteUrl } = useSiteMetadata()
-  const seo = { title: title || defTitle, description: description || defDescription, image: `${siteUrl}${image || defImage}`, url: `${siteUrl}${pathname}` }
+
+  const {
+    username,
+    title: defaultTitle,
+    description: defaultDescription,
+    image: defaultImage,
+    siteUrl
+  } = useSiteMetadata()
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`
+  }
 
   return (
-    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defTitle}`}>
+    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
       <html lang='en' />
 
       <meta name='image' content={seo.image} />

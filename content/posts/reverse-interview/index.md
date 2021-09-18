@@ -4,6 +4,7 @@ title: 'Reverse interview: Questions to ask the company during your interview'
 slug: /posts/reverse-interview
 draft: false
 priority: 0
+cover: index.png
 date: 2020-05-06T13:23:37.121Z
 description: >-
   List of the questions from dev to the company.

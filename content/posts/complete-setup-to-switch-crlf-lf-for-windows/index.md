@@ -4,6 +4,7 @@ title: Complete guide to switching CRLF -> LF for Windows
 slug: /posts/crlf-to-lf
 draft: false
 priority: 0
+cover: index.png
 date: 2019-07-14T12:22:42.826Z
 description: >-
   Complete guide to force setup LF End-of-line for all your Git projects working
@@ -13,7 +14,6 @@ tags:
   - vscode
   - javascript
   - windows
-  - git
 ---
 
 Complete guide to force setup LF End-of-line for all your Git projects working on Windows.

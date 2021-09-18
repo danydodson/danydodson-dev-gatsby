@@ -10,8 +10,8 @@ const Head = ({ title, description, image }) => {
   const seo = {
     title: title || config.title,
     description: description || config.description,
-    image: `${config.url}${image}` || `${config.url}${config.image}`,
-    url: `${config.url}${pathname}`
+    image: `${config.siteUrl}${image || config.image}`,
+    url: `${config.siteUrl}${pathname}`
   }
 
   return (

@@ -16,6 +16,7 @@ module.exports = {
   siteMetadata: config,
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',

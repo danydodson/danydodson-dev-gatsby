@@ -1,19 +1,21 @@
 const config = {
 
-  title: '♡ Dany Dodson',
+  title: 'Dany Dodson',
   subtitle: '♡',
   image: 'static/og.png',
-  description: '🤍 Web & Software Engineer',
+  description: '♡ Web & Software Engineer',
   username: 'danydodson',
   siteUrl: 'https://danydodson-dev.netlify.app/',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 10,
-
+  
   name: 'Dany Dodson',
   bio: 'Award-winning writer. Subtly charming travel advocate. Web practitioner.',
   email: 'danydodson@gmail.com',
   location: `Evansville, IN`,
+  
+  heart: `🤍`
   
   navLinks: [
     { name: 'About', url: '/#about' },

@@ -5,7 +5,7 @@ const config = {
   image: 'og.png',
   description: '♡ Web & Software Engineer',
   username: 'danydodson',
-  siteUrl: 'https://danydodson-dev.netlify.app',
+  siteUrl: 'https://danys.art',
   copyright: '© 2021 | Dany Dodson',
   disqusShortname: 'shortname',
   postsPerPage: 10,

@@ -4,7 +4,7 @@ const config = {
   subtitle: 'Dany Dodson',
   description: 'Dany Dodson is a software engineer...',
   username: 'danydodson',
-  siteUrl: 'https://danydodson.dev',
+  siteUrl: 'https://danydodson-dev.netlify.app/',
   pathPrefix: '',
   image: 'src/images/logos/logo@1.png',
   copyright: '© 2021 | Dany Dodson',

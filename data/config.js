@@ -15,7 +15,7 @@ const config = {
   email: 'danydodson@gmail.com',
   location: `Evansville, IN`,
   
-  heart: `🤍`
+  heart: `🤍`,
   
   navLinks: [
     { name: 'About', url: '/#about' },

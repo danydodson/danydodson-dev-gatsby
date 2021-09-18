@@ -31,7 +31,6 @@ const PostTemplate = ({ data, pageContext, location }) => {
           {edges.map((edge, i) => {
             return (
               <li key={i}>
-                <span>title: </span>
                 <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
               </li>
             )

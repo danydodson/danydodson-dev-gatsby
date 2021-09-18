@@ -28,14 +28,6 @@ const onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       ? 'eval-source-map'
       : false
   })
-
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '@config': path.resolve(__dirname, 'data/config')
-      }
-    }
-  })
 }
 
 module.exports = onCreateWebpackConfig

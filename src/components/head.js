@@ -60,6 +60,7 @@ const Head = ({ title, description, image }) => {
       <meta property='twitter:image' content={seo.image} />
       <meta property="twitter:url" content={seo.url} />
 
+      <link rel='canonical' href={siteUrl} />
 
       <meta name='google-site-verification' content='whbkucPDSVYylDtYbIwY01GS0fNHCwhQ2ujuAXd1m_Y' />
     </Helmet>

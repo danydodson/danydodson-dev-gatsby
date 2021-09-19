@@ -66,8 +66,8 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export const query = graphql`
-  query CategoryQuery($category: String, $postsLimit: Int!, $postsOffset: Int!) {
+export const CategoryQuery = graphql`
+  query($category: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset

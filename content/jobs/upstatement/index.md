@@ -4,6 +4,7 @@ date: 2018-05-14
 draft: false
 title: Engineer
 cover: cover.jpg
+alt: upstatement
 slug: /jobs/upstatement
 company: Upstatement
 location: Boston, MA

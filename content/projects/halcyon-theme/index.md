@@ -8,6 +8,7 @@ date: 2017-12-27
 github: https://github.com/danydodson
 external: https://halcyon-theme.netlify.com/
 cover: cover.png
+alt: blistoc project
 tech:
   - VS Code
   - Sublime Text

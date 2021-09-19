@@ -17,7 +17,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={`Post: ${title} `} description={`${description}`} />
+      <Helmet title={`Post: ${title} `} />
 
       <StyledPostSection>
         <article>
@@ -51,8 +51,8 @@ const PostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export const query = graphql`
-  query PostBySlugQuery($slug: String!) {
+export const PostBySlugQuery = graphql`
+  query($slug: String!) {
     site {
       siteMetadata {
         title

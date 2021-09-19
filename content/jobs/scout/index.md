@@ -4,6 +4,7 @@ date: 2018-04-01
 draft: false
 title: Studio Developer
 cover: cover.jpg
+alt: scout
 slug: /jobs/studio-Developer
 company: Scout
 location: Northeastern University

@@ -4,6 +4,7 @@ date: 2016-12-21
 draft: false
 title: Software Engineer Co-op
 cover: cover.jpg
+alt: starry
 slug: /jobs/software-engineer-co-op
 company: Starry
 location: Boston, MA

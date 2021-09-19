@@ -1,47 +1,48 @@
 const config = {
 
-  title: 'Dany Dodson',
-  subtitle: '♡',
-  image: 'og.png',
-  description: '♡ Web & Software Engineer',
-  username: 'danydodson',
-  siteUrl: 'https://danys.art',
-  copyright: '© 2021 | Dany Dodson',
-  disqusShortname: 'shortname',
-  postsPerPage: 10,
-  
-  name: 'Dany Dodson',
-  bio: 'Award-winning writer. Subtly charming travel advocate. Web practitioner.',
-  email: 'danydodson@gmail.com',
+  title: `♡ Dany Dodson`,
+  siteUrl: `https://danys.art`,
+  description: `♡ Web & Software Engineer based in the mid-west. Currently, I'm focused on building accessible, human-centered products from home`,
+  image: `/og.png`,
+  username: `danydodson`,
+  name: `Dany Dodson`,
+  email: `danydodson@gmail.com`,
+  bio: `Award-winning writer. Subtly charming travel advocate. Web practitioner.`,
   location: `Evansville, IN`,
-  
-  heart: `🤍`,
-  
+  copyright: `© 2021 | Dany Dodson ♡`,
+
+  postsPerPage: 10,
+  disqusShortname: `shortname`,
+
+  styles: {
+    heart: `🤍`,
+  },
+
   navLinks: [
-    { name: 'About', url: '/#about' },
-    { name: 'Experience', url: '/#jobs' },
-    { name: 'Work', url: '/#featured' },
-    { name: 'Contact', url: '/#contact' },
+    { name: `About`, url: `/#about` },
+    { name: `Experience`, url: `/#jobs` },
+    { name: `Work`, url: `/#featured` },
+    { name: `Contact`, url: `/#contact` },
   ],
 
   socialLinks: [
-    { name: 'GitHub', url: 'https://github.com/danydodson' },
-    { name: 'Instagram', url: 'https://www.instagram.com/dany_dodson' },
-    { name: 'Twitter', url: 'https://twitter.com/danydodson' },
-    { name: 'Linkedin', url: 'https://www.linkedin.com/in/danydodson' },
-    { name: 'Codepen', url: 'https://codepen.io/danydodson' },
+    { name: `GitHub`, url: `https://github.com/danydodson` },
+    { name: `Instagram`, url: `https://www.instagram.com/dany_dodson` },
+    { name: `Twitter`, url: `https://twitter.com/danydodson` },
+    { name: `Linkedin`, url: `https://www.linkedin.com/in/danydodson` },
+    { name: `Codepen`, url: `https://codepen.io/danydodson` },
   ],
 
   manifest: {
-    display: 'standalone',
-    theme_color: '#1b1f23',
-    background_color: '#fafffd',
-    icon: 'src/images/logos/logo@4x.png',
+    display: `standalone`,
+    theme_color: `#1b1f23`,
+    background_color: `#fafffd`,
+    icon: `src/images/logos/logo@4x.png`,
   },
 
   host: {
-    name: 'GitHub',
-    url: 'https://github.com/danydodson/danydodson-dev',
+    name: `GitHub`,
+    url: `https://github.com/danydodson/danydodson-dev`,
   },
 
   algolia: {
@@ -51,17 +52,17 @@ const config = {
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
-    origin: 'bottom',
-    distance: '20px',
+    origin: `bottom`,
+    distance: `20px`,
     duration: 500,
     delay,
     rotate: { x: 0, y: 0, z: 0 },
     opacity: 0,
     scale: 1,
-    easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+    easing: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
     mobile: true,
     reset: false,
-    useDelay: 'always',
+    useDelay: `always`,
     viewFactor,
     viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
   })

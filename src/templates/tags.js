@@ -9,12 +9,12 @@ import { Layout } from '../components'
 
 const TagsTemplate = ({ data, location }) => {
   const tags = data.allMarkdownRemark.group
-  
+
   return (
     <Layout location={location} description={`Search posts by tag`}>
 
       <Helmet title={`Filter by Tag `} />
-      
+
       <StyledTagsSection>
 
         <h2>All Tags</h2>
@@ -34,8 +34,8 @@ const TagsTemplate = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query TagsQuery {
+export const TagsQuery = graphql`
+  query {
     allMarkdownRemark(
       filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
     ) {

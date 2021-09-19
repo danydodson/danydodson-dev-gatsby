@@ -19,7 +19,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={`${pageTitle}`} description={`Blog posts with the tag: #${tag}`} />
+      <Helmet title={`${pageTitle}`} />
 
       <StyledTagSection>
 
@@ -60,8 +60,8 @@ const TagTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export const query = graphql`
-  query TagQuery($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
+export const TagQuery = graphql`
+  query($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset

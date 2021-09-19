@@ -63,8 +63,8 @@ PostTemplate.propTypes = {
   location: PropTypes.object,
 }
 
-export const query = graphql`
-  query PostsQuery($postsLimit: Int!, $postsOffset: Int!) {
+export const PostsQuery = graphql`
+  query($postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
         title

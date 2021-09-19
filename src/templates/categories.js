@@ -35,8 +35,8 @@ const CategoriesTemplate = ({ data, location }) => {
   )
 }
 
-export const query = graphql`
-  query CategoriesQuery {
+export const CategoriesQuery = graphql`
+  query {
     allMarkdownRemark(
       filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
     ) {

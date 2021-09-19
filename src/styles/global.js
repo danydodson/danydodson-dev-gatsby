@@ -4,7 +4,7 @@ import variables from './variables'
 import Transitions from './transitions'
 import Prism from './prism'
 
-const GlobalStyles = createGlobalStyle`
+const Styles = createGlobalStyle`
   ${fonts};
   ${variables};
   
@@ -95,8 +95,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
   main {
-    /* width: 100%; */
-    /* margin: 0 auto; */
     min-height: 100vh;
   }
   
@@ -396,4 +394,4 @@ const GlobalStyles = createGlobalStyle`
   
 `
 
-export default GlobalStyles
+export default Styles

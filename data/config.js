@@ -1,8 +1,8 @@
 const config = {
 
-  title: `♡ Dany Dodson`,
+  title: `🖐️ Web & Software Engineer. Currently working remotely from the mid west.`,
   siteUrl: `https://danys.art`,
-  description: `♡ Web & Software Engineer based in the mid-west. Currently, I'm focused on building accessible, human-centered products from home`,
+  description: `💻 danydodson.dev | 🎨 danys.art | ♡ Dany Dodson`,
   image: `/og.png`,
   username: `danydodson`,
   name: `Dany Dodson`,

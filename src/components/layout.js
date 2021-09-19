@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { GlobalStyle, theme } from '../styles'
 import styled, { ThemeProvider } from 'styled-components'
+import { Styles, theme } from '../styles'
 import { Head, Nav, Social, Email, Loader, Footer } from '../components'
 
 if (typeof window !== 'undefined') {
@@ -47,25 +47,31 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Head />
+
       <div id='root'>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
+          <Styles />
+
           <a className='skip-to-content' href='#content'>
             Skip to Content
           </a>
+
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
-            <StyledContent id='content'>
+            <StyledContent>
               <Nav isHome={isHome} />
               <Social isHome={isHome} />
               <Email isHome={isHome} />
-              <StyledMain>
+
+              <main id='content' className='fillHeight'>
                 {children}
-              </StyledMain>
+              </main>
+
               <Footer />
             </StyledContent>
           )}
+
         </ThemeProvider>
       </div>
     </>
@@ -80,12 +86,7 @@ Layout.propTypes = {
 export default Layout
 
 const StyledContent = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* min-height: 100vh; */
-`
-
-const StyledMain = styled.main`
-  counter-reset: section;
-  /* min-height: 100vh; */
+  main {
+    counter-reset: section;
+  }
 `

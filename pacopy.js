@@ -1,0 +1,71 @@
+{
+  "name": "danydodson-dev",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio and Blog",
+  "author": "Dany Dodson",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danydodson/danydodson.dev"
+  },
+  "scripts": {
+    "build": "gatsby build --verbose",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@reach/router": "^1.3.4",
+    "animejs": "^3.2.1",
+    "dotenv": "^10.0.0",
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-algolia": "^0.22.0",
+    "gatsby-plugin-google-analytics": "^3.14.0",
+    "gatsby-plugin-image": "^1.10.1",
+    "gatsby-plugin-manifest": "^3.10.0",
+    "gatsby-plugin-mdx": "^2.10.1",
+    "gatsby-plugin-netlify": "^3.14.0",
+    "gatsby-plugin-react-helmet": "^4.10.0",
+    "gatsby-plugin-robots-txt": "^1.6.8",
+    "gatsby-plugin-sharp": "^3.10.2",
+    "gatsby-plugin-sitemap": "^4.6.0",
+    "gatsby-plugin-styled-components": "^4.10.0",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-images": "^5.7.0",
+    "gatsby-remark-prismjs": "^5.7.0",
+    "gatsby-source-filesystem": "^3.10.0",
+    "gatsby-transformer-remark": "^4.7.0",
+    "gatsby-transformer-sharp": "^3.10.0",
+    "prismjs": "^1.24.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-instantsearch": "^6.12.1",
+    "react-transition-group": "^4.4.2",
+    "scrollreveal": "^4.0.9",
+    "smooth-scroll": "^16.1.3",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-proposal-private-methods": "^7.14.5",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-react": "^7.14.5",
+    "babel-plugin-styled-components": "^1.13.2",
+    "babel-preset-gatsby": "^1.10.0",
+    "gatsby-remark-code-titles": "^1.1.0",
+    "remark-cli": "^9.0.0",
+    "remark-preset-lint-recommended": "^5.0.0",
+    "write-good": "^1.0.8"
+  },
+  "license": "MIT",
+  "browserslist": "> 0.25%, not dead",
+  "keywords": [
+    "gatsby"
+  ]
+}

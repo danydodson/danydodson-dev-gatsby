@@ -124,7 +124,7 @@ const Projects = () => {
 
         <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
 
-        <Link className='inline-link archive-link' to='/archive' ref={revealArchiveLink}>
+        <Link className='inline-link archive-link' to='/projects' ref={revealArchiveLink}>
           view the archive
         </Link>
 

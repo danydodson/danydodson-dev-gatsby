@@ -8,6 +8,7 @@ date: 2018-12-18
 github: https://github.com/bchiang7/spotify-profile
 external: https://spotify-profile.herokuapp.com/
 cover: cover.png
+alt: blistoc project
 tech:
   - React
   - Express

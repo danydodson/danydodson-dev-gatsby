@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { Layout, Paging } from '../components'
+import { Layout, Head, Paging } from '../components'
 
 // site.com/tag/<tag>
 
@@ -19,7 +18,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={`${pageTitle}`} description={`Blog posts with the tag: #${tag}`} />
+      <Head title={pageTitle} />
 
       <StyledTagSection>
 
@@ -60,8 +59,8 @@ const TagTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export const query = graphql`
-  query TagQuery($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
+export const TagQuery = graphql`
+  query($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset

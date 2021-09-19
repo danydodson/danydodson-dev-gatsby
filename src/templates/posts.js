@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { Layout, Paging } from '../components'
+import { Layout, Head, Paging } from '../components'
 
 // site.com/posts
 
@@ -18,7 +17,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={pageTitle} />
+      <Head title={pageTitle} />
 
       <StyledPostsSection>
 
@@ -63,8 +62,8 @@ PostTemplate.propTypes = {
   location: PropTypes.object,
 }
 
-export const query = graphql`
-  query PostsQuery($postsLimit: Int!, $postsOffset: Int!) {
+export const PostsQuery = graphql`
+  query($postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
         title

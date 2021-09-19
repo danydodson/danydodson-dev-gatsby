@@ -3,21 +3,22 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Helmet } from 'react-helmet'
-import { Layout } from '../components'
+import { Layout, Head } from '../components'
 
 // site.com/posts/<post>
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  const { html: pageBody } = data.markdownRemark
-  const frontmatter = data.markdownRemark.frontmatter
+  const { html, frontmatter } = data.markdownRemark
   const { title, cover, alt, date, description, category, tags } = frontmatter
+
+  const seoImage = `${cover.childImageSharp.gatsbyImageData.images.fallback.src}`
+
   const image = getImage(cover)
 
   return (
     <Layout location={location}>
 
-      <Helmet title={`Post: ${title} `} description={`${description}`} />
+      <Head title={`Post: ${title} `} description={description} image={seoImage} />
 
       <StyledPostSection>
         <article>
@@ -42,7 +43,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
             <Link to={`/category/${category}`}>{category}</Link>
           </h6>
 
-          <div dangerouslySetInnerHTML={{ __html: pageBody }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
 
         </article>
       </StyledPostSection>
@@ -51,11 +52,11 @@ const PostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export const query = graphql`
-  query PostBySlugQuery($slug: String!) {
+export const PostBySlugQuery = graphql`
+  query($slug: String!) {
     site {
       siteMetadata {
-        title
+        siteUrl
       }
     }
     markdownRemark(

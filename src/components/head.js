@@ -12,10 +12,9 @@ const Head = ({ title, description, image }) => {
       query {
         site {
           siteMetadata {
-            defTitle: title
-            defSubtitle: subtitle
-            defDescription: description
-            defImage: image
+            defaultTitle: title
+            defaultDescription: description
+            defaultImage: image
             siteUrl
             username
           }
@@ -24,17 +23,23 @@ const Head = ({ title, description, image }) => {
     `,
   )
 
-  const { defTitle, defSubtitle, defDescription, defImage, siteUrl, username } = site.siteMetadata
+  const {
+    defaultTitle,
+    defaultDescription,
+    defaultImage,
+    siteUrl,
+    username
+  } = site.siteMetadata
 
-  const seo = { title: title || defTitle, description: description || defDescription, image: `${siteUrl}/${image || defImage}`, url: `${siteUrl}${pathname}` }
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${image || defaultImage}`,
+    url: `${siteUrl}${pathname}`
+  }
 
   return (
-    <Helmet
-      title={title}
-      description={seo.description}
-      defaultTitle={seo.title}
-      titleTemplate={`%s ${defSubtitle}`}
-    >
+    <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s ${defaultTitle}`}>
       <html lang='en' />
 
       <meta name='image' content={seo.image} />
@@ -46,12 +51,16 @@ const Head = ({ title, description, image }) => {
       <meta property='og:url' content={seo.url} />
       <meta property='og:type' content='website' />
 
+      <meta property='fb:app_id' content='478714590211729' />
+
       <meta property='twitter:card' content='summary_large_image' />
       <meta property='twitter:creator' content={username} />
       <meta property='twitter:title' content={seo.title} />
       <meta property='twitter:description' content={seo.description} />
       <meta property='twitter:image' content={seo.image} />
       <meta property="twitter:url" content={seo.url} />
+
+      <link rel='canonical' href={siteUrl} />
 
       <meta name='google-site-verification' content='whbkucPDSVYylDtYbIwY01GS0fNHCwhQ2ujuAXd1m_Y' />
     </Helmet>

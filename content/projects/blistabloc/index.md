@@ -8,6 +8,7 @@ date: 2018-05-01
 github: 'https://github.com/danydodson'
 external: https://blistabloc.com/
 cover: cover.png
+alt: blistoc project
 tech:
   - WordPress
   - Timber

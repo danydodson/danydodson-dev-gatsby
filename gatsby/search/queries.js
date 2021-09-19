@@ -27,7 +27,6 @@ const pageQuery = `{
           }
           date(formatString: "MMM D YYYY")
           description
-          priority
           category
           tags
         }

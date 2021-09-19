@@ -4,7 +4,7 @@ title: Automatically add friends to Facebook
 slug: /posts/add-friends-fb
 draft: false
 cover: index.png
-alt: ''
+alt: friends
 date: 2019-07-19
 description: Adds people with more than 10 common friends.
 category: Automation

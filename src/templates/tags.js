@@ -2,8 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { Layout } from '../components'
+import { Layout, Head } from '../components'
 
 // site.com/tags
 
@@ -13,7 +12,7 @@ const TagsTemplate = ({ data, location }) => {
   return (
     <Layout location={location} description={`Search posts by tag`}>
 
-      <Helmet title={`Filter by Tag `} />
+      <Head title={`Filter by Tag `} />
 
       <StyledTagsSection>
 

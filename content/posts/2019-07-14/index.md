@@ -4,7 +4,7 @@ title: Complete guide to switching CRLF -> LF for Windows
 slug: /posts/crlf-to-lf
 draft: false
 cover: index.png
-alt: ''
+alt: switching
 date: 2019-07-14
 description: Complete guide to force setup LF End-of-line for all your Git projects work on Windows.
 category: Programming

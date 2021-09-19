@@ -4,7 +4,7 @@ title: Chrome profiles
 slug: /posts/chrome-profiles
 draft: false
 cover: index.png
-alt: ''
+alt: profiles
 date: 2019-08-05
 description: Quickly switch between accounts and browsers on Windows with Account Surfer.
 category: Productivity

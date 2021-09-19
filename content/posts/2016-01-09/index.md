@@ -4,7 +4,7 @@ title: Trello + GTD = Trello Bookmark
 slug: /posts/trello-plus-gtd-equals-trello-bookmark
 draft: false
 cover: index.png
-alt: ''
+alt: equals
 date: 2016-01-09
 description: You know, I hate routine. But one of the greatest things about being a programmer is that you can automate your routine.
 category: Productivity

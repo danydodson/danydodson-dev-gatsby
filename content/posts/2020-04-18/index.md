@@ -4,7 +4,7 @@ title: Chrome custom JS and CSS extension
 slug: /posts/chrome-custom-js-and-css-extension
 draft: false
 cover: index.png
-alt: ''
+alt: extension
 date: 2020-04-18
 description: Chrome custom JS and CSS extension
 category: Productivity

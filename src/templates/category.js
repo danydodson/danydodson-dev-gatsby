@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { Helmet } from 'react-helmet'
-import { Layout, Paging } from '../components'
+import { Layout, Head, Paging } from '../components'
 import { getColor } from '../utils'
 
 // site.com/category/<category>
@@ -23,7 +22,7 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={`${pageTitle}`} />
+      <Head title={pageTitle} />
 
       <StyledCategorySection>
 

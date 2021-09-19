@@ -4,7 +4,7 @@ title: 'Reverse interview: Questions to ask the company during your interview'
 slug: /posts/reverse-interview
 draft: false
 cover: index.png
-alt: ''
+alt: interview
 date: 2020-05-06
 description: List of the questions from dev to the company. Fork it or use it as is.
 category: Programming

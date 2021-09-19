@@ -2,8 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { Layout } from '../components'
+import { Layout, Head } from '../components'
 
 // site.com/categories
 
@@ -13,7 +12,7 @@ const CategoriesTemplate = ({ data, location }) => {
   return (
     <Layout location={location}>
 
-      <Helmet title={`Filter by Category `} />
+      <Head title={`Filter by Category `} />
 
       <StyledCategoriesSection>
 

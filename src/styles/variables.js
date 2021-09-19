@@ -21,7 +21,7 @@ const variables = css`
 
     --blue_100: #dbedff;
     --blue_200: #4facf7;
-    --blue_300: #5fa1e3;
+    --blue_300: #016E8f;
     --blue_400: #1f73b6;
 
     --yellow_100: #ffeb3b;

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Calibre';
+  src: local('Calibre Thin Italic'), local('Calibre-Thin-Italic'),
+    url('Calibre-ThinItalic.woff2') format('woff2'),
+    url('Calibre-ThinItalic.woff') format('woff'),
+    url('Calibre-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}

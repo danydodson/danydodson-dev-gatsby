@@ -3,13 +3,13 @@ import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import about from '../../images/svg/about.svg'
 import { srConfig } from '../../../data/config'
-import { scrollr } from '../../utils'
+import { sr } from '../../utils'
 
 const About = () => {
   const revealContainer = useRef(null)
 
   useEffect(() => {
-    scrollr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, srConfig())
   }, [])
 
   const skills = ['JavaScript (ES6+)', 'React', 'Eleventy', 'Vue', 'Node.js', 'WordPress']

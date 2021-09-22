@@ -7,7 +7,7 @@ import jobs from '../../images/svg/jobs.svg'
 import { srConfig } from '../../../data/config'
 import { useReducedMotion } from '../../hooks'
 import { KEY_CODES } from '../../constants'
-import { scrollr } from '../../utils'
+import { sr } from '../../utils'
 
 const Jobs = () => {
 
@@ -55,7 +55,7 @@ const Jobs = () => {
       return
     }
 
-    scrollr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, srConfig())
   }, [])
 
   const focusTab = () => {

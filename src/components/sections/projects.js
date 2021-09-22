@@ -6,7 +6,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import projects from '../../images/svg/projects.svg'
 import { useReducedMotion } from '../../hooks'
 import { srConfig } from '../../../data/config'
-import { scrollr } from '../../utils'
+import { sr } from '../../utils'
 import { Icon } from '../icons'
 
 const Projects = () => {
@@ -55,9 +55,9 @@ const Projects = () => {
       return
     }
 
-    scrollr.reveal(revealTitle.current, srConfig())
-    scrollr.reveal(revealArchiveLink.current, srConfig())
-    revealProjects.current.forEach((ref, i) => scrollr.reveal(ref, srConfig(i * 100)))
+    sr.reveal(revealTitle.current, srConfig())
+    sr.reveal(revealArchiveLink.current, srConfig())
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
   }, [])
 
   const GRID_LIMIT = 6

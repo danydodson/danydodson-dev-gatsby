@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import featured from '../../images/svg/featured.svg'
 import { useReducedMotion } from '../../hooks'
 import { srConfig } from '../../../data/config'
-import { scrollr } from '../../utils'
+import { sr } from '../../utils'
 import { Icon } from '../icons'
 
 const Featured = () => {
@@ -53,8 +53,8 @@ const Featured = () => {
       return
     }
 
-    scrollr.reveal(revealTitle.current, srConfig())
-    revealProjects.current.forEach((ref, i) => scrollr.reveal(ref, srConfig(i * 100)))
+    sr.reveal(revealTitle.current, srConfig())
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
   }, [])
 
   return (

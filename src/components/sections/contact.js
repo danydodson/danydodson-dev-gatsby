@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import contact from '../../images/svg/contact.svg'
 import { email, srConfig } from '../../../data/config'
 import { useReducedMotion } from '../../hooks'
-import { scrollr } from '../../utils'
+import { sr } from '../../utils'
 
 const Contact = () => {
   const revealContainer = useRef(null)
@@ -15,7 +15,7 @@ const Contact = () => {
       return
     }
 
-    scrollr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, srConfig())
   }, [])
 
   return (

@@ -23,15 +23,15 @@ const PrismStyles = css`
   * and overflow that we removed from <pre>.
   */
   .gatsby-highlight {
-    background-color: ${prismColors.bg};
-    color: ${prismColors.variable};
-    border-radius: var(--border_radius);
+    position: relative;
     margin: 2em 0;
     padding: 1.25em;
-    overflow: auto;
-    position: relative;
+    color: ${prismColors.variable};
     font-family: var(--ff_mono);
     font-size: var(--fz_md);
+    border-radius: var(--border_radius);
+    background-color: ${prismColors.bg};
+    overflow: auto;
   }
 
   .gatsby-highlight code[class*='language-'],
@@ -55,13 +55,13 @@ const PrismStyles = css`
   * 3. Adjust the position of the line numbers
   */
   .gatsby-highlight pre[class*='language-'] {
-    background-color: transparent;
     margin: 0;
     padding: 0;
-    overflow: initial;
     float: left; /* 1 */
     min-width: 100%; /* 2 */
     padding-top: 2em;
+    background-color: transparent;
+    overflow: initial;
   }
 
   /* File names */
@@ -69,12 +69,11 @@ const PrismStyles = css`
     padding: 1em 1.5em;
     font-family: var(--ff_mono);
     font-size: var(--fz_xs);
-    background-color: ${prismColors.bg};
     color: ${prismColors.grey};
+    background-color: ${prismColors.bg};
     border-top-left-radius: var(--border_radius);
     border-top-right-radius: var(--border_radius);
     border-bottom: 1px solid ${prismColors.lineHighlight};
-
     & + .gatsby-highlight {
       margin-top: 0;
       border-top-left-radius: 0;
@@ -85,19 +84,19 @@ const PrismStyles = css`
   /* Line highlighting */
   .gatsby-highlight-code-line {
     display: block;
-    background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--blue_200);
+    margin-left: -1.35em;
+    margin-right: -1.35em;
     padding-left: calc(1em + 2px);
     padding-right: 1em;
-    margin-right: -1.35em;
-    margin-left: -1.35em;
+    background-color: ${prismColors.lineHighlight};
+    border-left: 2px solid var(--blue_200);
   }
 
   /* Language badges */
   .gatsby-highlight pre[class*='language-']::before {
+    position: absolute;
     top: 0;
     left: 1.25rem;
-    position: absolute;
     padding: 0.25rem 0.5rem;
     background: #5471a0;
     color: ${prismColors.title};
@@ -112,70 +111,23 @@ const PrismStyles = css`
     border-radius: 0 0 3px 3px;
   }
 
-  .gatsby-highlight pre[class='language-javascript']::before {
-    content: 'js';
-  }
-
-  .gatsby-highlight pre[class='language-js']::before {
-    content: 'js';
-  }
-
-  .gatsby-highlight pre[class='language-jsx']::before {
-    content: 'jsx';
-  }
-
-  .gatsby-highlight pre[class='language-graphql']::before {
-    content: 'GraphQL';
-  }
-
-  .gatsby-highlight pre[class='language-html']::before {
-    content: 'html';
-  }
-
-  .gatsby-highlight pre[class='language-css']::before {
-    content: 'css';
-  }
-
-  .gatsby-highlight pre[class='language-mdx']::before {
-    content: 'mdx';
-  }
-
-  .gatsby-highlight pre[class='language-shell']::before {
-    content: 'shell';
-  }
-
-  .gatsby-highlight pre[class='language-sh']::before {
-    content: 'sh';
-  }
-
-  .gatsby-highlight pre[class='language-bash']::before {
-    content: 'bash';
-  }
-
-  .gatsby-highlight pre[class='language-yaml']::before {
-    content: 'yaml';
-  }
-
-  .gatsby-highlight pre[class='language-markdown']::before {
-    content: 'md';
-  }
-
-  .gatsby-highlight pre[class='language-json']::before,
-  .gatsby-highlight pre[class='language-json5']::before {
-    content: 'json';
-  }
-
-  .gatsby-highlight pre[class='language-diff']::before {
-    content: 'diff';
-  }
-
-  .gatsby-highlight pre[class='language-text']::before {
-    content: 'text';
-  }
-
-  .gatsby-highlight pre[class='language-flow']::before {
-    content: 'flow';
-  }
+  .gatsby-highlight pre[class='language-js']::before {content: 'js';}
+  .gatsby-highlight pre[class='language-javascript']::before {content: 'js';}
+  .gatsby-highlight pre[class='language-jsx']::before {content: 'jsx';}
+  .gatsby-highlight pre[class='language-html']::before {content: 'html';}
+  .gatsby-highlight pre[class='language-css']::before {content: 'css';}
+  .gatsby-highlight pre[class='language-mdx']::before {content: 'mdx';}
+  .gatsby-highlight pre[class='language-shell']::before {content: 'shell';}
+  .gatsby-highlight pre[class='language-sh']::before {content: 'sh';}
+  .gatsby-highlight pre[class='language-bash']::before {content: 'bash';}
+  .gatsby-highlight pre[class='language-graphql']::before {content: 'GraphQL';}
+  .gatsby-highlight pre[class='language-yaml']::before {content: 'yaml';}
+  .gatsby-highlight pre[class='language-markdown']::before {content: 'md';}
+  .gatsby-highlight pre[class='language-json']::before {content: 'json';}
+  .gatsby-highlight pre[class='language-json5']::before {content: 'json';}
+  .gatsby-highlight pre[class='language-diff']::before {content: 'diff';}
+  .gatsby-highlight pre[class='language-text']::before {content: 'text';}
+  .gatsby-highlight pre[class='language-flow']::before {content: 'flow';}
 
   /* Prism Styles */
   .token {

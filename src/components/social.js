@@ -40,7 +40,7 @@ const StyledSocialList = styled.ul`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--black_100);
+    background-color: var(--black);
   }
 
   li {

@@ -248,7 +248,7 @@ const StyledProject = styled.li`
     .folder {
       width: 40px;
       height: 40px;
-      color: var(--indigo_200);
+      color: #a269cc;
       /* svg {} */
     }
 

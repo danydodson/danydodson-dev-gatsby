@@ -1,4 +1,4 @@
-const CATEGORY_COLORS = ['pink_100', 'green_100', 'indigo_100', 'blue_100', 'yellow_100', 'red_100', 'purple_100', 'teal_100', 'orange_100']
+const CATEGORY_COLORS = ['pink_100', 'green_100', 'indigo_100', '#dbedff', 'yellow', 'red_100', 'purple', 'teal', 'orange']
 const CATEGORY_COLOR_EXTRA = 'grey_100'
 
 module.exports = {

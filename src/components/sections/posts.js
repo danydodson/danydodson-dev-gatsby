@@ -169,7 +169,7 @@ const StyledPostsSection = styled.section`
     padding-bottom: 125px;
   
     h2 {
-      font-size: clamp(24px, 5vw, var(--fz_heading));
+      font-size: clamp(24px, 5vw, var(--fz_xxxl));
     }
   
     .archive-link {
@@ -244,7 +244,7 @@ const StyledPost = styled.li`
     ${({ theme }) => theme.mixins.flexBetween};
 
     .folder {
-      color: var(--indigo_200);
+      color: #a269cc;
     
       svg {
         width: 40px;
@@ -306,7 +306,7 @@ const StyledPost = styled.li`
   .post-description {
     font-size: 17px;
     color: var(--black_200);
-
+    
     a {
       ${({ theme }) => theme.mixins.inlineLink};
     }

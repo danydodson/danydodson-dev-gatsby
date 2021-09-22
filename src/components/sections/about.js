@@ -102,7 +102,7 @@ const StyledText = styled.div`
         position: absolute;
         padding-top: 3px;
         content: '🟊'; /* ▹ 🠶 ☆ ⤏ */
-        color: var(--yellow_200);
+        color: var(--yellow);
         font-size: var(--fz_sm);
         line-height: 12px;
       }
@@ -110,16 +110,16 @@ const StyledText = styled.div`
   }
 
   a {
-    color: var(--yellow_200);
+    color: var(--yellow);
     
     &:hover,
     &:focus,
     &:active {
-      color: var(--yellow_200);
+      color: var(--yellow);
     }
 
     &:after {
-      background-color: var(--yellow_200);
+      background-color: var(--yellow);
     }
   }
 `

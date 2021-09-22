@@ -74,7 +74,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   padding-top: 15px;
   background-repeat: repeat-x;
-  background-color: var(--yellow_200);
+  background-color: var(--yellow);
   background-image: url(${footer});
   
   @media (max-width: 768px) {
@@ -105,7 +105,7 @@ const StyledSocialLinks = styled.ul`
 `
 
 const StyledCredit = styled.div`
-  color: var(--black_100);
+  color: var(--black);
   font-family: var(--ff_mono);
   font-size: var(--fz_xxs);
   line-height: 1;

@@ -77,7 +77,7 @@ const StyledLoader = styled.div`
   width: 100%;
   height: 100%;
   ${({ theme }) => theme.mixins.flexCenter};
-  background-color: var(--white_100);
+  background-color: var(--white);
   z-index: 99;
 
   .logo-wrapper {

@@ -4,9 +4,9 @@ import CalibreBlackWoff from '../fonts/calibre/Calibre-Black/Calibre-Black.woff'
 import CalibreBlackWoff2 from '../fonts/calibre/Calibre-Black/Calibre-Black.woff2'
 import CalibreBlackTtf from '../fonts/calibre/Calibre-Black/Calibre-Black.ttf'
 
-import CalibreBlackItalicWoff from '../fonts/calibre/Calibre-BlackItalic/Calibre-Black.woff'
-import CalibreBlackItalicWoff2 from '../fonts/calibre/Calibre-BlackItalic/Calibre-Black.woff2'
-import CalibreBlackItalicTtf from '../fonts/calibre/Calibre-BlackItalic/Calibre-Black.ttf'
+import CalibreBlackItalicWoff from '../fonts/calibre/Calibre-BlackItalic/Calibre-BlackItalic.woff'
+import CalibreBlackItalicWoff2 from '../fonts/calibre/Calibre-BlackItalic/Calibre-BlackItalic.woff2'
+import CalibreBlackItalicTtf from '../fonts/calibre/Calibre-BlackItalic/Calibre-BlackItalic.ttf'
 
 import CalibreBoldWoff from '../fonts/calibre/Calibre-Bold/Calibre-Bold.woff'
 import CalibreBoldWoff2 from '../fonts/calibre/Calibre-Bold/Calibre-Bold.woff2'
@@ -22,7 +22,7 @@ import CalibreLightTtf from '../fonts/calibre/Calibre-Light/Calibre-Light.ttf'
 
 import CalibreLightItalicWoff from '../fonts/calibre/Calibre-LightItalic/Calibre-LightItalic.woff'
 import CalibreLightItalicWoff2 from '../fonts/calibre/Calibre-LightItalic/Calibre-LightItalic.woff2'
-import CalibreLightItalicTff from '../fonts/calibre/Calibre-LightItalic/Calibre-Light.ttf'
+import CalibreLightItalicTff from '../fonts/calibre/Calibre-LightItalic/Calibre-LightItalic.ttf'
 
 import CalibreMediumWoff from '../fonts/calibre/Calibre-Medium/Calibre-Medium.woff'
 import CalibreMediumWoff2 from '../fonts/calibre/Calibre-Medium/Calibre-Medium.woff2'
@@ -48,13 +48,13 @@ import CalibreSemiboldItalicWoff from '../fonts/calibre/Calibre-SemiboldItalic/C
 import CalibreSemiboldItalicWoff2 from '../fonts/calibre/Calibre-SemiboldItalic/Calibre-SemiboldItalic.woff2'
 import CalibreSemiboldItalicTtf from '../fonts/calibre/Calibre-SemiboldItalic/Calibre-SemiboldItalic.ttf'
 
-import CalibreThinWoff from '../fonts/calibre/CalibreThin/Calibre-Thin.woff'
-import CalibreThinWoff2 from '../fonts/calibre/CalibreThin/Calibre-Thin.woff2'
-import CalibreThinTtf from '../fonts/calibre/CalibreThin/Calibre-Thin.ttf'
+import CalibreThinWoff from '../fonts/calibre/Calibre-Thin/Calibre-Thin.woff'
+import CalibreThinWoff2 from '../fonts/calibre/Calibre-Thin/Calibre-Thin.woff2'
+import CalibreThinTtf from '../fonts/calibre/Calibre-Thin/Calibre-Thin.ttf'
 
-import CalibreThinItalicWoff from '../fonts/calibre/Calibre-Thin/Calibre-ThinItalic.woff'
-import CalibreThinItalicWoff2 from '../fonts/calibre/Calibre-Thin/Calibre-ThinItalic.woff2'
-import CalibreThinItalicTtf from '../fonts/calibre/Calibre-Thin/Calibre-ThinItalic.ttf'
+import CalibreThinItalicWoff from '../fonts/calibre/Calibre-ThinItalic/Calibre-ThinItalic.woff'
+import CalibreThinItalicWoff2 from '../fonts/calibre/Calibre-ThinItalic/Calibre-ThinItalic.woff2'
+import CalibreThinItalicTtf from '../fonts/calibre/Calibre-ThinItalic/Calibre-ThinItalic.ttf'
 
 import SFMonoMediumWoff from '../fonts/sfmono/SFMono-Medium/SFMono-Medium.woff'
 import SFMonoMediumWoff2 from '../fonts/sfmono/SFMono-Medium/SFMono-Medium.woff2'

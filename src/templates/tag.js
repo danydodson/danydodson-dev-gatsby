@@ -81,7 +81,6 @@ export const TagQuery = graphql`
                 gatsbyImageData(width: 700)
               }
             }
-            alt
             date(formatString: "MMM D YYYY")
             description
             category

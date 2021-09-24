@@ -9,7 +9,7 @@ import { Layout, Head } from '../components'
 
 const PostTemplate = ({ data, pageContext, location }) => {
   const { html, frontmatter } = data.markdownRemark
-  const { title, cover, alt, date, description, category, tags } = frontmatter
+  const { title, cover, date, description, category, tags } = frontmatter
 
   const seoImage = `${cover.childImageSharp.gatsbyImageData.images.fallback.src}`
 
@@ -27,7 +27,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
 
           <time>{date}</time>
 
-          <GatsbyImage image={image} alt={alt} />
+          <GatsbyImage image={image} alt={category} />
 
           <p>{description}</p>
 
@@ -75,7 +75,6 @@ export const PostBySlugQuery = graphql`
             gatsbyImageData(width: 700)
           }
         }
-        alt
         date(formatString: "MMM D YYYY")
         description
         category

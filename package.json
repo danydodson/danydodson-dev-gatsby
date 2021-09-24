@@ -10,9 +10,9 @@
     "url": "https://github.com/danydodson/danydodson.dev"
   },
   "scripts": {
-    "build": "gatsby build --verbose",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "start": "yarn develop",
+    "build": "gatsby clean && gatsby build --verbose",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

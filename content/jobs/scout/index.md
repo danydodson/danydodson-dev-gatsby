@@ -1,11 +1,9 @@
 ---
 template: job
 title: Studio Developer
-slug: /jobs/studio-Developer
-date: 2018-12-18
 draft: false
+slug: /jobs/studio-Developer
 cover: cover.jpg
-alt: scout
 company: Scout
 location: Northeastern University
 range: January - April 2018

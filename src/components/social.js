@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { socialLinks } from '../../data/config'
-import { Side } from '../components'
 import { Icon } from '../components/icons'
+import { Side } from '../components'
 
 const Social = ({ isHome }) => (
   <Side isHome={isHome} orientation='left'>
-    <StyledSocialList>
+    <StyledSocials>
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
           <li key={i}>
@@ -16,7 +16,7 @@ const Social = ({ isHome }) => (
             </a>
           </li>
         ))}
-    </StyledSocialList>
+    </StyledSocials>
   </Side>
 )
 
@@ -26,45 +26,30 @@ Social.propTypes = {
 
 export default Social
 
-const StyledSocialList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+const StyledSocials = styled.ul`
   list-style: none;
+  ${({ theme }) => theme.mixins.flexColumn};
 
   &:after {
-    content: '';
-    display: block;
     width: 1px;
     height: 90px;
+    display: block;
+    content: '';
     margin: 0 auto;
-    background-color: var(--black);
+    background-color: var(--grey-200);
   }
 
   li {
     &:last-of-type {
       margin-bottom: 20px;
     }
-
     a {
-      padding: 10px;
-
+      padding: 10px; 
+      color: var(--grey-200);
       &:hover,
       &:focus {
         transform: translateY(-3px);
-        
-        svg {
-          /* stroke: var(--grey); */
-        }
       }
-      
-      /* svg { */
-        /* stroke: var(--grey); */
-        /* width: 20px; */
-        /* height: 20px; */
-      /* } */
     }
   }
 `

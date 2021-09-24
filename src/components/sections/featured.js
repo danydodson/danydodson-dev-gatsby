@@ -129,7 +129,6 @@ const StyledFeaturedSection = styled.section`
   background-image: url(${featured});
 
   article {
-    padding-bottom: 0;
   }
 `
 
@@ -154,15 +153,8 @@ const StyledProject = styled.li`
   }
 
   &:not(:last-of-type) {
-    /* margin-bottom: 100px; */
-
-    @media (max-width: 768px) {
-      /* margin-bottom: 70px; */
-    }
-
-    @media (max-width: 480px) {
-      /* margin-bottom: 30px; */
-    }
+    @media (max-width: 768px) {}
+    @media (max-width: 480px) {}
   }
 
   &:nth-of-type(odd) {
@@ -195,10 +187,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 0 5px 20px;
-
-        @media (max-width: 768px) {
-          margin: 0 10px 5px 0;
-        }
+        @media (max-width: 768px) {margin: 0 10px 5px 0;}
       }
     }
 
@@ -206,7 +195,7 @@ const StyledProject = styled.li`
       margin-left: 0;
       margin-right: -10px;
       justify-content: flex-end;
-      color: var(--black);
+      color: var(--black-100);
 
       @media (max-width: 768px) {
         justify-content: flex-start;
@@ -250,7 +239,7 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--white);
+    color: var(--white-100);
     font-family: var(--ff-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
@@ -260,26 +249,22 @@ const StyledProject = styled.li`
     color: inherit;
     font-size: clamp(24px, 5vw, 28px);
     
-    @media (min-width: 768px) {
-      margin: 0 0 20px;
-    }
+    @media (min-width: 768px) {margin: 0 0 20px;}
 
     @media (max-width: 768px) {
-      color: var(--grey);
+      color: var(--grey-100);
       
       a {
         position: static;
         
-        &:hover {
-          color: var(--blue);
-        }
+        &:hover {color: var(--teal-100);}
 
         &:before {
+          top: 0;
+          left: 0;
           content: '';
           width: 100%;
           height: 100%;
-          top: 0;
-          left: 0;
           display: block;
           position: absolute;
           z-index: 0;
@@ -292,24 +277,21 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     position: relative;
-    color: var(--grey);
+    color: var(--grey-100);
     font-size: var(--fz-lg);
     backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    transition: var(--transition);
+    ${({ theme }) => theme.mixins.boxShadow};
     border: 1px solid rgba(209, 213, 219, 0.3);
     border-radius: var(--border-radius);
-    transition: var(--transition);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    ${({ theme }) => theme.mixins.boxShadow};
 
     @media (max-width: 768px) {
       padding: 20px 0;
       background-color: transparent;
       box-shadow: none;
-
-      &:hover {
-        box-shadow: none;
-      }
+      &:hover {box-shadow: none;}
     }
 
     a {
@@ -328,7 +310,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--white);
+      color: var(--white-100);
       font-family: var(--ff-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -339,7 +321,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--white);
+        color: var(--white-100);
       }
     }
   }
@@ -350,7 +332,7 @@ const StyledProject = styled.li`
     position: relative;
     display: flex;
     align-items: center;
-    color: var(--pink);
+    color: var(--pink-100);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -387,7 +369,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: var(--green-100);
       border-radius: var(--border-radius);
       vertical-align: middle;
 

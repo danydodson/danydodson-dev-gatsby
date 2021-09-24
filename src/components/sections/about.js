@@ -36,9 +36,9 @@ const About = () => {
             <div className='wrapper'>
               <StaticImage
                 className='me'
-                src='../../../static/og@2.png'
                 width={500}
                 quality={95}
+                src='../../../static/og@2.png'
                 formats={['AUTO', 'WEBP', 'AVIF']}
                 alt='Headshot'
               />
@@ -61,7 +61,6 @@ const AboutSection = styled.section`
   background-image: url(${about});
   
   article.about {
-    /* margin: 0 100px; */
 
     div.about_grid {
       display: grid;
@@ -79,11 +78,12 @@ const StyledText = styled.div`
   grid-area: info;
 
   p > a > .info-link {
-    color: var(--pink);
+    color: var(--pink-100);
+
     &:hover,
     &:focus,
-    &:active {color: var(--pink);}
-    &:after {background-color: var(--pink);}
+    &:active {color: var(--pink-100);}
+    &:after {background-color: var(--pink-100);}
   }
 `
 
@@ -103,15 +103,15 @@ const StyledList = styled.ul`
     margin: 5px 0;
     padding-left: 20px;
     font-size: var(--fz-xs);
-    font-weight: var(--fw-regular);
-    font-family: var(--ff-secondary);      
+    font-weight: var(--fw-sans);
+    font-family: var(--ff-mono);      
   
     &:before {
       left: 0;
       position: absolute;
       padding-top: 3px;
       content: '🟊';
-      color: var(--pink);
+      color: var(--pink-100);
       font-size: 20px;
       line-height: 12px;
     }

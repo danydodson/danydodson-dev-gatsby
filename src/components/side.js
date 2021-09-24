@@ -14,16 +14,17 @@ const Side = ({ children, isHome, orientation }) => {
   }, [])
 
   return (
-    <StyledSideElement orientation={orientation}>
-
+    <StyledSide orientation={orientation}>
       <TransitionGroup component={null}>
+
         {isMounted && (
           <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loadDelay : 0}>
             {children}
           </CSSTransition>
         )}
+
       </TransitionGroup>
-    </StyledSideElement>
+    </StyledSide>
   )
 }
 
@@ -35,14 +36,14 @@ Side.propTypes = {
 
 export default Side
 
-const StyledSideElement = styled.aside`
-  width: 40px;
+const StyledSide = styled.aside`
+  z-index: 10;
   bottom: 0;
+  width: 40px;
   position: fixed;
-  color: var(--grey);
+  
   left: ${props => (props.orientation === 'left' ? '40px' : 'auto')};
   right: ${props => (props.orientation === 'left' ? 'auto' : '40px')};
-  z-index: 10;
 
   @media (max-width: 1080px) {
     left: ${props => (props.orientation === 'left' ? '20px' : 'auto')};

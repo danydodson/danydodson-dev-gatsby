@@ -68,68 +68,40 @@ export default Footer
 const StyledFooter = styled.footer`
   width: 100%;
   min-height: 110px;
+  padding-top: 15px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding-top: 15px;
   background-repeat: repeat-x;
-  background-color: var(--yellow);
+  background-color: var(--yellow-100);
   background-image: url(${footer});
-  
-  @media (max-width: 768px) {
-    min-height: 160px;
-  }
+  /* @media (max-width: 768px) {min-height: 160px;} */
 `
 
 const StyledSocialLinks = styled.ul`
   display: none;
-  
   @media (max-width: 768px) {
     width: 100%;
     max-width: 270px;
-    display: flex;
-    justify-content: space-around;
     padding-bottom: 24px;
     list-style: none;
-    
-    a {
-    
-      svg {
-        stroke: var(--blue);
-        width: 20px;
-        height: 20px;
-      }
-    }
+    display: flex;
+    justify-content: space-around;
+    a {svg {width: 20px; height: 20px;}}
   }
 `
 
 const StyledCredit = styled.div`
-  color: var(--black);
-  font-family: var(--ff-mono);
-  font-size: var(--fz-xxs);
   line-height: 1;
-  
-  a {}
-
+  color: var(--black-100);
+  font-family: var(--ff-mono);
+  font-size: var(--fz-xs);
   .github-stats {
     display: flex;
     justify-content: center;
     padding-top: 10px;
-  
-    & > span {
-      display: inline-flex;
-      align-items: center;
-
-      :nth-child(2){
-        margin-left: 20px;
-      }
-    }
-
-    svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--blue);
-    }
+    & > span {display: inline-flex; align-items: center; :nth-child(2){margin-left: 20px;}}
+    svg {width: 14px; height: 14px;}
   }
 `

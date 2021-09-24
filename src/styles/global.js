@@ -25,19 +25,46 @@ const Styles = createGlobalStyle`
   body {
     min-height: 100%;
     overflow-x: hidden;
-    line-height: 1.3;
-    color: var(--black);
-    font-size: var(--fz-xl);
-    font-family: var(--ff-primary);
-    scroll-behavior: smooth;
-    background-color: var(--white);
+    color: var(--grey-200);
+    font-size: var(--fz-lg);
+    font-family: var(--ff-sans);
+    line-height: var(--lh-rg);
+    background-color: var(--white-100);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    @media (max-width: 480px) {font-size: var(--fz-xl);}
-    
+    scroll-behavior: smooth;
+    /* cursor: default; */
+    /* cursor: url("https://github.com/chenglou/react-motion/raw/master/demos/demo8-draggable-list/cursor.png") 39 39, auto; */
+    /* @media (max-width: 480px) {font-size: var(--fz-lg);} */
     &.hidden {overflow: hidden;}
     &.blur {overflow: hidden; #content > * {user-select: none; pointer-events: none; filter: blur(5px) brightness(0.7); transition: var(--transition);}}
     &.blur > header{background-color: transparent;}
+  }
+
+  body {
+    div.fonts > p.sfmono-400{font-family: 'SF Mono';font-weight: 400;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.sfmono-500{font-family: 'SF Mono';font-weight: 500;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.sfmono-600{font-family: 'SF Mono';font-weight: 600;font-style: normal;font-size:1rem;line-height: 1.3}
+    
+    div.fonts > p.sfmono-400-i{font-family: 'SF Mono';font-weight: 400;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.sfmono-500-i{font-family: 'SF Mono';font-weight: 500;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.sfmono-600-i{font-family: 'SF Mono';font-weight: 600;font-style: italic;font-size:1rem;line-height: 1.3}
+
+    div.fonts > p.calibre-100{font-family: 'Calibre';font-weight: 100;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-300{font-family: 'Calibre';font-weight: 300;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-400{font-family: 'Calibre';font-weight: 400;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-500{font-family: 'Calibre';font-weight: 500;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-600{font-family: 'Calibre';font-weight: 600;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-700{font-family: 'Calibre';font-weight: 700;font-style: normal;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-900{font-family: 'Calibre';font-weight: 900;font-style: normal;font-size:1rem;line-height: 1.3}
+    
+    div.fonts > p.calibre-100-i{font-family: 'Calibre';font-weight: 100;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-300-i{font-family: 'Calibre';font-weight: 300;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-400-i{font-family: 'Calibre';font-weight: 400;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-500-i{font-family: 'Calibre';font-weight: 500;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-600-i{font-family: 'Calibre';font-weight: 600;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-700-i{font-family: 'Calibre';font-weight: 700;font-style: italic;font-size:1rem;line-height: 1.3}
+    div.fonts > p.calibre-900-i{font-family: 'Calibre';font-weight: 900;font-style: italic;font-size:1rem;line-height: 1.3}
   }
 
   #root {
@@ -50,33 +77,23 @@ const Styles = createGlobalStyle`
   main {
     min-height: 100vh;
     counter-reset: section;
-    
-    /* padding: 0 150px; */
-    /* @media (max-width: 1080px) {padding: 0 100px;} */
-    /* @media (max-width: 768px) {padding: 0 50px;} */
-    /* @media (max-width: 480px) {padding: 0 25px;} */
   }
   
   section {
-    /* padding: 0 120px 120px 120px; */
+    padding: 0 100px;
+    @media (max-width: 1080px) { padding: 0 80px; }
+    @media (max-width: 768px) { padding: 0 60px; }
+    @media (max-width: 480px) { padding: 0 25px; }
   }
   
-  article {
-    /* padding: 0 120px 120px 120px; */
-    /* @media (max-width: 768px) { padding: 0 50px 50px 50px; } */
-    /* @media (max-width: 480px) { padding: 0 25px 25px 25px; } */
-  }
+  article {}
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px 0;
-    color: var(--black);
-    font-weight: 600;
-    line-height: 1.1;
+    color: var(--black-100);
+    font-weight: var(--fw-sb);
+    line-height: var(--lh-sm);
   }
-
-  /* .layout {
-    main {counter-reset: section;}
-  } */
 
   .big-heading {
     margin: 0;
@@ -94,7 +111,7 @@ const Styles = createGlobalStyle`
     position: relative;
     align-items: center;
     padding: 130px 0 25px 0;
-    font-size: clamp(26px, 5vw, var(--fz-xxxl));
+    font-size: clamp(26px, 5vw, var(--fz-lg));
     white-space: nowrap;
 
     &:before {
@@ -103,22 +120,22 @@ const Styles = createGlobalStyle`
       position: relative;
       counter-increment: section;
       content: '0' counter(section) '.';
-      color: var(--grey_400);
-      font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+      color: var(--grey-200);
+      font-size: clamp(var(--fz-md), 3vw, var(--fz-lg));
       font-family: var(--ff-mono);
-      font-weight: 400;
+      font-weight: var(--fw-rg);
 
       @media (max-width: 480px) {margin-right: 5px;}
     }
 
     &:after {
-      content: '';
-      display: block;
-      position: relative;
-      top: -5px;
       width: 300px;
       height: 1px;
+      content: '';
+      top: -5px;
       margin-left: 20px;
+      display: block;
+      position: relative;
       background-color: var(--grey-100);
 
       @media (max-width: 1080px) { width: 200px; }
@@ -151,13 +168,13 @@ const Styles = createGlobalStyle`
   a {
     position: relative;
     display: inline-block;
-    color: inherit;
+    color: var(--blue-100);
     text-decoration: none;
     text-decoration-skip-ink: auto;
     transition: var(--transition);
     &:hover,
     &:active,
-    &:focus {outline: 0;color: var(--blue-200);}
+    &:focus {outline: 0; color: var(--blue-200);}
     &.inline-link {${({ theme }) => theme.mixins.inlineLink};}
     &[target='_blank'] {cursor: ne-resize;}
   }
@@ -181,19 +198,19 @@ const Styles = createGlobalStyle`
     &:last-child,
     &:last-of-type {margin: 0;}
     & > a {color: inherit;${({ theme }) => theme.mixins.inlineLink};}
-    & > code {padding: 0.3em 0.5em;color: var(--white);font-size: var(--fz-sm);background-color: var(--grey);border-radius: var(--border-radius);}
+    & > code {padding: 0.3em 0.5em; color: var(--white-100); font-size: var(--fz-sm); background-color: var(--grey-100); border-radius: var(--border-radius);}
   }
 
   ul {
     &.fancy-list {
-      padding: 0;
       margin: 0;
+      padding: 0;
       list-style: none;
       font-size: var(--fz-lg);
       li {
         position: relative;
         margin-bottom: 10px;
-        &:before {content: '▹';position: absolute;left: 0;color: var(--grey);}
+        &:before {content: '▹';position: absolute;left: 0;color: var(--grey-100);}
       }
     }
   }
@@ -204,8 +221,8 @@ const Styles = createGlobalStyle`
     padding-left: 1.5rem;
     border-left-width: 1px;
     border-left-style: solid;
-    border-left-color: var(--blue);
-    p {font-style: italic;font-size: 24px;}
+    border-left-color: var(--teal-100);
+    p {font-style: italic; font-size: 24px;}
   }
 
   hr {
@@ -223,14 +240,14 @@ const Styles = createGlobalStyle`
   }
 
   .skip-to-content {
-    position: absolute;
     top: auto;
     left: -999px;
     width: 1px;
     height: 1px;
-    ${({ theme }) => theme.mixins.button};
     overflow: hidden;
     z-index: -99;
+    position: absolute;
+    ${({ theme }) => theme.mixins.button};
     &:focus,
     &:active {
       top: 0;
@@ -240,45 +257,43 @@ const Styles = createGlobalStyle`
       overflow: auto;
       z-index: 99;
       color: #dbedff;
-      background-color: var(--blue);
+      background-color: var(--blue-100);
     }
   }
 
   #logo,
-  #loader {color: var(--blue);}
+  #loader {color: var(--blue-100);}
 
   .overline {
-    color: var(--blue);
+    color: var(--blue-100);
     font-family: var(--ff-mono);
     font-size: var(--fz-md);
-    font-weight: 400;
+    font-weight: var(--fw-rg);
   }
 
   .subtitle {
     margin: 0 0 20px 0;
-    color: var(--blue);
+    color: var(--blue-100);
     font-size: var(--fz-md);
     font-family: var(--ff-mono);
-    font-weight: 400;
+    font-weight: var(--fw-rg);
     line-height: 1.5;
-
     @media (max-width: 1080px) { font-size: var(--fz-sm); }
     @media (max-width: 768px) { font-size: var(--fz-xs); }
-    
-    a {line-height: 1.5;${({ theme }) => theme.mixins.inlineLink};}
+    a {line-height: 1.5; ${({ theme }) => theme.mixins.inlineLink};}
   }
 
   .breadcrumb {
-    margin-bottom: 50px;
     display: flex;
+    margin-bottom: 50px;
     align-items: center;
-    color: var(--blue);
-    .arrow {margin-right: 10px;padding-top: 4px;display: block;}
+    color: var(--blue-100);
+    .arrow {margin-right: 10px; padding-top: 4px; display: block;}
     a {
       font-size: var(--fz-sm);
       font-family: var(--ff-mono);
       font-weight: 600;
-      line-height: 1.5;
+      line-height: var(--lh-lg);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       ${({ theme }) => theme.mixins.inlineLink};
@@ -295,22 +310,22 @@ const Styles = createGlobalStyle`
   }
   
   body::-webkit-scrollbar-track {
-    background: red;
+    background: var(--red-100);
   }
 
   body::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    border: 3px solid red;
-    background-color: var(--white);
+    border: 3px solid var(--red-100);
+    background-color: var(--white-100);
   }
 
   ::selection {
-    color: var(--blue);
-    background-color: var(--grey);
+    color: var(--blue-100);
+    background-color: var(--grey-100);
   }
 
   :focus {
-    outline: 2px dashed var(--blue);
+    outline: 2px dashed var(--blue-100);
     outline-offset: 3px;
   }
 

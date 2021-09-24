@@ -69,10 +69,10 @@ const StyledHero = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--blue);
-    font-family: var(--ff_mono);
-    font-size: clamp(var(--fz_sm), 5vw, var(--fz_md));
-    font-weight: 400;
+    color: var(--blue-100);
+    font-family: var(--ff-mono);
+    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+    font-weight: var(--fw-rg);
   }
   
   h3 {
@@ -84,9 +84,7 @@ const StyledHero = styled.section`
     margin: 20px 0 0;
     max-width: 525px;
 
-    a {
-     color: var(--blue);
-    }
+    a {}
   }
   
   a.email-link {

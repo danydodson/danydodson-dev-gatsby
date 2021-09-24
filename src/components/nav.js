@@ -110,16 +110,16 @@ Nav.propTypes = {
 export default Nav
 
 const StyledHeader = styled.header`
-  position: fixed;
   top: 0;
   width: 100%;
+  position: fixed;
   height: var(--nav-height);
+  pointer-events: auto !important;
+  filter: none !important;
+  user-select: auto !important;
   background-position: top;
   background-repeat: repeat-x;
   background-image: url(${menu});
-  filter: none !important;
-  pointer-events: auto !important;
-  user-select: auto !important;
   transition: var(--trans-nav-header);
   z-index: 11;
   
@@ -128,15 +128,15 @@ const StyledHeader = styled.header`
   @media (prefers-reduced-motion: no-preference) {
     ${props => props.scrollDirection === 'up' && !props.scrolledToTop && css`
       height: var(--nav-scroll-height);
-      opacity: 0.9;
+      opacity: 0.89;
       transform: translateY(0px);
-      box-shadow: 0 10px 30px -10px var(--black);
+      box-shadow: 0 10px 30px -10px var(--grey-200);
     `};
     
     ${props => props.scrollDirection === 'down' && !props.scrolledToTop && css`
       height: var(--nav-scroll-height);
       transform: translateY(calc(var(--nav-scroll-height) * -1));
-      box-shadow: 0 10px 30px -10px var(--black);
+      box-shadow: 0 10px 30px -10px var(--grey-200);
     `};
   }
   `
@@ -152,11 +152,11 @@ const StyledNav = styled.nav`
 
   .nav {
     width: 100%;
-    position: relative;
     display: flex;
-    justify-content: space-between;
+    position: relative;
     align-items: center;
-    color: var(--grey);
+    justify-content: space-between;
+    color: var(--grey-200);
     font-family: var(--ff-mono);
     counter-reset: item 0;
     z-index: 12;
@@ -166,19 +166,10 @@ const StyledNav = styled.nav`
     .logo {
       display: flex;
       align-items: flex-start;
-      
       a {
         width: 32px;
         height: 32px;
-        color: var(--blue);
-        
-        svg {
-          user-select: none;
-          
-          &:hover,
-          &:focus 
-          &:active {polygon{fill: var(--blue);}}
-        }
+        &:hover {color: var(--yellow-100);}
       }
     }
   }
@@ -206,15 +197,17 @@ const StyledLinks = styled.ol`
 
       a {
         padding: 10px;
+        color: var(--grey-200);
 
         &:hover,
         &:active,
-        &:focus {color: var(--blue);}
+        &:focus {color: var(--blue-100);}
+
         &:before {
           margin-right: 5px;
           text-align: right;
-          font-size: var(--fz-xxs);
-          color: var(--blue);
+          font-size: var(--fz-xs);
+          color: var(--blue-100);
           content: '0' counter(item) '.';
         }
       }

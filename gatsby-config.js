@@ -11,7 +11,6 @@ module.exports = {
   },
   siteMetadata: config,
   plugins: [
-    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -102,7 +101,7 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
-    
+    `gatsby-plugin-offline`,
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,

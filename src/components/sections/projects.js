@@ -149,7 +149,6 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
   background-color: #4de059;
   background-repeat: repeat-x;
   background-image: url(${projects});
@@ -158,12 +157,12 @@ const StyledProjectsSection = styled.section`
     padding-bottom: 125px;
 
     h2 {
-      font-size: clamp(24px, 5vw, var(--fz_lg));
+      font-size: clamp(24px, 5vw, var(--fz-lg));
     }
 
     .archive-link {
-      font-family: var(--ff_mono);
-      font-size: var(--fz_sm);
+      font-family: var(--ff-mono);
+      font-size: var(--fz-sm);
 
       &:after {
         bottom: 0.1em;
@@ -216,53 +215,40 @@ const StyledProject = styled.li`
     flex-direction: column;
     align-items: flex-start;
     ${({ theme }) => theme.mixins.flexBetween};
-    /* background-color: var(--blue); */
-    /* border-radius: var(--border-radius); */
     ${({ theme }) => theme.mixins.boxShadow};
     transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: 12px;
   }
 
   .project-top {
     margin-bottom: 35px;
     ${({ theme }) => theme.mixins.flexBetween};
 
-    .folder {
-      width: 40px;
-      height: 40px;
-      color: #a269cc;
-      /* svg {} */
-    }
+    .folder {width: 40px; height: 40px; color: var(--red-100);}
 
     .project-links {
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--black_200);
+      color: var(--black-100);
 
       a {
         padding: 5px 7px;
         ${({ theme }) => theme.mixins.flexCenter};
 
         &.external {
-          svg {
-            width: 22px;
-            height: 22px;
-            margin-top: -4px;
-          }
+          svg {width: 22px; height: 22px; margin-top: -4px;}
         }
 
         svg {
           width: 20px;
           height: 20px;
-          stroke: var(--grey_300);
-          &:hover {
-            stroke: var(--blue);
-          }
+          stroke: var(--grey-200);
+          &:hover {stroke: var(--green-100);}
         }
       }
     }
@@ -270,51 +256,45 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: var(--pink_300);
-    font-size: var(--fz_xxl);
+    color: var(--pink-100);
+    font-size: var(--fz-lg);
 
     a {
       position: static;
 
       &:before {
+        top: 0;
+        left: 0;
         content: '';
+        width: 100%;
+        height: 100%;
         display: block;
         position: absolute;
         z-index: 0;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
       }
     }
   }
 
   .project-description {
     font-size: 17px;
-    color: var(--black_200);
-
-    a {
-      ${({ theme }) => theme.mixins.inlineLink};
-    }
+    color: var(--black-100);
+    a {${({ theme }) => theme.mixins.inlineLink};}
   }
 
   .project-tech-list {
+    padding: 0;
     display: flex;
-    align-items: flex-end;
     flex-grow: 1;
     flex-wrap: wrap;
-    padding: 0;
+    align-items: flex-end;
     margin: 20px 0 0 0;
     list-style: none;
 
     li {
-      font-family: var(--ff_mono);
-      font-size: var(--fz_xxs);
       line-height: 1.75;
-
-      &:not(:last-of-type) {
-        margin-right: 15px;
-      }
+      font-size: var(--fz-xs);
+      font-family: var(--ff-mono);
+      &:not(:last-of-type) {margin-right: 15px;}
     }
   }
 `

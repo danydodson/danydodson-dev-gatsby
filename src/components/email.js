@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { email } from '../../data/config'
 import { Side } from '../components'
+import { email } from '../../data/config'
 
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation='right'>
-    <StyledLinkWrapper>
+    <StyledEmail>
       <a href={`mailto:${email}`}>{email}</a>
-    </StyledLinkWrapper>
+    </StyledEmail>
   </Side>
 )
 
@@ -18,32 +18,31 @@ Email.propTypes = {
 
 export default Email
 
-const StyledLinkWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+const StyledEmail = styled.div`
+  ${({ theme }) => theme.mixins.flexColumn};
 
   &:after {
-    content: '';
-    display: block;
     width: 1px;
     height: 90px;
+    content: '';
     margin: 0 auto;
-    background-color: var(--grey);
+    display: block;
+    background-color: var(--grey-200);
   }
-
+  
   a {
-    margin: 20px auto;
-    padding: 10px;
-    font-family: var(--ff-mono);
-    font-size: var(--fz-xxs);
-    line-height: var(--fz-lg);
+    margin: 30px auto;
     letter-spacing: 0.1em;
+    color: var(--grey-200);
+    font-size: var(--fz-sm);
+    font-family: var(--ff-mono);
+    font-weight: var(--fw-md);
+    line-height: var(--lh-lg);
     writing-mode: vertical-rl;
-
     &:hover,
     &:focus {
+      color: var(--grey-200);
       transform: translateY(-3px);
+    }
   }
 `

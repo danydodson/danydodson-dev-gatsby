@@ -29,6 +29,30 @@ const Contact = () => {
           Say Hello
         </a>
 
+
+        <div className='fonts'>
+          <p className='sfmono-400'>I'm a software engineer. sfmono-400</p>
+          <p className='sfmono-400-i'>I'm a software engineer. sfmono-400-i</p>
+          <p className='sfmono-500'>I'm a software engineer. sfmono-400</p>
+          <p className='sfmono-500-i'>I'm a software engineer. sfmono-400-i</p>
+          <p className='sfmono-600'>I'm a software engineer. sfmono-400</p>
+          <p className='sfmono-600-i'>I'm a software engineer. sfmono-400-i</p>
+          <p className='calibre-100'>I'm a software engineer. calibre-100</p>
+          <p className='calibre-100-i'>I'm a software engineer. calibre-100-i</p>
+          <p className='calibre-300'>I'm a software engineer. calibre-300</p>
+          <p className='calibre-300-i'>I'm a software engineer. calibre-300-i</p>
+          <p className='calibre-400'>I'm a software engineer. calibre-400</p>
+          <p className='calibre-400-i'>I'm a software engineer. calibre-400-i</p>
+          <p className='calibre-500'>I'm a software engineer. calibre-500</p>
+          <p className='calibre-500-i'>I'm a software engineer. calibre-500-i</p>
+          <p className='calibre-600'>I'm a software engineer. calibre-600</p>
+          <p className='calibre-600-i'>I'm a software engineer. calibre-600-i</p>
+          <p className='calibre-700'>I'm a software engineer. calibre-700</p>
+          <p className='calibre-700-i'>I'm a software engineer. calibre-700-i</p>
+          <p className='calibre-900'>I'm a software engineer. calibre-900</p>
+          <p className='calibre-900-i'>I'm a software engineer. calibre-900-i</p>
+        </div>
+
       </StyledContactArticle>
     </StyledContactSection>
   )
@@ -44,7 +68,7 @@ const StyledContactSection = styled.section`
   .overline {
     display: block;
     margin-bottom: 20px;
-    color: var(--green);
+    color: var(--green-100);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;

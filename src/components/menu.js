@@ -162,7 +162,7 @@ const StyledHamburgerButton = styled.button`
     right: 0;
     height: var(--ham-height);
     width: var(--ham-width);
-    background-color: var(--blue);
+    background-color: var(--orange-100);
     border-radius: var(--border-radius);
     transition-duration: 0.22s;
     transition-property: transform;
@@ -180,7 +180,7 @@ const StyledHamburgerButton = styled.button`
       height: var(--ham-height);
       width: var(--ham-width);
       border-radius: var(--border-radius);
-      background-color: var(--blue);
+      background-color: var(--orange-100);
       transition-timing-function: ease;
       transition-duration: 0.15s;
       transition-property: transform;
@@ -206,28 +206,27 @@ const StyledSidebar = styled.aside`
   display: none;
 
   @media (max-width: 768px) {
-    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
-    padding: 50px 10px;
-    width: min(75vw, 400px);
-    height: 100vh;
-    ${({ theme }) => theme.mixins.flexCenter};
     z-index: 9;
     outline: 0;
-    background-color: var(--pink);
-    box-shadow: -10px 0px 30px -15px var(--black);
-    transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
+    position: fixed;
+    height: 100vh;
+    width: min(75vw, 400px);
+    padding: 50px 10px;
+    ${({ theme }) => theme.mixins.flexCenter};
     visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
+    background-color: var(--pink-100);
+    box-shadow: -10px 0px 30px -15px var(--black-100);
+    transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
     transition: var(--transition);
-
   }
 
   nav {
     width: 100%;
     flex-direction: column;
-    color: var(--blue);
+    color: var(--blue-100);
     font-family: var(--ff-mono);
     text-align: center;
     ${({ theme }) => theme.mixins.flexBetween};
@@ -236,40 +235,33 @@ const StyledSidebar = styled.aside`
   ol {
     padding: 0;
     margin: 0;
-    /* width: 100%; */
     list-style: none;
 
     li {
       position: relative;
-      /* display: flex; */
-      /* margin: 0 auto 20px; */
       counter-increment: item 1;
       font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
 
-      @media (max-width: 600px) {
-        /* margin: 0 auto 10px; */
-      }
+      @media (max-width: 600px) {}
 
       &:before {
         content: '0' counter(item) '.';
         display: block;
-        /* margin-bottom: 5px; */
-        color: var(--blue);
+        color: var(--blue-100);
         font-size: var(--fz-sm);
       }
     }
 
     a {
-      ${({ theme }) => theme.mixins.link};
       width: 100%;
-      /* padding: 3px 20px 20px; */
+      ${({ theme }) => theme.mixins.link};
     }
   }
 
   .resume-link {
-    ${({ theme }) => theme.mixins.bigButton};
+    width: max-content;
     padding: 18px 50px;
     margin: 10% auto 0;
-    width: max-content;
+    ${({ theme }) => theme.mixins.bigButton};
   }
 `

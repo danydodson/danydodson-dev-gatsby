@@ -170,15 +170,8 @@ const StyledJobsSection = styled.section`
 
   .inner {
     display: flex;
-
-    @media (max-width: 600px) {
-      display: block;
-    }
-
-    /* Prevent container from jumping */
-    @media (min-width: 700px) {
-      min-height: 340px;
-    }
+    @media (max-width: 600px) {display: block;}
+    @media (min-width: 700px) {min-height: 340px;}
   }
 `
 
@@ -206,55 +199,44 @@ const StyledTabList = styled.div`
 
   li {
     &:first-of-type {
-      @media (max-width: 600px) {
-        margin-left: 50px;
-      }
-      @media (max-width: 480px) {
-        margin-left: 25px;
-      }
+      @media (max-width: 600px) {margin-left: 50px;}
+      @media (max-width: 480px) {margin-left: 25px;}
     }
     &:last-of-type {
-      @media (max-width: 600px) {
-        padding-right: 50px;
-      }
-      @media (max-width: 480px) {
-        padding-right: 25px;
-      }
+      @media (max-width: 600px) {padding-right: 50px;}
+      @media (max-width: 480px) {padding-right: 25px;}
     }
   }
 `
 
 const StyledTabButton = styled.button`
   ${({ theme }) => theme.mixins.link};
-  display: flex;
-  align-items: center;
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--blue);
-  background-color: transparent;
-  color: ${({ isActive }) => (isActive ? 'var(--yellow)' : 'var(--green_200)')};
-  font-family: var(--ff_mono);
-  font-size: var(--fz_xs);
+  display: flex;
+  align-items: center;
   text-align: left;
   white-space: nowrap;
+  color: ${({ isActive }) => (isActive ? 'var(--yellow-100)' : 'var(--green-100)')};
+  font-size: var(--fz-xs);
+  font-family: var(--ff-mono);
+  background-color: transparent;
+  border-left: 2px solid var(--blue-100);
 
-  @media (max-width: 768px) {
-    padding: 0 15px 2px;
-  }
+  @media (max-width: 768px) {padding: 0 15px 2px;}
+
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(-- blue);
+    border-bottom: 2px solid var(--blue-100);
     text-align: center;
   }
 
   &:hover,
-  &:focus {
-    background-color: var(--blue_400);
-  }
+  &:focus {background-color: var(--blue-100);}
 `
 
 const StyledHighlight = styled.div`
@@ -265,7 +247,7 @@ const StyledHighlight = styled.div`
   width: 2px;
   height: var(--tab-height);
   border-radius: var(--border-radius);
-  background: var(--green_300);
+  background: var(--green-100);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
@@ -279,19 +261,16 @@ const StyledHighlight = styled.div`
     margin-left: 50px;
     transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
   }
-  @media (max-width: 480px) {
-    margin-left: 25px;
-  }
+
+  @media (max-width: 480px) {margin-left: 25px;}
 `
 
 const StyledTabPanels = styled.div`
-  position: relative;
   width: 100%;
   margin-left: 20px;
+  position: relative;
 
-  @media (max-width: 600px) {
-    margin-left: 0;
-  }
+  @media (max-width: 600px) {margin-left: 0;}
 `
 
 const StyledTabPanel = styled.div`
@@ -305,19 +284,17 @@ const StyledTabPanel = styled.div`
 
   h3 {
     margin-bottom: 2px;
-    font-size: var(--fz_xxl);
-    font-weight: 500;
     line-height: 1.3;
+    font-size: var(--fz-lg);
+    font-weight: 500;
 
-    .company {
-      color: var(--green_300);
-    }
+    .company {color: var(--green-100);}
   }
 
   .range {
     margin-bottom: 25px;
-    color: var(--red_300);
-    font-family: var(--ff_mono);
-    font-size: var(--fz_xs);
+    color: var(--red-100);
+    font-family: var(--ff-mono);
+    font-size: var(--fz-xs);
   }
 `

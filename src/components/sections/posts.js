@@ -143,7 +143,6 @@ const StyledPostsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 95px;
 
   background-color: #fb3640;
   background-repeat: repeat-x;
@@ -152,17 +151,12 @@ const StyledPostsSection = styled.section`
   article {
     padding-bottom: 125px;
   
-    h2 {
-      font-size: clamp(24px, 5vw, var(--fz_xxxl));
-    }
+    h2 {font-size: clamp(24px, 5vw, var(--fz_lg));}
   
     .archive-link {
-      font-family: var(--ff_mono);
-      font-size: var(--fz_sm);
-  
-      &:after {
-        bottom: 0.1em;
-      }
+      font-family: var(--ff-mono);
+      font-size: var(--fz-sm);
+      &:after {bottom: 0.1em;}
     }
   
     .posts-grid {
@@ -211,11 +205,8 @@ const StyledPost = styled.li`
     flex-direction: column;
     align-items: flex-start;
     ${({ theme }) => theme.mixins.flexBetween};
-    /* background-color: var(--blue); */
-    /* border-radius: var(--border-radius); */
     ${({ theme }) => theme.mixins.boxShadow};
     transition: var(--transition);
-
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
@@ -229,38 +220,23 @@ const StyledPost = styled.li`
 
     .folder {
       color: #a269cc;
-    
-      svg {
-        width: 40px;
-        height: 40px;
-      }
+      svg {width: 40px;height: 40px;}
     }
 
     .post-links {
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--black_200);
-
+      color: var(--black-100);
       a {
         padding: 5px 7px;
         ${({ theme }) => theme.mixins.flexCenter};
-
-        &.external {
-          svg {
-            width: 22px;
-            height: 22px;
-            margin-top: -4px;
-          }
-        }
-
+        &.external {svg {width: 22px;height: 22px;margin-top: -4px;}}
         svg {
           width: 20px;
           height: 20px;
-          stroke: var(--grey_300);
-          &:hover {
-            stroke: var(--blue);
-          }
+          stroke: var(--grey-200);
+          &:hover {stroke: var(--blue-200);}
         }
       }
     }
@@ -268,8 +244,8 @@ const StyledPost = styled.li`
 
   .post-title {
     margin: 0 0 10px;
-    color: var(--pink_300);
-    font-size: var(--fz_xxl);
+    color: var(--pink-100);
+    font-size: var(--fz-xl);
 
     a {
       position: static;
@@ -288,8 +264,8 @@ const StyledPost = styled.li`
   }
 
   .post-description {
-    font-size: 17px;
-    color: var(--black_200);
+    color: var(--black-100);
+    font-size: var(--fz-xs);
     
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -297,22 +273,19 @@ const StyledPost = styled.li`
   }
 
   .post-tag-list {
-    display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
-    flex-wrap: wrap;
     padding: 0;
     margin: 20px 0 0 0;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: flex-end;
     list-style: none;
 
     li {
-      font-family: var(--ff_mono);
-      font-size: var(--fz_xxs);
       line-height: 1.75;
-
-      &:not(:last-of-type) {
-        margin-right: 15px;
-      }
+      font-family: var(--ff-mono);
+      font-size: var(--fz-xs);
+      &:not(:last-of-type) {margin-right: 15px;}
     }
   }
 `

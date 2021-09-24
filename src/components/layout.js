@@ -50,7 +50,7 @@ const Layout = ({ children, location }) => {
         <ThemeProvider theme={theme}>
           <Styles />
 
-          <a className='skip-to-content' href='#content'>Skip to Content</a>
+          <a className='skip-to-content' rel='preload'  href='#content'>Skip to Content</a>
 
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />

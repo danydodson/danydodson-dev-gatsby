@@ -30,12 +30,12 @@ const Hero = () => {
     <p>I'm a software engineer specializing in building (and occasionally
       designing) exceptional digital experiences. Currently, I'm focused on
       building accessible, human-centered products at
-      {' '}<a href='https://upstatement.com/' target='_blank' rel='noreferrer'>Upstatement</a>.
+      {' '}<a rel='preload' href='https://upstatement.com/' target='_blank' rel='noreferrer'>Upstatement</a>.
     </p>
   )
 
   const contact = (
-    <a href={`mailto:${config.email}`} className='email-link'>Get In Touch</a>
+    <a rel='preload' href={`mailto:${config.email}`} className='email-link'>Get In Touch</a>
   )
 
   const items = [greet, name, quote, bio, contact]

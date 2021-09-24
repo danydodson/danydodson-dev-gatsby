@@ -7,7 +7,7 @@ import { email } from '../../data/config'
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation='right'>
     <StyledEmail>
-      <a href={`mailto:${email}`}>{email}</a>
+      <a rel='preload' href={`mailto:${email}`}>{email}</a>
     </StyledEmail>
   </Side>
 )

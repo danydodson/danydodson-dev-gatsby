@@ -39,14 +39,14 @@ const Nav = ({ isHome }) => {
   const Logo = (
     <div className='logo' tabIndex='-1'>
       {isHome
-        ? <a href='/#' aria-label='home'><Icon name='Logo' /></a>
+        ? <a rel='preload' href='/#' aria-label='home'><Icon name='Logo' /></a>
         : <Link to='/' aria-label='home'><Icon name='Logo' /></Link>
       }
     </div>
   )
 
   const ResumeLink = (
-    <a className='resume-button' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
+    <a className='resume-button' rel='preload' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
       Resume
     </a>
   )
@@ -71,7 +71,7 @@ const Nav = ({ isHome }) => {
                 {isMounted && navLinks && navLinks.map(({ url, name }, i) => (
                   <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                     <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                      <a href={url}>{name}</a>
+                      <a rel='preload' href={url}>{name}</a>
                     </li>
                   </CSSTransition>
                 ))}

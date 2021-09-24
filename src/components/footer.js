@@ -32,14 +32,14 @@ const Footer = () => {
       <StyledSocialLinks>
         {socialLinks && socialLinks.map(({ name, url }, i) => (
           <li key={i}>
-            <a href={url} aria-label={name}>
+            <a rel='preload' href={url} aria-label={name}>
               <Icon name={name} />
             </a>
           </li>
         ))}
       </StyledSocialLinks>
       <StyledCredit>
-        <a href="https://github.com/bchiang7/v4">
+        <a rel='preload' href="https://github.com/bchiang7/v4">
           <div>Designed &amp; Built by Dany Dodson</div>
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">

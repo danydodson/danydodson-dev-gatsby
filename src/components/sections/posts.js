@@ -77,7 +77,7 @@ const Posts = () => {
             <div className='post-links'>
 
               {slug && (
-                <a href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
+                <a rel='preload' href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
                   <Icon name='GitHub' />
                 </a>
               )}
@@ -86,7 +86,7 @@ const Posts = () => {
           </div>
 
           <h3 className='post-title'>
-            <a href={slug} target='_blank' rel='noreferrer'>
+            <a rel='preload' href={slug} target='_blank' rel='noreferrer'>
               {title}
             </a>
           </h3>

@@ -74,7 +74,7 @@ const Featured = () => {
                     <p className='project-overline'>Featured Project</p>
 
                     <h3 className='project-title'>
-                      <a href={external}>{title}</a>
+                      <a rel='preload' href={external}>{title}</a>
                     </h3>
 
                     <div
@@ -92,12 +92,12 @@ const Featured = () => {
 
                     <div className='project-links'>
                       {github && (
-                        <a href={github} aria-label='GitHub Link'>
+                        <a rel='preload' href={github} aria-label='GitHub Link'>
                           <Icon name='GitHub' />
                         </a>
                       )}
                       {external && (
-                        <a href={external} aria-label='External Link' className='external'>
+                        <a rel='preload' href={external} aria-label='External Link' className='external'>
                           <Icon name='External' />
                         </a>
                       )}
@@ -106,7 +106,7 @@ const Featured = () => {
                 </div>
 
                 <div className='project-image'>
-                  <a href={external ? external : github ? github : '#'}>
+                  <a rel='preload' href={external ? external : github ? github : '#'}>
                     <GatsbyImage image={image} alt={title} className='img' />
                   </a>
                 </div>

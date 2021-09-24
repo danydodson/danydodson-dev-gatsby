@@ -2,6 +2,7 @@
 .vscode
 .env.*
 .netlify
+content/____/*
 public
 node_modules
 yarn-error.log

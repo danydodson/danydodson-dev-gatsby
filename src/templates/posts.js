@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import { Layout, Head, Paging } from '../components'
 

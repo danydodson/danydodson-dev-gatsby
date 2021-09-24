@@ -19,7 +19,7 @@ module.exports = {
     `)
 
     return group.map((tag, i) => ({
-      ...tag
+      ...tag,
     }))
 
   }

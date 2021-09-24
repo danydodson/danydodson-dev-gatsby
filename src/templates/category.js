@@ -1,9 +1,8 @@
 import React from 'react'
+import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql, Link } from 'gatsby'
 import { Layout, Head, Paging } from '../components'
-import { getColor } from '../utils'
 
 // site.com/category/<category>
 
@@ -12,8 +11,6 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
   const { edges } = data.allMarkdownRemark
 
   // const description = edges.map(edge => edge.node.fields.description)
-
-  const categoryColor = getColor({ categories, category })
 
   const pageTitle = currentPage > 0
     ? `Category: ${category} - Page ${currentPage} `
@@ -48,9 +45,9 @@ const CategoryTemplate = ({ data, pageContext, location }) => {
               <li key={i}>
                 <span>title: </span>
                 <Link to={`/category/${category.fieldValue}`}>
-                  <StyledCategoryLink categoryColor={categoryColor}>
+                  <span>
                     {category.fieldValue}
-                  </StyledCategoryLink>
+                  </span>
                 </Link>
               </li>
             )
@@ -112,8 +109,4 @@ const StyledCategorySection = styled.section`
   h2 {
     padding-top: 20px;
   }
-`
-
-const StyledCategoryLink = styled.span`
-  background-color: var(--${props => props.categoryColor});
 `

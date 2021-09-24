@@ -1,15 +1,15 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
-import { loaderDelay } from '../constants'
+import PropTypes from 'prop-types'
+import { loadDelay } from '../utils'
 
 const Side = ({ children, isHome, orientation }) => {
   const [isMounted, setIsMounted] = useState(!isHome)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), loaderDelay)
+    const timeout = setTimeout(() => setIsMounted(true), loadDelay)
     return () => clearTimeout(timeout)
   }, [])
 
@@ -18,7 +18,7 @@ const Side = ({ children, isHome, orientation }) => {
 
       <TransitionGroup component={null}>
         {isMounted && (
-          <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loaderDelay : 0}>
+          <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loadDelay : 0}>
             {children}
           </CSSTransition>
         )}

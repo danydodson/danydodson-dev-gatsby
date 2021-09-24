@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Layout, Head } from '../components'
 

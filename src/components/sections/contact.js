@@ -2,14 +2,14 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import contact from '../../images/svg/contact.svg'
-import { email, srConfig } from '../../../data/config'
+import config from '../../../data/config'
 import { sr } from '../../utils'
 
 const Contact = () => {
   const revealContainer = useRef(null)
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, config.srConfig())
   }, [])
 
   return (
@@ -25,7 +25,7 @@ const Contact = () => {
           Whether you have a question or just want to say hi, I'll try my best to get back to you!
         </p>
 
-        <a className='email-link' href={`mailto:${email}`}>
+        <a className='email-link' href={`mailto:${config.email}`}>
           Say Hello
         </a>
 

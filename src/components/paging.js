@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { PAGINATION } from '../constants'
+import { page } from '../utils'
 
 const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => {
 
@@ -10,12 +10,12 @@ const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => {
     <StyledContent>
       {hasPrev && (
         <Link to={prevPath} rel='prev'>
-          {PAGINATION.PREV_PAGE}
+          {page.prev}
         </Link>
       )}
       {hasNext && (
         <Link to={nextPath} rel='next'>
-          {PAGINATION.NEXT_PAGE}
+          {page.prev}
         </Link>
       )}
     </StyledContent>

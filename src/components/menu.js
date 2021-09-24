@@ -1,19 +1,19 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { KEY_CODES } from '../constants'
+import { Link } from 'gatsby'
 import { navLinks } from '../../data/config'
 import { useOnClickOutside } from '../hooks'
+import { keys } from '../utils'
 
 const Menu = () => {
   const navRef = useRef(null)
   const buttonRef = useRef(null)
-  
+
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleMenu = () => setMenuOpen(!menuOpen)
-  
+
   const wrapperRef = useRef()
   useOnClickOutside(wrapperRef, () => setMenuOpen(false))
 
@@ -43,13 +43,13 @@ const Menu = () => {
 
   const onKeyDown = e => {
     switch (e.key) {
-      case KEY_CODES.ESCAPE:
-      case KEY_CODES.ESCAPE_IE11: {
+      case keys.ESCAPE:
+      case keys.ESCAPE_IE11: {
         setMenuOpen(false)
         break
       }
 
-      case KEY_CODES.TAB: {
+      case keys.TAB: {
         if (menuFocusables && menuFocusables.length === 1) {
           e.preventDefault()
           break

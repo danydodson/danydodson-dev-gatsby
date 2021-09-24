@@ -75,13 +75,13 @@ const Projects = () => {
             <div className='project-links'>
 
               {github && (
-                <a href={github} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
+                <a href={github} aria-label='GitHub Link'>
                   <Icon name='GitHub' />
                 </a>
               )}
 
               {external && (
-                <a href={external} aria-label='External Link' className='external' target='_blank' rel='noreferrer'>
+                <a href={external} aria-label='External Link' className='external' >
                   <Icon name='External' />
                 </a>
               )}
@@ -90,7 +90,7 @@ const Projects = () => {
           </div>
 
           <h3 className='project-title'>
-            <a href={external} target='_blank' rel='noreferrer'>
+            <a href={external}>
               {title}
             </a>
           </h3>

@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import posts from '../../images/svg/posts.svg'
-import { srConfig } from '../../../data/config'
+import config from '../../../data/config'
 import { sr } from '../../utils'
 import { Icon } from '../icons'
 
@@ -50,9 +50,9 @@ const Posts = () => {
   const [showMore, setShowMore] = useState(false)
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig())
-    sr.reveal(revealLink.current, srConfig())
-    revealPosts.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
+    sr.reveal(revealTitle.current, config.srConfig())
+    sr.reveal(revealLink.current, config.srConfig())
+    revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
   }, [])
 
   const GRID_LIMIT = 6

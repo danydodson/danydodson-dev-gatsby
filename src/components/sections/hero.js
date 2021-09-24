@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import styled from 'styled-components'
+import { navDelay, loadDelay } from '../../utils'
 import hero from '../../images/svg/hero.svg'
-import { email } from '../../../data/config'
-import { navDelay, loaderDelay } from '../../constants'
+import config from '../../../data/config'
 
 
 const Hero = () => {
@@ -35,7 +35,7 @@ const Hero = () => {
   )
 
   const contact = (
-    <a href={`mailto:${email}`} className='email-link'>Get In Touch</a>
+    <a href={`mailto:${config.email}`} className='email-link'>Get In Touch</a>
   )
 
   const items = [greet, name, quote, bio, contact]
@@ -45,7 +45,7 @@ const Hero = () => {
       <article>
         <TransitionGroup component={null}>
           {isMounted && items.map((item, i) => (
-            <CSSTransition key={i} classNames='fadeup' timeout={loaderDelay}>
+            <CSSTransition key={i} classNames='fadeup' timeout={loadDelay}>
               <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
             </CSSTransition>
           ))}

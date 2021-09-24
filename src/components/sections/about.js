@@ -13,6 +13,7 @@ const About = () => {
   }, [])
 
   return (
+
     <AboutSection id='about'>
       <article className='about' ref={revealContainer}>
 
@@ -48,6 +49,7 @@ const About = () => {
 
       </article>
     </AboutSection>
+
   )
 }
 
@@ -57,7 +59,7 @@ const AboutSection = styled.section`
   background-color: #4facf7;
   background-repeat: repeat-x;
   background-image: url(${about});
-
+  
   article.about {
     /* margin: 0 100px; */
 

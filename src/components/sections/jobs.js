@@ -1,12 +1,11 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
 import { CSSTransition } from 'react-transition-group'
+import styled from 'styled-components'
 import jobs from '../../images/svg/jobs.svg'
-import { srConfig } from '../../../data/config'
-import { KEY_CODES } from '../../constants'
-import { sr } from '../../utils'
+import { sr, keys } from '../../utils'
+import config from '../../../data/config'
 
 const Jobs = () => {
 
@@ -49,7 +48,7 @@ const Jobs = () => {
   const revealContainer = useRef(null)
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, config.srConfig())
   })
 
   const focusTab = () => {
@@ -73,13 +72,13 @@ const Jobs = () => {
   // Focus on tabs when using up & down arrow keys
   const onKeyDown = e => {
     switch (e.key) {
-      case KEY_CODES.ARROW_UP: {
+      case keys.ARROW_UP: {
         e.preventDefault()
         setTabFocus(tabFocus - 1)
         break
       }
 
-      case KEY_CODES.ARROW_DOWN: {
+      case keys.ARROW_DOWN: {
         e.preventDefault()
         setTabFocus(tabFocus + 1)
         break

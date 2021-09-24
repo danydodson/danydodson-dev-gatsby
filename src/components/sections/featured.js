@@ -1,12 +1,13 @@
 /* eslint-disable */
 import React, { useEffect, useRef } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import featured from '../../images/svg/featured.svg'
-import { srConfig } from '../../../data/config'
-import { sr } from '../../utils'
 import { Icon } from '../icons'
+import featured from '../../images/svg/featured.svg'
+import config from '../../../data/config'
+import { sr } from '../../utils'
+
 
 const Featured = () => {
 
@@ -47,8 +48,8 @@ const Featured = () => {
   const revealProjects = useRef([])
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig())
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
+    sr.reveal(revealTitle.current, config.srConfig())
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
   }, [])
 
   return (

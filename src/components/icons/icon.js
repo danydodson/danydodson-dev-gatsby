@@ -1,7 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { IconBookmark, IconCodepen, IconExternal, IconFolder, IconFork, IconGitHub, IconInstagram, IconLinkedin, IconLoader, IconLogo, IconStar, IconTwitter } from '.'
+import {
+  IconBookmark,
+  IconCodepen,
+  IconExternal,
+  IconFolder,
+  IconFork,
+  IconGitHub,
+  IconInstagram,
+  IconLinkedin,
+  IconLoader,
+  IconLogo,
+  IconStar,
+  IconTwitter
+} from '.'
 
 const Icon = ({ name }) => {
   switch (name) {

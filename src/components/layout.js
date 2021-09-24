@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { handleLinks } from '../utils'
 import { ThemeProvider } from 'styled-components'
 import { Styles, theme } from '../styles'
 
@@ -14,13 +13,35 @@ const Layout = ({ children, location }) => {
   const isHome = location.pathname === '/'
   const [isLoading, setIsLoading] = useState(isHome)
 
+  function handleLinks() {
+    const links = Array.from(document.querySelectorAll('a'))
+    if (links.length > 0) {
+      links.forEach(ln => {
+        if (ln.host !== window.location.host) {
+          ln.setAttribute('rel', 'noopener noreferrer')
+          ln.setAttribute('target', '_blank')
+        }
+      })
+    }
+  }
+
   useEffect(() => {
     if (isLoading) {
       return
     }
 
-    handleLinks(location)
-  })
+    if (location.hash) {
+      const id = location.hash.substring(1)
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView()
+        el.focus()
+      }
+    }
+
+    handleLinks()
+
+  }, [isLoading, location.hash])
 
   return (
     <>
@@ -28,7 +49,9 @@ const Layout = ({ children, location }) => {
       <div id='root'>
         <ThemeProvider theme={theme}>
           <Styles />
+
           <a className='skip-to-content' href='#content'>Skip to Content</a>
+
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
@@ -40,6 +63,7 @@ const Layout = ({ children, location }) => {
               <Footer />
             </div>
           )}
+
         </ThemeProvider>
       </div>
     </>

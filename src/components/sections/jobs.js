@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { CSSTransition } from 'react-transition-group'
 import jobs from '../../images/svg/jobs.svg'
 import { srConfig } from '../../../data/config'
-import { useReducedMotion } from '../../hooks'
 import { KEY_CODES } from '../../constants'
 import { sr } from '../../utils'
 
@@ -48,15 +47,10 @@ const Jobs = () => {
   const [tabFocus, setTabFocus] = useState(null)
   const tabs = useRef([])
   const revealContainer = useRef(null)
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     sr.reveal(revealContainer.current, srConfig())
-  }, [])
+  })
 
   const focusTab = () => {
     if (tabs.current[tabFocus]) {
@@ -236,9 +230,9 @@ const StyledTabButton = styled.button`
   display: flex;
   align-items: center;
   width: 100%;
-  height: var(--tab_height);
+  height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--blue_200);
+  border-left: 2px solid var(--blue);
   background-color: transparent;
   color: ${({ isActive }) => (isActive ? 'var(--yellow)' : 'var(--green_200)')};
   font-family: var(--ff_mono);
@@ -254,7 +248,7 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(-- blue_200);
+    border-bottom: 2px solid var(-- blue);
     text-align: center;
   }
 
@@ -270,10 +264,10 @@ const StyledHighlight = styled.div`
   left: 0;
   z-index: 10;
   width: 2px;
-  height: var(--tab_height);
-  border-radius: var(--border_radius);
+  height: var(--tab-height);
+  border-radius: var(--border-radius);
   background: var(--green_300);
-  transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab_height)));
+  transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
 
@@ -281,10 +275,10 @@ const StyledHighlight = styled.div`
     top: auto;
     bottom: 0;
     width: 100%;
-    max-width: var(--tab_width);
+    max-width: var(--tab-width);
     height: 2px;
     margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab_width)));
+    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
   }
   @media (max-width: 480px) {
     margin-left: 25px;

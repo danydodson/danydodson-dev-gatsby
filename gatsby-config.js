@@ -5,8 +5,13 @@ require('dotenv').config({
 const config = require('./data/config')
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    DEV_SSR: true,
+  },
   siteMetadata: config,
   plugins: [
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -50,7 +55,6 @@ module.exports = {
               quality: 90,
               maxWidth: 1200,
               linkImagesToOriginal: true,
-              // tracedSVG: { color: `#a2e5b1` }
             }
           }
         ]
@@ -98,17 +102,18 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
+    
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Dany Dodson`,
-        short_name: `danydodson`,
         start_url: `/`,
-        icon: config.manifest.icon,
-        background_color: config.manifest.background_color,
-        theme_color: config.manifest.theme_color,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        short_name: `danydodson`,
+        theme_color: `#1b1f23`,
+        background_color: `#fafffd`,
+        icon: `src/images/logos/logo@4x.png`,
       }
     },
     {
@@ -119,6 +124,60 @@ module.exports = {
         indexName: process.env.ALGOLIA_INDEX_NAME,
         queries: require(`./gatsby/search/queries`),
         chunkSize: 10000
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.frontmatter.description,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                })
+              })
+            },
+            query: `{
+              allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+                edges {
+                  node {
+                    html
+                    fields { 
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      description
+                      date(formatString: "MMM D YYYY")
+                      category
+                      tags
+                    }
+                  }
+                }
+              }
+            }
+          `,
+            output: `/rss.xml`,
+            title: `Dany Dodson's Blog Feed`,
+          }
+        ]
       }
     },
     {

@@ -2,14 +2,14 @@
 template: project
 title: Spotify Profile
 slug: /featured/spotify-profile
+date: 2018-12-18
 draft: false
 featured: true
-date: 2018-12-18
-github: https://github.com/bchiang7/spotify-profile
-external: https://spotify-profile.herokuapp.com/
 cover: cover.png
-alt: blistoc project
-tech:
+alt: spotify profile
+github: https://github.com/danydodson
+external: https://spotify-profile.herokuapp.com/
+tech: 
   - React
   - Express
   - Styled Components

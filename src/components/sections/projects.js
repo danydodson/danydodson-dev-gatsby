@@ -4,7 +4,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import projects from '../../images/svg/projects.svg'
-import { useReducedMotion } from '../../hooks'
 import { srConfig } from '../../../data/config'
 import { sr } from '../../utils'
 import { Icon } from '../icons'
@@ -48,13 +47,8 @@ const Projects = () => {
   const revealArchiveLink = useRef(null)
   const revealProjects = useRef([])
   const [showMore, setShowMore] = useState(false)
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     sr.reveal(revealTitle.current, srConfig())
     sr.reveal(revealArchiveLink.current, srConfig())
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
@@ -129,23 +123,15 @@ const Projects = () => {
         </Link>
 
         <ul className='projects-grid'>
-          {prefersReducedMotion ? (
-            projectsToShow && projectsToShow.map(({ node }, i) => (
-              <StyledProject key={i}>
-                {projectInner(node)}
-              </StyledProject>
-            ))
-          ) : (
-            <TransitionGroup component={null}>
-              {projectsToShow && projectsToShow.map(({ node }, i) => (
-                <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
-                  <StyledProject key={i} ref={el => (revealProjects.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
-                    {projectInner(node)}
-                  </StyledProject>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-          )}
+          <TransitionGroup component={null}>
+            {projectsToShow && projectsToShow.map(({ node }, i) => (
+              <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
+                <StyledProject key={i} ref={el => (revealProjects.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
+                  {projectInner(node)}
+                </StyledProject>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         </ul>
 
         <button className='more-button' onClick={() => setShowMore(!showMore)}>
@@ -230,8 +216,8 @@ const StyledProject = styled.li`
     flex-direction: column;
     align-items: flex-start;
     ${({ theme }) => theme.mixins.flexBetween};
-    /* background-color: var(--blue_200); */
-    /* border-radius: var(--border_radius); */
+    /* background-color: var(--blue); */
+    /* border-radius: var(--border-radius); */
     ${({ theme }) => theme.mixins.boxShadow};
     transition: var(--transition);
     backdrop-filter: blur(16px) saturate(180%);
@@ -275,7 +261,7 @@ const StyledProject = styled.li`
           height: 20px;
           stroke: var(--grey_300);
           &:hover {
-            stroke: var(--blue_200);
+            stroke: var(--blue);
           }
         }
       }

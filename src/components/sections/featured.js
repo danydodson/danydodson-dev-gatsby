@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import featured from '../../images/svg/featured.svg'
-import { useReducedMotion } from '../../hooks'
 import { srConfig } from '../../../data/config'
 import { sr } from '../../utils'
 import { Icon } from '../icons'
@@ -46,13 +45,8 @@ const Featured = () => {
 
   const revealTitle = useRef(null)
   const revealProjects = useRef([])
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     sr.reveal(revealTitle.current, srConfig())
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
   }, [])
@@ -211,7 +205,7 @@ const StyledProject = styled.li`
       margin-left: 0;
       margin-right: -10px;
       justify-content: flex-end;
-      color: var(--black_200);
+      color: var(--black);
 
       @media (max-width: 768px) {
         justify-content: flex-start;
@@ -256,8 +250,8 @@ const StyledProject = styled.li`
   .project-overline {
     margin: 10px 0;
     color: var(--white);
-    font-family: var(--ff_mono);
-    font-size: var(--fz_xs);
+    font-family: var(--ff-mono);
+    font-size: var(--fz-xs);
     font-weight: 400;
   }
 
@@ -270,13 +264,13 @@ const StyledProject = styled.li`
     }
 
     @media (max-width: 768px) {
-      color: var(--grey_400);
+      color: var(--grey);
       
       a {
         position: static;
         
         &:hover {
-          color: var(--blue_200);
+          color: var(--blue);
         }
 
         &:before {
@@ -297,12 +291,12 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     position: relative;
-    color: var(--grey_400);
-    font-size: var(--fz_lg);
+    color: var(--grey);
+    font-size: var(--fz-lg);
     backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
     border: 1px solid rgba(209, 213, 219, 0.3);
-    border-radius: var(--border_radius);
+    border-radius: var(--border-radius);
     transition: var(--transition);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     ${({ theme }) => theme.mixins.boxShadow};
@@ -334,8 +328,8 @@ const StyledProject = styled.li`
     li {
       margin: 0 20px 5px 0;
       color: var(--white);
-      font-family: var(--ff_mono);
-      font-size: var(--fz_xs);
+      font-family: var(--ff-mono);
+      font-size: var(--fz-xs);
       white-space: nowrap;
     }
 
@@ -355,7 +349,7 @@ const StyledProject = styled.li`
     position: relative;
     display: flex;
     align-items: center;
-    color: var(--pink_200);
+    color: var(--pink);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -392,8 +386,8 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green_200);
-      border-radius: var(--border_radius);
+      background-color: var(--green);
+      border-radius: var(--border-radius);
       vertical-align: middle;
 
       &:hover,
@@ -427,7 +421,7 @@ const StyledProject = styled.li`
     .img {
       mix-blend-mode: multiply;
       filter: grayscale(100%) contrast(1) brightness(90%);
-      border-radius: var(--border_radius);
+      border-radius: var(--border-radius);
 
       @media (max-width: 768px) {
         width: auto;

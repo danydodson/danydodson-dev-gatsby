@@ -153,17 +153,17 @@ const StyledHamburgerButton = styled.button`
     display: block;
     position: relative;
     height: 30px;
-    width: var(--ham_width);
+    width: var(--ham-width);
   }
 
   .ham-box-inner {
     position: absolute;
     top: 50%;
     right: 0;
-    height: var(--ham_height);
-    width: var(--ham_width);
-    background-color: var(--blue_200);
-    border-radius: var(--border_radius);
+    height: var(--ham-height);
+    width: var(--ham-width);
+    background-color: var(--blue);
+    border-radius: var(--border-radius);
     transition-duration: 0.22s;
     transition-property: transform;
     transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
@@ -177,10 +177,10 @@ const StyledHamburgerButton = styled.button`
       position: absolute;
       left: auto;
       right: 0;
-      height: var(--ham_height);
-      width: var(--ham_width);
-      border-radius: var(--border_radius);
-      background-color: var(--blue_200);
+      height: var(--ham-height);
+      width: var(--ham-width);
+      border-radius: var(--border-radius);
+      background-color: var(--blue);
       transition-timing-function: ease;
       transition-duration: 0.15s;
       transition-property: transform;
@@ -190,14 +190,14 @@ const StyledHamburgerButton = styled.button`
       width: ${props => (props.menuOpen ? `100%` : `120%`)};
       top: ${props => (props.menuOpen ? `0` : `-10px`)};
       opacity: ${props => (props.menuOpen ? 0 : 1)};
-      transition: ${({ menuOpen }) => menuOpen ? 'var(--ham_before_active)' : 'var(--ham_before)'};
+      transition: ${({ menuOpen }) => menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
     }
 
     &:after {
       width: ${props => (props.menuOpen ? `100%` : `80%`)};
       bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
       transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
-      transition: ${({ menuOpen }) => (menuOpen ? 'var(--ham_after_active)' : 'var(--ham_after)')};
+      transition: ${({ menuOpen }) => (menuOpen ? 'var(--ham-after-active)' : 'var(--ham-after)')};
     }
   }
 `
@@ -216,8 +216,8 @@ const StyledSidebar = styled.aside`
     ${({ theme }) => theme.mixins.flexCenter};
     z-index: 9;
     outline: 0;
-    background-color: var(--bg_hero);
-    box-shadow: -10px 0px 30px -15px var(--black_tint);
+    background-color: var(--pink);
+    box-shadow: -10px 0px 30px -15px var(--black);
     transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
     visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
     transition: var(--transition);
@@ -227,8 +227,8 @@ const StyledSidebar = styled.aside`
   nav {
     width: 100%;
     flex-direction: column;
-    color: var(--blue_200);
-    font-family: var(--ff_mono);
+    color: var(--blue);
+    font-family: var(--ff-mono);
     text-align: center;
     ${({ theme }) => theme.mixins.flexBetween};
   }
@@ -244,7 +244,7 @@ const StyledSidebar = styled.aside`
       /* display: flex; */
       /* margin: 0 auto 20px; */
       counter-increment: item 1;
-      font-size: clamp(var(--fz_sm), 4vw, var(--fz_lg));
+      font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
 
       @media (max-width: 600px) {
         /* margin: 0 auto 10px; */
@@ -254,8 +254,8 @@ const StyledSidebar = styled.aside`
         content: '0' counter(item) '.';
         display: block;
         /* margin-bottom: 5px; */
-        color: var(--blue_200);
-        font-size: var(--fz_sm);
+        color: var(--blue);
+        font-size: var(--fz-sm);
       }
     }
 

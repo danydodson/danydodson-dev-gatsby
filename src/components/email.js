@@ -30,15 +30,15 @@ const StyledLinkWrapper = styled.div`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--grey_400);
+    background-color: var(--grey);
   }
 
   a {
     margin: 20px auto;
     padding: 10px;
-    font-family: var(--ff_mono);
-    font-size: var(--fz_xxs);
-    line-height: var(--fz_lg);
+    font-family: var(--ff-mono);
+    font-size: var(--fz-xxs);
+    line-height: var(--fz-lg);
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
 

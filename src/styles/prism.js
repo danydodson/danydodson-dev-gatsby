@@ -29,7 +29,7 @@ const PrismStyles = css`
     color: ${prismColors.variable};
     font-family: var(--ff_mono);
     font-size: var(--fz_md);
-    border-radius: var(--border_radius);
+    border-radius: var(--border-radius);
     background-color: ${prismColors.bg};
     overflow: auto;
   }
@@ -71,8 +71,8 @@ const PrismStyles = css`
     font-size: var(--fz_xs);
     color: ${prismColors.grey};
     background-color: ${prismColors.bg};
-    border-top-left-radius: var(--border_radius);
-    border-top-right-radius: var(--border_radius);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
     border-bottom: 1px solid ${prismColors.lineHighlight};
     & + .gatsby-highlight {
       margin-top: 0;
@@ -89,7 +89,7 @@ const PrismStyles = css`
     padding-left: calc(1em + 2px);
     padding-right: 1em;
     background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--blue_200);
+    border-left: 2px solid var(--blue);
   }
 
   /* Language badges */
@@ -105,9 +105,9 @@ const PrismStyles = css`
     line-height: 1.5;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--blue_200);
-    border-right: 1px solid var(--blue_200);
-    border-left: 1px solid var(--blue_200);
+    border-bottom: 1px solid var(--blue);
+    border-right: 1px solid var(--blue);
+    border-left: 1px solid var(--blue);
     border-radius: 0 0 3px 3px;
   }
 

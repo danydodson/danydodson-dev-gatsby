@@ -7,36 +7,23 @@ import { useLocation } from '@reach/router'
 const Head = ({ title, description, image }) => {
   const { pathname } = useLocation()
 
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            defaultTitle: title
-            defaultDescription: description
-            defaultImage: image
-            siteUrl
-            username
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          defaultTitle: title
+          defaultDescription: description
+          defaultImage: image
+          siteUrl
+          username
         }
       }
-    `,
+    }`,
   )
 
-  const {
-    defaultTitle,
-    defaultDescription,
-    defaultImage,
-    siteUrl,
-    username
-  } = site.siteMetadata
+  const { defaultTitle, defaultDescription, defaultImage, siteUrl, username } = site.siteMetadata
 
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`
-  }
+  const seo = { title: title || defaultTitle, description: description || defaultDescription, image: `${siteUrl}${image || defaultImage}`, url: `${siteUrl}${pathname}` }
 
   return (
     <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s ${defaultTitle}`}>
@@ -59,10 +46,7 @@ const Head = ({ title, description, image }) => {
       <meta property='twitter:description' content={seo.description} />
       <meta property='twitter:image' content={seo.image} />
       <meta property="twitter:url" content={seo.url} />
-
-      <link rel='canonical' href={siteUrl} />
-
-      <meta name='google-site-verification' content='whbkucPDSVYylDtYbIwY01GS0fNHCwhQ2ujuAXd1m_Y' />
+      
     </Helmet>
   )
 }

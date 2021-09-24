@@ -3,19 +3,16 @@ import styled from 'styled-components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import hero from '../../images/svg/hero.svg'
 import { email } from '../../../data/config'
-import { navDelay, loaderDelay } from '../../utils'
-import { useReducedMotion } from '../../hooks'
+import { navDelay, loaderDelay } from '../../constants'
 
 
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false)
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const timeout = setTimeout(() => setIsMounted(true), navDelay)
     return () => clearTimeout(timeout)
-  }, [prefersReducedMotion])
+  })
 
   const greet = (
     <h1>Hi, my name is</h1>
@@ -46,19 +43,13 @@ const Hero = () => {
   return (
     <StyledHero id='hero'>
       <article>
-        {prefersReducedMotion ? (
-          items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))
-        ) : (
-          <TransitionGroup component={null}>
-            {isMounted && items.map((item, i) => (
-              <CSSTransition key={i} classNames='fadeup' timeout={loaderDelay}>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
-        )}
+        <TransitionGroup component={null}>
+          {isMounted && items.map((item, i) => (
+            <CSSTransition key={i} classNames='fadeup' timeout={loaderDelay}>
+              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
       </article>
     </StyledHero>
   )
@@ -78,7 +69,7 @@ const StyledHero = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--blue_200);
+    color: var(--blue);
     font-family: var(--ff_mono);
     font-size: clamp(var(--fz_sm), 5vw, var(--fz_md));
     font-weight: 400;
@@ -94,7 +85,7 @@ const StyledHero = styled.section`
     max-width: 525px;
 
     a {
-     color: var(--blue_200);
+     color: var(--blue);
     }
   }
   

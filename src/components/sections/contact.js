@@ -3,18 +3,12 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import contact from '../../images/svg/contact.svg'
 import { email, srConfig } from '../../../data/config'
-import { useReducedMotion } from '../../hooks'
 import { sr } from '../../utils'
 
 const Contact = () => {
   const revealContainer = useRef(null)
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     sr.reveal(revealContainer.current, srConfig())
   }, [])
 
@@ -51,13 +45,13 @@ const StyledContactSection = styled.section`
     display: block;
     margin-bottom: 20px;
     color: var(--green);
-    font-family: var(--font_mono);
-    font-size: var(--fz_md);
+    font-family: var(--font-mono);
+    font-size: var(--fz-md);
     font-weight: 400;
 
     &:before {
       bottom: 0;
-      font-size: var(--fz_sm);
+      font-size: var(--fz-sm);
     }
 
     &:after {

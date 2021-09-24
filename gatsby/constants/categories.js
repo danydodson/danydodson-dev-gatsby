@@ -1,5 +1,5 @@
-const CATEGORY_COLORS = ['pink_100', 'green_100', 'indigo_100', '#dbedff', 'yellow', 'red_100', 'purple', 'teal', 'orange']
-const CATEGORY_COLOR_EXTRA = 'grey_100'
+const CATEGORY_COLORS = ['pink', 'green', 'indigo', '#dbedff', 'yellow', 'red', 'purple', 'teal', 'orange']
+const CATEGORY_COLOR_EXTRA = 'grey'
 
 module.exports = {
   CATEGORY_COLORS,
@@ -25,7 +25,7 @@ module.exports = {
 
     return group.map((cat, i) => ({
       ...cat,
-      categoryColor: CATEGORY_COLORS[i] || CATEGORY_COLOR_EXTRA
+      color: CATEGORY_COLORS[i] || CATEGORY_COLOR_EXTRA
     }))
   }
 }

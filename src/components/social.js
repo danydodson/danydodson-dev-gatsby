@@ -56,12 +56,12 @@ const StyledSocialList = styled.ul`
         transform: translateY(-3px);
         
         svg {
-          /* stroke: var(--grey_400); */
+          /* stroke: var(--grey); */
         }
       }
       
       /* svg { */
-        /* stroke: var(--grey_400); */
+        /* stroke: var(--grey); */
         /* width: 20px; */
         /* height: 20px; */
       /* } */

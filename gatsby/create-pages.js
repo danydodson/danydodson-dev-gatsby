@@ -39,32 +39,30 @@ const createPages = async ({ graphql, actions, reporter }) => {
     }
   })
 
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        filter: { frontmatter: { draft: { ne: true } } }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              template
-              cover {
-                childImageSharp {
-                  gatsbyImageData(width: 1200)
-                }
+  const result = await graphql(`{
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            template
+            cover {
+              childImageSharp {
+                gatsbyImageData(width: 1200)
               }
             }
           }
         }
       }
     }
-  `)
+  }`)
 
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    reporter.panicOnBuild(result.errors)
     return
   }
 

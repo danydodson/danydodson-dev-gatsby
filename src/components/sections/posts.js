@@ -4,7 +4,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import posts from '../../images/svg/posts.svg'
-import { useReducedMotion } from '../../hooks'
 import { srConfig } from '../../../data/config'
 import { sr } from '../../utils'
 import { Icon } from '../icons'
@@ -46,18 +45,13 @@ const Posts = () => {
   const posts = data.posts.edges.filter(({ node }) => node)
 
   const revealTitle = useRef(null)
-  const revealPostsLink = useRef(null)
+  const revealLink = useRef(null)
   const revealPosts = useRef([])
   const [showMore, setShowMore] = useState(false)
-  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     sr.reveal(revealTitle.current, srConfig())
-    sr.reveal(revealPostsLink.current, srConfig())
+    sr.reveal(revealLink.current, srConfig())
     revealPosts.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
   }, [])
 
@@ -120,31 +114,21 @@ const Posts = () => {
 
         <h2 ref={revealTitle} className='numbered-heading'>Posts</h2>
 
-        <Link className='inline-link archive-link' to='/posts' ref={revealPostsLink}>
-          view archive
-        </Link>
+        <Link to='/posts' className='inline-link archive-link' ref={revealLink}>view archive</Link>
 
         <ul className='posts-grid'>
-          {prefersReducedMotion ? (
-            postsToShow && postsToShow.map(({ node }, i) => (
-              <StyledPost key={i}>
-                {postInner(node)}
-              </StyledPost>
-            ))
-          ) : (
-            <TransitionGroup component={null}>
-              {postsToShow && postsToShow.map(({ node }, i) => (
-                <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
-                  <StyledPost key={i} ref={el => (revealPosts.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
-                    {postInner(node)}
-                  </StyledPost>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-          )}
+          <TransitionGroup component={null}>
+            {postsToShow && postsToShow.map(({ node }, i) => (
+              <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
+                <StyledPost key={i} ref={el => (revealPosts.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
+                  {postInner(node)}
+                </StyledPost>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         </ul>
 
-        <button className='more-button' onClick={() => setShowMore(!showMore)}>
+        <button onClick={() => setShowMore(!showMore)} className='more-button'>
           Show {showMore ? 'Less' : 'More'}
         </button>
 
@@ -227,8 +211,8 @@ const StyledPost = styled.li`
     flex-direction: column;
     align-items: flex-start;
     ${({ theme }) => theme.mixins.flexBetween};
-    /* background-color: var(--blue_200); */
-    /* border-radius: var(--border_radius); */
+    /* background-color: var(--blue); */
+    /* border-radius: var(--border-radius); */
     ${({ theme }) => theme.mixins.boxShadow};
     transition: var(--transition);
 
@@ -275,7 +259,7 @@ const StyledPost = styled.li`
           height: 20px;
           stroke: var(--grey_300);
           &:hover {
-            stroke: var(--blue_200);
+            stroke: var(--blue);
           }
         }
       }

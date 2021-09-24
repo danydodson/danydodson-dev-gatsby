@@ -2,58 +2,40 @@ import React, { useEffect, useRef } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import about from '../../images/svg/about.svg'
-import { srConfig } from '../../../data/config'
+import config from '../../../data/config'
 import { sr } from '../../utils'
 
 const About = () => {
   const revealContainer = useRef(null)
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, srConfig())
+    sr.reveal(revealContainer.current, config.srConfig())
   }, [])
 
-  const skills = ['JavaScript (ES6+)', 'React', 'Eleventy', 'Vue', 'Node.js', 'WordPress']
-
   return (
-    <StyledAboutSection id='about'>
-      <article ref={revealContainer}>
+    <AboutSection id='about'>
+      <article className='about' ref={revealContainer}>
 
-        <h2 className='numbered-heading'>About Me</h2>
+        <h2 className='numbered_heading'>About Me</h2>
 
-        <div className='inner'>
-          <StyledText>
-            <div>
-              <p>
-                Hello! My name is Dany and I enjoy creating things that live on the internet. My
-                interest in web development started back in 2000 when I decided to try editing live
-                Journal themes — turns out hacking together a custom reblog button taught me a lot
-                about HTML &amp; CSS!
-              </p>
+        <div className='about_grid'>
 
-              <p>
-                Fast-forward to today, and I've had the privilege of working at{' '}
-                <a href='https://us.mullenlowe.com/'>an advertising agency</a>,{' '}
-                <a href='https://starry.com/'>a start-up</a>,{' '}
-                <a href='https://www.apple.com/'>a huge corporation</a>, and{' '}
-                <a href='https://scout.camd.northeastern.edu/'>a student-led design studio</a>. My
-                main focus these days is building accessible, inclusive products and digital
-                experiences at <a href='https://upstatement.com/'>Upstatement</a> for a variety of
-                clients.
-              </p>
-
-              <p>Here are a few technologies I've been working with recently:</p>
-            </div>
-
-            <ul className='skills-list'>
-              {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-            </ul>
+          <StyledText className='info'>
+            <div dangerouslySetInnerHTML={{ __html: config.hello }} />
           </StyledText>
 
-          <StyledPic>
+          <StyledList className='skills'>
+            {config.skills && config.skills.map((skill, i) => (
+              <li key={i} className='skill'>{skill}</li>
+            ))}
+          </StyledList>
+
+          <StyledPic className='image'>
+            <div className='inner' />
             <div className='wrapper'>
               <StaticImage
-                className='img'
-                src='../../../static/og@sm.png'
+                className='me'
+                src='../../../static/og@2.png'
                 width={500}
                 quality={95}
                 formats={['AUTO', 'WEBP', 'AVIF']}
@@ -63,131 +45,117 @@ const About = () => {
           </StyledPic>
 
         </div>
+
       </article>
-    </StyledAboutSection>
+    </AboutSection>
   )
 }
 
 export default About
 
-const StyledAboutSection = styled.section`
+const AboutSection = styled.section`
   background-color: #4facf7;
   background-repeat: repeat-x;
   background-image: url(${about});
 
-  article {
-    .inner {}
-  }
+  article.about {
+    /* margin: 0 100px; */
 
+    div.about_grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr; 
+      grid-template-rows: 3fr 1fr; 
+      gap: 12px;
+      grid-template-areas: 
+      "info image"
+      "skills . "; 
+    }
+  }
 `
 
-const StyledText = styled.div`
-  ul.skills-list {
-    padding: 0;
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
-    list-style: none;
-    overflow: hidden;
+const StyledText = styled.div` 
+  grid-area: info;
 
-    li {
-      position: relative;
-      margin: 5px 0;
-      padding-left: 20px;
-      font-family: var(--font_mono);
-      font-size: var(--fz_xs);
-
-      &:before {
-        left: 0;
-        position: absolute;
-        padding-top: 3px;
-        content: '🟊'; /* ▹ 🠶 ☆ ⤏ */
-        color: var(--yellow);
-        font-size: var(--fz_sm);
-        line-height: 12px;
-      }
-    }
-  }
-
-  a {
-    color: var(--yellow);
-    
+  p > a > .info-link {
+    color: var(--pink);
     &:hover,
     &:focus,
-    &:active {
-      color: var(--yellow);
-    }
+    &:active {color: var(--pink);}
+    &:after {background-color: var(--pink);}
+  }
+`
 
-    &:after {
-      background-color: var(--yellow);
+const StyledList = styled.ul`
+  grid-area: skills;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 0 10px 0;
+  overflow: hidden;
+  list-style: none;
+  
+  li.skill {
+    position: relative;
+    margin: 5px 0;
+    padding-left: 20px;
+    font-size: var(--fz-xs);
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-secondary);      
+  
+    &:before {
+      left: 0;
+      position: absolute;
+      padding-top: 3px;
+      content: '🟊';
+      color: var(--pink);
+      font-size: 20px;
+      line-height: 12px;
     }
   }
+
 `
 
 const StyledPic = styled.div`
+  grid-area: image;
+  width: 200px;
+  height: 200px;
   position: relative;
-  max-width: 300px;
-
-  @media (max-width: 768px) {
-    margin: 50px auto 0;
-    width: 70%;
+  justify-self: center; 
+  align-self: center;
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 100%;
   }
-
+  
   .wrapper {
     ${({ theme }) => theme.mixins.boxShadow};
-    display: block;
-    position: relative;
-    width: 100%;
-    border-radius: var(--border_radius);
-    background-color: var(--pink_100);
-
-    &:hover,
-    &:focus {
-      background: transparent;
-      outline: 0;
-
-      &:after {
-        top: 15px;
-        left: 15px;
-      }
-
-      .img {
-        filter: none;
-        mix-blend-mode: normal;
-      }
-    }
-
-    .img {
-      position: relative;
-      border-radius: var(--border_radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border_radius);
-      transition: var(--transition);
-    }
-
-    &:before {
-      top: 0;
-      left: 0;
-      background-color: var(--pink_100);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--green_100);
-      top: 20px;
-      left: 20px;
-      z-index: -1;
-    }
   }
+
+  .gatsby-image-wrapper{
+    border-radius: 100%;
+  }
+
+  img.me {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px #ccc solid;
+  }
+
+  .inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    border: 1px #ccc solid;
+    border-radius: 50%;
+  }
+
 `

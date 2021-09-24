@@ -1,5 +1,4 @@
 import React from 'react'
-// import styled, { keyframes } from 'styled-components'
 
 const IconLogo = (props) => (
   <svg
@@ -17,20 +16,3 @@ const IconLogo = (props) => (
 )
 
 export default IconLogo
-
-// const breathe = keyframes`
-//  0% { opacity: 1 }
-//  50% { opacity: 1 }
-//  75% { opacity: 0.5 }
-//  100% { opacity: 1 }
-// `
-
-// const StyledSvg = styled.svg`
-//   :hover,
-//   :focus,
-//   :active {
-//     animation-name: ${breathe};
-//     animation-duration: 1.5s;
-//     animation-iteration-count: infinite;
-//   }
-// `

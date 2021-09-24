@@ -96,7 +96,7 @@ const StyledSocialLinks = styled.ul`
     a {
     
       svg {
-        stroke: var(--blue_200);
+        stroke: var(--blue);
         width: 20px;
         height: 20px;
       }
@@ -106,8 +106,8 @@ const StyledSocialLinks = styled.ul`
 
 const StyledCredit = styled.div`
   color: var(--black);
-  font-family: var(--ff_mono);
-  font-size: var(--fz_xxs);
+  font-family: var(--ff-mono);
+  font-size: var(--fz-xxs);
   line-height: 1;
   
   a {}
@@ -129,7 +129,7 @@ const StyledCredit = styled.div`
     svg {
       width: 14px;
       height: 14px;
-      stroke: var(--blue_200);
+      stroke: var(--blue);
     }
   }
 `

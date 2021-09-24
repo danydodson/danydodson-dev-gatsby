@@ -35,17 +35,17 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--blue_200);
+      background-color: var(--blue);
       transition: var(--transition);
       opacity: 0.5;
     }
   `,
 
   button: css`
-    color: var(--blue_200);
+    color: var(--blue);
     background-color: transparent;
-    border: 1px solid var(--blue_200);
-    border-radius: var(--border_radius);
+    border: 1px solid var(--blue);
+    border-radius: var(--border-radius);
     font-size: var(--fz_xs);
     font-family: var(--ff_mono);
     line-height: 1;
@@ -65,10 +65,10 @@ const mixins = {
   `,
 
   smallButton: css`
-    color: var(--blue_200);
+    color: var(--blue);
     background-color: transparent;
-    border: 1px solid var(--blue_200);
-    border-radius: var(--border_radius);
+    border: 1px solid var(--blue);
+    border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
     font-size: var(--fz_xs);
     font-family: var(--ff_mono);
@@ -88,10 +88,10 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--blue_200);
+    color: var(--blue);
     background-color: transparent;
-    border: 1px solid var(--blue_200);
-    border-radius: var(--border_radius);
+    border: 1px solid var(--blue);
+    border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
     font-size: var(--fz_sm);
     font-family: var(--ff_mono);
@@ -109,13 +109,13 @@ const mixins = {
       display: none !important;
     }
   `,
- 
+
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--black_tint);
     transition: var(--transition);
+    box-shadow: 0 10px 30px -15px var(--box-shadow);
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--black_tint);
+      box-shadow: 0 20px 30px -15px var(--box-shadow);
     }
   `,
 

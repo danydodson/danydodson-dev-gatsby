@@ -1,23 +1,16 @@
 const config = {
-
-  title: `🖐️ Web & Software Engineer. Currently working remotely from the mid west.`,
-  siteUrl: `https://danys.art`,
-  description: `💻 danydodson.dev | 🎨 danys.art | ♡ Dany Dodson`,
-  image: `/og.png`,
-  username: `danydodson`,
   name: `Dany Dodson`,
+  username: `danydodson`,
   email: `danydodson@gmail.com`,
+  image: `/og@1.png`,
+  siteUrl: `https://danys.art`,
+  title: `🖐️ Web & Software Engineer. Currently working remotely from the mid west.`,
+  description: `💻 danydodson.dev | 🎨 danys.art | ♡ Dany Dodson`,
   bio: `Award-winning writer. Subtly charming travel advocate. Web practitioner.`,
   location: `Evansville, IN`,
   copyright: `© 2021 | Dany Dodson ♡`,
-
   postsPerPage: 10,
-  disqusShortname: `shortname`,
-
-  styles: {
-    heart: `🤍`,
-  },
-
+  
   navLinks: [
     { name: `About`, url: `/#about` },
     { name: `Experience`, url: `/#jobs` },
@@ -33,17 +26,13 @@ const config = {
     { name: `Codepen`, url: `https://codepen.io/danydodson` },
   ],
 
-  manifest: {
-    display: `standalone`,
-    theme_color: `#1b1f23`,
-    background_color: `#fafffd`,
-    icon: `src/images/logos/logo@4x.png`,
-  },
+  hello: `
+    <p>Hello! My name is Dany and I enjoy creating things that live on the internet. My interest in web development started back in 2000 when I decided to try editing live Journal themes — turns out hacking together a custom reblog button taught me a lot about HTML &amp; CSS! </p>
+    <p>Fast-forward to today, and I've had the privilege of working at<a href='https://us.mullenlowe.com/' className='inlineLink'> an advertising agency</a>, <a href='https://starry.com/' className='inlineLink'>a start-up</a>, <a href='https://www.apple.com/' className='inlineLink'> a huge corporation</a>, and{' '}<a href='https://scout.camd.northeastern.edu/'>a student-led design studio</a>.My main focus these days isbuilding accessible, inclusive products and digital experiences at <a href='https://upstatement.com/' className='inlineLink'>Upstatement</a> for a variety of clients.</p>
+    <p>Here are a few technologies I've been working with recently:</p>
+  `,
 
-  host: {
-    name: `GitHub`,
-    url: `https://github.com/danydodson/danydodson-dev`,
-  },
+  skills: ['JavaScript (ES6+)', 'React', 'Eleventy', 'Vue', 'Node.js', 'WordPress'],
 
   algolia: {
     appId: process.env.ALGOLIA_APP_ID,
@@ -52,14 +41,14 @@ const config = {
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
-    origin: `bottom`,
+    delay,
     distance: `20px`,
     duration: 500,
-    delay,
-    rotate: { x: 0, y: 0, z: 0 },
-    opacity: 0,
-    scale: 1,
     easing: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
+    origin: `bottom`,
+    rotate: { x: 0, y: 0, z: 0 },
+    scale: 1,
+    opacity: 0,
     mobile: true,
     reset: false,
     useDelay: `always`,

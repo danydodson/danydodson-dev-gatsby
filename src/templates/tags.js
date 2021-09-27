@@ -55,8 +55,5 @@ export default TagsTemplate
 
 const StyledTagsSection = styled.section`
   padding: 100px 0 0 50px;
-
-  h2 {
-    padding-top: 20px;
-  }
+  h2 {padding-top: 20px;}
 `

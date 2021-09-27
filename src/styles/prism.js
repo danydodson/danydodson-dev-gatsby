@@ -27,8 +27,8 @@ const PrismStyles = css`
     margin: 2em 0;
     padding: 1.25em;
     color: ${prismColors.variable};
-    font-family: var(--ff-mono);
-    font-size: var(--fz-md);
+    font-family: var(--mono);
+    font-size: var(--md);
     border-radius: var(--border-radius);
     background-color: ${prismColors.bg};
     overflow: auto;
@@ -37,7 +37,7 @@ const PrismStyles = css`
   .gatsby-highlight code[class*='language-'],
   .gatsby-highlight pre[class*='language-'] {
     height: auto !important;
-    font-size: var(--fz-sm);
+    font-size: var(--sm);
     line-height: 1.5;
     white-space: pre;
     word-spacing: normal;
@@ -67,8 +67,8 @@ const PrismStyles = css`
   /* File names */
   .gatsby-code-title {
     padding: 1em 1.5em;
-    font-family: var(--ff-mono);
-    font-size: var(--fz-xs);
+    font-family: var(--mono);
+    font-size: var(--xs);
     color: ${prismColors.grey};
     background-color: ${prismColors.bg};
     border-top-left-radius: var(--border-radius);
@@ -89,7 +89,7 @@ const PrismStyles = css`
     padding-left: calc(1em + 2px);
     padding-right: 1em;
     background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--blue-100);
+    border-left: 2px solid var(--_blue-1);
   }
 
   /* Language badges */
@@ -100,14 +100,14 @@ const PrismStyles = css`
     padding: 0.25rem 0.5rem;
     background: #5471a0;
     color: ${prismColors.title};
-    font-size: var(--fz-xs);
-    font-family: var(--ff-mono);
+    font-size: var(--xs);
+    font-family: var(--mono);
     line-height: 1.5;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--blue-100);
-    border-right: 1px solid var(--blue-100);
-    border-left: 1px solid var(--blue-100);
+    border-bottom: 1px solid var(--_blue-1);
+    border-right: 1px solid var(--_blue-1);
+    border-left: 1px solid var(--_blue-1);
     border-radius: 0 0 3px 3px;
   }
 

@@ -74,7 +74,7 @@ const Featured = () => {
                     <p className='project-overline'>Featured Project</p>
 
                     <h3 className='project-title'>
-                      <a rel='preload' href={external}>{title}</a>
+                      <a href={external}>{title}</a>
                     </h3>
 
                     <div
@@ -92,12 +92,12 @@ const Featured = () => {
 
                     <div className='project-links'>
                       {github && (
-                        <a rel='preload' href={github} aria-label='GitHub Link'>
+                        <a href={github} aria-label='GitHub Link'>
                           <Icon name='GitHub' />
                         </a>
                       )}
                       {external && (
-                        <a rel='preload' href={external} aria-label='External Link' className='external'>
+                        <a href={external} aria-label='External Link' className='external'>
                           <Icon name='External' />
                         </a>
                       )}
@@ -106,7 +106,7 @@ const Featured = () => {
                 </div>
 
                 <div className='project-image'>
-                  <a rel='preload' href={external ? external : github ? github : '#'}>
+                  <a href={external ? external : github ? github : '#'}>
                     <GatsbyImage image={image} alt={title} className='img' />
                   </a>
                 </div>
@@ -195,7 +195,7 @@ const StyledProject = styled.li`
       margin-left: 0;
       margin-right: -10px;
       justify-content: flex-end;
-      color: var(--black-100);
+      color: var(--_black-2);
 
       @media (max-width: 768px) {
         justify-content: flex-start;
@@ -239,9 +239,9 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--white-100);
-    font-family: var(--ff-mono);
-    font-size: var(--fz-xs);
+    color: var(--_white-1);
+    font-family: var(--mono);
+    font-size: var(--xs);
     font-weight: 400;
   }
 
@@ -252,12 +252,12 @@ const StyledProject = styled.li`
     @media (min-width: 768px) {margin: 0 0 20px;}
 
     @media (max-width: 768px) {
-      color: var(--grey-100);
+      color: var(--_grey-2);
       
       a {
         position: static;
         
-        &:hover {color: var(--teal-100);}
+        &:hover {color: var(--_teal-1);}
 
         &:before {
           top: 0;
@@ -277,8 +277,8 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     position: relative;
-    color: var(--grey-100);
-    font-size: var(--fz-lg);
+    color: var(--_grey-2);
+    font-size: var(--lg);
     backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -310,9 +310,9 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--white-100);
-      font-family: var(--ff-mono);
-      font-size: var(--fz-xs);
+      color: var(--_white-1);
+      font-family: var(--mono);
+      font-size: var(--xs);
       white-space: nowrap;
     }
 
@@ -321,7 +321,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--white-100);
+        color: var(--_white-1);
       }
     }
   }
@@ -332,7 +332,7 @@ const StyledProject = styled.li`
     position: relative;
     display: flex;
     align-items: center;
-    color: var(--pink-100);
+    color: var(--_pink-1);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -369,7 +369,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green-100);
+      background-color: var(--_green-1);
       border-radius: var(--border-radius);
       vertical-align: middle;
 

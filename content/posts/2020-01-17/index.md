@@ -1,6 +1,7 @@
 ---
 template: post
 date: 2020-01-17
+lastmod: 2020-01-17
 title: Block Youtube suggested videos overlay
 draft: false
 slug: /posts/block-youtube-suggested-videos-overlay
@@ -9,7 +10,7 @@ description: Often a part of a video is obstructed by the suggested video overla
 category: Productivity
 tags: [javascript, youtube]
 featured: false
-showInPosts: true
+showinspa: true
 ---
 
 Sometimes you may struggle with Youtube Suggested Videos overlay:

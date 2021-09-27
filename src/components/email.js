@@ -7,7 +7,7 @@ import { email } from '../../data/config'
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation='right'>
     <StyledEmail>
-      <a rel='preload' href={`mailto:${email}`}>{email}</a>
+      <a href={`mailto:${email}`}>{email}</a>
     </StyledEmail>
   </Side>
 )
@@ -27,21 +27,20 @@ const StyledEmail = styled.div`
     content: '';
     margin: 0 auto;
     display: block;
-    background-color: var(--grey-200);
+    background-color: var(--_grey-2);
   }
   
   a {
     margin: 30px auto;
     letter-spacing: 0.1em;
-    color: var(--grey-200);
-    font-size: var(--fz-sm);
-    font-family: var(--ff-mono);
-    font-weight: var(--fw-md);
-    line-height: var(--lh-lg);
+    font-weight: 500;
+    color: var(--_grey-2);
+    font-size: var(--sm);
+    font-family: var(--mono);
     writing-mode: vertical-rl;
     &:hover,
     &:focus {
-      color: var(--grey-200);
+      color: var(--_grey-2);
       transform: translateY(-3px);
     }
   }

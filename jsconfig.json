@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "target": "es2020",
+    "module": "es2015",
+    "baseUrl": "src"
+  },
+  "exclude": [
+    ".frontmatter",
+    ".vscode",
+    ".netlify",
+    "coverage",
+    "node_modules",
+    "build",
+    "dist",
+    "public",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true,
+    "include": [
+      "react",
+      "react-dom",
+      "jest",
+      "testing-library__jest-dom"
+    ]
+  }
+}

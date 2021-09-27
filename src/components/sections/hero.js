@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import styled from 'styled-components'
-import { navDelay, loadDelay } from '../../utils'
-import hero from '../../images/svg/hero.svg'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { loadDelay, navDelay } from '../../utils'
 import config from '../../../data/config'
-
+import hero from '../../images/svg/hero.svg'
+import styled from 'styled-components'
 
 const Hero = () => {
-  const [isMounted, setIsMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), navDelay)
+    const timeout = setTimeout(() => setMounted(true), navDelay)
     return () => clearTimeout(timeout)
   })
 
-  const greet = (
-    <h1>Hi, my name is</h1>
+  const greeting = (
+    <h1 className='small-heading'>Hi, my name is</h1>
   )
 
   const name = (
@@ -23,72 +22,75 @@ const Hero = () => {
   )
 
   const quote = (
-    <h3 className='big-heading'>I build things for the web.</h3>
+    <h2 className='big-heading'>I build things for the web.</h2>
   )
 
   const bio = (
-    <p>I'm a software engineer specializing in building (and occasionally
-      designing) exceptional digital experiences. Currently, I'm focused on
-      building accessible, human-centered products at
-      {' '}<a rel='preload' href='https://upstatement.com/' target='_blank' rel='noreferrer'>Upstatement</a>.
-    </p>
+    <p className='hero-text'>I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products at <span><a href='https://upstatement.com/'>Upstatement</a></span>.</p>
   )
 
   const contact = (
-    <a rel='preload' href={`mailto:${config.email}`} className='email-link'>Get In Touch</a>
+    <a className='email-link' href={`mailto:${config.email}`}>Get In Touch</a>
   )
 
-  const items = [greet, name, quote, bio, contact]
+  const data = [greeting, name, quote, bio, contact]
+
+  const inner = (
+    mounted && data.map((item, i) => (
+      <CSSTransition key={i} classNames='fadeup' timeout={loadDelay}>
+        <span style={{ transitionDelay: `${i + 1}00ms` }}>{item}</span>
+      </CSSTransition>))
+  )
 
   return (
-    <StyledHero id='hero'>
-      <article>
-        <TransitionGroup component={null}>
-          {isMounted && items.map((item, i) => (
-            <CSSTransition key={i} classNames='fadeup' timeout={loadDelay}>
-              <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
+    <StyledHeroSection id='hero'>
+      <article className='hero'>
+        <TransitionGroup component={null}>{inner}</TransitionGroup>
       </article>
-    </StyledHero>
+    </StyledHeroSection>
   )
 }
 
 export default Hero
 
-const StyledHero = styled.section`
-  min-height: 100vh;
+const StyledHeroSection = styled.section`    
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #fafffd;
-  background-repeat: repeat-x;
+  
   background-image: url(${hero});
+  background-repeat: repeat-x;
+  background-color: var(--_white-2);
+  
+  & span > h1.small-heading {
+    margin-top: 18vh;
+  }
+  
+  & span > .name {}
+  & span > .name {}
+  & span > .quote {}
+  & span > .email-link {}
 
-  h1 {
-    margin: 0 0 30px 4px;
-    color: var(--blue-100);
-    font-family: var(--ff-mono);
-    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
-    font-weight: var(--fw-rg);
+  & h1 {
+    color: var(--_blue-1);
+    font-family: var(--mono);
   }
-  
-  h3 {
-    margin-top: 10px;
-    line-height: 0.9;
-  }
-  
-  p {
-    margin: 20px 0 0;
-    max-width: 525px;
 
-    a {}
+  & h2 {
+    color: transparent;
+    background: linear-gradient(219deg, var(--_blue-1) 19%, transparent 19%, transparent 20%, var(--_teal-2) 20%, var(--_teal-2) 39%, transparent 39%, transparent 40%, var(--_yellow-2) 40%, var(--_yellow-2) 59%, transparent 59%, transparent 60%, var(--_orange-2) 60%, var(--_orange-2) 79%, transparent 79%, transparent 80%, var(--_pink-2) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  & h3 {
+    font-size: 1.5em;
   }
   
-  a.email-link {
-    margin-top: 50px;
+  & p {
+    & a {}
+  }
+  
+  & a.email-link {
     ${({ theme }) => theme.mixins.bigButton};
   }
 `

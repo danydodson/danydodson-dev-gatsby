@@ -77,7 +77,7 @@ const Posts = () => {
             <div className='post-links'>
 
               {slug && (
-                <a rel='preload' href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
+                <a href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
                   <Icon name='GitHub' />
                 </a>
               )}
@@ -86,7 +86,7 @@ const Posts = () => {
           </div>
 
           <h3 className='post-title'>
-            <a rel='preload' href={slug} target='_blank' rel='noreferrer'>
+            <a href={slug} target='_blank' rel='noreferrer'>
               {title}
             </a>
           </h3>
@@ -154,8 +154,8 @@ const StyledPostsSection = styled.section`
     h2 {font-size: clamp(24px, 5vw, var(--fz_lg));}
   
     .archive-link {
-      font-family: var(--ff-mono);
-      font-size: var(--fz-sm);
+      font-family: var(--mono);
+      font-size: var(--sm);
       &:after {bottom: 0.1em;}
     }
   
@@ -227,7 +227,7 @@ const StyledPost = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--black-100);
+      color: var(--_black-2);
       a {
         padding: 5px 7px;
         ${({ theme }) => theme.mixins.flexCenter};
@@ -235,8 +235,8 @@ const StyledPost = styled.li`
         svg {
           width: 20px;
           height: 20px;
-          stroke: var(--grey-200);
-          &:hover {stroke: var(--blue-200);}
+          stroke: var(--_grey-2);
+          &:hover {stroke: var(--_blue-1);}
         }
       }
     }
@@ -244,8 +244,8 @@ const StyledPost = styled.li`
 
   .post-title {
     margin: 0 0 10px;
-    color: var(--pink-100);
-    font-size: var(--fz-xl);
+    color: var(--_pink-1);
+    font-size: var(--xl);
 
     a {
       position: static;
@@ -264,8 +264,8 @@ const StyledPost = styled.li`
   }
 
   .post-description {
-    color: var(--black-100);
-    font-size: var(--fz-xs);
+    color: var(--_black-2);
+    font-size: var(--xs);
     
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -283,8 +283,8 @@ const StyledPost = styled.li`
 
     li {
       line-height: 1.75;
-      font-family: var(--ff-mono);
-      font-size: var(--fz-xs);
+      font-family: var(--mono);
+      font-size: var(--xs);
       &:not(:last-of-type) {margin-right: 15px;}
     }
   }

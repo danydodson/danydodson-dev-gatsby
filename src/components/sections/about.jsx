@@ -15,6 +15,7 @@ const About = () => {
   return (
 
     <AboutSection id='about'>
+
       <article className='about' ref={revealContainer}>
 
         <h2 className='numbered_heading'>About Me</h2>
@@ -63,27 +64,27 @@ const AboutSection = styled.section`
   article.about {
 
     div.about_grid {
-      display: grid;
+      /* display: grid;
       grid-template-columns: 3fr 2fr; 
       grid-template-rows: 3fr 1fr; 
       gap: 12px;
       grid-template-areas: 
       "info image"
-      "skills . "; 
+      "skills . ";  */
     }
   }
 `
 
 const StyledText = styled.div` 
   grid-area: info;
-
+    
   p > a > .info-link {
-    color: var(--pink-100);
+    color: var(--_pink-1);
 
     &:hover,
     &:focus,
-    &:active {color: var(--pink-100);}
-    &:after {background-color: var(--pink-100);}
+    &:active {color: var(--_pink-1)};
+    &:after {background-color: var(--_pink-1)};
   }
 `
 
@@ -102,16 +103,16 @@ const StyledList = styled.ul`
     position: relative;
     margin: 5px 0;
     padding-left: 20px;
-    font-size: var(--fz-xs);
-    font-weight: var(--fw-sans);
-    font-family: var(--ff-mono);      
+    font-size: var(--xs);
+    font-weight: 400;
+    font-family: var(--mono);      
   
     &:before {
       left: 0;
       position: absolute;
       padding-top: 3px;
       content: '🟊';
-      color: var(--pink-100);
+      color: var(--_pink-1);
       font-size: 20px;
       line-height: 12px;
     }

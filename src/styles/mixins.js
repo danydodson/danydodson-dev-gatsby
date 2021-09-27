@@ -24,7 +24,7 @@ const mixins = {
   inlineLink: css`
     position: relative;
     display: inline-block;
-    color: var(--blue-100);
+    color: var(--_blue-1);
     text-decoration: none;
     text-decoration-skip-ink: auto;
     transition: var(--transition);
@@ -41,7 +41,7 @@ const mixins = {
       display: block;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--blue-100);
+      background-color: var(--_blue-1);
       transition: var(--transition);
       opacity: 0.5;
     }
@@ -49,55 +49,55 @@ const mixins = {
 
   button: css`
     cursor: pointer;
-    color: var(--blue-100);
+    color: var(--_blue-1);
     padding: 1.25rem 1.75rem;
     line-height: 1;
     text-decoration: none;
-    font-size: var(--fz-xs);
-    font-family: var(--ff-mono);
+    font-size: var(--xs);
+    font-family: var(--mono);
     background-color: transparent;
-    border: 1px solid var(--blue-100);
+    border: 1px solid var(--_blue-1);
     border-radius: var(--border-radius);
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--blue-200); outline: none;}
+    &:active {background-color: var(--_blue-1); outline: none;}
     &:after {display: none !important; }
   `,
 
   smallButton: css`
     cursor: pointer;
-    color: var(--blue-100);
+    color: var(--_blue-1);
     padding: 0.75rem 1rem;
     line-height: 1;
-    font-size: var(--fz-xs);
-    font-family: var(--ff-mono);
+    font-size: var(--xs);
+    font-family: var(--mono);
     text-decoration: none;
     background-color: transparent;
-    border: 1px solid var(--blue-100);
+    border: 1px solid var(--_blue-1);
     border-radius: var(--border-radius);
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--blue-200); outline: none;}
+    &:active {background-color: var(--_blue-1); outline: none;}
     &:after {display: none !important;}
   `,
 
   bigButton: css`
     cursor: pointer;
-    color: var(--blue-100);
+    color: var(--_blue-1);
     padding: 1.25rem 1.75rem;
     line-height: 1;
-    font-size: var(--fz-sm);
-    font-family: var(--ff-mono);
+    font-size: var(--sm);
+    font-family: var(--mono);
     text-decoration: none;
     background-color: transparent;
-    border: 1px solid var(--blue-100);
+    border: 1px solid var(--_blue-1);
     border-radius: var(--border-radius);
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--blue-200); outline: none;}
+    &:active {background-color: var(--_blue-1); outline: none;}
     &:after {display: none !important;}
   `,
 
@@ -111,13 +111,13 @@ const mixins = {
   fancyList: css`
     margin: 0;
     padding: 0;
-    font-size: var(--fz-lg);
+    font-size: var(--lg);
     list-style: none;
     li {
       position: relative;
       padding-left: 30px;
       margin-bottom: 10px;
-      &:before {left: 0; position: absolute; content: '⤏';color: var(--grey-100);}
+      &:before {left: 0; position: absolute; content: '⤏';color: var(--_grey-2);}
     }
   `,
   

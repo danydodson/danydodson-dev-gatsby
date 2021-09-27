@@ -11,7 +11,7 @@ const Social = ({ isHome }) => (
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
           <li key={i}>
-            <a rel='preload' href={url} aria-label={name} target='_blank' rel='noreferrer'>
+            <a href={url} aria-label={name} target='_blank' rel='noreferrer'>
               <Icon name={name} />
             </a>
           </li>
@@ -36,7 +36,7 @@ const StyledSocials = styled.ul`
     display: block;
     content: '';
     margin: 0 auto;
-    background-color: var(--grey-200);
+    background-color: var(--_grey-2);
   }
 
   li {
@@ -45,7 +45,7 @@ const StyledSocials = styled.ul`
     }
     a {
       padding: 10px; 
-      color: var(--grey-200);
+      color: var(--_grey-2);
       &:hover,
       &:focus {
         transform: translateY(-3px);

@@ -140,7 +140,7 @@ const Jobs = () => {
                         <span>{title}</span>
                         <span className='company'>
                           &nbsp;@&nbsp;
-                          <a rel='preload' href={url} className='inline-link'>
+                          <a href={url} className='inline-link'>
                             {company}
                           </a>
                         </span>
@@ -218,11 +218,11 @@ const StyledTabButton = styled.button`
   align-items: center;
   text-align: left;
   white-space: nowrap;
-  color: ${({ isActive }) => (isActive ? 'var(--yellow-100)' : 'var(--green-100)')};
-  font-size: var(--fz-xs);
-  font-family: var(--ff-mono);
+  color: ${({ isActive }) => (isActive ? 'var(--_yellow-1)' : 'var(--_green-1)')};
+  font-size: var(--xs);
+  font-family: var(--mono);
   background-color: transparent;
-  border-left: 2px solid var(--blue-100);
+  border-left: 2px solid var(--_blue-1);
 
   @media (max-width: 768px) {padding: 0 15px 2px;}
 
@@ -231,12 +231,12 @@ const StyledTabButton = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--blue-100);
+    border-bottom: 2px solid var(--_blue-1);
     text-align: center;
   }
 
   &:hover,
-  &:focus {background-color: var(--blue-100);}
+  &:focus {background-color: var(--_blue-1);
 `
 
 const StyledHighlight = styled.div`
@@ -247,7 +247,7 @@ const StyledHighlight = styled.div`
   width: 2px;
   height: var(--tab-height);
   border-radius: var(--border-radius);
-  background: var(--green-100);
+  background: var(--_green-1);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
@@ -285,16 +285,16 @@ const StyledTabPanel = styled.div`
   h3 {
     margin-bottom: 2px;
     line-height: 1.3;
-    font-size: var(--fz-lg);
+    font-size: var(--lg);
     font-weight: 500;
 
-    .company {color: var(--green-100);}
+    .company {color: var(--_green-1);}
   }
 
   .range {
     margin-bottom: 25px;
-    color: var(--red-100);
-    font-family: var(--ff-mono);
-    font-size: var(--fz-xs);
+    color: var(--_red-1);
+    font-family: var(--mono);
+    font-size: var(--xs);
   }
 `

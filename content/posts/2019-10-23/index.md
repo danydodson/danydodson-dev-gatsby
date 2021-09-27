@@ -1,6 +1,7 @@
 ---
 template: post
 date: 2019-10-23
+lastmod: 2019-10-23
 title: Account Surfer gets Microsoft Award
 draft: false
 slug: /posts/account-surfer-gets-microsoft-award
@@ -9,7 +10,7 @@ description: Account Surfer became "3rd in Best Business or Consumer Value" at M
 category: Productivity
 tags: [windows, chrome]
 featured: false
-showInPosts: true
+showinspa: true
 ---
 
 Gogogo

@@ -75,13 +75,13 @@ const Projects = () => {
             <div className='project-links'>
 
               {github && (
-                <a rel='preload' href={github} aria-label='GitHub Link'>
+                <a href={github} aria-label='GitHub Link'>
                   <Icon name='GitHub' />
                 </a>
               )}
 
               {external && (
-                <a rel='preload' href={external} aria-label='External Link' className='external' >
+                <a href={external} aria-label='External Link' className='external' >
                   <Icon name='External' />
                 </a>
               )}
@@ -90,7 +90,7 @@ const Projects = () => {
           </div>
 
           <h3 className='project-title'>
-            <a rel='preload' href={external}>
+            <a href={external}>
               {title}
             </a>
           </h3>
@@ -113,7 +113,7 @@ const Projects = () => {
   }
 
   return (
-    <StyledProjectsSection>
+    <StyledProjectsSection id='projects'>
       <article>
 
         <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
@@ -157,12 +157,12 @@ const StyledProjectsSection = styled.section`
     padding-bottom: 125px;
 
     h2 {
-      font-size: clamp(24px, 5vw, var(--fz-lg));
+      font-size: clamp(24px, 5vw, var(--lg));
     }
 
     .archive-link {
-      font-family: var(--ff-mono);
-      font-size: var(--fz-sm);
+      font-family: var(--mono);
+      font-size: var(--sm);
 
       &:after {
         bottom: 0.1em;
@@ -228,13 +228,13 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
     ${({ theme }) => theme.mixins.flexBetween};
 
-    .folder {width: 40px; height: 40px; color: var(--red-100);}
+    .folder {width: 40px; height: 40px; color: var(--_red-1);}
 
     .project-links {
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--black-100);
+      color: var(--_black-2);
 
       a {
         padding: 5px 7px;
@@ -247,8 +247,8 @@ const StyledProject = styled.li`
         svg {
           width: 20px;
           height: 20px;
-          stroke: var(--grey-200);
-          &:hover {stroke: var(--green-100);}
+          stroke: var(--_grey-2);
+          &:hover {stroke: var(--_green-1);}
         }
       }
     }
@@ -256,8 +256,8 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: var(--pink-100);
-    font-size: var(--fz-lg);
+    color: var(--_pink-1);
+    font-size: var(--lg);
 
     a {
       position: static;
@@ -277,7 +277,7 @@ const StyledProject = styled.li`
 
   .project-description {
     font-size: 17px;
-    color: var(--black-100);
+    color: var(--_black-2);
     a {${({ theme }) => theme.mixins.inlineLink};}
   }
 
@@ -292,8 +292,8 @@ const StyledProject = styled.li`
 
     li {
       line-height: 1.75;
-      font-size: var(--fz-xs);
-      font-family: var(--ff-mono);
+      font-size: var(--xs);
+      font-family: var(--mono);
       &:not(:last-of-type) {margin-right: 15px;}
     }
   }

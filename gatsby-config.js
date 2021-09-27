@@ -6,8 +6,8 @@ const config = require('./data/config')
 
 module.exports = {
   flags: {
-    FAST_DEV: true,
-    DEV_SSR: true,
+    FAST_DEV: false,
+    DEV_SSR: false,
   },
   siteMetadata: config,
   plugins: [

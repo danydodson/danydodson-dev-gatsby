@@ -32,14 +32,14 @@ const Footer = () => {
       <StyledSocialLinks>
         {socialLinks && socialLinks.map(({ name, url }, i) => (
           <li key={i}>
-            <a rel='preload' href={url} aria-label={name}>
+            <a href={url} aria-label={name}>
               <Icon name={name} />
             </a>
           </li>
         ))}
       </StyledSocialLinks>
       <StyledCredit>
-        <a rel='preload' href="https://github.com/bchiang7/v4">
+        <a href="https://github.com/bchiang7/v4">
           <div>Designed &amp; Built by Dany Dodson</div>
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">
@@ -74,7 +74,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   justify-content: center;
   background-repeat: repeat-x;
-  background-color: var(--yellow-100);
+  background-color: var(--_yellow-1);
   background-image: url(${footer});
   /* @media (max-width: 768px) {min-height: 160px;} */
 `
@@ -93,10 +93,10 @@ const StyledSocialLinks = styled.ul`
 `
 
 const StyledCredit = styled.div`
-  line-height: 1;
-  color: var(--black-100);
-  font-family: var(--ff-mono);
-  font-size: var(--fz-xs);
+  line-height: 1.3;
+  font-size: var(--xs);
+  color: var(--_black-2);
+  font-family: var(--mono);
   .github-stats {
     display: flex;
     justify-content: center;

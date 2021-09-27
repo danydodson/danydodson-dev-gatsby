@@ -112,7 +112,7 @@ const Menu = () => {
                 ))}
               </ol>
             )}
-            <a rel='preload' href='/resume.pdf' className='resume-link'>
+            <a href='/resume.pdf' className='resume-link'>
               Resume
             </a>
           </nav>
@@ -162,7 +162,7 @@ const StyledHamburgerButton = styled.button`
     right: 0;
     height: var(--ham-height);
     width: var(--ham-width);
-    background-color: var(--orange-100);
+    background-color: var(--_orange-1);
     border-radius: var(--border-radius);
     transition-duration: 0.22s;
     transition-property: transform;
@@ -180,7 +180,7 @@ const StyledHamburgerButton = styled.button`
       height: var(--ham-height);
       width: var(--ham-width);
       border-radius: var(--border-radius);
-      background-color: var(--orange-100);
+      background-color: var(--_orange-1);
       transition-timing-function: ease;
       transition-duration: 0.15s;
       transition-property: transform;
@@ -217,8 +217,8 @@ const StyledSidebar = styled.aside`
     padding: 50px 10px;
     ${({ theme }) => theme.mixins.flexCenter};
     visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
-    background-color: var(--pink-100);
-    box-shadow: -10px 0px 30px -15px var(--black-100);
+    background-color: var(--_pink-1);
+    box-shadow: -10px 0px 30px -15px var(--_black-2);
     transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
     transition: var(--transition);
   }
@@ -226,8 +226,8 @@ const StyledSidebar = styled.aside`
   nav {
     width: 100%;
     flex-direction: column;
-    color: var(--blue-100);
-    font-family: var(--ff-mono);
+    color: var(--_blue-1);
+    font-family: var(--mono);
     text-align: center;
     ${({ theme }) => theme.mixins.flexBetween};
   }
@@ -240,15 +240,15 @@ const StyledSidebar = styled.aside`
     li {
       position: relative;
       counter-increment: item 1;
-      font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
+      font-size: clamp(var(--sm), 4vw, var(--lg));
 
       @media (max-width: 600px) {}
 
       &:before {
         content: '0' counter(item) '.';
         display: block;
-        color: var(--blue-100);
-        font-size: var(--fz-sm);
+        color: var(--_blue-1);
+        font-size: var(--sm);
       }
     }
 

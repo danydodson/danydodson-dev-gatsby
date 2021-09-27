@@ -1,6 +1,7 @@
 ---
 template: post
 date: 2020-04-18
+lastmod: 2020-04-18
 title: Chrome custom JS and CSS extension
 draft: false
 slug: /posts/chrome-custom-js-and-css-extension
@@ -9,7 +10,7 @@ description: Chrome custom JS and CSS extension
 category: Productivity
 tags: [chrome, javascript, utilities]
 featured: false
-showInPosts: true
+showinspa: true
 ---
 
 Using websites a lot - there might be a need to improve UX or UI.

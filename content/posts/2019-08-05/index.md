@@ -1,6 +1,7 @@
 ---
 template: post
 date: 2019-08-05
+lastmod: 2019-08-05
 title: Chrome profiles
 draft: false
 slug: /posts/chrome-profiles
@@ -9,7 +10,7 @@ description: Quickly switch between accounts and browsers on Windows with Accoun
 category: Productivity
 tags: [chrome, windows, twitter]
 featured: false
-showInPosts: true
+showinspa: true
 ---
 
 It’s very convenient to separate your areas of activity using accounts in Chrome. You don’t lose your bookmarks, you don’t have to log out anywhere, necessary extensions are already installed.

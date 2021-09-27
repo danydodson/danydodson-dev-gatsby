@@ -39,14 +39,14 @@ const Nav = ({ isHome }) => {
   const Logo = (
     <div className='logo' tabIndex='-1'>
       {isHome
-        ? <a rel='preload' href='/#' aria-label='home'><Icon name='Logo' /></a>
+        ? <a href='/#' aria-label='home'><Icon name='Logo' /></a>
         : <Link to='/' aria-label='home'><Icon name='Logo' /></Link>
       }
     </div>
   )
 
   const ResumeLink = (
-    <a className='resume-button' rel='preload' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
+    <a className='resume-button' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
       Resume
     </a>
   )
@@ -71,7 +71,7 @@ const Nav = ({ isHome }) => {
                 {isMounted && navLinks && navLinks.map(({ url, name }, i) => (
                   <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                     <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                      <a rel='preload' href={url}>{name}</a>
+                      <a href={url}>{name}</a>
                     </li>
                   </CSSTransition>
                 ))}
@@ -130,13 +130,13 @@ const StyledHeader = styled.header`
       height: var(--nav-scroll-height);
       opacity: 0.89;
       transform: translateY(0px);
-      box-shadow: 0 10px 30px -10px var(--grey-200);
+      box-shadow: 0 10px 30px -10px var(--_grey-2);
     `};
     
     ${props => props.scrollDirection === 'down' && !props.scrolledToTop && css`
       height: var(--nav-scroll-height);
       transform: translateY(calc(var(--nav-scroll-height) * -1));
-      box-shadow: 0 10px 30px -10px var(--grey-200);
+      box-shadow: 0 10px 30px -10px var(--_grey-2);
     `};
   }
   `
@@ -156,12 +156,12 @@ const StyledNav = styled.nav`
     position: relative;
     align-items: center;
     justify-content: space-between;
-    color: var(--grey-200);
-    font-family: var(--ff-mono);
+    color: var(--_grey-2);
+    font-family: var(--mono);
     counter-reset: item 0;
     z-index: 12;
     
-    /* @media (max-width: 768px) {} */
+    @media (max-width: 768px) {}
 
     .logo {
       display: flex;
@@ -169,7 +169,7 @@ const StyledNav = styled.nav`
       a {
         width: 32px;
         height: 32px;
-        &:hover {color: var(--yellow-100);}
+        &:hover {color: var(--_yellow-1);}
       }
     }
   }
@@ -193,21 +193,21 @@ const StyledLinks = styled.ol`
       margin: 0 5px;
       position: relative;
       counter-increment: item 1;
-      font-size: var(--fz-xs);
+      font-size: var(--xs);
 
       a {
         padding: 10px;
-        color: var(--grey-200);
+        color: var(--_grey-2);
 
         &:hover,
         &:active,
-        &:focus {color: var(--blue-100);}
+        &:focus {color: var(--_blue-1);}
 
         &:before {
           margin-right: 5px;
           text-align: right;
-          font-size: var(--fz-xs);
-          color: var(--blue-100);
+          font-size: var(--xs);
+          color: var(--_blue-1);
           content: '0' counter(item) '.';
         }
       }
@@ -216,7 +216,7 @@ const StyledLinks = styled.ol`
 
   .resume-button {
     margin-left: 15px;
-    font-size: var(--fz-xs);
+    font-size: var(--xs);
     ${({ theme }) => theme.mixins.smallButton};
   }
 `

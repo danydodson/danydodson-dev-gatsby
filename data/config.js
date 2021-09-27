@@ -28,7 +28,7 @@ const config = {
 
   hello: `
     <p>Hello! My name is Dany and I enjoy creating things that live on the internet. My interest in web development started back in 2000 when I decided to try editing live Journal themes — turns out hacking together a custom reblog button taught me a lot about HTML &amp; CSS! </p>
-    <p>Fast-forward to today, and I've had the privilege of working at<a rel='preload' href='https://us.mullenlowe.com/' className='inlineLink'> an advertising agency</a>, <a rel='preload' href='https://starry.com/' className='inlineLink'>a start-up</a>, <a rel='preload' href='https://www.apple.com/' className='inlineLink'> a huge corporation</a>, and{' '}<a rel='preload' href='https://scout.camd.northeastern.edu/'>a student-led design studio</a>.My main focus these days isbuilding accessible, inclusive products and digital experiences at <a rel='preload' href='https://upstatement.com/' className='inlineLink'>Upstatement</a> for a variety of clients.</p>
+    <p>Fast-forward to today, and I've had the privilege of working at<a href='https://us.mullenlowe.com/' className='inlineLink'> an advertising agency</a>, <a href='https://starry.com/' className='inlineLink'>a start-up</a>, <a href='https://www.apple.com/' className='inlineLink'> a huge corporation</a>, and{' '}<a href='https://scout.camd.northeastern.edu/'>a student-led design studio</a>.My main focus these days isbuilding accessible, inclusive products and digital experiences at <a href='https://upstatement.com/' className='inlineLink'>Upstatement</a> for a variety of clients.</p>
     <p>Here are a few technologies I've been working with recently:</p>
   `,
 

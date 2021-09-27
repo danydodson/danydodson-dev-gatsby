@@ -69,30 +69,35 @@ Loader.propTypes = {
 export default Loader
 
 const StyledLoader = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  z-index: 99;
   width: 100%;
   height: 100%;
+  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
   ${({ theme }) => theme.mixins.flexCenter};
-  background-color: var(--white-100);
-  z-index: 99;
+  
+  background-color: var(--_white-1);
 
   .logo-wrapper {
     width: max-content;
     max-width: 100px;
-    transition: var(--transition);
     opacity: ${props => (props.isMounted ? 1 : 0)};
     
+    transition: var(--transition);
+
     svg {
       width: 100%;
       height: 100%;
       margin: 0 auto;
-      display: block;
-      fill: none;
+      display: block;      
       user-select: none;
+      
+      fill: none;
+
       #D {opacity: 0;}
     }
   }

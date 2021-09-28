@@ -1,13 +1,14 @@
 ---
-template: post
+template: {{post}}
 title: {{name}}
-slug: /{{template}}/{{kebabCase name}}/
-date:
-lastmod:
-cover:
-description:
-category:
-tags:
-featured:
-url:
+slug: {{kebabCase name}}
+date: 2020-01-01T00:00:00.000Z
+lastmod: 2020-01-01T00:00:00.000Z
+draft: true
+prevew: preview.png
+description: {{post}}
+category: null
+url: null
+featured: false
+tags: [null]
 ---

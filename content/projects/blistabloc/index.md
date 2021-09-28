@@ -1,8 +1,9 @@
 ---
 template: project
+title: Blistabloc
+slug: /project/blistabloc
 date: 2018-05-01
 lastmod: 2018-05-01
-title: Blistabloc
 draft: false
 cover: cover.png
 description: Custom WordPress theme and e-commerce site built with Timber and WooCommerce

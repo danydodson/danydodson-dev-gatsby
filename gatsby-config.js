@@ -112,16 +112,6 @@ module.exports = {
         icon: `src/assets/logos/logo@4x.png`,
       }
     },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
-        queries: require(`./gatsby/search/queries`),
-        chunkSize: 10000
-      }
-    },
     // {
     //   resolve: 'gatsby-plugin-sitemap',
     //   options: {
@@ -202,6 +192,16 @@ module.exports = {
             title: `Dany Dodson's Blog Feed`,
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries: require(`./gatsby/search/queries`),
+        chunkSize: 10000
       }
     },
     {

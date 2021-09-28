@@ -1,22 +1,5 @@
 {
   "$schema": "https://beta.frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.dashboard.mediaSnippet": [],
-  "frontMatter.taxonomy.frontMatterType": "YAML",
-  "frontMatter.panel.freeform": true,
-  "frontMatter.taxonomy.seoContentLengh": 1760,
-  "frontMatter.taxonomy.seoDescriptionLength": 160,
-  "frontMatter.taxonomy.seoTitleLength": 60,
-  "frontMatter.taxonomy.seoDescriptionField": "description",
-  "frontMatter.taxonomy.indentArrays": false,
-  "frontMatter.content.publicFolder": "static",
-  "frontMatter.templates.folder": "content/templates",
-  "frontMatter.taxonomy.slugPrefix": "/",
-  "frontMatter.taxonomy.slugSuffix": "/",
-  "frontMatter.taxonomy.alignFilename": false,
-  "frontMatter.templates.prefix": "/yyyy-MM-dd/",
-  "frontMatter.taxonomy.dateField": "date",
-  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd",
-  "frontMatter.taxonomy.modifiedField": "lastmod",
   "frontMatter.content.pageFolders": [
     {
       "title": "jobs",
@@ -31,12 +14,25 @@
       "path": "[[workspace]]/content/projects"
     }
   ],
+  "frontMatter.dashboard.mediaSnippet": [
+    "{{< caption \"{mediaUrl}\" \"Description\" >}}"
+  ],
+  "frontMatter.custom.scripts": [
+    {
+      "title": "Generate social image",
+      "script": "./scripts/social-img.js",
+      "nodeBin": "~/.local/nvm/versions/node/v14.17.6/bin/node"
+    }
+  ],
+  "frontMatter.panel.freeform": true,
+  "frontMatter.taxonomy.frontMatterType": "YAML",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.taxonomy.alignFilename": false,
+  "frontMatter.taxonomy.modifiedField": "lastmod",
+  "frontMatter.templates.folder": "content/templates",
   "frontMatter.taxonomy.categories": [
     "Productivity",
     "Programming"
-  ],
-  "frontMatter.taxonomy.commaSeparatedFields": [
-    "tags"
   ],
   "frontMatter.taxonomy.tags": [
     "javascript",
@@ -45,15 +41,9 @@
     "twitter",
     "yarn"
   ],
-  "frontMatter.taxonomy.noPropertyValueQuotes": [
-    "date",
-    "draft",
-    "lastmod",
-    "featured"
-  ],
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "post",
+      "name": "defaults",
       "fields": [
         {
           "title": "Template",
@@ -96,131 +86,6 @@
           "type": "boolean"
         },
         {
-          "title": "Category",
-          "name": "category",
-          "type": "string"
-        },
-        {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags"
-        },
-        {
-          "title": "Featured",
-          "name": "featured",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "project",
-      "fields": [
-        {
-          "title": "Template",
-          "name": "template",
-          "type": "string"
-        },
-        {
-          "title": "Title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "Slug",
-          "name": "slug",
-          "type": "string"
-        },
-        {
-          "title": "Publish Date",
-          "name": "date",
-          "type": "datetime"
-        },
-        {
-          "title": "Date Modified",
-          "name": "lastmod",
-          "type": "datetime"
-        },
-        {
-          "title": "Is in Draft",
-          "name": "draft",
-          "type": "boolean"
-        },
-        {
-          "title": "Preview",
-          "name": "preview",
-          "type": "image"
-        },
-        {
-          "title": "Git URL",
-          "name": "github",
-          "type": "string"
-        },
-        {
-          "title": "Description:",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "External URL",
-          "name": "external",
-          "type": "string"
-        },
-        {
-          "title": "iOS URL",
-          "name": "ios",
-          "type": "string"
-        },
-        {
-          "title": "Android URL",
-          "name": "android",
-          "type": "string"
-        },
-        {
-          "title": "Tech",
-          "name": "tech",
-          "type": "tags"
-        },
-        {
-          "title": "Is Featured",
-          "name": "featured",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "job",
-      "fields": [
-        {
-          "title": "Template",
-          "name": "template",
-          "type": "string"
-        },
-        {
-          "title": "Title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "Publish Date",
-          "name": "date",
-          "type": "datetime"
-        },
-        {
-          "title": "Slug",
-          "name": "slug",
-          "type": "string"
-        },
-        {
-          "title": "Is in Draft",
-          "name": "draft",
-          "type": "boolean"
-        },
-        {
-          "title": "Preview",
-          "name": "preview",
-          "type": "image"
-        },
-        {
           "title": "Company",
           "name": "company",
           "type": "string"
@@ -239,6 +104,41 @@
           "title": "Website",
           "name": "url",
           "type": "string"
+        },
+        {
+          "title": "Git URL",
+          "name": "github",
+          "type": "string"
+        },
+        {
+          "title": "External URL",
+          "name": "external",
+          "type": "string"
+        },
+        {
+          "title": "iOS URL",
+          "name": "ios",
+          "type": "string"
+        },
+        {
+          "title": "Android URL",
+          "name": "android",
+          "type": "string"
+        },
+        {
+          "title": "Featured",
+          "name": "featured",
+          "type": "boolean"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
         }
       ]
     }

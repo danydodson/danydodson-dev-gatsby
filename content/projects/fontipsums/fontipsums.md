@@ -1,16 +1,18 @@
 ---
 template: project
-date: 2016-01-01
-lastmod: 2016-01-01
+date: 2016-01-01T00:00:00.000Z
+lastmod: 2016-01-01T00:00:00.000Z
 title: Fontipsums
-draft: false
+draft: true
 cover: cover.png
-description:
-github: https://github.com/bchiang7/fontipsums/
-external: http://bchiang7.github.io/fontipsums/
+description: null
+github: 'https://github.com/bchiang7/fontipsums/'
+external: 'http://bchiang7.github.io/fontipsums/'
 ios: null
 android: null
-tech: [HTML, SCSS]
+tech:
+  - HTML
+  - SCSS
 featured: false
 ---
 

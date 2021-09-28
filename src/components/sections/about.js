@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import about from '../../assets/svg/about.svg'
 import config from '../../../content/meta/config'
-import { sr } from '../../utils'
+import { sr } from '../../utilies'
 
 const About = () => {
   const revealContainer = useRef(null)

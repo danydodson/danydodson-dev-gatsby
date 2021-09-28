@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { page } from '../utils'
+import { page } from '../utilies'
 
 const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => {
 

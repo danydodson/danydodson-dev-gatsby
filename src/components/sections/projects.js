@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import projects from '../../assets/svg/projects.svg'
 import { srConfig } from '../../../content/meta/config'
-import { sr } from '../../utils'
+import { sr } from '../../utilies'
 import { Icon } from '../icons'
 
 const Projects = () => {

@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import contact from '../../assets/svg/contact.svg'
 import config from '../../../content/meta/config'
-import { sr } from '../../utils'
+import { sr } from '../../utilies'
 
 const Contact = () => {
   const revealContainer = useRef(null)

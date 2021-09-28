@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import posts from '../../assets/svg/posts.svg'
 import config from '../../../content/meta/config'
-import { sr } from '../../utils'
+import { sr } from '../../utilies'
 import { Icon } from '../icons'
 
 const Posts = () => {

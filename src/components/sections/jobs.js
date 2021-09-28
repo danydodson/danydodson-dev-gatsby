@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
 import jobs from '../../assets/svg/jobs.svg'
-import { sr, keys } from '../../utils'
+import { sr, keys } from '../../utilies'
 import config from '../../../content/meta/config'
 
 const Jobs = () => {

@@ -5,10 +5,6 @@ require('dotenv').config({
 const config = require('./content/meta/config')
 
 module.exports = {
-  flags: {
-    FAST_DEV: false,
-    DEV_SSR: false,
-  },
   siteMetadata: config,
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -100,7 +96,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-robots-txt`,
     {
@@ -123,6 +118,31 @@ module.exports = {
         indexName: process.env.ALGOLIA_INDEX_NAME,
         queries: require(`./gatsby/search/queries`),
         chunkSize: 10000
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `{
+          site { 
+            siteMetadata {
+              siteUrl: siteUrl
+            } 
+          }
+          allSitePage(filter: {path: {regex: "/^(?!/404/|/404.html|/dev-404-page/)/"}}) {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }`,
+        output: '/sitemap.xml',
+        serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
+          url: site.siteMetadata.siteUrl + edge.node.path,
+          changefreq: 'daily',
+          priority: 0.7
+        }))
       }
     },
     {

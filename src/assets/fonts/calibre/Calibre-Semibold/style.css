@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'Calibre';
-  src: local('Calibre Semi bold'), local('Calibre-Semi-bold'),
-    url('Calibre-Semibold.woff2') format('woff2'),
-    url('Calibre-Semibold.woff') format('woff'),
-    url('Calibre-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}

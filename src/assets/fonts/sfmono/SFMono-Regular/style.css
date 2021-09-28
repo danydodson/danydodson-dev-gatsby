@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'SFMono';
-  src: local('SFMono Regular'), local('SFMono-Regular'),
-    url('SFMono-Regular.woff2') format('woff2'),
-    url('SFMono-Regular.woff') format('woff'),
-    url('SFMono-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}

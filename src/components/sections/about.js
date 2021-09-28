@@ -39,7 +39,7 @@ const About = () => {
                 className='me'
                 width={500}
                 quality={95}
-                src='../../../static/og@2.png'
+                src='./../../../static/cards/og@2.png'
                 formats={['AUTO', 'WEBP', 'AVIF']}
                 alt='Headshot'
               />

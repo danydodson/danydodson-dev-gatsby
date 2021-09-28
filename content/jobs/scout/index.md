@@ -1,13 +1,15 @@
 ---
 template: job
 title: Studio Developer
+date: 2019-08-05T00:00:00.000Z
 draft: false
-slug: /jobs/studio-Developer
+slug: /studio-developer/
 cover: cover.jpg
 company: Scout
 location: Northeastern University
 range: January - April 2018
-url: https://web.northeastern.edu/scout/
+url: 'https://web.northeastern.edu/scout/'
+description: Worked with a team of three designers to build a marketing website and e-commerce platform for
 ---
 
 - Worked with a team of three designers to build a marketing website and e-commerce platform for

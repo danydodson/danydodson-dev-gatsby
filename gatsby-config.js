@@ -98,7 +98,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -112,34 +112,6 @@ module.exports = {
         icon: `src/assets/logos/logo@4x.png`,
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-sitemap',
-    //   options: {
-    //     query: `
-    //       {
-    //         site { 
-    //           siteMetadata {
-    //             siteUrl
-    //             site_url: siteUrl
-    //           } 
-    //         }
-    //         allSitePage(filter: {path: {regex: "/^(?!/404/|/404.html|/dev-404-page/)/"}}) {
-    //           edges {
-    //             node {
-    //               path
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     output: '/sitemap.xml',
-    //     serialize: ({ site, allSitePage }) => allSitePage.edges.map(edge => ({
-    //       url: site.siteMetadata.siteUrl + edge.node.path,
-    //       changefreq: 'daily',
-    //       priority: 0.7
-    //     }))
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {

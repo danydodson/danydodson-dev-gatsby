@@ -1,11 +1,13 @@
 ---
 template: post
 title: {{name}}
-slug: /jobs/{{kebabCase name}}/
+slug: /{{template}}/{{kebabCase name}}/
+date:
+lastmod:
 cover:
-company:
-location:
-range:
+description:
+category:
+tags:
+featured:
 url:
-draft: true
 ---

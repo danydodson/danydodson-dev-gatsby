@@ -1,6 +1,7 @@
 ---
 template: job
 title: Software Engineer Co-op
+date: 2019-08-05
 draft: false
 slug: /jobs/software-engineer-co-op
 cover: cover.jpg

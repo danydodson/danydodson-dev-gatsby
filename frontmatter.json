@@ -1,5 +1,7 @@
 {
   "$schema": "https://beta.frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.templates.folder": "content/templates",
   "frontMatter.content.pageFolders": [
     {
       "title": "jobs",
@@ -14,32 +16,223 @@
       "path": "[[workspace]]/content/projects"
     }
   ],
-  "frontMatter.content.publicFolder": "static",
+  "frontMatter.taxonomy.slugPrefix": "/",
+  "frontMatter.taxonomy.slugSuffix": "/",
+  "frontMatter.taxonomy.alignFilename": false,
+  "frontMatter.templates.prefix": "yyyy-MM-dd",
+  "frontMatter.taxonomy.dateField": "date",
+  "frontMatter.taxonomy.dateFormat": "yyyy-MM-dd",
+  "frontMatter.taxonomy.modifiedField": "lastmod",
+  "frontMatter.taxonomy.categories": [
+    "Productivity",
+    "Programming"
+  ],
+  "frontMatter.taxonomy.commaSeparatedFields": [
+    "tags"
+  ],
   "frontMatter.taxonomy.tags": [
     "javascript",
+    "windows",
+    "ios",
     "twitter",
     "yarn"
   ],
   "frontMatter.taxonomy.noPropertyValueQuotes": [
-    "template",
-    "title",
-    "slug",
-    "cover",
-    "description",
-    "data",
-    "lastmod",
-    "categories",
-    "featured",
-    "showinspa",
+    "date",
     "draft",
-    "tags",
-    "github",
-    "external",
-    "android",
-    "ios",
-    "tech",
-    "url",
-    "range",
-    "company"
+    "lastmod",
+    "featured"
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "post",
+      "fields": [
+        {
+          "title": "Template",
+          "name": "template",
+          "type": "string"
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Published",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "Modified",
+          "name": "lastmod",
+          "type": "datetime"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string"
+        },
+        {
+          "title": "Cover",
+          "name": "cover",
+          "type": "image"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Featured",
+          "name": "featured",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "fields": [
+        {
+          "title": "Template",
+          "name": "template",
+          "type": "string"
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string"
+        },
+        {
+          "title": "Publish",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "Modified",
+          "name": "lastmod",
+          "type": "datetime"
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Cover",
+          "name": "cover",
+          "type": "image"
+        },
+        {
+          "title": "Github",
+          "name": "github",
+          "type": "string"
+        },
+        {
+          "title": "Description:",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "External",
+          "name": "external",
+          "type": "string"
+        },
+        {
+          "title": "iOS",
+          "name": "ios",
+          "type": "string"
+        },
+        {
+          "title": "Android",
+          "name": "android",
+          "type": "string"
+        },
+        {
+          "title": "Tech",
+          "name": "tech",
+          "type": "tags"
+        },
+        {
+          "title": "Featured",
+          "name": "featured",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "job",
+      "fields": [
+        {
+          "title": "Template",
+          "name": "template",
+          "type": "string"
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime"
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string"
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "Cover",
+          "name": "cover",
+          "type": "image"
+        },
+        {
+          "title": "Company",
+          "name": "company",
+          "type": "string"
+        },
+        {
+          "title": "Location",
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "title": "Range",
+          "name": "range",
+          "type": "string"
+        },
+        {
+          "title": "Website",
+          "name": "url",
+          "type": "string"
+        }
+      ]
+    }
   ]
 }

@@ -1,11 +1,11 @@
 ---
 template: job
 title: {{name}}
-slug: /jobs/{{kebabCase name}}/
+slug: {{kebabCase name}}
+draft: true
 cover:
 company:
 location:
 range:
 url:
-draft: true
 ---

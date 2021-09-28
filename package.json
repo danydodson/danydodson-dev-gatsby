@@ -2,16 +2,12 @@
   "name": "danydodson-dev",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio and Blog",
   "author": "Dany Dodson",
+  "description": "portfolio",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danydodson/danydodson.dev"
-  },
   "scripts": {
     "start": "gatsby develop -H 0.0.0.0 -p 8000",
-    "build": "gatsby build --verbose",
+    "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
@@ -67,6 +63,10 @@
     "@babel/preset-react": "^7.14.5",
     "babel-plugin-styled-components": "^1.13.2",
     "babel-preset-gatsby": "2.0.0-zz-next.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danydodson/danydodson.dev"
   },
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",

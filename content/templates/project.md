@@ -1,7 +1,7 @@
 ---
 template: project
 title: {{name}}
-slug: /jobs/{{kebabCase name}}/
+slug: /{{template}}/{{kebabCase name}}/
 cover:
 company:
 location:

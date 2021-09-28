@@ -24,10 +24,11 @@
       "nodeBin": "~/.local/nvm/versions/node/v14.17.6/bin/node"
     }
   ],
+  "frontMatter.taxonomy.slugPrefix": "{{/\"{media}\"/}}",
   "frontMatter.panel.freeform": true,
+  "frontMatter.taxonomy.alignFilename": ,
   "frontMatter.taxonomy.frontMatterType": "YAML",
   "frontMatter.content.publicFolder": "static",
-  "frontMatter.taxonomy.alignFilename": false,
   "frontMatter.taxonomy.modifiedField": "lastmod",
   "frontMatter.templates.folder": "content/templates",
   "frontMatter.taxonomy.categories": [

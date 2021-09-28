@@ -2,6 +2,7 @@
 **/.vscode
 **/.env.*
 **/.frontmatter
+**/.dependencygraph
 **/.netlify
 **/public
 **/node_modules

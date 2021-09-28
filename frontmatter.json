@@ -1,0 +1,45 @@
+{
+  "$schema": "https://beta.frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "jobs",
+      "path": "[[workspace]]/content/jobs"
+    },
+    {
+      "title": "posts",
+      "path": "[[workspace]]/content/posts"
+    },
+    {
+      "title": "projects",
+      "path": "[[workspace]]/content/projects"
+    }
+  ],
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.taxonomy.tags": [
+    "javascript",
+    "twitter",
+    "yarn"
+  ],
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "template",
+    "title",
+    "slug",
+    "cover",
+    "description",
+    "data",
+    "lastmod",
+    "categories",
+    "featured",
+    "showinspa",
+    "draft",
+    "tags",
+    "github",
+    "external",
+    "android",
+    "ios",
+    "tech",
+    "url",
+    "range",
+    "company"
+  ]
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { socialLinks } from '../../data/config'
+import { socialLinks } from '../../content/meta/config'
 import { Icon } from '../components/icons'
 import { Side } from '../components'
 

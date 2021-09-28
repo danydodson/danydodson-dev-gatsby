@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import contact from '../../images/svg/contact.svg'
-import config from '../../../data/config'
+import contact from '../../assets/svg/contact.svg'
+import config from '../../../content/meta/config'
 import { sr } from '../../utils'
 
 const Contact = () => {

@@ -4,8 +4,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Icon } from '../icons'
-import featured from '../../images/svg/featured.svg'
-import config from '../../../data/config'
+import featured from '../../assets/svg/featured.svg'
+import config from '../../../content/meta/config'
 import { sr } from '../../utils'
 
 

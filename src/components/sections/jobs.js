@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { CSSTransition } from 'react-transition-group'
 import styled from 'styled-components'
-import jobs from '../../images/svg/jobs.svg'
+import jobs from '../../assets/svg/jobs.svg'
 import { sr, keys } from '../../utils'
-import config from '../../../data/config'
+import config from '../../../content/meta/config'
 
 const Jobs = () => {
 

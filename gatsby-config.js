@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
-const config = require('./data/config')
+const config = require('./content/meta/config')
 
 module.exports = {
   flags: {
@@ -13,6 +13,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/jobs`,
+        name: `jobs`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,15 +37,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/jobs`,
-        name: `jobs`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/images`,
-        name: `images`
+        path: `${__dirname}/src/assets`,
+        name: `assets`
       }
     },
     `gatsby-plugin-image`,
@@ -112,7 +112,7 @@ module.exports = {
         short_name: `danydodson`,
         theme_color: `#1b1f23`,
         background_color: `#fafffd`,
-        icon: `src/images/logos/logo@4x.png`,
+        icon: `src/assets/logos/logo@4x.png`,
       }
     },
     {

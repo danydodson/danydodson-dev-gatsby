@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import about from '../../images/svg/about.svg'
-import config from '../../../data/config'
+import about from '../../assets/svg/about.svg'
+import config from '../../../content/meta/config'
 import { sr } from '../../utils'
 
 const About = () => {

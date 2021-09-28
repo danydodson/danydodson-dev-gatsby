@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { loadDelay, navDelay } from '../../utils'
-import config from '../../../data/config'
-import hero from '../../images/svg/hero.svg'
+import config from '../../../content/meta/config'
+import hero from '../../assets/svg/hero.svg'
 import styled from 'styled-components'
 
 const Hero = () => {

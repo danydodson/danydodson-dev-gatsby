@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Icon } from '../components/icons'
-import { socialLinks } from '../../data/config'
-import footer from '../images/svg/footer.svg'
+import { socialLinks } from '../../content/meta/config'
+import footer from '../assets/svg/footer.svg'
 
 const Footer = () => {
   const [githubInfo, setGitHubInfo] = useState({

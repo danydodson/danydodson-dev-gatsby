@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { loadDelay } from '../utilies'
+import { loadDelay } from '../utilites'
 
 const Side = ({ children, isHome, orientation }) => {
   const [isMounted, setIsMounted] = useState(!isHome)

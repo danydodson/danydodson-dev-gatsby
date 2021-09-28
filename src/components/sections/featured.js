@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { Icon } from '../icons'
 import featured from '../../assets/svg/featured.svg'
 import config from '../../../content/meta/config'
-import { sr } from '../../utilies'
+import { sr } from '../../utilites'
 
 
 const Featured = () => {

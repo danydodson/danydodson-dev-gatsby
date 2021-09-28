@@ -68,9 +68,7 @@ module.exports = {
               rel: `nofollow noopener noreferrer`
             }
           },
-          {
-            resolve: `gatsby-remark-code-titles`,
-          },
+          { resolve: `gatsby-remark-code-titles` },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -99,7 +97,6 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -115,32 +112,32 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
+        query: `{
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
             }
           }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }]
-                })
+        }`,
+        feeds: [{
+          serialize: ({
+            query: { site, allMarkdownRemark }
+          }) => {
+            return allMarkdownRemark.edges.map(edge => {
+              return Object.assign({},
+                edge.node.frontmatter, {
+                description: edge.node.frontmatter.description,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }]
               })
-            },
-            query: `{
+            })
+          },
+          query: `{
               allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
                 edges {
                   node {
@@ -160,20 +157,10 @@ module.exports = {
               }
             }
           `,
-            output: `/rss.xml`,
-            title: `Dany Dodson's Blog Feed`,
-          }
+          output: `/rss.xml`,
+          title: `Dany Dodson's Blog Feed`
+        }
         ]
-      }
-    },
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
-        queries: require(`./gatsby/search/queries`),
-        chunkSize: 10000
       }
     },
     {

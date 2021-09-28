@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { navLinks } from '../../content/meta/config'
 import { useOnClickOutside } from '../hooks'
-import { keys } from '../utilies'
+import { keys } from '../utilites'
 
 const Menu = () => {
   const navRef = useRef(null)

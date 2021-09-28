@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import projects from '../../assets/svg/projects.svg'
 import { srConfig } from '../../../content/meta/config'
-import { sr } from '../../utilies'
+import { sr } from '../../utilites'
 import { Icon } from '../icons'
 
 const Projects = () => {
@@ -278,7 +278,9 @@ const StyledProject = styled.li`
   .project-description {
     font-size: 17px;
     color: var(--_black-2);
-    a {${({ theme }) => theme.mixins.inlineLink};}
+    a {
+      ${({ theme }) => theme.mixins.inlineLink}};
+    }
   }
 
   .project-tech-list {

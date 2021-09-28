@@ -113,9 +113,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
+        appId: config.algolia.appId,
+        apiKey: config.algolia.apiKey,
+        indexName: config.algolia.indexName,
         queries: require(`./gatsby/search/queries`),
         chunkSize: 10000
       }

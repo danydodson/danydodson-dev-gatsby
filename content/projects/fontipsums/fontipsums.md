@@ -3,7 +3,7 @@ template: project
 date: 2016-01-01T00:00:00.000Z
 lastmod: 2016-01-01T00:00:00.000Z
 title: Fontipsums
-draft: true
+draft: false
 cover: cover.png
 description: null
 github: 'https://github.com/bchiang7/fontipsums/'

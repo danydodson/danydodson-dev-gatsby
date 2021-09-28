@@ -56,6 +56,11 @@
           "type": "string"
         },
         {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string"
+        },
+        {
           "title": "Publish Date",
           "name": "date",
           "type": "datetime"
@@ -66,9 +71,9 @@
           "type": "datetime"
         },
         {
-          "title": "Slug",
-          "name": "slug",
-          "type": "string"
+          "title": "Is in Draft",
+          "name": "draft",
+          "type": "boolean"
         },
         {
           "title": "Preview",
@@ -81,35 +86,20 @@
           "type": "string"
         },
         {
-          "title": "Is in Draft",
-          "name": "draft",
+          "title": "Featured",
+          "name": "featured",
           "type": "boolean"
         },
         {
-          "title": "Company",
-          "name": "company",
-          "type": "string"
-        },
-        {
-          "title": "Location",
-          "name": "location",
-          "type": "string"
-        },
-        {
-          "title": "Range",
-          "name": "range",
-          "type": "string"
-        },
-        {
-          "title": "Website",
-          "name": "url",
-          "type": "string"
-        },
-        {
-          "title": "Git URL",
-          "name": "github",
-          "type": "string"
-        },
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    },
+    {
+      "name": "project",
+      "fields": [
         {
           "title": "External URL",
           "name": "external",
@@ -124,21 +114,41 @@
           "title": "Android URL",
           "name": "android",
           "type": "string"
-        },
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "fields": [
         {
-          "title": "Featured",
-          "name": "featured",
-          "type": "boolean"
+          "title": "Git URL",
+          "name": "github",
+          "type": "string"
         },
         {
           "title": "Category",
           "name": "category",
           "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "job",
+      "fields": [
+        {
+          "title": "Company",
+          "name": "company",
+          "type": "string"
         },
         {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags"
+          "title": "Location",
+          "name": "location",
+          "type": "string"
+        },
+        {
+          "title": "Range",
+          "name": "range",
+          "type": "string"
         }
       ]
     }

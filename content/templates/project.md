@@ -1,14 +1,12 @@
 ---
 template: project
 title: {{name}}
-slug: /projects/{{name}}/
+slug: {{kebabCase name}}
 date: 2020-01-01T00:00:00.000Z
 lastmod: 2020-01-01T00:00:00.000Z
 draft: true
-prevew: preview.png
-mediau: {mediaUrl}
+prevew: null
 description: null
-github: https://github.com/
 external:
 ios: null
 android: null

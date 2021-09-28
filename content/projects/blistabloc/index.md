@@ -4,7 +4,7 @@ title: Blistabloc
 slug: /project/blistabloc
 date: 2018-05-01T00:00:00.000Z
 lastmod: 2018-05-01T00:00:00.000Z
-draft: true
+draft: false
 cover: cover.png
 description: Custom WordPress theme and e-commerce site built with Timber and WooCommerce
 github: 'https://github.com/danydodson'

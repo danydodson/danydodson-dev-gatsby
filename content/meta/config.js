@@ -11,14 +11,14 @@ const config = {
   copyright: `© 2021 | Dany Dodson ♡`,
 
   postsPerPage: 10,
-  
+
   navLinks: [
     { name: `About`, url: `/#about` },
     { name: `Experience`, url: `/#jobs` },
     { name: `Work`, url: `/#featured` },
     { name: `Contact`, url: `/#contact` },
   ],
-  
+
   socialLinks: [
     { name: `GitHub`, url: `https://github.com/danydodson` },
     { name: `Instagram`, url: `https://www.instagram.com/dany_dodson` },
@@ -26,72 +26,72 @@ const config = {
     { name: `Linkedin`, url: `https://www.linkedin.com/in/danydodson` },
     { name: `Codepen`, url: `https://codepen.io/danydodson` },
   ],
-  
+
   hello: `
   <p>Hello! My name is Dany and I enjoy creating things that live on the internet. My interest in web development started back in 2000 when I decided to try editing live Journal themes — turns out hacking together a custom reblog button taught me a lot about HTML &amp; CSS! </p>
   <p>Fast-forward to today, and I've had the privilege of working at<a href='https://us.mullenlowe.com/' className='inlineLink'> an advertising agency</a>, <a href='https://starry.com/' className='inlineLink'>a start-up</a>, <a href='https://www.apple.com/' className='inlineLink'> a huge corporation</a>, and{' '}<a href='https://scout.camd.northeastern.edu/'>a student-led design studio</a>.My main focus these days isbuilding accessible, inclusive products and digital experiences at <a href='https://upstatement.com/' className='inlineLink'>Upstatement</a> for a variety of clients.</p>
   <p>Here are a few technologies I've been working with recently:</p>
   `,
-  
+
   skills: ['JavaScript (ES6+)', 'React', 'Eleventy', 'Vue', 'Node.js', 'WordPress'],
-  
-  host: {
-    name: 'GitHub',
-    url: 'https://github.com/danydodson',
-  },
-  
+
+  // host: {
+  //   name: 'GitHub',
+  //   url: 'https://github.com/danydodson',
+  // },
+
   // 
-  footerLinks: [
-    {
-      sectionName: 'Explore',
-      links: [
-        { label: 'Blog', url: '/' },
-        { label: 'About', url: '/about-gatsby-starter-morning-dew' },
-        { label: 'Installation', url: '/how-to-install' },
-      ]
-    },
-    {
-      sectionName: 'Follow the author',
-      links: [
-        { label: 'GitHub', url: 'https://github.com/maxpou/gatsby-starter-morning-dew', rel: 'external' },
-        { label: 'Website', url: 'https://www.maxpou.fr', rel: 'external' },
-        { label: 'Twitter', url: 'https://twitter.com/_maxpou', rel: 'external' },
-      ],
-    },
-  ],
-  
+  // footerLinks: [
+  //   {
+  //     sectionName: 'Explore',
+  //     links: [
+  //       { label: 'Blog', url: '/' },
+  //       { label: 'About', url: '/about-gatsby-starter-morning-dew' },
+  //       { label: 'Installation', url: '/how-to-install' },
+  //     ]
+  //   },
+  //   {
+  //     sectionName: 'Follow the author',
+  //     links: [
+  //       { label: 'GitHub', url: 'https://github.com/maxpou/gatsby-starter-morning-dew', rel: 'external' },
+  //       { label: 'Website', url: 'https://www.maxpou.fr', rel: 'external' },
+  //       { label: 'Twitter', url: 'https://twitter.com/_maxpou', rel: 'external' },
+  //     ],
+  //   },
+  // ],
+
   googleAnalyticsId: 'UA-73379983-2',
-  
+
   algolia: {
-    appId: process.env.ALGOLIA_APP_ID,
+    appId: `${process.env.ALGOLIA_APP_ID}`,
     apiKey: process.env.ALGOLIA_API_KEY,
     searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
     indexName: process.env.ALGOLIA_INDEX_NAME,
   },
-  
-  author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-    contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '',
-      vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
-      line: '',
-      gitlab: '',
-      weibo: '',
-      codepen: '',
-      youtube: '',
-      soundcloud: '',
-      medium: '',
-    }
-  },
+
+  // author: {
+  //   name: 'John Doe',
+  //   photo: '/photo.jpg',
+  //   bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  //   contacts: {
+  //     email: '',
+  //     facebook: '#',
+  //     telegram: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //     rss: '',
+  //     vkontakte: '',
+  //     linkedin: '#',
+  //     instagram: '#',
+  //     line: '',
+  //     gitlab: '',
+  //     weibo: '',
+  //     codepen: '',
+  //     youtube: '',
+  //     soundcloud: '',
+  //     medium: '',
+  //   }
+  // },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     delay,

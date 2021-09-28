@@ -4,6 +4,8 @@ require('dotenv').config({
 
 const config = require('./content/meta/config')
 
+console.log(process.env.ALGOLIA_APP_ID)
+
 module.exports = {
   siteMetadata: config,
   plugins: [
@@ -113,38 +115,41 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: config.algolia.appId,
-        apiKey: config.algolia.apiKey,
-        indexName: config.algolia.indexName,
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
         queries: require(`./gatsby/search/queries`),
         chunkSize: 10000
       }
     },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        query: `{
-          site { 
-            siteMetadata {
-              siteUrl: siteUrl
-            } 
-          }
-          allSitePage(filter: {path: {regex: "/^(?!/404/|/404.html|/dev-404-page/)/"}}) {
-            edges {
-              node {
-                path
-              }
-            }
-          }
-        }`,
-        output: '/sitemap.xml',
-        serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
-          url: site.siteMetadata.siteUrl + edge.node.path,
-          changefreq: 'daily',
-          priority: 0.7
-        }))
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-sitemap',
+    //   options: {
+    //     query: `
+    //       {
+    //         site { 
+    //           siteMetadata {
+    //             siteUrl
+    //             site_url: siteUrl
+    //           } 
+    //         }
+    //         allSitePage(filter: {path: {regex: "/^(?!/404/|/404.html|/dev-404-page/)/"}}) {
+    //           edges {
+    //             node {
+    //               path
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     output: '/sitemap.xml',
+    //     serialize: ({ site, allSitePage }) => allSitePage.edges.map(edge => ({
+    //       url: site.siteMetadata.siteUrl + edge.node.path,
+    //       changefreq: 'daily',
+    //       priority: 0.7
+    //     }))
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {

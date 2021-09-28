@@ -4,10 +4,10 @@ require('dotenv').config({
 
 const config = require('./content/meta/config')
 
-console.log(process.env.ALGOLIA_APP_ID)
-
 module.exports = {
+
   siteMetadata: config,
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -98,7 +98,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,

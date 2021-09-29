@@ -5,6 +5,7 @@ import contact from '../../assets/svg/contact.svg'
 import config from '../../../content/meta/config'
 import { sr } from '../../utilites'
 
+
 const Contact = () => {
   const revealContainer = useRef(null)
 

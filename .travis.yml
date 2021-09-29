@@ -6,16 +6,14 @@ language: node_js
 node_js:
   - 'node'
 
-deploy:
-  provider: pages:git
-  edge: true
-  token: ${GH_TOKEN}
-  on:
-    branch: pages:git
+script: git config --global user.email $GH_EMAIL 2> /dev/null &&
+  git config --global user.name $GH_USERNAME 2> /dev/null &&
+  git remote set-url origin "https://${GH_USERNAME}:${GH_TOKEN}@github.com/danydodson/danydodson-dev.github.io.git" 2> /dev/null &&
+  yarn install && yarn run deploy 2> /dev/null
 
 cache:
   yarn: true
   directories:
     - .cache
-    - node_modules
     - public
+    - node_modules

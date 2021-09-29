@@ -6,7 +6,7 @@ orbs:
 jobs:
   example-job:
     docker:
-      - image: node/node:14.18-buster
+      - image: buildpack-deps:trusty
     steps:
       - node/install-packages:
           pkg-manager: yarn 

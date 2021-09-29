@@ -21,4 +21,4 @@ workflows:
       - node/run:
           pkg-manager: yarn 
           yarn-run: build
-          override-ci-command: yarn install --frozen-lockfile
+          override-ci-command: yarn install --frozen-lockfile --ignore-engines

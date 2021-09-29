@@ -5,6 +5,7 @@ import config from '../../../content/meta/config'
 import hero from '../../assets/svg/hero.svg'
 import styled from 'styled-components'
 
+
 const Hero = () => {
   const [mounted, setMounted] = useState(false)
 
@@ -77,7 +78,13 @@ const StyledHeroSection = styled.section`
 
   & h2 {
     color: transparent;
-    background: linear-gradient(219deg, var(--_blue-1) 19%, transparent 19%, transparent 20%, var(--_teal-2) 20%, var(--_teal-2) 39%, transparent 39%, transparent 40%, var(--_yellow-2) 40%, var(--_yellow-2) 59%, transparent 59%, transparent 60%, var(--_orange-2) 60%, var(--_orange-2) 79%, transparent 79%, transparent 80%, var(--_pink-2) 80%);
+    background: linear-gradient(
+      219deg, 
+      var(--_blue-1) 19%, transparent 19%, transparent 20%, var(--_teal-2) 20%, 
+      var(--_teal-2) 39%, transparent 39%, transparent 40%, var(--_yellow-2) 40%, 
+      var(--_yellow-2) 59%, transparent 59%, transparent 60%, var(--_orange-2) 60%, 
+      var(--_orange-2) 79%, transparent 79%, transparent 80%, var(--_pink-2) 80%
+    );
     -webkit-background-clip: text;
     background-clip: text;
   }

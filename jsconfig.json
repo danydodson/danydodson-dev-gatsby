@@ -2,18 +2,20 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2020",
-    "jsx": "preserve",
-    "strictFunctionTypes": true,
+    "jsx": "react-jsx",
     "sourceMap": true
   },
   "include": [
-    "gatsby-node.js",
-    "gatsby-config.js",
     "gatsby/**/*.js",
-    "src/**/*.js"
+    "content/meta/config.js",
+    "src/**/*.js",
+    "gatsby-node.js",
+    "gatsby-config.js"
   ],
   "exclude": [
-    "node_modules",
-    "**/node_modules/*"
+    "**/.github/*",
+    "**/.cache/*",
+    "**/node_modules/*",
+    "**/public/*"
   ]
 }

@@ -1,11 +1,8 @@
 **/.cache
 **/.vscode
-**/.env.*
-**/**/*.log
-**/.frontmatter
-**/.dependencygraph
+**/*.env.*
+**/*.log
 **/.netlify
 **/public
 **/node_modules
-**/yarn-error.log
 **/package-lock.json

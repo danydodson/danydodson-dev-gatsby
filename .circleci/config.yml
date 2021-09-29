@@ -1,22 +1,18 @@
 version: 2.1
 
 orbs:
-    node: circleci/node@4.7
+  node: circleci/node@4.7.0
 
 jobs:
-  Initialize:
+  example-job:
     docker:
-      - image: cimg/base:stable
+      - image: node:14.18-buster
     steps:
-      - node/install:
-          install-yarn: true 
-          node-version: '14.15.0'
-      - node/run:
+      - node/install-packages:
           pkg-manager: yarn 
-          yarn-run: build
-          override-ci-command: yarn install --frozen-lockfile --ignore-engines
+          with-cache: true
 
 workflows:
-  Build Workflow:
+  example-workflow:
     jobs:
-      - Initialize
+      - example-job

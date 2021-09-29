@@ -1,12 +1,20 @@
+os: linux
+dist: focal
+
 language: node_js
+
 node_js:
   - 'node'
+
 install:
   - npm install -g codecov
+
 script:
-  - yarn install --frozen-lockfile
+  - yarn --frozen-lockfile
   - yarn build
   - codecov
+
 cache:
+  yarn: true
   directories:
     - node_modules

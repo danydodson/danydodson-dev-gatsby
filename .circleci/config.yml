@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  build:
+  Initialize:
     docker:
       - image: cimg/base:stable
     steps:
@@ -16,6 +16,6 @@ jobs:
           yarn-version: '1.22.5' 
 
 workflows:
-  build_ci:
+  Circle CI:
     jobs:
-      - build
+      - Initialize

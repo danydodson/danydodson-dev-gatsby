@@ -3,10 +3,22 @@ version: 2.1
 orbs:
     node: circleci/node@4.7
 
+jobs:
+  Initialize:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - node/install:
+          install-yarn: true 
+          lts: true
+
 workflows:
-    example-workflow:
+  Initialize:
       jobs:
-        - node/run:
-            pkg-manager: yarn 
-            yarn-run: build
-            override-ci-command: yarn install --frozen-lockfile
+        - Initialize
+  Build CI:
+    jobs:
+      - node/run:
+          pkg-manager: yarn 
+          yarn-run: build
+          override-ci-command: yarn install --frozen-lockfile

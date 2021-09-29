@@ -2,9 +2,10 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7.0
+  codecov: codecov/codecov@3.1.0
 
 jobs:
-  Build:
+  build:
     docker:
       - image: cimg/base:stable
     steps:
@@ -14,13 +15,15 @@ jobs:
           lts: true 
           node-version: '14.17.6' 
           yarn-version: '1.22.5' 
-  Analysis:
+  analysis:
     docker:
       - image: cimg/base:stable
     steps:
       - codecov/upload
 
 workflows:
-  Build CI:
+  version: 2
+  build_and_analysis:
     jobs:
-      - Build
+      - build
+      - analysis

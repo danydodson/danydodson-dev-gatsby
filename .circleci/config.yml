@@ -3,9 +3,15 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
+jobs:
+  install:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - node/install-packages:
+          pkg-manager: yarn 
+
 workflows:
-  sample:
+  install-workflow:
     jobs:
-      - node/test:
-          version: '16.10'
-          pkg-manager: yarn
+      - install

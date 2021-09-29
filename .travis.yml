@@ -6,9 +6,15 @@ language: node_js
 node_js:
   - 'node'
 
-deploy:
-  provider: pages:git
-  token: ${GH_TOKEN}
-  edge: true
-  on:
-    branch: pages:git
+install:
+  - npm install -g codecov
+
+script:
+  - yarn --frozen-lockfile
+  - yarn build
+  - codecov
+
+cache:
+  yarn: true
+  directories:
+    - node_modules

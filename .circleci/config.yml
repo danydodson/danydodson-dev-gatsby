@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  example-job:
+  Build:
     docker:
       - image: cimg/base:stable
     steps:
@@ -14,8 +14,13 @@ jobs:
           lts: true 
           node-version: '14.17.6' 
           yarn-version: '1.22.5' 
+  Analysis:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - codecov/upload
 
 workflows:
-  example-workflow:
+  Build CI:
     jobs:
-      - example-job
+      - Install

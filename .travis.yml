@@ -6,16 +6,22 @@ language: node_js
 node_js:
   - 'node'
 
-install:
-  - npm install -g codecov
+before_script:
+  - npm install -g gatsby-cli
 
-script:
-  - yarn --frozen-lockfile
-  - yarn build
-  - codecov
+deploy:
+  provider: pages:git
+  name: ${GH_USERNAME}
+  email: ${GH_EMAIL}
+  token: ${GH_TOKEN}
+  edge:
+    edge: true
+    cleanup: true
 
 cache:
   npm: true
   yarn: true
   directories:
     - node_modules
+    - public
+    - .cache

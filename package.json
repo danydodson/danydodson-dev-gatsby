@@ -1,13 +1,15 @@
 {
   "name": "danydodson-dev",
   "version": "1.0.0",
-  "private": true,
   "author": "Dany Dodson",
-  "description": "portfolio",
+  "description": "Blog & Portfolio",
+  "homepage": "danydodson.github.io/danydodson-dev",
+  "private": true,
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop -H 0.0.0.0 -p 8000",
     "build": "gatsby build",
+    "deploy": "npm run build && gh-pages -d public",
+    "start": "gatsby develop -H 0.0.0.0 -p 8000",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000 --verbose",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
@@ -38,6 +40,7 @@
     "gatsby-source-filesystem": "4.0.0-zz-next.1",
     "gatsby-transformer-remark": "5.0.0-zz-next.1",
     "gatsby-transformer-sharp": "4.0.0-zz-next.8",
+    "gh-pages": "^3.2.3",
     "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

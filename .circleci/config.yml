@@ -11,14 +11,12 @@ jobs:
       - node/install:
           install-yarn: true 
           node-version: '14.15.0'
-
-workflows:
-  Initialize:
-      jobs:
-        - Initialize
-  Build CI:
-    jobs:
       - node/run:
           pkg-manager: yarn 
           yarn-run: build
           override-ci-command: yarn install --frozen-lockfile --ignore-engines
+
+workflows:
+  Build Workflow:
+    jobs:
+      - Initialize

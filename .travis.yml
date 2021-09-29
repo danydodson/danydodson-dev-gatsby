@@ -6,22 +6,16 @@ language: node_js
 node_js:
   - 'node'
 
-before_script:
-  - npm install -g gatsby-cli
-
 deploy:
   provider: pages:git
-  name: ${GH_USERNAME}
-  email: ${GH_EMAIL}
+  edge: true
   token: ${GH_TOKEN}
-  edge:
-    edge: true
-    cleanup: true
+  on:
+    branch: pages:git
 
 cache:
-  npm: true
   yarn: true
   directories:
+    - .cache
     - node_modules
     - public
-    - .cache

@@ -3,7 +3,7 @@ import fonts from './fonts'
 import variables from './variables'
 import Transitions from './transitions'
 import Prism from './prism'
- 
+
 const Styles = createGlobalStyle`
   ${fonts};
   ${variables};
@@ -84,8 +84,10 @@ const Styles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     color: var(--_black-2);
-    font-weight: 600;
-    line-height: 1.3;
+    font-weight: normal;
+    /* font-weight: 600; */
+    line-height: 1.4;
+    /* line-height: 1.3; */
   }
   
   /*==========================================*/
@@ -170,6 +172,11 @@ const Styles = createGlobalStyle`
     height: 100%;
     &.icon {fill: none;}
   }
+  
+  /*==========================================*/
+
+  #logo,
+  #loader {color: var(--_yellow-1);}
 
   /*==========================================*/
 
@@ -322,11 +329,6 @@ const Styles = createGlobalStyle`
       background-color: var(--_blue-1);
     }
   }
-
-  /*==========================================*/
-
-  #logo,
-  #loader {color: var(--_blue-1);}
 
   /*==========================================*/
 

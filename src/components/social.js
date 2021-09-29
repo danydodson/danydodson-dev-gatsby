@@ -11,7 +11,7 @@ const Social = ({ isHome }) => (
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
           <li key={i}>
-            <a href={url} aria-label={name} target='_blank' rel='noreferrer'>
+            <a href={url} aria-label={name}>
               <Icon name={name} />
             </a>
           </li>

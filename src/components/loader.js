@@ -80,7 +80,7 @@ const StyledLoader = styled.div`
   position: fixed;
   ${({ theme }) => theme.mixins.flexCenter};
   
-  background-color: var(--_white-1);
+  background-color: var(--_white-2);
 
   .logo-wrapper {
     width: max-content;

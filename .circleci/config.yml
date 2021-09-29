@@ -6,11 +6,14 @@ orbs:
 jobs:
   example-job:
     docker:
-      - image: buildpack-deps:trusty
+      - image: cimg/base:stable
     steps:
-      - node/install-packages:
-          pkg-manager: yarn 
-          with-cache: true
+      - node/install:
+          install-npm: true 
+          install-yarn: true 
+          lts: true 
+          node-version: '14.17.6' 
+          yarn-version: '1.22.5' 
 
 workflows:
   example-workflow:

@@ -77,7 +77,7 @@ const Styles = createGlobalStyle`
     @media (min-width: 480px) {width: calc(100vw - 50px);}
     @media (min-width: 768px) {width: calc(100vw - 166px);}
     @media (min-width: 1080px) {width: calc(100vw - 240px);}
-  }
+  } 
 
   /*==========================================*/
   

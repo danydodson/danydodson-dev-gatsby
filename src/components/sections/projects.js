@@ -279,7 +279,7 @@ const StyledProject = styled.li`
     font-size: 17px;
     color: var(--_black-2);
     a {
-      ${({ theme }) => theme.mixins.inlineLink}};
+      ${({ theme }) => { theme.mixins.inlineLink }};
     }
   }
 
@@ -296,7 +296,10 @@ const StyledProject = styled.li`
       line-height: 1.75;
       font-size: var(--xs);
       font-family: var(--mono);
-      &:not(:last-of-type) {margin-right: 15px;}
+
+      &:not(:last-of-type) {
+        margin-right: 15px;
+      }
     }
   }
 `

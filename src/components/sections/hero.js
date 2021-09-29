@@ -5,7 +5,6 @@ import config from '../../../content/meta/config'
 import hero from '../../assets/svg/hero.svg'
 import styled from 'styled-components'
 
-
 const Hero = () => {
   const [mounted, setMounted] = useState(false)
 

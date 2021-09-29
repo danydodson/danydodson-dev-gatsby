@@ -15,7 +15,7 @@ const Jobs = () => {
         filter: { frontmatter: { template: { eq: "job" }, draft: { ne: true } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
-        edges { 
+        edges {
           node {
             html
             fields {

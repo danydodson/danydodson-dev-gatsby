@@ -1,4 +1,4 @@
 <svg id="footer_bg" width="60" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
 	<path fill="#fafffd" d="M 60 30 A 1 1 0 0 0 0 30 V 0 L 60 0 z" />
-	<path fill="#ffeb3b" d="M 60 30 A 1 1 0 0 0 0 30 V 88 L 60 88 z" />
+	<path fill="#f7c200" d="M 60 30 A 1 1 0 0 0 0 30 V 88 L 60 88 z" />
 </svg>

@@ -1,16 +1,16 @@
 <svg id="featured_bg" width="1212" height="866" version="1.1" xmlns="http://www.w3.org/2000/svg">
 	<g>
-	  <rect fill="#4facf7" width="1212" height="90"/>
-		<rect fill="#4de059" y="86" width="1212" height="776" fill-rule="evenodd" clip-rule="evenodd" />
-		<path fill="#4de059" d="M0,49.5 c0,0,13.8-0.2,28.4-0.4 c27.5-0.5,80.5-4.1,116.5-16.2 c34.2-11.5,56.9-28.7,97.3-31.8 c40.4-3,80.8,0.2,121.1,7.4 c40.3,7.2,80.8,18.5,121.3,18.2 c40.5-0.3,81.2-12.4,121.7-10.9 c40.5,1.5,81,16.5,121.3,25.4 c40.3,8.9,80.8,11.7,121.1,1.8 c40.3-9.9,78.5-27.8,119.5-28.5 c45.9-0.8,55.5,1.5,95.1,13 c23.3,6.7,38.4,13.4,61.3,17.4 c33.9,5.9,87.3,4.5,87.3,4.5 V90 H0 V49.5 z" />
+	  <rect fill="#519dd9" width="1212" height="90"/>
+		<rect fill="#3eb650" y="86" width="1212" height="776" fill-rule="evenodd" clip-rule="evenodd" />
+		<path fill="#3eb650" d="M0,49.5 c0,0,13.8-0.2,28.4-0.4 c27.5-0.5,80.5-4.1,116.5-16.2 c34.2-11.5,56.9-28.7,97.3-31.8 c40.4-3,80.8,0.2,121.1,7.4 c40.3,7.2,80.8,18.5,121.3,18.2 c40.5-0.3,81.2-12.4,121.7-10.9 c40.5,1.5,81,16.5,121.3,25.4 c40.3,8.9,80.8,11.7,121.1,1.8 c40.3-9.9,78.5-27.8,119.5-28.5 c45.9-0.8,55.5,1.5,95.1,13 c23.3,6.7,38.4,13.4,61.3,17.4 c33.9,5.9,87.3,4.5,87.3,4.5 V90 H0 V49.5 z" />
 		<ellipse fill="#fafffd" cx="978.2" cy="263.7" rx="3" ry="3" fill-rule="evenodd" clip-rule="evenodd" />
 		<ellipse fill="#fafffd" cx="459.8" cy="750.5" rx="1.5" ry="1.5" fill-rule="evenodd" clip-rule="evenodd" />
 		<ellipse fill="#fafffd" cx="76.2" cy="570.9" rx="2" ry="2.1" fill-rule="evenodd" clip-rule="evenodd" />
-		<ellipse fill="#4facf7" cx="282.8" cy="286.5" rx="2.5" ry="2.7" fill-rule="evenodd" clip-rule="evenodd" />
-		<ellipse fill="#4facf7" cx="790.8" cy="643.2" rx="2.5" ry="2.7" fill-rule="evenodd" clip-rule="evenodd" />
-		<ellipse fill="#4facf7" cx="1146.8" cy="412.9" rx="2.5" ry="2.5" fill-rule="evenodd" clip-rule="evenodd" />
-		<ellipse fill="#4facf7" cx="1146.8" cy="412.9" rx="2.5" ry="2.5" fill-rule="evenodd" clip-rule="evenodd" />
-		<ellipse fill="#4facf7" cx="788.8" cy="22.5" rx="2" ry="2" fill-rule="evenodd" clip-rule="evenodd" />
+		<ellipse fill="#519dd9" cx="282.8" cy="286.5" rx="2.5" ry="2.7" fill-rule="evenodd" clip-rule="evenodd" />
+		<ellipse fill="#519dd9" cx="790.8" cy="643.2" rx="2.5" ry="2.7" fill-rule="evenodd" clip-rule="evenodd" />
+		<ellipse fill="#519dd9" cx="1146.8" cy="412.9" rx="2.5" ry="2.5" fill-rule="evenodd" clip-rule="evenodd" />
+		<ellipse fill="#519dd9" cx="1146.8" cy="412.9" rx="2.5" ry="2.5" fill-rule="evenodd" clip-rule="evenodd" />
+		<ellipse fill="#519dd9" cx="788.8" cy="22.5" rx="2" ry="2" fill-rule="evenodd" clip-rule="evenodd" />
 		<ellipse fill="#fb3640" cx="128.8" cy="179.7" rx="2.5" ry="2.5" fill-rule="evenodd" clip-rule="evenodd" />
 		<ellipse fill="#fb3640" cx="314.2" cy="515.9" rx="3" ry="3" fill-rule="evenodd" clip-rule="evenodd" />
 		<ellipse fill="#fb3640" cx="1006.8" cy="809.7" rx="1.5" ry="1.5" fill-rule="evenodd" clip-rule="evenodd" />

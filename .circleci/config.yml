@@ -10,7 +10,7 @@ jobs:
     steps:
       - node/install:
           install-yarn: true 
-          lts: true
+          node-version: '14.15.0'
 
 workflows:
   Initialize:

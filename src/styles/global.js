@@ -3,7 +3,7 @@ import fonts from './fonts'
 import variables from './variables'
 import Transitions from './transitions'
 import Prism from './prism'
-
+ 
 const Styles = createGlobalStyle`
   ${fonts};
   ${variables};

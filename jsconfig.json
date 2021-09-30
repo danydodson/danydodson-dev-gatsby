@@ -6,16 +6,11 @@
     "sourceMap": true
   },
   "include": [
+    "content/**/*.js",
+    "content/**/*.md",
     "gatsby/**/*.js",
-    "content/meta/config.js",
     "src/**/*.js",
     "gatsby-node.js",
     "gatsby-config.js"
-  ],
-  "exclude": [
-    "**/.github/*",
-    "**/.cache/*",
-    "**/node_modules/*",
-    "**/public/*"
   ]
 }

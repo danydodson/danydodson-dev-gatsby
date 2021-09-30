@@ -223,6 +223,7 @@ const StyledProject = styled.li`
     }
 
     @media (max-width: 768px) {
+      color: #df76cac7;
       display: flex;
       flex-direction: column;
       justify-content: center;

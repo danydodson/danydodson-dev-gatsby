@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "jsx": "react",
+    "strictFunctionTypes": true,
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "config": ["~/src/meta/config"],
+      "components": ["~/src/components"],
+      "fonts": ["~/src/fonts"],
+      "hooks": ["~/src/layout"],
+      "images": ["~/src/images"],
+      "pages": ["~/src/pages"],
+      "styles": ["~/src/styles"],
+      "utilities": ["~/src/utilities"]
+    }
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "**/.cache/*",
+    "**/public/*",
+    "**/.vscode/*",
+    "**/.husky/*",
+    "**/.netlify/*",
+    "**/.github/*",
+    "**/node_modules/*"
+  ]
+}

@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-import { socialLinks } from '../../content/meta/config';
-import { Icon } from '../components/icons';
 import { Side } from '../components';
+import { Icon } from '../components/icons';
+import { socialLinks } from '../config';
 
 const Social = ({ isHome }) => (
   <Side isHome={isHome} orientation="left">

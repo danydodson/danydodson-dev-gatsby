@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import contact from '../../assets/svg/contact.svg';
-import config from '../../../content/meta/config';
+import config from '../../config';
 import { sr } from '../../utilities';
 
 const Contact = () => {

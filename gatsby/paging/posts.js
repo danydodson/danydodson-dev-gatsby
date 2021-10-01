@@ -1,5 +1,5 @@
 const path = require('path');
-const siteConfig = require('../../content/meta/config');
+const siteConfig = require('../../src/config');
 
 const { getCategories } = require('../constants/categories.js');
 const { getTags } = require('../constants/tags');

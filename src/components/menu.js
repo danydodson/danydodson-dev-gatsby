@@ -1,9 +1,9 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'gatsby';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
-import { navLinks } from '../../content/meta/config';
+import { navLinks } from '../config';
 import { useOnClickOutside } from '../hooks';
 import { keys } from '../utilities';
 

@@ -1,12 +1,12 @@
 /* eslint-disable */
-import React, { useEffect, useRef } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Icon } from '../icons';
 import featured from '../../assets/svg/featured.svg';
-import config from '../../../content/meta/config';
+import config from '../../config';
 import { sr } from '../../utilities';
+import { Icon } from '../icons';
 
 const Featured = () => {
   const data = useStaticQuery(graphql`

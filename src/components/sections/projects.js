@@ -1,10 +1,10 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import styled from 'styled-components';
 import projects from '../../assets/svg/projects.svg';
-import { srConfig } from '../../../content/meta/config';
+import { srConfig } from '../../config';
 import { sr } from '../../utilities';
 import { Icon } from '../icons';
 

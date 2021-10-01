@@ -2,7 +2,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const config = require('./content/meta/config');
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: config,
@@ -13,21 +13,21 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/jobs`,
+        path: `${__dirname}/src/content/jobs`,
         name: `jobs`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/posts`,
+        path: `${__dirname}/src/content/posts`,
         name: `posts`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/projects`,
+        path: `${__dirname}/src/content/projects`,
         name: `projects`,
       },
     },

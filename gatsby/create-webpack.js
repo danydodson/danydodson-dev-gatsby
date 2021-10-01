@@ -23,14 +23,13 @@ const onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 
   actions.setWebpackConfig({
-    devtool: process.env.NODE_ENV === 'production' ? false : 'eval-source-map',
     resolve: {
       alias: {
+        '@assets': path.resolve(__dirname, 'src/assets'),
         '@components': path.resolve(__dirname, 'src/components'),
-        '@config': path.resolve(__dirname, 'content/meta/config'),
-        '@fonts': path.resolve(__dirname, 'src/assets/fonts'),
+        '@config': path.resolve(__dirname, 'src/config'),
+        '@fonts': path.resolve(__dirname, 'src/fonts'),
         '@hooks': path.resolve(__dirname, 'src/hooks'),
-        '@images': path.resolve(__dirname, 'src/images'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@styles': path.resolve(__dirname, 'src/styles'),
         '@utilities': path.resolve(__dirname, 'src/utilities'),

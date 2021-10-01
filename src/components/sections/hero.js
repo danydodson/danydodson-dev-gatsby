@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { loadDelay, navDelay } from '../../utilities';
-import config from '../../../content/meta/config';
-import hero from '../../assets/svg/hero.svg';
 import styled from 'styled-components';
+import hero from '../../assets/svg/hero.svg';
+import { email } from '../../config';
+import { loadDelay, navDelay } from '../../utilities';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -31,7 +31,7 @@ const Hero = () => {
   );
 
   const contact = (
-    <a className="email-link" href={`mailto:${config.email}`}>
+    <a className="email-link" href={`mailto:${email}`}>
       Get In Touch
     </a>
   );

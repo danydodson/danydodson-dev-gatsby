@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import { Side } from '../components';
-import { email } from '../../content/meta/config';
+import { email } from '../config';
 
 const Email = ({ isHome }) => (
   <Side isHome={isHome} orientation="right">

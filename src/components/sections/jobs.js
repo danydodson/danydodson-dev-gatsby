@@ -1,11 +1,11 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import jobs from '../../assets/svg/jobs.svg';
-import { sr, keys } from '../../utilities';
-import config from '../../../content/meta/config';
+import config from '../../config';
+import { keys, sr } from '../../utilities';
 
 const Jobs = () => {
   const data = useStaticQuery(graphql`

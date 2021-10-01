@@ -1,8 +1,12 @@
-**/.cache
+**/**/.cache
+**/content
+**/node_modules
 **/.vscode
 **/*.env.*
 **/*.log
 **/.netlify
 **/public
-**/node_modules
+**/package.json
+**/package-lock.json
+**/yarn.lock
 **/package-lock.json

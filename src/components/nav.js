@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 import menu from '../assets/svg/menu.svg';
-import { loadDelay } from '../utilities';
-import { navLinks } from '../../content/meta/config';
-import { useScrollDirection } from '../hooks';
 import { Menu } from '../components';
+import { navLinks } from '../config';
+import { useScrollDirection } from '../hooks';
+import { loadDelay } from '../utilities';
 import { Icon } from './icons';
 
 const Nav = ({ isHome }) => {

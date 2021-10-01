@@ -1,10 +1,9 @@
 module.exports = {
-
   getTags: async graphql => {
     const {
       data: {
-        allMarkdownRemark: { group }
-      }
+        allMarkdownRemark: { group },
+      },
     } = await graphql(`
       query TagListQuery {
         allMarkdownRemark(
@@ -16,11 +15,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
 
-    return group.map((tag, i) => ({
+    return group.map(tag => ({
       ...tag,
-    }))
-
-  }
-}
+    }));
+  },
+};

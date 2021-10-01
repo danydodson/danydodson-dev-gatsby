@@ -1,14 +1,17 @@
-import React from 'react'
-import { Layout } from '../components'
+import React from 'react';
+import { Layout } from '../components';
+import PropTypes from 'prop-types';
 
 // site.com/404
 
-const NotFoundTemplate = ({ location }) => {
-  return (
-    <Layout location={location}>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
-  )
-}
+const NotFoundTemplate = ({ location }) => (
+  <Layout location={location}>
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+  </Layout>
+);
 
-export default NotFoundTemplate
+NotFoundTemplate.propTypes = {
+  location: PropTypes.object,
+};
+
+export default NotFoundTemplate;

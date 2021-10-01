@@ -1,10 +1,9 @@
 module.exports = {
-
   getCategories: async graphql => {
     const {
       data: {
-        allMarkdownRemark: { group }
-      }
+        allMarkdownRemark: { group },
+      },
     } = await graphql(`
       query CategoriesListQuery {
         allMarkdownRemark(
@@ -16,10 +15,10 @@ module.exports = {
           }
         }
       }
-    `)
+    `);
 
-    return group.map((cat, i) => ({
+    return group.map(cat => ({
       ...cat,
-    }))
-  }
-}
+    }));
+  },
+};

@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 const prismColors = {
   bg: `#112340`,
@@ -13,7 +13,7 @@ const prismColors = {
   grey: `#a2aabc`,
   comment: `#8695b799`,
   variable: `#efefef`,
-}
+};
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs
 
@@ -111,29 +111,63 @@ const PrismStyles = css`
     border-radius: 0 0 3px 3px;
   }
 
-  .gatsby-highlight pre[class='language-js']::before {content: 'js';}
-  .gatsby-highlight pre[class='language-javascript']::before {content: 'js';}
-  .gatsby-highlight pre[class='language-jsx']::before {content: 'jsx';}
-  .gatsby-highlight pre[class='language-html']::before {content: 'html';}
-  .gatsby-highlight pre[class='language-css']::before {content: 'css';}
-  .gatsby-highlight pre[class='language-mdx']::before {content: 'mdx';}
-  .gatsby-highlight pre[class='language-shell']::before {content: 'shell';}
-  .gatsby-highlight pre[class='language-sh']::before {content: 'sh';}
-  .gatsby-highlight pre[class='language-bash']::before {content: 'bash';}
-  .gatsby-highlight pre[class='language-graphql']::before {content: 'GraphQL';}
-  .gatsby-highlight pre[class='language-yaml']::before {content: 'yaml';}
-  .gatsby-highlight pre[class='language-markdown']::before {content: 'md';}
-  .gatsby-highlight pre[class='language-json']::before {content: 'json';}
-  .gatsby-highlight pre[class='language-json5']::before {content: 'json';}
-  .gatsby-highlight pre[class='language-diff']::before {content: 'diff';}
-  .gatsby-highlight pre[class='language-text']::before {content: 'text';}
-  .gatsby-highlight pre[class='language-flow']::before {content: 'flow';}
+  .gatsby-highlight pre[class='language-js']::before {
+    content: 'js';
+  }
+  .gatsby-highlight pre[class='language-javascript']::before {
+    content: 'js';
+  }
+  .gatsby-highlight pre[class='language-jsx']::before {
+    content: 'jsx';
+  }
+  .gatsby-highlight pre[class='language-html']::before {
+    content: 'html';
+  }
+  .gatsby-highlight pre[class='language-css']::before {
+    content: 'css';
+  }
+  .gatsby-highlight pre[class='language-mdx']::before {
+    content: 'mdx';
+  }
+  .gatsby-highlight pre[class='language-shell']::before {
+    content: 'shell';
+  }
+  .gatsby-highlight pre[class='language-sh']::before {
+    content: 'sh';
+  }
+  .gatsby-highlight pre[class='language-bash']::before {
+    content: 'bash';
+  }
+  .gatsby-highlight pre[class='language-graphql']::before {
+    content: 'GraphQL';
+  }
+  .gatsby-highlight pre[class='language-yaml']::before {
+    content: 'yaml';
+  }
+  .gatsby-highlight pre[class='language-markdown']::before {
+    content: 'md';
+  }
+  .gatsby-highlight pre[class='language-json']::before {
+    content: 'json';
+  }
+  .gatsby-highlight pre[class='language-json5']::before {
+    content: 'json';
+  }
+  .gatsby-highlight pre[class='language-diff']::before {
+    content: 'diff';
+  }
+  .gatsby-highlight pre[class='language-text']::before {
+    content: 'text';
+  }
+  .gatsby-highlight pre[class='language-flow']::before {
+    content: 'flow';
+  }
 
   /* Prism Styles */
   .token {
     display: inline;
   }
-  
+
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -191,7 +225,7 @@ const PrismStyles = css`
   .token.inserted {
     color: ${prismColors.green};
   }
-  
+
   .token.parameter {
     color: ${prismColors.variable};
   }
@@ -212,6 +246,6 @@ const PrismStyles = css`
   .namespace {
     opacity: 0.7;
   }
-`
+`;
 
-export default PrismStyles
+export default PrismStyles;

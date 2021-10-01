@@ -1,22 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Side } from '../components'
-import { email } from '../../content/meta/config'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Side } from '../components';
+import { email } from '../../content/meta/config';
 
 const Email = ({ isHome }) => (
-  <Side isHome={isHome} orientation='right'>
+  <Side isHome={isHome} orientation="right">
     <StyledEmail>
       <a href={`mailto:${email}`}>{email}</a>
     </StyledEmail>
   </Side>
-)
+);
 
 Email.propTypes = {
   isHome: PropTypes.bool,
-}
+};
 
-export default Email
+export default Email;
 
 const StyledEmail = styled.div`
   ${({ theme }) => theme.mixins.flexColumn};
@@ -29,7 +29,7 @@ const StyledEmail = styled.div`
     display: block;
     background-color: var(--_grey-2);
   }
-  
+
   a {
     margin: 30px auto;
     letter-spacing: 0.1em;
@@ -44,4 +44,4 @@ const StyledEmail = styled.div`
       transform: translateY(-3px);
     }
   }
-`
+`;

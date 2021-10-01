@@ -1,15 +1,14 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import posts from '../../assets/svg/posts.svg'
-import config from '../../../content/meta/config'
-import { sr } from '../../utilites'
-import { Icon } from '../icons'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import posts from '../../assets/svg/posts.svg';
+import config from '../../../content/meta/config';
+import { sr } from '../../utilities';
+import { Icon } from '../icons';
 
 const Posts = () => {
-
   const data = useStaticQuery(graphql`
     {
       posts: allMarkdownRemark(
@@ -40,64 +39,59 @@ const Posts = () => {
         }
       }
     }
-  `)
+  `);
 
-  const posts = data.posts.edges.filter(({ node }) => node)
+  const posts = data.posts.edges.filter(({ node }) => node);
 
-  const revealTitle = useRef(null)
-  const revealLink = useRef(null)
-  const revealPosts = useRef([])
-  const [showMore, setShowMore] = useState(false)
+  const revealTitle = useRef(null);
+  const revealLink = useRef(null);
+  const revealPosts = useRef([]);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, config.srConfig())
-    sr.reveal(revealLink.current, config.srConfig())
-    revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
-  }, [])
+    sr.reveal(revealTitle.current, config.srConfig());
+    sr.reveal(revealLink.current, config.srConfig());
+    revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)));
+  }, []);
 
-  const GRID_LIMIT = 6
-  const firstSix = posts.slice(0, GRID_LIMIT)
-  const postsToShow = showMore ? posts : firstSix
+  const GRID_LIMIT = 6;
+  const firstSix = posts.slice(0, GRID_LIMIT);
+  const postsToShow = showMore ? posts : firstSix;
 
   const postInner = node => {
-    const { frontmatter } = node
-    const { slug, title, tags } = frontmatter
+    const { frontmatter } = node;
+    const { slug, title, tags } = frontmatter;
     // const image = getImage(cover)
 
     return (
-      <div className='post-inner'>
-
+      <div className="post-inner">
         <header>
-          <div className='post-top'>
-
-            <div className='folder'>
-              <Icon name='Bookmark' />
+          <div className="post-top">
+            <div className="folder">
+              <Icon name="Bookmark" />
             </div>
 
-            <div className='post-links'>
-
+            <div className="post-links">
               {slug && (
-                <a href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
-                  <Icon name='GitHub' />
+                <a href={slug} aria-label="GitHub Link" target="_blank" rel="noreferrer">
+                  <Icon name="GitHub" />
                 </a>
               )}
-
             </div>
           </div>
 
-          <h3 className='post-title'>
-            <a href={slug} target='_blank' rel='noreferrer'>
+          <h3 className="post-title">
+            <a href={slug} target="_blank" rel="noreferrer">
               {title}
             </a>
           </h3>
 
           {/* <div className='post-description' dangerouslySetInnerHTML={{ __html: html }} /> */}
-
         </header>
 
         <footer>
           {tags && (
-            <ul className='post-tag-list'>
+            <ul className="post-tag-list">
               {tags.map((tag, i) => (
                 <li key={i}>{tag}</li>
               ))}
@@ -105,39 +99,51 @@ const Posts = () => {
           )}
         </footer>
       </div>
-    )
-  }
+    );
+  };
 
   return (
-    <StyledPostsSection id='posts' >
+    <StyledPostsSection id="posts">
       <article>
+        <h2 ref={revealTitle} className="numbered-heading">
+          Posts
+        </h2>
 
-        <h2 ref={revealTitle} className='numbered-heading'>Posts</h2>
+        <Link to="/posts" className="inline-link archive-link" ref={revealLink}>
+          view archive
+        </Link>
 
-        <Link to='/posts' className='inline-link archive-link' ref={revealLink}>view archive</Link>
-
-        <ul className='posts-grid'>
+        <ul className="posts-grid">
           <TransitionGroup component={null}>
-            {postsToShow && postsToShow.map(({ node }, i) => (
-              <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
-                <StyledPost key={i} ref={el => (revealPosts.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
-                  {postInner(node)}
-                </StyledPost>
-              </CSSTransition>
-            ))}
+            {postsToShow &&
+              postsToShow.map(({ node }, i) => (
+                <CSSTransition
+                  key={i}
+                  classNames="fadeup"
+                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  exit={false}
+                >
+                  <StyledPost
+                    key={i}
+                    ref={el => (revealPosts.current[i] = el)}
+                    style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
+                  >
+                    {postInner(node)}
+                  </StyledPost>
+                </CSSTransition>
+              ))}
           </TransitionGroup>
         </ul>
 
-        <button onClick={() => setShowMore(!showMore)} className='more-button'>
+        <button onClick={() => setShowMore(!showMore)} className="more-button">
           Show {showMore ? 'Less' : 'More'}
         </button>
-
       </article>
-    </StyledPostsSection >
-  )
-}
+    </StyledPostsSection>
+  );
+};
 
-export default Posts
+export default Posts;
 
 const StyledPostsSection = styled.section`
   display: flex;
@@ -150,34 +156,38 @@ const StyledPostsSection = styled.section`
 
   article {
     padding-bottom: 125px;
-  
-    h2 {font-size: clamp(24px, 5vw, var(--fz_lg));}
-  
+
+    h2 {
+      font-size: clamp(24px, 5vw, var(--fz_lg));
+    }
+
     .archive-link {
       font-family: var(--mono);
       font-size: var(--sm);
-      &:after {bottom: 0.1em;}
+      &:after {
+        bottom: 0.1em;
+      }
     }
-  
+
     .posts-grid {
-      position: relative;    
+      position: relative;
       margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 15px;
       ${({ theme }) => theme.mixins.resetList};
-  
+
       @media (max-width: 1080px) {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
     }
-  
+
     .more-button {
       margin: 80px auto 0;
       ${({ theme }) => theme.mixins.button};
     }
   }
-`
+`;
 
 const StyledPost = styled.li`
   position: relative;
@@ -220,7 +230,10 @@ const StyledPost = styled.li`
 
     .folder {
       color: #a269cc;
-      svg {width: 40px;height: 40px;}
+      svg {
+        width: 40px;
+        height: 40px;
+      }
     }
 
     .post-links {
@@ -231,12 +244,20 @@ const StyledPost = styled.li`
       a {
         padding: 5px 7px;
         ${({ theme }) => theme.mixins.flexCenter};
-        &.external {svg {width: 22px;height: 22px;margin-top: -4px;}}
+        &.external {
+          svg {
+            width: 22px;
+            height: 22px;
+            margin-top: -4px;
+          }
+        }
         svg {
           width: 20px;
           height: 20px;
           stroke: var(--_grey-2);
-          &:hover {stroke: var(--_blue-1);}
+          &:hover {
+            stroke: var(--_blue-1);
+          }
         }
       }
     }
@@ -266,7 +287,7 @@ const StyledPost = styled.li`
   .post-description {
     color: var(--_black-2);
     font-size: var(--xs);
-    
+
     a {
       ${({ theme }) => theme.mixins.inlineLink};
     }
@@ -285,7 +306,9 @@ const StyledPost = styled.li`
       line-height: 1.75;
       font-family: var(--mono);
       font-size: var(--xs);
-      &:not(:last-of-type) {margin-right: 15px;}
+      &:not(:last-of-type) {
+        margin-right: 15px;
+      }
     }
   }
-`
+`;

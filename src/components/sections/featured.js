@@ -1,20 +1,20 @@
 /* eslint-disable */
-import React, { useEffect, useRef } from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import { Icon } from '../icons'
-import featured from '../../assets/svg/featured.svg'
-import config from '../../../content/meta/config'
-import { sr } from '../../utilites'
-
+import React, { useEffect, useRef } from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+import { Icon } from '../icons';
+import featured from '../../assets/svg/featured.svg';
+import config from '../../../content/meta/config';
+import { sr } from '../../utilities';
 
 const Featured = () => {
-
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "project" }, featured: { eq: true }, draft: { ne: true } } }
+        filter: {
+          frontmatter: { template: { eq: "project" }, featured: { eq: true }, draft: { ne: true } }
+        }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -40,88 +40,85 @@ const Featured = () => {
         }
       }
     }
-  `)
+  `);
 
-  const featured = data.featured.edges.filter(({ node }) => node)
+  const featured = data.featured.edges.filter(({ node }) => node);
 
-  const revealTitle = useRef(null)
-  const revealProjects = useRef([])
+  const revealTitle = useRef(null);
+  const revealProjects = useRef([]);
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, config.srConfig())
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
-  }, [])
+    sr.reveal(revealTitle.current, config.srConfig());
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)));
+  }, []);
 
   return (
-    <StyledFeaturedSection id='featured'>
+    <StyledFeaturedSection id="featured">
       <article>
-
-        <h2 className='numbered-heading' ref={revealTitle}>
+        <h2 className="numbered-heading" ref={revealTitle}>
           Some Things I’ve Built
         </h2>
 
         <StyledProjectsGrid>
+          {featured &&
+            featured.map(({ node }, i) => {
+              const { frontmatter, html } = node;
+              const { external, title, tech, github, cover } = frontmatter;
+              const image = getImage(cover);
 
-          {featured && featured.map(({ node }, i) => {
-            const { frontmatter, html } = node
-            const { external, title, tech, github, cover } = frontmatter
-            const image = getImage(cover)
+              return (
+                <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+                  <div className="project-content">
+                    <div>
+                      <p className="project-overline">Featured Project</p>
 
-            return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
-                <div className='project-content'>
-                  <div>
-                    <p className='project-overline'>Featured Project</p>
+                      <h3 className="project-title">
+                        <a href={external}>{title}</a>
+                      </h3>
 
-                    <h3 className='project-title'>
-                      <a href={external}>{title}</a>
-                    </h3>
+                      <div
+                        className="project-description"
+                        dangerouslySetInnerHTML={{ __html: html }}
+                      />
 
-                    <div
-                      className='project-description'
-                      dangerouslySetInnerHTML={{ __html: html }}
-                    />
-
-                    {tech.length && (
-                      <ul className='project-tech-list'>
-                        {tech.map((tech, i) => (
-                          <li key={i}>{tech}</li>
-                        ))}
-                      </ul>
-                    )}
-
-                    <div className='project-links'>
-                      {github && (
-                        <a href={github} aria-label='GitHub Link'>
-                          <Icon name='GitHub' />
-                        </a>
+                      {tech.length && (
+                        <ul className="project-tech-list">
+                          {tech.map((tech, i) => (
+                            <li key={i}>{tech}</li>
+                          ))}
+                        </ul>
                       )}
-                      {external && (
-                        <a href={external} aria-label='External Link' className='external'>
-                          <Icon name='External' />
-                        </a>
-                      )}
+
+                      <div className="project-links">
+                        {github && (
+                          <a href={github} aria-label="GitHub Link">
+                            <Icon name="GitHub" />
+                          </a>
+                        )}
+                        {external && (
+                          <a href={external} aria-label="External Link" className="external">
+                            <Icon name="External" />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='project-image'>
-                  <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className='img' />
-                  </a>
-                </div>
-              </StyledProject>
-            )
-          })}
-
+                  <div className="project-image">
+                    <a href={external ? external : github ? github : '#'}>
+                      <GatsbyImage image={image} alt={title} className="img" />
+                    </a>
+                  </div>
+                </StyledProject>
+              );
+            })}
         </StyledProjectsGrid>
-
       </article>
     </StyledFeaturedSection>
-  )
-}
+  );
+};
 
-export default Featured
+export default Featured;
 
 const StyledFeaturedSection = styled.section`
   background-color: #ffeb3b;
@@ -130,7 +127,7 @@ const StyledFeaturedSection = styled.section`
 
   article {
   }
-`
+`;
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -139,7 +136,7 @@ const StyledProjectsGrid = styled.ul`
     position: relative;
     z-index: 1;
   }
-`
+`;
 
 const StyledProject = styled.li`
   position: relative;
@@ -153,12 +150,13 @@ const StyledProject = styled.li`
   }
 
   &:not(:last-of-type) {
-    @media (max-width: 768px) {}
-    @media (max-width: 480px) {}
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 480px) {
+    }
   }
 
   &:nth-of-type(odd) {
-
     .project-content {
       grid-column: 7 / -1;
       text-align: right;
@@ -187,7 +185,9 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 0 5px 20px;
-        @media (max-width: 768px) {margin: 0 10px 5px 0;}
+        @media (max-width: 768px) {
+          margin: 0 10px 5px 0;
+        }
       }
     }
 
@@ -249,16 +249,20 @@ const StyledProject = styled.li`
   .project-title {
     color: inherit;
     font-size: clamp(24px, 5vw, 28px);
-    
-    @media (min-width: 768px) {margin: 0 0 20px;}
+
+    @media (min-width: 768px) {
+      margin: 0 0 20px;
+    }
 
     @media (max-width: 768px) {
       color: var(--_grey-2);
-      
+
       a {
         position: static;
-        
-        &:hover {color: var(--_teal-1);}
+
+        &:hover {
+          color: var(--_teal-1);
+        }
 
         &:before {
           top: 0;
@@ -292,7 +296,9 @@ const StyledProject = styled.li`
       padding: 20px 0;
       background-color: transparent;
       box-shadow: none;
-      &:hover {box-shadow: none;}
+      &:hover {
+        box-shadow: none;
+      }
     }
 
     a {
@@ -415,4 +421,4 @@ const StyledProject = styled.li`
       }
     }
   }
-`
+`;

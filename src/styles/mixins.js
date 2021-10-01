@@ -1,7 +1,6 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 const mixins = {
-
   flexColumn: css`
     position: relative;
     display: flex;
@@ -31,8 +30,13 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      outline: 0; &:after {width: 100%;} 
-      & > * {transition: var(--transition);}
+      outline: 0;
+      &:after {
+        width: 100%;
+      }
+      & > * {
+        transition: var(--transition);
+      }
     }
     &:after {
       width: 0;
@@ -61,8 +65,13 @@ const mixins = {
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--_blue-1); outline: none;}
-    &:after {display: none !important; }
+    &:active {
+      background-color: var(--_blue-1);
+      outline: none;
+    }
+    &:after {
+      display: none !important;
+    }
   `,
 
   smallButton: css`
@@ -79,8 +88,13 @@ const mixins = {
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--_blue-1); outline: none;}
-    &:after {display: none !important;}
+    &:active {
+      background-color: var(--_blue-1);
+      outline: none;
+    }
+    &:after {
+      display: none !important;
+    }
   `,
 
   bigButton: css`
@@ -97,15 +111,22 @@ const mixins = {
     transition: var(--transition);
     &:hover,
     &:focus,
-    &:active {background-color: var(--_blue-1); outline: none;}
-    &:after {display: none !important;}
+    &:active {
+      background-color: var(--_blue-1);
+      outline: none;
+    }
+    &:after {
+      display: none !important;
+    }
   `,
 
   boxShadow: css`
     box-shadow: 0 10px 30px -15px var(--box-shadow);
     transition: var(--transition);
     &:hover,
-    &:focus {box-shadow: 0 20px 30px -15px var(--box-shadow);}
+    &:focus {
+      box-shadow: 0 20px 30px -15px var(--box-shadow);
+    }
   `,
 
   fancyList: css`
@@ -117,16 +138,20 @@ const mixins = {
       position: relative;
       padding-left: 30px;
       margin-bottom: 10px;
-      &:before {left: 0; position: absolute; content: '⤏';color: var(--_grey-2);}
+      &:before {
+        left: 0;
+        position: absolute;
+        content: '⤏';
+        color: var(--_grey-2);
+      }
     }
   `,
-  
+
   resetList: css`
     margin: 0;
     padding: 0;
     list-style: none;
   `,
+};
 
-}
-
-export default mixins
+export default mixins;

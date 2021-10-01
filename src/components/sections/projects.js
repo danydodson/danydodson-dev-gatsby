@@ -1,19 +1,20 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import projects from '../../assets/svg/projects.svg'
-import { srConfig } from '../../../content/meta/config'
-import { sr } from '../../utilites'
-import { Icon } from '../icons'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import projects from '../../assets/svg/projects.svg';
+import { srConfig } from '../../../content/meta/config';
+import { sr } from '../../utilities';
+import { Icon } from '../icons';
 
 const Projects = () => {
-
   const data = useStaticQuery(graphql`
     {
       projects: allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "project" }, featured: { eq: false }, draft: { ne: true } } }
+        filter: {
+          frontmatter: { template: { eq: "project" }, featured: { eq: false }, draft: { ne: true } }
+        }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -39,69 +40,62 @@ const Projects = () => {
         }
       }
     }
-  `)
+  `);
 
-  const projects = data.projects.edges.filter(({ node }) => node)
+  const projects = data.projects.edges.filter(({ node }) => node);
 
-  const revealTitle = useRef(null)
-  const revealArchiveLink = useRef(null)
-  const revealProjects = useRef([])
-  const [showMore, setShowMore] = useState(false)
+  const revealTitle = useRef(null);
+  const revealArchiveLink = useRef(null);
+  const revealProjects = useRef([]);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig())
-    sr.reveal(revealArchiveLink.current, srConfig())
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
-  }, [])
+    sr.reveal(revealTitle.current, srConfig());
+    sr.reveal(revealArchiveLink.current, srConfig());
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+  }, []);
 
-  const GRID_LIMIT = 6
-  const firstSix = projects.slice(0, GRID_LIMIT)
-  const projectsToShow = showMore ? projects : firstSix
+  const GRID_LIMIT = 6;
+  const firstSix = projects.slice(0, GRID_LIMIT);
+  const projectsToShow = showMore ? projects : firstSix;
 
   const projectInner = node => {
-    const { frontmatter, html } = node
-    const { github, external, title, tech } = frontmatter
+    const { frontmatter, html } = node;
+    const { github, external, title, tech } = frontmatter;
 
     return (
-      <div className='project-inner'>
-
+      <div className="project-inner">
         <header>
-          <div className='project-top'>
-
-            <div className='folder'>
-              <Icon name='Folder' />
+          <div className="project-top">
+            <div className="folder">
+              <Icon name="Folder" />
             </div>
 
-            <div className='project-links'>
-
+            <div className="project-links">
               {github && (
-                <a href={github} aria-label='GitHub Link'>
-                  <Icon name='GitHub' />
+                <a href={github} aria-label="GitHub Link">
+                  <Icon name="GitHub" />
                 </a>
               )}
 
               {external && (
-                <a href={external} aria-label='External Link' className='external' >
-                  <Icon name='External' />
+                <a href={external} aria-label="External Link" className="external">
+                  <Icon name="External" />
                 </a>
               )}
-
             </div>
           </div>
 
-          <h3 className='project-title'>
-            <a href={external}>
-              {title}
-            </a>
+          <h3 className="project-title">
+            <a href={external}>{title}</a>
           </h3>
 
-          <div className='project-description' dangerouslySetInnerHTML={{ __html: html }} />
-
+          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
         </header>
 
         <footer>
           {tech && (
-            <ul className='project-tech-list'>
+            <ul className="project-tech-list">
               {tech.map((tech, i) => (
                 <li key={i}>{tech}</li>
               ))}
@@ -109,41 +103,49 @@ const Projects = () => {
           )}
         </footer>
       </div>
-    )
-  }
+    );
+  };
 
   return (
-    <StyledProjectsSection id='projects'>
+    <StyledProjectsSection id="projects">
       <article>
-
         <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
 
-        <Link className='inline-link archive-link' to='/projects' ref={revealArchiveLink}>
+        <Link className="inline-link archive-link" to="/projects" ref={revealArchiveLink}>
           view the archive
         </Link>
 
-        <ul className='projects-grid'>
+        <ul className="projects-grid">
           <TransitionGroup component={null}>
-            {projectsToShow && projectsToShow.map(({ node }, i) => (
-              <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
-                <StyledProject key={i} ref={el => (revealProjects.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`, }}>
-                  {projectInner(node)}
-                </StyledProject>
-              </CSSTransition>
-            ))}
+            {projectsToShow &&
+              projectsToShow.map(({ node }, i) => (
+                <CSSTransition
+                  key={i}
+                  classNames="fadeup"
+                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  exit={false}
+                >
+                  <StyledProject
+                    key={i}
+                    ref={el => (revealProjects.current[i] = el)}
+                    style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
+                  >
+                    {projectInner(node)}
+                  </StyledProject>
+                </CSSTransition>
+              ))}
           </TransitionGroup>
         </ul>
 
-        <button className='more-button' onClick={() => setShowMore(!showMore)}>
+        <button className="more-button" onClick={() => setShowMore(!showMore)}>
           Show {showMore ? 'Less' : 'More'}
         </button>
-
       </article>
     </StyledProjectsSection>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -152,7 +154,7 @@ const StyledProjectsSection = styled.section`
   background-color: #4de059;
   background-repeat: repeat-x;
   background-image: url(${projects});
-  
+
   article {
     padding-bottom: 125px;
 
@@ -170,7 +172,7 @@ const StyledProjectsSection = styled.section`
     }
 
     .projects-grid {
-      position: relative;    
+      position: relative;
       margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -187,7 +189,7 @@ const StyledProjectsSection = styled.section`
       ${({ theme }) => theme.mixins.button};
     }
   }
-`
+`;
 
 const StyledProject = styled.li`
   position: relative;
@@ -228,7 +230,11 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
     ${({ theme }) => theme.mixins.flexBetween};
 
-    .folder {width: 40px; height: 40px; color: var(--_red-1);}
+    .folder {
+      width: 40px;
+      height: 40px;
+      color: var(--_red-1);
+    }
 
     .project-links {
       display: flex;
@@ -241,14 +247,20 @@ const StyledProject = styled.li`
         ${({ theme }) => theme.mixins.flexCenter};
 
         &.external {
-          svg {width: 22px; height: 22px; margin-top: -4px;}
+          svg {
+            width: 22px;
+            height: 22px;
+            margin-top: -4px;
+          }
         }
 
         svg {
           width: 20px;
           height: 20px;
           stroke: var(--_grey-2);
-          &:hover {stroke: var(--_green-1);}
+          &:hover {
+            stroke: var(--_green-1);
+          }
         }
       }
     }
@@ -279,7 +291,9 @@ const StyledProject = styled.li`
     font-size: 17px;
     color: var(--_black-2);
     a {
-      ${({ theme }) => { theme.mixins.inlineLink }};
+      ${({ theme }) => {
+        theme.mixins.inlineLink;
+      }};
     }
   }
 
@@ -302,4 +316,4 @@ const StyledProject = styled.li`
       }
     }
   }
-`
+`;

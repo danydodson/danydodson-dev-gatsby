@@ -1,101 +1,105 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react'
-import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { navLinks } from '../../content/meta/config'
-import { useOnClickOutside } from '../hooks'
-import { keys } from '../utilites'
+import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { navLinks } from '../../content/meta/config';
+import { useOnClickOutside } from '../hooks';
+import { keys } from '../utilities';
 
 const Menu = () => {
-  const navRef = useRef(null)
-  const buttonRef = useRef(null)
+  const navRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const [menuOpen, setMenuOpen] = useState(false)
-  const toggleMenu = () => setMenuOpen(!menuOpen)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const wrapperRef = useRef()
-  useOnClickOutside(wrapperRef, () => setMenuOpen(false))
+  const wrapperRef = useRef();
+  useOnClickOutside(wrapperRef, () => setMenuOpen(false));
 
-  let menuFocusables
-  let firstFocusableEl
-  let lastFocusableEl
+  let menuFocusables;
+  let firstFocusableEl;
+  let lastFocusableEl;
 
   const setFocusables = () => {
-    menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))]
-    firstFocusableEl = menuFocusables[0]
-    lastFocusableEl = menuFocusables[menuFocusables.length - 1]
-  }
+    menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
+    firstFocusableEl = menuFocusables[0];
+    lastFocusableEl = menuFocusables[menuFocusables.length - 1];
+  };
 
   const handleBackwardTab = e => {
     if (document.activeElement === firstFocusableEl) {
-      e.preventDefault()
-      lastFocusableEl.focus()
+      e.preventDefault();
+      lastFocusableEl.focus();
     }
-  }
+  };
 
   const handleForwardTab = e => {
     if (document.activeElement === lastFocusableEl) {
-      e.preventDefault()
-      firstFocusableEl.focus()
+      e.preventDefault();
+      firstFocusableEl.focus();
     }
-  }
+  };
 
   const onKeyDown = e => {
     switch (e.key) {
       case keys.ESCAPE:
       case keys.ESCAPE_IE11: {
-        setMenuOpen(false)
-        break
+        setMenuOpen(false);
+        break;
       }
 
       case keys.TAB: {
         if (menuFocusables && menuFocusables.length === 1) {
-          e.preventDefault()
-          break
+          e.preventDefault();
+          break;
         }
         if (e.shiftKey) {
-          handleBackwardTab(e)
+          handleBackwardTab(e);
         } else {
-          handleForwardTab(e)
+          handleForwardTab(e);
         }
-        break
+        break;
       }
       default: {
-        break
+        break;
       }
     }
-  }
+  };
 
   const onResize = e => {
     if (e.currentTarget.innerWidth > 768) {
-      setMenuOpen(false)
+      setMenuOpen(false);
     }
-  }
+  };
 
   useEffect(() => {
-    document.addEventListener('keydown', onKeyDown)
-    window.addEventListener('resize', onResize)
+    document.addEventListener('keydown', onKeyDown);
+    window.addEventListener('resize', onResize);
 
-    setFocusables()
+    setFocusables();
 
     return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      window.removeEventListener('resize', onResize)
-    }
-  }, [])
+      document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
 
   return (
     <StyledMenu>
-
       <Helmet>
         <body className={menuOpen ? 'blur' : ''} />
       </Helmet>
 
       <div ref={wrapperRef}>
-        <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen} ref={buttonRef} aria-label='Menu'>
-          <div className='ham-box'>
-            <div className='ham-box-inner' />
+        <StyledHamburgerButton
+          onClick={toggleMenu}
+          menuOpen={menuOpen}
+          ref={buttonRef}
+          aria-label="Menu"
+        >
+          <div className="ham-box">
+            <div className="ham-box-inner" />
           </div>
         </StyledHamburgerButton>
 
@@ -112,18 +116,17 @@ const Menu = () => {
                 ))}
               </ol>
             )}
-            <a href='/resume.pdf' className='resume-link'>
+            <a href="/resume.pdf" className="resume-link">
               Resume
             </a>
           </nav>
         </StyledSidebar>
       </div>
-
     </StyledMenu>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;
 
 const StyledMenu = styled.div`
   display: none;
@@ -131,7 +134,7 @@ const StyledMenu = styled.div`
   @media (max-width: 768px) {
     display: block;
   }
-`
+`;
 
 const StyledHamburgerButton = styled.button`
   display: none;
@@ -168,7 +171,9 @@ const StyledHamburgerButton = styled.button`
     transition-property: transform;
     transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
     transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
-    transition-timing-function: cubic-bezier(${props => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)});
+    transition-timing-function: cubic-bezier(
+      ${props => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
+    );
 
     &:before,
     &:after {
@@ -190,7 +195,8 @@ const StyledHamburgerButton = styled.button`
       width: ${props => (props.menuOpen ? `100%` : `120%`)};
       top: ${props => (props.menuOpen ? `0` : `-10px`)};
       opacity: ${props => (props.menuOpen ? 0 : 1)};
-      transition: ${({ menuOpen }) => menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
+      transition: ${({ menuOpen }) =>
+        menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)'};
     }
 
     &:after {
@@ -200,7 +206,7 @@ const StyledHamburgerButton = styled.button`
       transition: ${({ menuOpen }) => (menuOpen ? 'var(--ham-after-active)' : 'var(--ham-after)')};
     }
   }
-`
+`;
 
 const StyledSidebar = styled.aside`
   display: none;
@@ -242,7 +248,8 @@ const StyledSidebar = styled.aside`
       counter-increment: item 1;
       font-size: clamp(var(--sm), 4vw, var(--lg));
 
-      @media (max-width: 600px) {}
+      @media (max-width: 600px) {
+      }
 
       &:before {
         content: '0' counter(item) '.';
@@ -264,4 +271,4 @@ const StyledSidebar = styled.aside`
     margin: 10% auto 0;
     ${({ theme }) => theme.mixins.bigButton};
   }
-`
+`;

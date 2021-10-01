@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Layout, Hero, About, Featured, Projects, Jobs, Posts, Contact } from '../components'
+import { Layout, Hero, About, Featured, Projects, Jobs, Posts, Contact } from '../components';
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
-    <main id='content'>
+    <main id="content">
       <Hero />
       <About />
       <Featured />
@@ -15,10 +15,10 @@ const IndexPage = ({ location }) => (
       <Contact />
     </main>
   </Layout>
-)
+);
 
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,
-}
+};
 
-export default IndexPage
+export default IndexPage;

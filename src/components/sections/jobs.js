@@ -1,14 +1,13 @@
 /* eslint-disable */
-import React, { useState, useEffect, useRef } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import { CSSTransition } from 'react-transition-group'
-import styled from 'styled-components'
-import jobs from '../../assets/svg/jobs.svg'
-import { sr, keys } from '../../utilites'
-import config from '../../../content/meta/config'
+import React, { useState, useEffect, useRef } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { CSSTransition } from 'react-transition-group';
+import styled from 'styled-components';
+import jobs from '../../assets/svg/jobs.svg';
+import { sr, keys } from '../../utilities';
+import config from '../../../content/meta/config';
 
 const Jobs = () => {
-
   const data = useStaticQuery(graphql`
     {
       jobs: allMarkdownRemark(
@@ -34,75 +33,72 @@ const Jobs = () => {
                 }
               }
             }
-          }  
+          }
         }
       }
     }
-  `)
+  `);
 
-  const jobs = data.jobs.edges.filter(({ node }) => node)
+  const jobs = data.jobs.edges.filter(({ node }) => node);
 
-  const [activeTabId, setActiveTabId] = useState(0)
-  const [tabFocus, setTabFocus] = useState(null)
-  const tabs = useRef([])
-  const revealContainer = useRef(null)
+  const [activeTabId, setActiveTabId] = useState(0);
+  const [tabFocus, setTabFocus] = useState(null);
+  const tabs = useRef([]);
+  const revealContainer = useRef(null);
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, config.srConfig())
-  })
+    sr.reveal(revealContainer.current, config.srConfig());
+  });
 
   const focusTab = () => {
     if (tabs.current[tabFocus]) {
-      tabs.current[tabFocus].focus()
-      return
+      tabs.current[tabFocus].focus();
+      return;
     }
     // If we're at the end, go to the start
     if (tabFocus >= tabs.current.length) {
-      setTabFocus(0)
+      setTabFocus(0);
     }
     // If we're at the start, move to the end
     if (tabFocus < 0) {
-      setTabFocus(tabs.current.length - 1)
+      setTabFocus(tabs.current.length - 1);
     }
-  }
+  };
 
   // Only re-run the effect if tabFocus changes
-  useEffect(() => focusTab(), [tabFocus])
+  useEffect(() => focusTab(), [tabFocus]);
 
   // Focus on tabs when using up & down arrow keys
   const onKeyDown = e => {
     switch (e.key) {
       case keys.ARROW_UP: {
-        e.preventDefault()
-        setTabFocus(tabFocus - 1)
-        break
+        e.preventDefault();
+        setTabFocus(tabFocus - 1);
+        break;
       }
 
       case keys.ARROW_DOWN: {
-        e.preventDefault()
-        setTabFocus(tabFocus + 1)
-        break
+        e.preventDefault();
+        setTabFocus(tabFocus + 1);
+        break;
       }
 
       default: {
-        break
+        break;
       }
     }
-  }
-
+  };
 
   return (
-    <StyledJobsSection id='jobs' >
+    <StyledJobsSection id="jobs">
       <article ref={revealContainer}>
+        <h2 className="numbered-heading">Where I’ve Worked</h2>
 
-        <h2 className='numbered-heading'>Where I’ve Worked</h2>
-
-        <div className='inner'>
-
-          <StyledTabList role='tablist' aria-label='Job tabs' onKeyDown={e => onKeyDown(e)}>
+        <div className="inner">
+          <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
             {jobs &&
               jobs.map(({ node }, i) => {
-                const { company } = node.frontmatter
+                const { company } = node.frontmatter;
                 return (
                   <StyledTabButton
                     key={i}
@@ -110,13 +106,14 @@ const Jobs = () => {
                     onClick={() => setActiveTabId(i)}
                     ref={el => (tabs.current[i] = el)}
                     id={`tab-${i}`}
-                    role='tab'
+                    role="tab"
                     tabIndex={activeTabId === i ? '0' : '-1'}
                     aria-selected={activeTabId === i ? true : false}
-                    aria-controls={`panel-${i}`}>
+                    aria-controls={`panel-${i}`}
+                  >
                     <span>{company}</span>
                   </StyledTabButton>
-                )
+                );
               })}
             <StyledHighlight activeTabId={activeTabId} />
           </StyledTabList>
@@ -124,44 +121,44 @@ const Jobs = () => {
           <StyledTabPanels>
             {jobs &&
               jobs.map(({ node }, i) => {
-                const { frontmatter, html } = node
-                const { title, url, company, range } = frontmatter
+                const { frontmatter, html } = node;
+                const { title, url, company, range } = frontmatter;
 
                 return (
-                  <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames='fade'>
+                  <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
                     <StyledTabPanel
                       id={`panel-${i}`}
-                      role='tabpanel'
+                      role="tabpanel"
                       tabIndex={activeTabId === i ? '0' : '-1'}
                       aria-labelledby={`tab-${i}`}
                       aria-hidden={activeTabId !== i}
-                      hidden={activeTabId !== i}>
+                      hidden={activeTabId !== i}
+                    >
                       <h3>
                         <span>{title}</span>
-                        <span className='company'>
+                        <span className="company">
                           &nbsp;@&nbsp;
-                          <a href={url} className='inline-link'>
+                          <a href={url} className="inline-link">
                             {company}
                           </a>
                         </span>
                       </h3>
 
-                      <p className='range'>{range}</p>
+                      <p className="range">{range}</p>
 
                       <div dangerouslySetInnerHTML={{ __html: html }} />
                     </StyledTabPanel>
                   </CSSTransition>
-                )
+                );
               })}
           </StyledTabPanels>
         </div>
-
       </article>
     </StyledJobsSection>
-  )
-}
+  );
+};
 
-export default Jobs
+export default Jobs;
 
 const StyledJobsSection = styled.section`
   background-color: #fb79df;
@@ -170,10 +167,14 @@ const StyledJobsSection = styled.section`
 
   .inner {
     display: flex;
-    @media (max-width: 600px) {display: block;}
-    @media (min-width: 700px) {min-height: 340px;}
+    @media (max-width: 600px) {
+      display: block;
+    }
+    @media (min-width: 700px) {
+      min-height: 340px;
+    }
   }
-`
+`;
 
 const StyledTabList = styled.div`
   position: relative;
@@ -199,15 +200,23 @@ const StyledTabList = styled.div`
 
   li {
     &:first-of-type {
-      @media (max-width: 600px) {margin-left: 50px;}
-      @media (max-width: 480px) {margin-left: 25px;}
+      @media (max-width: 600px) {
+        margin-left: 50px;
+      }
+      @media (max-width: 480px) {
+        margin-left: 25px;
+      }
     }
     &:last-of-type {
-      @media (max-width: 600px) {padding-right: 50px;}
-      @media (max-width: 480px) {padding-right: 25px;}
+      @media (max-width: 600px) {
+        padding-right: 50px;
+      }
+      @media (max-width: 480px) {
+        padding-right: 25px;
+      }
     }
   }
-`
+`;
 
 const StyledTabButton = styled.button`
   ${({ theme }) => theme.mixins.link};
@@ -224,7 +233,9 @@ const StyledTabButton = styled.button`
   background-color: transparent;
   border-left: 2px solid var(--_blue-1);
 
-  @media (max-width: 768px) {padding: 0 15px 2px;}
+  @media (max-width: 768px) {
+    padding: 0 15px 2px;
+  }
 
   @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
@@ -236,8 +247,10 @@ const StyledTabButton = styled.button`
   }
 
   &:hover,
-  &:focus {background-color: var(--_blue-1)};
-`
+  &:focus {
+    background-color: var(--_blue-1);
+  }
+`;
 
 const StyledHighlight = styled.div`
   position: absolute;
@@ -262,16 +275,20 @@ const StyledHighlight = styled.div`
     transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
   }
 
-  @media (max-width: 480px) {margin-left: 25px;}
-`
+  @media (max-width: 480px) {
+    margin-left: 25px;
+  }
+`;
 
 const StyledTabPanels = styled.div`
   width: 100%;
   margin-left: 20px;
   position: relative;
 
-  @media (max-width: 600px) {margin-left: 0;}
-`
+  @media (max-width: 600px) {
+    margin-left: 0;
+  }
+`;
 
 const StyledTabPanel = styled.div`
   width: 100%;
@@ -288,7 +305,9 @@ const StyledTabPanel = styled.div`
     font-size: var(--lg);
     font-weight: 500;
 
-    .company {color: var(--_green-1);}
+    .company {
+      color: var(--_green-1);
+    }
   }
 
   .range {
@@ -297,4 +316,4 @@ const StyledTabPanel = styled.div`
     font-family: var(--mono);
     font-size: var(--xs);
   }
-`
+`;

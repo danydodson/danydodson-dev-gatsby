@@ -1,23 +1,23 @@
-const path = require('path')
+const path = require('path');
 
-const createCategoriesPages = require('./paging/categories.js')
-const createTagsPages = require('./paging/tags.js')
-const createPostsPages = require('./paging/posts.js')
+const createCategoriesPages = require('./paging/categories.js');
+const createTagsPages = require('./paging/tags.js');
+const createPostsPages = require('./paging/posts.js');
 
-const { getCategories } = require('./constants/categories')
-const { getTags } = require('./constants/tags')
+const { getCategories } = require('./constants/categories');
+const { getTags } = require('./constants/tags');
 
 const createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const categories = await getCategories(graphql)
-  const tags = await getTags(graphql)
+  const categories = await getCategories(graphql);
+  const tags = await getTags(graphql);
 
   // site.com/404
   createPage({
     path: '/404',
-    component: path.resolve('./src/templates/not-found.js')
-  })
+    component: path.resolve('./src/templates/not-found.js'),
+  });
 
   // site.com/tags
   createPage({
@@ -25,9 +25,9 @@ const createPages = async ({ graphql, actions, reporter }) => {
     component: path.resolve('./src/templates/tags.js'),
     context: {
       categories,
-      tags
-    }
-  })
+      tags,
+    },
+  });
 
   // site.com/categories
   createPage({
@@ -35,35 +35,35 @@ const createPages = async ({ graphql, actions, reporter }) => {
     component: path.resolve('./src/templates/categories.js'),
     context: {
       categories,
-      tags
-    }
-  })
+      tags,
+    },
+  });
 
-  const result = await graphql(`{
-    allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            template
+  const result = await graphql(`
+    {
+      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              template
+            }
           }
         }
       }
     }
-  }`)
+  `);
 
   if (result.errors) {
-    reporter.panicOnBuild(result.errors)
-    return
+    reporter.panicOnBuild(result.errors);
+    return;
   }
 
   // reporter.success(JSON.stringify(result, null, 2))
 
-  const { edges } = result.data.allMarkdownRemark
+  const { edges } = result.data.allMarkdownRemark;
 
   edges.map(edge => {
     if (
@@ -80,17 +80,17 @@ const createPages = async ({ graphql, actions, reporter }) => {
         context: {
           slug: `${edge.node.fields.slug}`,
           categories,
-          tags
-        }
-      })
+          tags,
+        },
+      });
     }
 
-    return null
-  })
+    return null;
+  });
 
-  await createTagsPages(graphql, actions)
-  await createCategoriesPages(graphql, actions)
-  await createPostsPages(graphql, actions)
-}
+  await createTagsPages(graphql, actions);
+  await createCategoriesPages(graphql, actions);
+  await createPostsPages(graphql, actions);
+};
 
-module.exports = createPages
+module.exports = createPages;

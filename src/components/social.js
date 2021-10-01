@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { socialLinks } from '../../content/meta/config'
-import { Icon } from '../components/icons'
-import { Side } from '../components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { socialLinks } from '../../content/meta/config';
+import { Icon } from '../components/icons';
+import { Side } from '../components';
 
 const Social = ({ isHome }) => (
-  <Side isHome={isHome} orientation='left'>
+  <Side isHome={isHome} orientation="left">
     <StyledSocials>
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
@@ -18,13 +18,13 @@ const Social = ({ isHome }) => (
         ))}
     </StyledSocials>
   </Side>
-)
+);
 
 Social.propTypes = {
   isHome: PropTypes.bool,
-}
+};
 
-export default Social
+export default Social;
 
 const StyledSocials = styled.ul`
   list-style: none;
@@ -44,7 +44,7 @@ const StyledSocials = styled.ul`
       margin-bottom: 20px;
     }
     a {
-      padding: 10px; 
+      padding: 10px;
       color: var(--_grey-2);
       &:hover,
       &:focus {
@@ -52,4 +52,4 @@ const StyledSocials = styled.ul`
       }
     }
   }
-`
+`;

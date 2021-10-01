@@ -1,14 +1,14 @@
-const path = require('path')
-const siteConfig = require('../../content/meta/config')
+const path = require('path');
+const siteConfig = require('../../content/meta/config');
 
-const { getCategories } = require('../constants/categories.js')
-const { getTags } = require('../constants/tags')
+const { getCategories } = require('../constants/categories.js');
+const { getTags } = require('../constants/tags');
 
 module.exports = async (graphql, actions) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const categories = await getCategories(graphql)
-  const tags = await getTags(graphql)
+  const categories = await getCategories(graphql);
+  const tags = await getTags(graphql);
 
   const result = await graphql(`
     {
@@ -18,11 +18,11 @@ module.exports = async (graphql, actions) => {
         totalCount
       }
     }
-  `)
+  `);
 
-  const { postsPerPage } = siteConfig
-  const numPages = Math.ceil(result.data.allMarkdownRemark.totalCount / postsPerPage)
-  const postsSlug = `/posts`
+  const { postsPerPage } = siteConfig;
+  const numPages = Math.ceil(result.data.allMarkdownRemark.totalCount / postsPerPage);
+  const postsSlug = `/posts`;
 
   for (let i = 0; i < numPages; i += 1) {
     createPage({
@@ -37,9 +37,8 @@ module.exports = async (graphql, actions) => {
         prevPath: i <= 1 ? postsSlug : `${postsSlug}/page/${i - 1}`,
         nextPath: `${postsSlug}/page/${i + 1}`,
         hasPrev: i !== 0,
-        hasNext: i !== numPages - 1
-      }
-    })
+        hasNext: i !== numPages - 1,
+      },
+    });
   }
-}
-
+};

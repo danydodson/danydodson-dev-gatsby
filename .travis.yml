@@ -15,6 +15,9 @@ script:
   - codecov
 
 cache:
+  npm: true
   yarn: true
   directories:
+    - .cache
     - node_modules
+    - public

@@ -1,68 +1,63 @@
-import React, { useEffect, useRef } from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
-import styled from 'styled-components'
-import about from '../../assets/svg/about.svg'
-import config from '../../../content/meta/config'
-import { sr } from '../../utilites'
+import React, { useEffect, useRef } from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
+import about from '../../assets/svg/about.svg';
+import config from '../../../content/meta/config';
+import { sr } from '../../utilities';
 
 const About = () => {
-  const revealContainer = useRef(null)
+  const revealContainer = useRef(null);
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, config.srConfig())
-  }, [])
+    sr.reveal(revealContainer.current, config.srConfig());
+  }, []);
 
   return (
+    <AboutSection id="about">
+      <article className="about" ref={revealContainer}>
+        <h2 className="numbered_heading">About Me</h2>
 
-    <AboutSection id='about'>
-
-      <article className='about' ref={revealContainer}>
-
-        <h2 className='numbered_heading'>About Me</h2>
-
-        <div className='about_grid'>
-
-          <StyledText className='info'>
+        <div className="about_grid">
+          <StyledText className="info">
             <div dangerouslySetInnerHTML={{ __html: config.hello }} />
           </StyledText>
 
-          <StyledList className='skills'>
-            {config.skills && config.skills.map((skill, i) => (
-              <li key={i} className='skill'>{skill}</li>
-            ))}
+          <StyledList className="skills">
+            {config.skills &&
+              config.skills.map((skill, i) => (
+                <li key={i} className="skill">
+                  {skill}
+                </li>
+              ))}
           </StyledList>
 
-          <StyledPic className='image'>
-            <div className='inner' />
-            <div className='wrapper'>
+          <StyledPic className="image">
+            <div className="inner" />
+            <div className="wrapper">
               <StaticImage
-                className='me'
+                className="me"
                 width={500}
                 quality={95}
-                src='./../../../static/cards/og@2.png'
+                src="./../../../static/cards/og@2.png"
                 formats={['AUTO', 'WEBP', 'AVIF']}
-                alt='Headshot'
+                alt="Headshot"
               />
             </div>
           </StyledPic>
-
         </div>
-
       </article>
     </AboutSection>
+  );
+};
 
-  )
-}
-
-export default About
+export default About;
 
 const AboutSection = styled.section`
   background-color: #4facf7;
   background-repeat: repeat-x;
   background-image: url(${about});
-  
-  article.about {
 
+  article.about {
     div.about_grid {
       /* display: grid;
       grid-template-columns: 3fr 2fr; 
@@ -73,20 +68,24 @@ const AboutSection = styled.section`
       "skills . ";  */
     }
   }
-`
+`;
 
-const StyledText = styled.div` 
+const StyledText = styled.div`
   grid-area: info;
-    
+
   p > a > .info-link {
     color: var(--_pink-1);
 
     &:hover,
     &:focus,
-    &:active {color: var(--_pink-1)};
-    &:after {background-color: var(--_pink-1)};
+    &:active {
+      color: var(--_pink-1);
+    }
+    &:after {
+      background-color: var(--_pink-1);
+    }
   }
-`
+`;
 
 const StyledList = styled.ul`
   grid-area: skills;
@@ -98,15 +97,15 @@ const StyledList = styled.ul`
   padding: 10px 0 10px 0;
   overflow: hidden;
   list-style: none;
-  
+
   li.skill {
     position: relative;
     margin: 5px 0;
     padding-left: 20px;
     font-size: var(--xs);
     font-weight: 400;
-    font-family: var(--mono);      
-  
+    font-family: var(--mono);
+
     &:before {
       left: 0;
       position: absolute;
@@ -117,29 +116,28 @@ const StyledList = styled.ul`
       line-height: 12px;
     }
   }
-
-`
+`;
 
 const StyledPic = styled.div`
   grid-area: image;
   width: 200px;
   height: 200px;
   position: relative;
-  justify-self: center; 
+  justify-self: center;
   align-self: center;
-  
+
   .wrapper {
     width: 100%;
     height: 100%;
     display: block;
     border-radius: 100%;
   }
-  
+
   .wrapper {
     ${({ theme }) => theme.mixins.boxShadow};
   }
 
-  .gatsby-image-wrapper{
+  .gatsby-image-wrapper {
     border-radius: 100%;
   }
 
@@ -160,5 +158,4 @@ const StyledPic = styled.div`
     border: 1px #ccc solid;
     border-radius: 50%;
   }
-
-`
+`;

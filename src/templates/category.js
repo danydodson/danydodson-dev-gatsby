@@ -1,73 +1,62 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Layout, Head, Paging } from '../components'
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Layout, Head, Paging } from '../components';
 
 // site.com/category/<category>
 
 const CategoryTemplate = ({ data, pageContext, location }) => {
-  const { categories, category, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext
-  const { edges } = data.allMarkdownRemark
+  const { categories, category, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext;
+  const { edges } = data.allMarkdownRemark;
 
   // const description = edges.map(edge => edge.node.fields.description)
 
-  const pageTitle = currentPage > 0
-    ? `Category: ${category} - Page ${currentPage} `
-    : `Category: ${category} `
+  const pageTitle =
+    currentPage > 0 ? `Category: ${category} - Page ${currentPage} ` : `Category: ${category} `;
 
   return (
     <Layout location={location}>
-
       <Head title={pageTitle} />
 
       <StyledCategorySection>
-
         <h2>Category Page: ({category})</h2>
 
         <ul>
-          {edges.map((edge, i) => {
-            return (
-              <li key={i}>
-                <Link to={`${edge.node.fields.slug}`}>
-                  {edge.node.frontmatter.title}
-                </Link>
-              </li>
-            )
-          })}
+          {edges.map((edge, i) => (
+            <li key={i}>
+              <Link to={`${edge.node.fields.slug}`}>{edge.node.frontmatter.title}</Link>
+            </li>
+          ))}
         </ul>
 
         <h2>all categories:</h2>
 
         <ul>
-          {categories.map((category, i) => {
-            return (
-              <li key={i}>
-                <span>title: </span>
-                <Link to={`/category/${category.fieldValue}`}>
-                  <span>
-                    {category.fieldValue}
-                  </span>
-                </Link>
-              </li>
-            )
-          })}
+          {categories.map((category, i) => (
+            <li key={i}>
+              <span>title: </span>
+              <Link to={`/category/${category.fieldValue}`}>
+                <span>{category.fieldValue}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
-
       </StyledCategorySection>
-
     </Layout>
-  )
-}
+  );
+};
 
 export const CategoryQuery = graphql`
-  query($category: String, $postsLimit: Int!, $postsOffset: Int!) {
+  query ($category: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
       limit: $postsLimit
       skip: $postsOffset
-      filter: { frontmatter: { category: { eq: $category } template: { eq: "post" } draft: { ne: true } } }
+      filter: {
+        frontmatter: { category: { eq: $category }, template: { eq: "post" }, draft: { ne: true } }
+      }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -93,15 +82,15 @@ export const CategoryQuery = graphql`
       }
     }
   }
-`
+`;
 
 CategoryTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
   location: PropTypes.object,
-}
+};
 
-export default CategoryTemplate
+export default CategoryTemplate;
 
 const StyledCategorySection = styled.section`
   padding: 100px 0 0 50px;
@@ -109,4 +98,4 @@ const StyledCategorySection = styled.section`
   h2 {
     padding-top: 20px;
   }
-`
+`;

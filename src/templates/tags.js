@@ -1,21 +1,19 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Layout, Head } from '../components'
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Layout, Head } from '../components';
 
 // site.com/tags
 
 const TagsTemplate = ({ data, location }) => {
-  const tags = data.allMarkdownRemark.group
+  const tags = data.allMarkdownRemark.group;
 
   return (
     <Layout location={location} description={`Search posts by tag`}>
-
       <Head title={`Filter by Tag `} />
 
       <StyledTagsSection>
-
         <h2>All Tags</h2>
 
         <ul>
@@ -27,33 +25,32 @@ const TagsTemplate = ({ data, location }) => {
             </li>
           ))}
         </ul>
-
       </StyledTagsSection>
     </Layout>
-  )
-}
+  );
+};
 
 export const TagsQuery = graphql`
   query {
-    allMarkdownRemark(
-      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }
     }
   }
-`
+`;
 
 TagsTemplate.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object,
-}
+};
 
-export default TagsTemplate
+export default TagsTemplate;
 
 const StyledTagsSection = styled.section`
   padding: 100px 0 0 50px;
-  h2 {padding-top: 20px;}
-`
+  h2 {
+    padding-top: 20px;
+  }
+`;

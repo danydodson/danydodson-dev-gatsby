@@ -1,16 +1,13 @@
-import { createGlobalStyle } from 'styled-components'
-import fonts from './fonts'
-import variables from './variables'
-import Transitions from './transitions'
-import Prism from './prism'
+import { createGlobalStyle } from 'styled-components';
+import fonts from './fonts';
+import variables from './variables';
+import Transitions from './transitions';
+import Prism from './prism';
 
 const Styles = createGlobalStyle`
   ${fonts};
   ${variables};
   
-  
-  /*==========================================*/
-
   html {
     /* width: 100%; */
     /* box-sizing: border-box; */
@@ -434,6 +431,6 @@ const Styles = createGlobalStyle`
   }
   ${Transitions};
   ${Prism};
-`
+`;
 
-export default Styles
+export default Styles;

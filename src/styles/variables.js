@@ -1,23 +1,22 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 const variables = css`
-  :root {    
-    
+  :root {
     /*====Font Family=========*/
 
     --sans: 'Calibre';
     --mono: 'SF Mono';
-    
+
     /*====Font Size===========*/
-    
+
     --xl: 1.125rem;
     --lg: 1.125rem;
-    --md: 1.000rem;
+    --md: 1rem;
     --sm: 0.875rem;
-    --xs: 0.750rem;
+    --xs: 0.75rem;
 
     /*====Color================*/
-    
+
     --_black-1: #000000;
     --_black-2: #1b1f23;
     --_white-1: #ffffff;
@@ -69,14 +68,15 @@ const variables = css`
     --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
     --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
     --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
-  
+    --ham-after-active: bottom 0.1s ease-out,
+      transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+
     /*=======================*/
 
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    --trans-nav-header: all 0.50s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --trans-nav-header: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
-`
+`;
 
-export default variables
+export default variables;

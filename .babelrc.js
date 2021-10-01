@@ -1,4 +1,3 @@
 module.exports = {
-  presets: [['babel-preset-gatsby']],
-  plugins: ['babel-plugin-styled-components']
-}
+  presets: [['@babel/preset-react'], ['babel-preset-gatsby']],
+};

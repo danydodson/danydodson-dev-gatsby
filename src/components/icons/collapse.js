@@ -1,14 +1,8 @@
-import React from 'react';
+import React from 'react'
 // import  { keyframes } from 'styled-components';
 
-const IconCollapse = props => (
-  <svg
-    id="collapse"
-    viewBox="0 0 50 40"
-    xmlns="http://www.w3.org/2000/svg"
-    className="icon icon-collapse"
-    {...props}
-  >
+const IconCollapse = (props) => (
+  <svg id="collapse" viewBox="0 0 50 40" xmlns="http://www.w3.org/2000/svg" className="icon icon-collapse" {...props}>
     <title>Collapse</title>
     <g
       fill="none"
@@ -26,9 +20,9 @@ const IconCollapse = props => (
       <polyline className="arrowPoint" points="42,32 48,25 42,19" />
     </g>
   </svg>
-);
+)
 
-export default IconCollapse;
+export default IconCollapse
 
 // const breatheAnimation = keyframes`
 //  0% { height: 100px; width: 100px; }

@@ -1,19 +1,19 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import anime from 'animejs';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import styled from 'styled-components'
+import anime from 'animejs'
 
-import { Icon } from '../components/icons';
+import { Icon } from '../components/icons'
 
 const Loader = ({ finishLoading }) => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   const animate = () => {
     const loader = anime.timeline({
       complete: () => finishLoading(),
-    });
+    })
 
     loader
       .add({
@@ -43,14 +43,14 @@ const Loader = ({ finishLoading }) => {
         easing: 'easeInOutQuart',
         opacity: 0,
         zIndex: -1,
-      });
-  };
+      })
+  }
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 10);
-    animate();
-    return () => clearTimeout(timeout);
-  }, []);
+    const timeout = setTimeout(() => setIsMounted(true), 10)
+    animate()
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <StyledLoader className="loader" isMounted={isMounted}>
@@ -59,14 +59,14 @@ const Loader = ({ finishLoading }) => {
         <Icon name="Logo" />
       </div>
     </StyledLoader>
-  );
-};
+  )
+}
 
 Loader.propTypes = {
   finishLoading: PropTypes.func.isRequired,
-};
+}
 
-export default Loader;
+export default Loader
 
 const StyledLoader = styled.div`
   z-index: 99;
@@ -85,7 +85,7 @@ const StyledLoader = styled.div`
   .logo-wrapper {
     width: max-content;
     max-width: 100px;
-    opacity: ${props => (props.isMounted ? 1 : 0)};
+    opacity: ${(props) => (props.isMounted ? 1 : 0)};
 
     transition: var(--transition);
 
@@ -103,4 +103,4 @@ const StyledLoader = styled.div`
       }
     }
   }
-`;
+`

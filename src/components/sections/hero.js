@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled from 'styled-components';
-import hero from '../../assets/svg/hero.svg';
-import { email } from '../../config';
-import { loadDelay, navDelay } from '../../utilities';
+import React, { useEffect, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import styled from 'styled-components'
+import hero from '../../assets/svg/hero.svg'
+import { email } from '../../config'
+import { loadDelay, navDelay } from '../../utilities'
 
 const Hero = () => {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => setMounted(true), navDelay);
-    return () => clearTimeout(timeout);
-  });
+    const timeout = setTimeout(() => setMounted(true), navDelay)
+    return () => clearTimeout(timeout)
+  })
 
-  const greeting = <h1 className="small-heading">Hi, my name is</h1>;
+  const greeting = <h1 className="small-heading">Hi, my name is</h1>
 
-  const name = <h2 className="big-heading">Dany Dodson.</h2>;
+  const name = <h2 className="big-heading">Dany Dodson.</h2>
 
-  const quote = <h2 className="big-heading">I build things for the web.</h2>;
+  const quote = <h2 className="big-heading">I build things for the web.</h2>
 
   const bio = (
     <p className="hero-text">
-      I'm a software engineer specializing in building (and occasionally designing) exceptional
-      digital experiences. Currently, I'm focused on building accessible, human-centered products at{' '}
+      I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences.
+      Currently, I'm focused on building accessible, human-centered products at{' '}
       <span>
         <a href="https://upstatement.com/">Upstatement</a>
       </span>
       .
     </p>
-  );
+  )
 
   const contact = (
     <a className="email-link" href={`mailto:${email}`}>
       Get In Touch
     </a>
-  );
+  )
 
-  const data = [greeting, name, quote, bio, contact];
+  const data = [greeting, name, quote, bio, contact]
 
   const inner =
     mounted &&
@@ -44,7 +44,7 @@ const Hero = () => {
       <CSSTransition key={i} classNames="fadeup" timeout={loadDelay}>
         <span style={{ transitionDelay: `${i + 1}00ms` }}>{item}</span>
       </CSSTransition>
-    ));
+    ))
 
   return (
     <StyledHeroSection id="hero">
@@ -52,10 +52,10 @@ const Hero = () => {
         <TransitionGroup component={null}>{inner}</TransitionGroup>
       </article>
     </StyledHeroSection>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
 
 const StyledHeroSection = styled.section`
   display: flex;
@@ -120,4 +120,4 @@ const StyledHeroSection = styled.section`
   & a.email-link {
     ${({ theme }) => theme.mixins.bigButton};
   }
-`;
+`

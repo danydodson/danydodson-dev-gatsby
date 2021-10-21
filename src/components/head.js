@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
-import { useLocation } from '@reach/router';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import { useLocation } from '@reach/router'
 
 const Head = ({ title, description, image }) => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation()
 
   const { site } = useStaticQuery(graphql`
     query {
@@ -19,16 +19,16 @@ const Head = ({ title, description, image }) => {
         }
       }
     }
-  `);
+  `)
 
-  const { defaultTitle, defaultDescription, defaultImage, siteUrl, username } = site.siteMetadata;
+  const { defaultTitle, defaultDescription, defaultImage, siteUrl, username } = site.siteMetadata
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
-  };
+  }
 
   return (
     <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s ${defaultTitle}`}>
@@ -52,19 +52,19 @@ const Head = ({ title, description, image }) => {
       <meta property="twitter:image" content={seo.image} />
       <meta property="twitter:url" content={seo.url} />
     </Helmet>
-  );
-};
+  )
+}
 
 Head.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-};
+}
 
 Head.defaultProps = {
   title: null,
   description: null,
   image: null,
-};
+}
 
-export default Head;
+export default Head

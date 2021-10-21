@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const prismColors = {
   bg: `#112340`,
@@ -13,7 +13,7 @@ const prismColors = {
   grey: `#a2aabc`,
   comment: `#8695b799`,
   variable: `#efefef`,
-};
+}
 
 // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs
 
@@ -246,6 +246,6 @@ const PrismStyles = css`
   .namespace {
     opacity: 0.7;
   }
-`;
+`
 
-export default PrismStyles;
+export default PrismStyles

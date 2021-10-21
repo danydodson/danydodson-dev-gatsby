@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { Styles, theme } from '../styles';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
+import { Styles, theme } from '../styles'
 
-import { Head, Nav, Social, Email, Loader, Footer } from '../components';
+import { Head, Nav, Social, Email, Loader, Footer } from '../components'
 
 if (typeof window !== 'undefined') {
-  require('smooth-scroll')('a[href*="#"]');
+  require('smooth-scroll')('a[href*="#"]')
 }
 
 const Layout = ({ children, location }) => {
-  const isHome = location.pathname === '/';
-  const [isLoading, setIsLoading] = useState(isHome);
+  const isHome = location.pathname === '/'
+  const [isLoading, setIsLoading] = useState(isHome)
 
   function handleLinks() {
-    const links = Array.from(document.querySelectorAll('a'));
+    const links = Array.from(document.querySelectorAll('a'))
     if (links.length > 0) {
-      links.forEach(ln => {
+      links.forEach((ln) => {
         if (ln.host !== window.location.host) {
-          ln.setAttribute('rel', 'noopener noreferrer');
-          ln.setAttribute('target', '_blank');
+          ln.setAttribute('rel', 'noopener noreferrer')
+          ln.setAttribute('target', '_blank')
         }
-      });
+      })
     }
   }
 
   useEffect(() => {
     if (isLoading) {
-      return;
+      return
     }
 
     if (location.hash) {
-      const id = location.hash.substring(1);
-      const el = document.getElementById(id);
+      const id = location.hash.substring(1)
+      const el = document.getElementById(id)
       if (el) {
-        el.scrollIntoView();
-        el.focus();
+        el.scrollIntoView()
+        el.focus()
       }
     }
 
-    handleLinks();
-  }, [isLoading, location.hash]);
+    handleLinks()
+  }, [isLoading, location.hash])
 
   return (
     <>
@@ -67,12 +67,12 @@ const Layout = ({ children, location }) => {
         </ThemeProvider>
       </div>
     </>
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
-};
+}
 
-export default Layout;
+export default Layout

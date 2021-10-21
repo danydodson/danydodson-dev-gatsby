@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Layout, Head } from '../components';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Layout, Head } from '../components'
 
 // site.com/posts/<post>
 
 const PostTemplate = ({ data, location }) => {
-  const { html, frontmatter } = data.markdownRemark;
-  const { title, cover, date, description, category, tags } = frontmatter;
+  const { html, frontmatter } = data.markdownRemark
+  const { title, cover, date, description, category, tags } = frontmatter
 
-  const seoImage = `${cover.childImageSharp.gatsbyImageData.images.fallback.src}`;
+  const seoImage = `${cover.childImageSharp.gatsbyImageData.images.fallback.src}`
 
-  const image = getImage(cover);
+  const image = getImage(cover)
 
   return (
     <Layout location={location}>
@@ -44,8 +44,8 @@ const PostTemplate = ({ data, location }) => {
         </article>
       </StyledPostSection>
     </Layout>
-  );
-};
+  )
+}
 
 export const PostBySlugQuery = graphql`
   query ($slug: String!) {
@@ -75,16 +75,16 @@ export const PostBySlugQuery = graphql`
       }
     }
   }
-`;
+`
 
 PostTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
   location: PropTypes.object,
-};
+}
 
-export default PostTemplate;
+export default PostTemplate
 
 const StyledPostSection = styled.section`
   padding: 100px 0 0 50px;
-`;
+`

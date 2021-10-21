@@ -1,16 +1,16 @@
-import { StaticImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import about from '../../assets/svg/about.svg';
-import config from '../../config';
-import { sr } from '../../utilities';
+import { StaticImage } from 'gatsby-plugin-image'
+import React, { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import about from '../../assets/svg/about.svg'
+import config from '../../config'
+import { sr } from '../../utilities'
 
 const About = () => {
-  const revealContainer = useRef(null);
+  const revealContainer = useRef(null)
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, config.srConfig());
-  }, []);
+    sr.reveal(revealContainer.current, config.srConfig())
+  }, [])
 
   return (
     <AboutSection id="about">
@@ -47,10 +47,10 @@ const About = () => {
         </div>
       </article>
     </AboutSection>
-  );
-};
+  )
+}
 
-export default About;
+export default About
 
 const AboutSection = styled.section`
   background-color: #4facf7;
@@ -68,7 +68,7 @@ const AboutSection = styled.section`
       "skills . ";  */
     }
   }
-`;
+`
 
 const StyledText = styled.div`
   grid-area: info;
@@ -85,7 +85,7 @@ const StyledText = styled.div`
       background-color: var(--_pink-1);
     }
   }
-`;
+`
 
 const StyledList = styled.ul`
   grid-area: skills;
@@ -116,7 +116,7 @@ const StyledList = styled.ul`
       line-height: 12px;
     }
   }
-`;
+`
 
 const StyledPic = styled.div`
   grid-area: image;
@@ -158,4 +158,4 @@ const StyledPic = styled.div`
     border: 1px #ccc solid;
     border-radius: 50%;
   }
-`;
+`

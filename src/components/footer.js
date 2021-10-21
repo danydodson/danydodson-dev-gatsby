@@ -1,31 +1,31 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import footer from '../assets/svg/footer.svg';
-import { Icon } from '../components/icons';
-import { socialLinks } from '../config';
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import footer from '../assets/svg/footer.svg'
+import { Icon } from '../components/icons'
+import { socialLinks } from '../config'
 
 const Footer = () => {
   const [githubInfo, setGitHubInfo] = useState({
     stars: null,
     forks: null,
-  });
+  })
 
   useEffect(() => {
     // if (process.env.NODE_ENV !== 'production') {
     //   return
     // }
     fetch('https://api.github.com/repos/bchiang7/v4')
-      .then(response => response.json())
-      .then(json => {
-        const { stargazers_count, forks_count } = json;
+      .then((response) => response.json())
+      .then((json) => {
+        const { stargazers_count, forks_count } = json
         setGitHubInfo({
           stars: stargazers_count,
           forks: forks_count,
-        });
+        })
       })
-      .catch(e => console.error(e));
-  }, []);
+      .catch((e) => console.error(e))
+  }, [])
 
   return (
     <StyledFooter>
@@ -57,14 +57,14 @@ const Footer = () => {
         </a>
       </StyledCredit>
     </StyledFooter>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   githubInfo: PropTypes.object,
-};
+}
 
-export default Footer;
+export default Footer
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -78,7 +78,7 @@ const StyledFooter = styled.footer`
   background-color: var(--_yellow-1);
   background-image: url(${footer});
   /* @media (max-width: 768px) {min-height: 160px;} */
-`;
+`
 
 const StyledSocialLinks = styled.ul`
   display: none;
@@ -96,7 +96,7 @@ const StyledSocialLinks = styled.ul`
       }
     }
   }
-`;
+`
 
 const StyledCredit = styled.div`
   line-height: 1.3;
@@ -119,4 +119,4 @@ const StyledCredit = styled.div`
       height: 14px;
     }
   }
-`;
+`

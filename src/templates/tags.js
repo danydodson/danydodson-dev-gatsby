@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Layout, Head } from '../components';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Layout, Head } from '../components'
 
 // site.com/tags
 
 const TagsTemplate = ({ data, location }) => {
-  const tags = data.allMarkdownRemark.group;
+  const tags = data.allMarkdownRemark.group
 
   return (
     <Layout location={location} description={`Search posts by tag`}>
@@ -17,7 +17,7 @@ const TagsTemplate = ({ data, location }) => {
         <h2>All Tags</h2>
 
         <ul>
-          {tags.map(tag => (
+          {tags.map((tag) => (
             <li key={tag.fieldValue}>
               <Link to={`/tag/${tag.fieldValue}`}>
                 {tag.fieldValue} ({tag.totalCount})
@@ -27,8 +27,8 @@ const TagsTemplate = ({ data, location }) => {
         </ul>
       </StyledTagsSection>
     </Layout>
-  );
-};
+  )
+}
 
 export const TagsQuery = graphql`
   query {
@@ -39,18 +39,18 @@ export const TagsQuery = graphql`
       }
     }
   }
-`;
+`
 
 TagsTemplate.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object,
-};
+}
 
-export default TagsTemplate;
+export default TagsTemplate
 
 const StyledTagsSection = styled.section`
   padding: 100px 0 0 50px;
   h2 {
     padding-top: 20px;
   }
-`;
+`

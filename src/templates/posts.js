@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-import styled from 'styled-components';
-import { Layout, Head, Paging } from '../components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
+import styled from 'styled-components'
+import { Layout, Head, Paging } from '../components'
 
 // site.com/posts
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  const { categories, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext;
-  const { edges } = data.allMarkdownRemark;
+  const { categories, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext
+  const { edges } = data.allMarkdownRemark
 
-  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} ` : `Posts `;
+  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} ` : `Posts `
 
   return (
     <Layout location={location}>
@@ -40,14 +40,14 @@ const PostTemplate = ({ data, pageContext, location }) => {
         <Paging prevPath={prevPath} nextPath={nextPath} hasPrev={hasPrev} hasNext={hasNext} />
       </StyledPostsSection>
     </Layout>
-  );
-};
+  )
+}
 
 PostTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
   location: PropTypes.object,
-};
+}
 
 export const PostsQuery = graphql`
   query ($postsLimit: Int!, $postsOffset: Int!) {
@@ -85,9 +85,9 @@ export const PostsQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default PostTemplate;
+export default PostTemplate
 
 const StyledPostsSection = styled.section`
   padding: 100px 0 0 50px;
@@ -95,4 +95,4 @@ const StyledPostsSection = styled.section`
   h2 {
     padding-top: 20px;
   }
-`;
+`

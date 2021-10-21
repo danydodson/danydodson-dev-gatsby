@@ -1,16 +1,16 @@
 /* eslint-disable */
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import contact from '../../assets/svg/contact.svg';
-import config from '../../config';
-import { sr } from '../../utilities';
+import React, { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import contact from '../../assets/svg/contact.svg'
+import config from '../../config'
+import { sr } from '../../utilities'
 
 const Contact = () => {
-  const revealContainer = useRef(null);
+  const revealContainer = useRef(null)
 
   useEffect(() => {
-    sr.reveal(revealContainer.current, config.srConfig());
-  }, []);
+    sr.reveal(revealContainer.current, config.srConfig())
+  }, [])
 
   return (
     <StyledContactSection id="contact">
@@ -20,8 +20,8 @@ const Contact = () => {
         <h2 className="title">Get In Touch</h2>
 
         <p>
-          Although I'm not currently looking for any new opportunities, my inbox is always open.
-          Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a
+          question or just want to say hi, I'll try my best to get back to you!
         </p>
 
         <a className="email-link" href={`mailto:${config.email}`}>
@@ -29,10 +29,10 @@ const Contact = () => {
         </a>
       </StyledContactArticle>
     </StyledContactSection>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
 
 const StyledContactSection = styled.section`
   background-color: #fafffd;
@@ -65,7 +65,7 @@ const StyledContactSection = styled.section`
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
   }
-`;
+`
 
 const StyledContactArticle = styled.article`
   div.fonts {
@@ -76,4 +76,4 @@ const StyledContactArticle = styled.article`
       line-height: 1.3;
     }
   }
-`;
+`

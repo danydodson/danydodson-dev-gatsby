@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   IconBookmark,
@@ -14,41 +14,41 @@ import {
   IconLogo,
   IconStar,
   IconTwitter,
-} from '.';
+} from '.'
 
 const Icon = ({ name }) => {
   switch (name) {
     case 'Bookmark':
-      return <IconBookmark />;
+      return <IconBookmark />
     case 'Codepen':
-      return <IconCodepen />;
+      return <IconCodepen />
     case 'External':
-      return <IconExternal />;
+      return <IconExternal />
     case 'Folder':
-      return <IconFolder />;
+      return <IconFolder />
     case 'Fork':
-      return <IconFork />;
+      return <IconFork />
     case 'GitHub':
-      return <IconGitHub />;
+      return <IconGitHub />
     case 'Instagram':
-      return <IconInstagram />;
+      return <IconInstagram />
     case 'Linkedin':
-      return <IconLinkedin />;
+      return <IconLinkedin />
     case 'Loader':
-      return <IconLoader />;
+      return <IconLoader />
     case 'Logo':
-      return <IconLogo />;
+      return <IconLogo />
     case 'Star':
-      return <IconStar />;
+      return <IconStar />
     case 'Twitter':
-      return <IconTwitter />;
+      return <IconTwitter />
     default:
-      return <IconStar />;
+      return <IconStar />
   }
-};
+}
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-};
+}
 
-export default Icon;
+export default Icon

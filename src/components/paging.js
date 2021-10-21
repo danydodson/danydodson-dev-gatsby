@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { page } from '../utilities';
+import React from 'react'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { page } from '../utilities'
 
 const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => (
   <StyledContent>
@@ -17,17 +17,17 @@ const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => (
       </Link>
     )}
   </StyledContent>
-);
+)
 
 Paging.propTypes = {
   hasPrev: PropTypes.bool,
   prevPath: PropTypes.string,
   hasNext: PropTypes.bool,
   nextPath: PropTypes.string,
-};
+}
 
-export default Paging;
+export default Paging
 
 const StyledContent = styled.div`
   display: flex;
-`;
+`

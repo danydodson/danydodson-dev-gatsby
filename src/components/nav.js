@@ -1,40 +1,40 @@
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled, { css } from 'styled-components';
-import menu from '../assets/svg/menu.svg';
-import { Menu } from '../components';
-import { navLinks } from '../config';
-import { useScrollDirection } from '../hooks';
-import { loadDelay } from '../utilities';
-import { Icon } from './icons';
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import styled, { css } from 'styled-components'
+import menu from '../assets/svg/menu.svg'
+import { Menu } from '../components'
+import { navLinks } from '../config'
+import { useScrollDirection } from '../hooks'
+import { loadDelay } from '../utilities'
+import { Icon } from './icons'
 
 const Nav = ({ isHome }) => {
-  const [isMounted, setIsMounted] = useState(!isHome);
-  const scrollDirection = useScrollDirection('down');
-  const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [isMounted, setIsMounted] = useState(!isHome)
+  const scrollDirection = useScrollDirection('down')
+  const [scrolledToTop, setScrolledToTop] = useState(true)
 
   const handleScroll = () => {
-    setScrolledToTop(window.pageYOffset < 50);
-  };
+    setScrolledToTop(window.pageYOffset < 50)
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIsMounted(true);
-    }, 100);
+      setIsMounted(true)
+    }, 100)
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      clearTimeout(timeout);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
+      clearTimeout(timeout)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
-  const timeout = isHome ? loadDelay : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
+  const timeout = isHome ? loadDelay : 0
+  const fadeClass = isHome ? 'fade' : ''
+  const fadeDownClass = isHome ? 'fadedown' : ''
 
   const Logo = (
     <div className="logo" tabIndex="-1">
@@ -48,13 +48,13 @@ const Nav = ({ isHome }) => {
         </Link>
       )}
     </div>
-  );
+  )
 
   const ResumeLink = (
     <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
       Resume
     </a>
-  );
+  )
 
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
@@ -86,9 +86,7 @@ const Nav = ({ isHome }) => {
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                  <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
-                    {ResumeLink}
-                  </div>
+                  <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>{ResumeLink}</div>
                 </CSSTransition>
               )}
             </TransitionGroup>
@@ -104,14 +102,14 @@ const Nav = ({ isHome }) => {
         </TransitionGroup>
       </StyledNav>
     </StyledHeader>
-  );
-};
+  )
+}
 
 Nav.propTypes = {
   isHome: PropTypes.bool,
-};
+}
 
-export default Nav;
+export default Nav
 
 const StyledHeader = styled.header`
   top: 0;
@@ -131,8 +129,8 @@ const StyledHeader = styled.header`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${props =>
-    props.scrollDirection === 'up' &&
+    ${(props) =>
+      props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -141,8 +139,8 @@ const StyledHeader = styled.header`
         box-shadow: 0 10px 30px -10px var(--_grey-2);
       `};
 
-    ${props =>
-    props.scrollDirection === 'down' &&
+    ${(props) =>
+      props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -150,7 +148,7 @@ const StyledHeader = styled.header`
         box-shadow: 0 10px 30px -10px var(--_grey-2);
       `};
   }
-`;
+`
 
 const StyledNav = styled.nav`
   height: 60px;
@@ -189,7 +187,7 @@ const StyledNav = styled.nav`
       }
     }
   }
-`;
+`
 
 const StyledLinks = styled.ol`
   display: flex;
@@ -239,4 +237,4 @@ const StyledLinks = styled.ol`
     font-size: var(--xs);
     ${({ theme }) => theme.mixins.smallButton};
   }
-`;
+`

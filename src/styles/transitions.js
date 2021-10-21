@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const TransitionStyles = css`
   .fadeup-enter {
@@ -42,6 +42,6 @@ const TransitionStyles = css`
     opacity: 0;
     transition: opacity 300ms var(--easing);
   }
-`;
+`
 
-export default TransitionStyles;
+export default TransitionStyles

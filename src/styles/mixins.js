@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const mixins = {
   flexColumn: css`
@@ -152,6 +152,6 @@ const mixins = {
     padding: 0;
     list-style: none;
   `,
-};
+}
 
-export default mixins;
+export default mixins

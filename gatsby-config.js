@@ -1,8 +1,8 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
-const config = require('./src/config');
+const config = require('./src/config')
 
 module.exports = {
   siteMetadata: config,
@@ -67,7 +67,6 @@ module.exports = {
               rel: `nofollow noopener noreferrer`,
             },
           },
-          { resolve: `gatsby-remark-code-titles` },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -124,14 +123,14 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge =>
+              allMarkdownRemark.edges.map((edge) =>
                 Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
-                }),
+                })
               ),
             query: `{
               allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
@@ -166,4 +165,4 @@ module.exports = {
       },
     },
   ],
-};
+}

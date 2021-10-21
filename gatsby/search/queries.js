@@ -1,7 +1,7 @@
-const escapeStringRegexp = require('escape-string-regexp');
+const escapeStringRegexp = require('escape-string-regexp')
 
-const pagePath = `content/posts`;
-const indexName = `Content`;
+const pagePath = `content/posts`
+const indexName = `Content`
 
 const pageQuery = `{
   pages: allMarkdownRemark(
@@ -33,7 +33,7 @@ const pageQuery = `{
       }
     }
   }
-}`;
+}`
 
 function pageToAlgoliaRecord({ node: { id, fields, internal, frontmatter, ...rest } }) {
   return {
@@ -42,7 +42,7 @@ function pageToAlgoliaRecord({ node: { id, fields, internal, frontmatter, ...res
     ...internal,
     ...frontmatter,
     ...rest,
-  };
+  }
 }
 
 const queries = [
@@ -52,6 +52,6 @@ const queries = [
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     settings: { attributesToSnippet: [`excerpt:20`] },
   },
-];
+]
 
-module.exports = queries;
+module.exports = queries

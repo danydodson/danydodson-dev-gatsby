@@ -1,20 +1,18 @@
 /* eslint-disable */
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import React, { useEffect, useRef, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled from 'styled-components';
-import projects from '../../assets/svg/projects.svg';
-import { srConfig } from '../../config';
-import { sr } from '../../utilities';
-import { Icon } from '../icons';
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import React, { useEffect, useRef, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import styled from 'styled-components'
+import projects from '../../assets/svg/projects.svg'
+import { srConfig } from '../../config'
+import { sr } from '../../utilities'
+import { Icon } from '../icons'
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
     {
       projects: allMarkdownRemark(
-        filter: {
-          frontmatter: { template: { eq: "project" }, featured: { eq: false }, draft: { ne: true } }
-        }
+        filter: { frontmatter: { template: { eq: "project" }, featured: { eq: false }, draft: { ne: true } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -40,28 +38,28 @@ const Projects = () => {
         }
       }
     }
-  `);
+  `)
 
-  const projects = data.projects.edges.filter(({ node }) => node);
+  const projects = data.projects.edges.filter(({ node }) => node)
 
-  const revealTitle = useRef(null);
-  const revealArchiveLink = useRef(null);
-  const revealProjects = useRef([]);
-  const [showMore, setShowMore] = useState(false);
+  const revealTitle = useRef(null)
+  const revealArchiveLink = useRef(null)
+  const revealProjects = useRef([])
+  const [showMore, setShowMore] = useState(false)
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, srConfig());
-    sr.reveal(revealArchiveLink.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
-  }, []);
+    sr.reveal(revealTitle.current, srConfig())
+    sr.reveal(revealArchiveLink.current, srConfig())
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
+  }, [])
 
-  const GRID_LIMIT = 6;
-  const firstSix = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstSix;
+  const GRID_LIMIT = 6
+  const firstSix = projects.slice(0, GRID_LIMIT)
+  const projectsToShow = showMore ? projects : firstSix
 
-  const projectInner = node => {
-    const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+  const projectInner = (node) => {
+    const { frontmatter, html } = node
+    const { github, external, title, tech } = frontmatter
 
     return (
       <div className="project-inner">
@@ -103,8 +101,8 @@ const Projects = () => {
           )}
         </footer>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <StyledProjectsSection id="projects">
@@ -127,7 +125,7 @@ const Projects = () => {
                 >
                   <StyledProject
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
+                    ref={(el) => (revealProjects.current[i] = el)}
                     style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
                   >
                     {projectInner(node)}
@@ -142,10 +140,10 @@ const Projects = () => {
         </button>
       </article>
     </StyledProjectsSection>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -189,7 +187,7 @@ const StyledProjectsSection = styled.section`
       ${({ theme }) => theme.mixins.button};
     }
   }
-`;
+`
 
 const StyledProject = styled.li`
   position: relative;
@@ -292,7 +290,7 @@ const StyledProject = styled.li`
     color: var(--_black-2);
     a {
       ${({ theme }) => {
-        theme.mixins.inlineLink;
+        theme.mixins.inlineLink
       }};
     }
   }
@@ -316,4 +314,4 @@ const StyledProject = styled.li`
       }
     }
   }
-`;
+`

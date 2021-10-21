@@ -1,20 +1,18 @@
 /* eslint-disable */
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import featured from '../../assets/svg/featured.svg';
-import config from '../../config';
-import { sr } from '../../utilities';
-import { Icon } from '../icons';
+import { graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import React, { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+import featured from '../../assets/svg/featured.svg'
+import config from '../../config'
+import { sr } from '../../utilities'
+import { Icon } from '../icons'
 
 const Featured = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: {
-          frontmatter: { template: { eq: "project" }, featured: { eq: true }, draft: { ne: true } }
-        }
+        filter: { frontmatter: { template: { eq: "project" }, featured: { eq: true }, draft: { ne: true } } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -40,17 +38,17 @@ const Featured = () => {
         }
       }
     }
-  `);
+  `)
 
-  const featured = data.featured.edges.filter(({ node }) => node);
+  const featured = data.featured.edges.filter(({ node }) => node)
 
-  const revealTitle = useRef(null);
-  const revealProjects = useRef([]);
+  const revealTitle = useRef(null)
+  const revealProjects = useRef([])
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, config.srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)));
-  }, []);
+    sr.reveal(revealTitle.current, config.srConfig())
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
+  }, [])
 
   return (
     <StyledFeaturedSection id="featured">
@@ -62,12 +60,12 @@ const Featured = () => {
         <StyledProjectsGrid>
           {featured &&
             featured.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { external, title, tech, github, cover } = frontmatter;
-              const image = getImage(cover);
+              const { frontmatter, html } = node
+              const { external, title, tech, github, cover } = frontmatter
+              const image = getImage(cover)
 
               return (
-                <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+                <StyledProject key={i} ref={(el) => (revealProjects.current[i] = el)}>
                   <div className="project-content">
                     <div>
                       <p className="project-overline">Featured Project</p>
@@ -76,10 +74,7 @@ const Featured = () => {
                         <a href={external}>{title}</a>
                       </h3>
 
-                      <div
-                        className="project-description"
-                        dangerouslySetInnerHTML={{ __html: html }}
-                      />
+                      <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
 
                       {tech.length && (
                         <ul className="project-tech-list">
@@ -110,15 +105,15 @@ const Featured = () => {
                     </a>
                   </div>
                 </StyledProject>
-              );
+              )
             })}
         </StyledProjectsGrid>
       </article>
     </StyledFeaturedSection>
-  );
-};
+  )
+}
 
-export default Featured;
+export default Featured
 
 const StyledFeaturedSection = styled.section`
   background-color: #ffeb3b;
@@ -127,7 +122,7 @@ const StyledFeaturedSection = styled.section`
 
   article {
   }
-`;
+`
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -136,7 +131,7 @@ const StyledProjectsGrid = styled.ul`
     position: relative;
     z-index: 1;
   }
-`;
+`
 
 const StyledProject = styled.li`
   position: relative;
@@ -421,4 +416,4 @@ const StyledProject = styled.li`
       }
     }
   }
-`;
+`

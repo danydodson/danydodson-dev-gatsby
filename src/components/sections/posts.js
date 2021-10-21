@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import React, { useEffect, useRef, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled from 'styled-components';
-import posts from '../../assets/svg/posts.svg';
-import config from '../../config';
-import { sr } from '../../utilities';
-import { Icon } from '../icons';
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import React, { useEffect, useRef, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import styled from 'styled-components'
+import posts from '../../assets/svg/posts.svg'
+import config from '../../config'
+import { sr } from '../../utilities'
+import { Icon } from '../icons'
 
 const Posts = () => {
   const data = useStaticQuery(graphql`
@@ -39,28 +39,28 @@ const Posts = () => {
         }
       }
     }
-  `);
+  `)
 
-  const posts = data.posts.edges.filter(({ node }) => node);
+  const posts = data.posts.edges.filter(({ node }) => node)
 
-  const revealTitle = useRef(null);
-  const revealLink = useRef(null);
-  const revealPosts = useRef([]);
-  const [showMore, setShowMore] = useState(false);
+  const revealTitle = useRef(null)
+  const revealLink = useRef(null)
+  const revealPosts = useRef([])
+  const [showMore, setShowMore] = useState(false)
 
   useEffect(() => {
-    sr.reveal(revealTitle.current, config.srConfig());
-    sr.reveal(revealLink.current, config.srConfig());
-    revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)));
-  }, []);
+    sr.reveal(revealTitle.current, config.srConfig())
+    sr.reveal(revealLink.current, config.srConfig())
+    revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
+  }, [])
 
-  const GRID_LIMIT = 6;
-  const firstSix = posts.slice(0, GRID_LIMIT);
-  const postsToShow = showMore ? posts : firstSix;
+  const GRID_LIMIT = 6
+  const firstSix = posts.slice(0, GRID_LIMIT)
+  const postsToShow = showMore ? posts : firstSix
 
-  const postInner = node => {
-    const { frontmatter } = node;
-    const { slug, title, tags } = frontmatter;
+  const postInner = (node) => {
+    const { frontmatter } = node
+    const { slug, title, tags } = frontmatter
     // const image = getImage(cover)
 
     return (
@@ -99,8 +99,8 @@ const Posts = () => {
           )}
         </footer>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <StyledPostsSection id="posts">
@@ -125,7 +125,7 @@ const Posts = () => {
                 >
                   <StyledPost
                     key={i}
-                    ref={el => (revealPosts.current[i] = el)}
+                    ref={(el) => (revealPosts.current[i] = el)}
                     style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
                   >
                     {postInner(node)}
@@ -140,10 +140,10 @@ const Posts = () => {
         </button>
       </article>
     </StyledPostsSection>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts
 
 const StyledPostsSection = styled.section`
   display: flex;
@@ -187,7 +187,7 @@ const StyledPostsSection = styled.section`
       ${({ theme }) => theme.mixins.button};
     }
   }
-`;
+`
 
 const StyledPost = styled.li`
   position: relative;
@@ -311,4 +311,4 @@ const StyledPost = styled.li`
       }
     }
   }
-`;
+`

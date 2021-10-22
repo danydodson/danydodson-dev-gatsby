@@ -1,9 +1,9 @@
 {
   "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module"
+    // "ecmaVersion": 11,
+    // "sourceType": "module"
   },
   "settings": {
     "react": {
@@ -14,13 +14,14 @@
     }
   },
   "rules": {
-    "react/jsx-key": 0
-    // 'react/jsx-no-undef': 0,
-    // 'react/jsx-uses-vars': 0,
-    // 'react/jsx-uses-react': 0,
-    // 'react/react-in-jsx-scope': 0,
-    // 'react/no-children-prop': 0,
-    // 'react/display-name': 0,
-    // 'react/prop-types': 0,
+    "react/jsx-key": 0,
+    "react/jsx-uses-vars": 0,
+    "react/jsx-no-react": 0,
+    "no-undef": 0,
+    "no-unused-vars": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/no-children-prop": 0,
+    "react/display-name": 0,
+    "react/prop-types": 0
   }
 }

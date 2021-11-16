@@ -71,10 +71,13 @@ const StyledHeroSection = styled.section`
 
   & span > .name {
   }
+
   & span > .name {
   }
+
   & span > .quote {
   }
+
   & span > .email-link {
   }
 

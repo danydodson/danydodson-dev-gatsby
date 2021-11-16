@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Hero, Layout } from '../components'
+import { Layout, Hero, About, Featured, Projects, Jobs, Posts, Contact } from '../components'
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
     <main id="content">
       <Hero />
-      {/* <About />
+      <About />
       <Featured />
       <Projects />
       <Jobs />
       <Posts />
-      <Contact /> */}
+      <Contact />
     </main>
   </Layout>
 )

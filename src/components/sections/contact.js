@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import contact from '../../assets/svg/contact.svg'
 import config from '../../config'
 import { sr } from '../../utilities'
+import { Form } from '../../components'
 
 const Contact = () => {
   const revealContainer = useRef(null)
@@ -18,6 +19,8 @@ const Contact = () => {
         <h2 className="numbered-heading overline">What’s Next?</h2>
 
         <h2 className="title">Get In Touch</h2>
+
+        <Form />
 
         <p>
           Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a

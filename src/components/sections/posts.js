@@ -54,7 +54,7 @@ const Posts = () => {
     revealPosts.current.forEach((ref, i) => sr.reveal(ref, config.srConfig(i * 100)))
   }, [])
 
-  const GRID_LIMIT = 6
+  const GRID_LIMIT = 4
   const firstSix = posts.slice(0, GRID_LIMIT)
   const postsToShow = showMore ? posts : firstSix
 

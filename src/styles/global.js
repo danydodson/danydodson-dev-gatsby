@@ -36,7 +36,7 @@ const Styles = createGlobalStyle`
     line-height: 1.6rem;
     font-family: var(--sans);
     
-    color: var(--_grey-2);
+    color: var(--_grey-1);
     background-color: var(--_white-2);
     
     -moz-osx-font-smoothing: grayscale;
@@ -62,8 +62,7 @@ const Styles = createGlobalStyle`
   /*==========================================*/
   
   section {
-    /* width: 100%; */
-    height: 100vh;
+    /* height: 100vh; */
   }
   
   /*==========================================*/

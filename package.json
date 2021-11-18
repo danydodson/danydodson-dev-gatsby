@@ -11,8 +11,8 @@
     "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"**/*.{js,css,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "serve": "gatsby serve",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },

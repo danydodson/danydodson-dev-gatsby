@@ -17,10 +17,11 @@ const variables = css`
 
     /*====Color================*/
 
+    --colorA: #000000;
     --_black-1: #000000;
     --_black-2: #1b1f23;
     --_white-1: #ffffff;
-    --_white-2: #fafffd;
+    --_white-2: #ffffff;
     --_grey-1: #ededed;
     --_grey-2: #292930;
     --_blue-1: #519dd9;

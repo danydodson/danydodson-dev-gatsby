@@ -37,6 +37,8 @@ const Head = ({ title, description, image }) => {
       <meta name="image" content={seo.image} />
       <meta name="description" content={seo.description} />
 
+      <link rel="canonical" href={'https://danydodson.dev/'} />
+
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />

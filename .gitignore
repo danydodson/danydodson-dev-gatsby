@@ -5,3 +5,6 @@ node_modules
 public
 *.env.*
 *.log
+test.html
+test.js
+test.scss

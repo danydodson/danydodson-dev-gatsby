@@ -1,5 +1,5 @@
-.docs
 .cache
+.playground
 .vscode
 node_modules
 public

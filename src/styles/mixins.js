@@ -23,7 +23,7 @@ const mixins = {
   inlineLink: css`
     position: relative;
     display: inline-block;
-    color: var(--_blue-1);
+    color: var(--_yellow-2);
     text-decoration: none;
     text-decoration-skip-ink: auto;
     transition: var(--transition);

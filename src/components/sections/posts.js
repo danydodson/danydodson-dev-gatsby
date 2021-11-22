@@ -150,7 +150,7 @@ const StyledPostsSection = styled.section`
   flex-direction: column;
   align-items: center;
 
-  background-color: #fb3640;
+  background-color: var(--col-posts);
   background-repeat: repeat-x;
   background-image: url(${posts});
 

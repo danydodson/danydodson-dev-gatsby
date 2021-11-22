@@ -149,7 +149,7 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #4de059;
+  background-color: var(--col-projects);
   background-repeat: repeat-x;
   background-image: url(${projects});
 

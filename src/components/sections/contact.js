@@ -38,7 +38,7 @@ const Contact = () => {
 export default Contact
 
 const StyledContactSection = styled.section`
-  background-color: #fafffd;
+  background-color: var(--col-contact);
   background-repeat: repeat-x;
   background-image: url(${contact});
 

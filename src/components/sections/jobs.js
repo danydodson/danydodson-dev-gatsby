@@ -161,7 +161,7 @@ const Jobs = () => {
 export default Jobs
 
 const StyledJobsSection = styled.section`
-  background-color: #fb79df;
+  background-color: var(--col-jobs);
   background-repeat: repeat-x;
   background-image: url(${jobs});
 

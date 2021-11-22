@@ -10,7 +10,7 @@ const Styles = createGlobalStyle`
   
   html {
     /* width: 100%; */
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
   }
   
   /*==========================================*/
@@ -32,11 +32,11 @@ const Styles = createGlobalStyle`
     
     font-size: var(--lg);
     font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.6rem;
+    /* letter-spacing: 1px; */
+    line-height: 1.3;
     font-family: var(--sans);
     
-    color: var(--_grey-1);
+    color: var(--_grey-2);
     background-color: var(--_white-2);
     
     -moz-osx-font-smoothing: grayscale;
@@ -62,7 +62,7 @@ const Styles = createGlobalStyle`
   /*==========================================*/
   
   section {
-    /* height: 100vh; */
+    /* min-height: 100vh; */
   }
   
   /*==========================================*/
@@ -192,7 +192,7 @@ const Styles = createGlobalStyle`
     position: relative;
     display: inline-block;
     
-    color: var(--_blue-1);
+    color: var(--_yellow-2);
     text-decoration: none;
     text-decoration-skip-ink: auto;
     

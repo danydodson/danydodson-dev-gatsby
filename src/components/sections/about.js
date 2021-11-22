@@ -15,7 +15,7 @@ const About = () => {
   return (
     <AboutSection id="about">
       <article className="about" ref={revealContainer}>
-        <h2 className="numbered_heading">About Me</h2>
+        <h2 className="numbered-heading">About Me</h2>
 
         <div className="about_grid">
           <StyledText className="info">
@@ -53,25 +53,32 @@ const About = () => {
 export default About
 
 const AboutSection = styled.section`
-  background-color: #4facf7;
-  background-repeat: repeat-x;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   background-image: url(${about});
+  background-repeat: repeat-x;
+  background-color: var(--col-about);
 
   article.about {
     div.about_grid {
-      /* display: grid;
-      grid-template-columns: 3fr 2fr; 
-      grid-template-rows: 3fr 1fr; 
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: 3fr 1fr;
       gap: 12px;
-      grid-template-areas: 
-      "info image"
-      "skills . ";  */
+      grid-template-areas:
+        'info image'
+        'skills . ';
     }
   }
 `
 
 const StyledText = styled.div`
   grid-area: info;
+  align-items: center;
+  justify-content: center;
 
   p > a > .info-link {
     color: var(--_pink-1);

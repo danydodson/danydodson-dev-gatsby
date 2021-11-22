@@ -10,18 +10,28 @@ const variables = css`
     /*====Font Size===========*/
 
     --xl: 1.125rem;
-    --lg: 1.125rem;
+    --lg: 20px;
+    /* --lg: 1.125rem; */
     --md: 1rem;
     --sm: 0.875rem;
     --xs: 0.75rem;
 
     /*====Color================*/
 
-    --colorA: #000000;
+    --col-nav: #f7c200;
+    --col-hero: #fafffd;
+    --col-about: #519dd9;
+    --col-featured: #3eb650;
+    --col-projects: #3eb650;
+    --col-jobs: #fb79df;
+    --col-posts: #e12b38;
+    --col-contact: #fafffd;
+    --col-footer: #f7c200;
+
     --_black-1: #000000;
     --_black-2: #1b1f23;
     --_white-1: #ffffff;
-    --_white-2: #ffffff;
+    --_white-2: #fafffd;
     --_grey-1: #ededed;
     --_grey-2: #292930;
     --_blue-1: #519dd9;

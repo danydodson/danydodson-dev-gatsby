@@ -116,7 +116,7 @@ const Featured = () => {
 export default Featured
 
 const StyledFeaturedSection = styled.section`
-  background-color: #ffeb3b;
+  background-color: var(--col-featured);
   background-repeat: repeat-x;
   background-image: url(${featured});
 

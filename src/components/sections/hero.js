@@ -58,12 +58,13 @@ const Hero = () => {
 export default Hero
 
 const StyledHeroSection = styled.section`
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 
   background-image: url(${hero});
   background-repeat: repeat-x;
-  background-color: var(--_white-2);
+  background-color: var(--col-hero);
 
   & span > h1.small-heading {
     margin-top: 18vh;

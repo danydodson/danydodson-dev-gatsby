@@ -5,4 +5,3 @@
 [![CircleCI](https://circleci.com/gh/danydodson/danydodson-dev/tree/main.svg?style=shield)](https://circleci.com/gh/danydodson/danydodson-dev/tree/main)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/35b3443b-de51-489b-8c5f-3f35773b85bd/deploy-status/)](https://danydodson-dev.netlify.app)
 
-<!-- [![CircleCI](https://circleci.com/gh/danydodson/danydodson-dev/tree/main.svg?style=svg)](https://circleci.com/gh/danydodson/danydodson-dev/tree/main) -->

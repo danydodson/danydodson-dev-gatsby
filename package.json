@@ -81,11 +81,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danydodson/danydodson.dev"
+    "url": "https://github.com/danydodson/danydodson-dev"
   },
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "reactjs",
+    "blog",
+    "portfolio",
+    "danydodson"
   ]
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Dany Dodson",
   "description": "Portfolio & Blog",
-  "homepage": "danydodson-dev.herokuapp.com",
+  "homepage": "https://danydodson-dev-prod.herokuapp.com",
   "private": true,
   "main": "n/a",
   "scripts": {

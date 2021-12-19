@@ -16,14 +16,6 @@
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },
-  "lint-staged": {
-    "**/*.{js,css,json,md}": [
-      "prettier --write"
-    ],
-    "*.js": [
-      "eslint --fix"
-    ]
-  },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
@@ -78,6 +70,19 @@
     "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1"
+  },
+  "lint-staged": {
+    "**/*.{js,css,json,md}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": "14.18.1",
+    "npm": "8.1.0",
+    "yarn": "1.22.17"
   },
   "repository": {
     "type": "git",

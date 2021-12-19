@@ -13,34 +13,34 @@ const About = () => {
   }, [])
 
   return (
-    <AboutSection id="about">
-      <article className="about" ref={revealContainer}>
-        <h2 className="numbered-heading">About Me</h2>
+    <AboutSection id='about'>
+      <article className='about' ref={revealContainer}>
+        <h2 className='numbered-heading'>About Me</h2>
 
-        <div className="about_grid">
-          <StyledText className="info">
+        <div className='about_grid'>
+          <StyledText className='info'>
             <div dangerouslySetInnerHTML={{ __html: config.hello }} />
           </StyledText>
 
-          <StyledList className="skills">
+          <StyledList className='skills'>
             {config.skills &&
               config.skills.map((skill, i) => (
-                <li key={i} className="skill">
+                <li key={i} className='skill'>
                   {skill}
                 </li>
               ))}
           </StyledList>
 
-          <StyledPic className="image">
-            <div className="inner" />
-            <div className="wrapper">
+          <StyledPic className='image'>
+            <div className='inner' />
+            <div className='wrapper'>
               <StaticImage
-                className="me"
+                className='me'
                 width={500}
                 quality={95}
-                src="./../../../static/cards/og@2.png"
+                src='./../../../static/cards/og@2.png'
                 formats={['AUTO', 'WEBP', 'AVIF']}
-                alt="Headshot"
+                alt='Headshot'
               />
             </div>
           </StyledPic>

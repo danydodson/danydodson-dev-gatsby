@@ -10,10 +10,7 @@ import { keys, sr } from '../../utilities'
 const Jobs = () => {
   const data = useStaticQuery(graphql`
     {
-      jobs: allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "job" }, draft: { ne: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      jobs: allMarkdownRemark(filter: { frontmatter: { template: { eq: "job" }, draft: { ne: true } } }, sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             html
@@ -69,7 +66,7 @@ const Jobs = () => {
   useEffect(() => focusTab(), [tabFocus])
 
   // Focus on tabs when using up & down arrow keys
-  const onKeyDown = (e) => {
+  const onKeyDown = e => {
     switch (e.key) {
       case keys.ARROW_UP: {
         e.preventDefault()
@@ -90,12 +87,12 @@ const Jobs = () => {
   }
 
   return (
-    <StyledJobsSection id="jobs">
+    <StyledJobsSection id='jobs'>
       <article ref={revealContainer}>
-        <h2 className="numbered-heading">Where I’ve Worked</h2>
+        <h2 className='numbered-heading'>Where I’ve Worked</h2>
 
-        <div className="inner">
-          <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={(e) => onKeyDown(e)}>
+        <div className='inner'>
+          <StyledTabList role='tablist' aria-label='Job tabs' onKeyDown={e => onKeyDown(e)}>
             {jobs &&
               jobs.map(({ node }, i) => {
                 const { company } = node.frontmatter
@@ -104,9 +101,9 @@ const Jobs = () => {
                     key={i}
                     isActive={activeTabId === i}
                     onClick={() => setActiveTabId(i)}
-                    ref={(el) => (tabs.current[i] = el)}
+                    ref={el => (tabs.current[i] = el)}
                     id={`tab-${i}`}
-                    role="tab"
+                    role='tab'
                     tabIndex={activeTabId === i ? '0' : '-1'}
                     aria-selected={activeTabId === i ? true : false}
                     aria-controls={`panel-${i}`}
@@ -125,10 +122,10 @@ const Jobs = () => {
                 const { title, url, company, range } = frontmatter
 
                 return (
-                  <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                  <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames='fade'>
                     <StyledTabPanel
                       id={`panel-${i}`}
-                      role="tabpanel"
+                      role='tabpanel'
                       tabIndex={activeTabId === i ? '0' : '-1'}
                       aria-labelledby={`tab-${i}`}
                       aria-hidden={activeTabId !== i}
@@ -136,15 +133,15 @@ const Jobs = () => {
                     >
                       <h3>
                         <span>{title}</span>
-                        <span className="company">
+                        <span className='company'>
                           &nbsp;@&nbsp;
-                          <a href={url} className="inline-link">
+                          <a href={url} className='inline-link'>
                             {company}
                           </a>
                         </span>
                       </h3>
 
-                      <p className="range">{range}</p>
+                      <p className='range'>{range}</p>
 
                       <div dangerouslySetInnerHTML={{ __html: html }} />
                     </StyledTabPanel>

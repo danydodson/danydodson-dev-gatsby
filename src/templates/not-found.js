@@ -11,7 +11,7 @@ const NotFoundTemplate = ({ location }) => (
 )
 
 NotFoundTemplate.propTypes = {
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default NotFoundTemplate

@@ -10,10 +10,10 @@ const theme = {
     desktopXS: `max-width: 900px`,
     desktopS: `max-width: 1080px`,
     desktopM: `max-width: 1200px`,
-    desktopL: `max-width: 1400px`,
+    desktopL: `max-width: 1400px`
   },
 
-  mixins,
+  mixins
 }
 
 export default theme

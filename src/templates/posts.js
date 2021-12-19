@@ -46,7 +46,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
 PostTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export const PostsQuery = graphql`

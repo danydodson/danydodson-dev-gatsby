@@ -57,43 +57,43 @@ const Projects = () => {
   const firstSix = projects.slice(0, GRID_LIMIT)
   const projectsToShow = showMore ? projects : firstSix
 
-  const projectInner = (node) => {
+  const projectInner = node => {
     const { frontmatter, html } = node
     const { github, external, title, tech } = frontmatter
 
     return (
-      <div className="project-inner">
+      <div className='project-inner'>
         <header>
-          <div className="project-top">
-            <div className="folder">
-              <Icon name="Folder" />
+          <div className='project-top'>
+            <div className='folder'>
+              <Icon name='Folder' />
             </div>
 
-            <div className="project-links">
+            <div className='project-links'>
               {github && (
-                <a href={github} aria-label="GitHub Link">
-                  <Icon name="GitHub" />
+                <a href={github} aria-label='GitHub Link'>
+                  <Icon name='GitHub' />
                 </a>
               )}
 
               {external && (
-                <a href={external} aria-label="External Link" className="external">
-                  <Icon name="External" />
+                <a href={external} aria-label='External Link' className='external'>
+                  <Icon name='External' />
                 </a>
               )}
             </div>
           </div>
 
-          <h3 className="project-title">
+          <h3 className='project-title'>
             <a href={external}>{title}</a>
           </h3>
 
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className='project-description' dangerouslySetInnerHTML={{ __html: html }} />
         </header>
 
         <footer>
           {tech && (
-            <ul className="project-tech-list">
+            <ul className='project-tech-list'>
               {tech.map((tech, i) => (
                 <li key={i}>{tech}</li>
               ))}
@@ -105,29 +105,20 @@ const Projects = () => {
   }
 
   return (
-    <StyledProjectsSection id="projects">
+    <StyledProjectsSection id='projects'>
       <article>
         <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
 
-        <Link className="inline-link archive-link" to="/projects" ref={revealArchiveLink}>
+        <Link className='inline-link archive-link' to='/projects' ref={revealArchiveLink}>
           view the archive
         </Link>
 
-        <ul className="projects-grid">
+        <ul className='projects-grid'>
           <TransitionGroup component={null}>
             {projectsToShow &&
               projectsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}
-                >
-                  <StyledProject
-                    key={i}
-                    ref={(el) => (revealProjects.current[i] = el)}
-                    style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
-                  >
+                <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
+                  <StyledProject key={i} ref={el => (revealProjects.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}>
                     {projectInner(node)}
                   </StyledProject>
                 </CSSTransition>
@@ -135,7 +126,7 @@ const Projects = () => {
           </TransitionGroup>
         </ul>
 
-        <button className="more-button" onClick={() => setShowMore(!showMore)}>
+        <button className='more-button' onClick={() => setShowMore(!showMore)}>
           Show {showMore ? 'Less' : 'More'}
         </button>
       </article>

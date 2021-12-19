@@ -7,12 +7,12 @@ import { page } from '../utilities'
 const Paging = ({ hasPrev, prevPath, hasNext, nextPath }) => (
   <StyledContent>
     {hasPrev && (
-      <Link to={prevPath} rel="prev">
+      <Link to={prevPath} rel='prev'>
         {page.prev}
       </Link>
     )}
     {hasNext && (
-      <Link to={nextPath} rel="next">
+      <Link to={nextPath} rel='next'>
         {page.prev}
       </Link>
     )}
@@ -23,7 +23,7 @@ Paging.propTypes = {
   hasPrev: PropTypes.bool,
   prevPath: PropTypes.string,
   hasNext: PropTypes.bool,
-  nextPath: PropTypes.string,
+  nextPath: PropTypes.string
 }
 
 export default Paging

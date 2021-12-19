@@ -17,7 +17,7 @@ const TagsTemplate = ({ data, location }) => {
         <h2>All Tags</h2>
 
         <ul>
-          {tags.map((tag) => (
+          {tags.map(tag => (
             <li key={tag.fieldValue}>
               <Link to={`/tag/${tag.fieldValue}`}>
                 {tag.fieldValue} ({tag.totalCount})
@@ -43,7 +43,7 @@ export const TagsQuery = graphql`
 
 TagsTemplate.propTypes = {
   data: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default TagsTemplate

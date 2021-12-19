@@ -1,6 +1,0 @@
-.cache
-.vscode
-node_modules
-public
-package.json
-yarn-lock.json

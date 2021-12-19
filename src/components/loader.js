@@ -12,7 +12,7 @@ const Loader = ({ finishLoading }) => {
 
   const animate = () => {
     const loader = anime.timeline({
-      complete: () => finishLoading(),
+      complete: () => finishLoading()
     })
 
     loader
@@ -21,13 +21,13 @@ const Loader = ({ finishLoading }) => {
         delay: 300,
         duration: 1500,
         easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
+        strokeDashoffset: [anime.setDashoffset, 0]
       })
       .add({
         targets: '#logo #D',
         duration: 700,
         easing: 'easeInOutQuart',
-        opacity: 1,
+        opacity: 1
       })
       .add({
         targets: '#logo',
@@ -35,14 +35,14 @@ const Loader = ({ finishLoading }) => {
         duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,
-        scale: 0.1,
+        scale: 0.1
       })
       .add({
         targets: '.loader',
         duration: 200,
         easing: 'easeInOutQuart',
         opacity: 0,
-        zIndex: -1,
+        zIndex: -1
       })
   }
 
@@ -53,17 +53,17 @@ const Loader = ({ finishLoading }) => {
   }, [])
 
   return (
-    <StyledLoader className="loader" isMounted={isMounted}>
+    <StyledLoader className='loader' isMounted={isMounted}>
       <Helmet bodyAttributes={{ class: `hidden` }} />
-      <div className="logo-wrapper">
-        <Icon name="Logo" />
+      <div className='logo-wrapper'>
+        <Icon name='Logo' />
       </div>
     </StyledLoader>
   )
 }
 
 Loader.propTypes = {
-  finishLoading: PropTypes.func.isRequired,
+  finishLoading: PropTypes.func.isRequired
 }
 
 export default Loader
@@ -85,7 +85,7 @@ const StyledLoader = styled.div`
   .logo-wrapper {
     width: max-content;
     max-width: 100px;
-    opacity: ${(props) => (props.isMounted ? 1 : 0)};
+    opacity: ${props => (props.isMounted ? 1 : 0)};
 
     transition: var(--transition);
 

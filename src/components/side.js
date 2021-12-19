@@ -28,7 +28,7 @@ const Side = ({ children, isHome, orientation }) => {
 Side.propTypes = {
   children: PropTypes.node.isRequired,
   isHome: PropTypes.bool,
-  orientation: PropTypes.string,
+  orientation: PropTypes.string
 }
 
 export default Side
@@ -39,12 +39,12 @@ const StyledSide = styled.aside`
   width: 40px;
   position: fixed;
 
-  left: ${(props) => (props.orientation === 'left' ? '40px' : 'auto')};
-  right: ${(props) => (props.orientation === 'left' ? 'auto' : '40px')};
+  left: ${props => (props.orientation === 'left' ? '40px' : 'auto')};
+  right: ${props => (props.orientation === 'left' ? 'auto' : '40px')};
 
   @media (max-width: 1080px) {
-    left: ${(props) => (props.orientation === 'left' ? '20px' : 'auto')};
-    right: ${(props) => (props.orientation === 'left' ? 'auto' : '20px')};
+    left: ${props => (props.orientation === 'left' ? '20px' : 'auto')};
+    right: ${props => (props.orientation === 'left' ? 'auto' : '20px')};
   }
 
   @media (max-width: 768px) {

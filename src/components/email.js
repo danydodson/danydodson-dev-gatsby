@@ -5,7 +5,7 @@ import { Side } from '../components'
 import { email } from '../config'
 
 const Email = ({ isHome }) => (
-  <Side isHome={isHome} orientation="right">
+  <Side isHome={isHome} orientation='right'>
     <StyledEmail>
       <a href={`mailto:${email}`}>{email}</a>
     </StyledEmail>
@@ -13,7 +13,7 @@ const Email = ({ isHome }) => (
 )
 
 Email.propTypes = {
-  isHome: PropTypes.bool,
+  isHome: PropTypes.bool
 }
 
 export default Email

@@ -1,28 +1,28 @@
 import { useState } from 'react'
 
-const useForm = (callback) => {
+const useForm = callback => {
   const [values, setValues] = useState({})
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     if (event) {
       event.preventDefault()
     }
     callback()
   }
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     event.persist()
 
-    setValues((values) => ({
+    setValues(values => ({
       ...values,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     }))
   }
 
   return {
     values,
     handleChange,
-    handleSubmit,
+    handleSubmit
   }
 }
 

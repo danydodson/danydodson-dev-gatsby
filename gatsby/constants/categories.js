@@ -1,9 +1,9 @@
 module.exports = {
-  getCategories: async (graphql) => {
+  getCategories: async graphql => {
     const {
       data: {
-        allMarkdownRemark: { group },
-      },
+        allMarkdownRemark: { group }
+      }
     } = await graphql(`
       query CategoriesListQuery {
         allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }) {
@@ -15,8 +15,8 @@ module.exports = {
       }
     `)
 
-    return group.map((cat) => ({
-      ...cat,
+    return group.map(cat => ({
+      ...cat
     }))
-  },
+  }
 }

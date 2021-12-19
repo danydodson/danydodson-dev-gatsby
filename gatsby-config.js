@@ -1,5 +1,5 @@
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.${process.env.NODE_ENV}`
 })
 
 const config = require('./src/config')
@@ -14,29 +14,29 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content/jobs`,
-        name: `jobs`,
-      },
+        name: `jobs`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content/posts`,
-        name: `posts`,
-      },
+        name: `posts`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/content/projects`,
-        name: `projects`,
-      },
+        name: `projects`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
@@ -50,11 +50,11 @@ module.exports = {
             options: {
               quality: 90,
               maxWidth: 1200,
-              linkImagesToOriginal: true,
-            },
-          },
-        ],
-      },
+              linkImagesToOriginal: true
+            }
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -64,8 +64,8 @@ module.exports = {
             resolve: `gatsby-remark-external-links`,
             options: {
               target: `_blank`,
-              rel: `nofollow noopener noreferrer`,
-            },
+              rel: `nofollow noopener noreferrer`
+            }
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -80,18 +80,18 @@ module.exports = {
                   language: `superscript`,
                   extend: `javascript`,
                   definition: { superscript_types: /(SuperType)/ },
-                  insertBefore: { function: { superscript_keywords: /(superif|superelse)/ } },
-                },
+                  insertBefore: { function: { superscript_keywords: /(superif|superelse)/ } }
+                }
               ],
               prompt: {
                 user: `root`,
                 host: `localhost`,
-                global: false,
-              },
-            },
-          },
-        ],
-      },
+                global: false
+              }
+            }
+          }
+        ]
+      }
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
@@ -104,8 +104,8 @@ module.exports = {
         short_name: `danydodson`,
         theme_color: `#1b1f23`,
         background_color: `#fafffd`,
-        icon: `src/assets/logos/logo@4x.png`,
-      },
+        icon: `src/assets/logos/logo@4x.png`
+      }
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -123,13 +123,13 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map((edge) =>
+              allMarkdownRemark.edges.map(edge =>
                 Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
                 })
               ),
             query: `{
@@ -153,16 +153,16 @@ module.exports = {
             }
           `,
             output: `/rss.xml`,
-            title: `Dany Dodson's Blog Feed`,
-          },
-        ],
-      },
+            title: `Dany Dodson's Blog Feed`
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-6589522-7`,
-      },
-    },
-  ],
+        trackingId: `UA-6589522-7`
+      }
+    }
+  ]
 }

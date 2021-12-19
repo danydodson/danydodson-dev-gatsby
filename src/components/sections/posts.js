@@ -11,10 +11,7 @@ import { Icon } from '../icons'
 const Posts = () => {
   const data = useStaticQuery(graphql`
     {
-      posts: allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      posts: allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }, sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             html
@@ -58,30 +55,30 @@ const Posts = () => {
   const firstSix = posts.slice(0, GRID_LIMIT)
   const postsToShow = showMore ? posts : firstSix
 
-  const postInner = (node) => {
+  const postInner = node => {
     const { frontmatter } = node
     const { slug, title, tags } = frontmatter
     // const image = getImage(cover)
 
     return (
-      <div className="post-inner">
+      <div className='post-inner'>
         <header>
-          <div className="post-top">
-            <div className="folder">
-              <Icon name="Bookmark" />
+          <div className='post-top'>
+            <div className='folder'>
+              <Icon name='Bookmark' />
             </div>
 
-            <div className="post-links">
+            <div className='post-links'>
               {slug && (
-                <a href={slug} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
+                <a href={slug} aria-label='GitHub Link' target='_blank' rel='noreferrer'>
+                  <Icon name='GitHub' />
                 </a>
               )}
             </div>
           </div>
 
-          <h3 className="post-title">
-            <a href={slug} target="_blank" rel="noreferrer">
+          <h3 className='post-title'>
+            <a href={slug} target='_blank' rel='noreferrer'>
               {title}
             </a>
           </h3>
@@ -91,7 +88,7 @@ const Posts = () => {
 
         <footer>
           {tags && (
-            <ul className="post-tag-list">
+            <ul className='post-tag-list'>
               {tags.map((tag, i) => (
                 <li key={i}>{tag}</li>
               ))}
@@ -103,31 +100,22 @@ const Posts = () => {
   }
 
   return (
-    <StyledPostsSection id="posts">
+    <StyledPostsSection id='posts'>
       <article>
-        <h2 ref={revealTitle} className="numbered-heading">
+        <h2 ref={revealTitle} className='numbered-heading'>
           Posts
         </h2>
 
-        <Link to="/posts" className="inline-link archive-link" ref={revealLink}>
+        <Link to='/posts' className='inline-link archive-link' ref={revealLink}>
           view archive
         </Link>
 
-        <ul className="posts-grid">
+        <ul className='posts-grid'>
           <TransitionGroup component={null}>
             {postsToShow &&
               postsToShow.map(({ node }, i) => (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                  exit={false}
-                >
-                  <StyledPost
-                    key={i}
-                    ref={(el) => (revealPosts.current[i] = el)}
-                    style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}
-                  >
+                <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
+                  <StyledPost key={i} ref={el => (revealPosts.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}>
                     {postInner(node)}
                   </StyledPost>
                 </CSSTransition>
@@ -135,7 +123,7 @@ const Posts = () => {
           </TransitionGroup>
         </ul>
 
-        <button onClick={() => setShowMore(!showMore)} className="more-button">
+        <button onClick={() => setShowMore(!showMore)} className='more-button'>
           Show {showMore ? 'Less' : 'More'}
         </button>
       </article>

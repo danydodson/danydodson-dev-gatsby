@@ -84,7 +84,7 @@ export const CategoryQuery = graphql`
 CategoryTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default CategoryTemplate

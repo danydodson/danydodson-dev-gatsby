@@ -8,7 +8,7 @@ export const loadDelay = 2000
 
 export const page = {
   prev: '←',
-  next: '→',
+  next: '→'
 }
 
 export const keys = {
@@ -25,5 +25,5 @@ export const keys = {
   ESCAPE: 'Escape',
   SPACE_IE11: 'Spacebar',
   SPACE: ' ',
-  TAB: 'Tab',
+  TAB: 'Tab'
 }

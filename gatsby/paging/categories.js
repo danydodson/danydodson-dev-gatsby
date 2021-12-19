@@ -22,7 +22,7 @@ module.exports = async (graphql, actions) => {
     }
   `)
 
-  result.data.allMarkdownRemark.group.map((category) => {
+  result.data.allMarkdownRemark.group.map(category => {
     const numPages = Math.ceil(category.totalCount / postsPerPage)
     const categorySlug = `/category/${category.fieldValue}`
 
@@ -40,8 +40,8 @@ module.exports = async (graphql, actions) => {
           prevPath: i <= 1 ? categorySlug : `${categorySlug}/page/${i - 1}`,
           nextPath: `${categorySlug}/page/${i + 1}`,
           hasPrev: i !== 0,
-          hasNext: i !== numPages - 1,
-        },
+          hasNext: i !== numPages - 1
+        }
       })
     }
     return null

@@ -1,28 +1,3 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "prettier"],
-  "parserOptions": {
-    // "ecmaVersion": 11,
-    // "sourceType": "module"
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "alias": [["@components", "src/components"]]
-    }
-  },
-  "rules": {
-    "react/jsx-key": 0,
-    "react/jsx-uses-vars": 0,
-    "react/jsx-no-react": 0,
-    "no-undef": 0,
-    "no-unused-vars": 0,
-    "react/react-in-jsx-scope": 0,
-    "react/no-children-prop": 0,
-    "react/display-name": 0,
-    "react/prop-types": 0
-  }
+  "extends": "@danydodson/react"
 }
-

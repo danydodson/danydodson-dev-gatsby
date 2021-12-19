@@ -7,27 +7,27 @@ const onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         rules: [
           {
             test: /animejs/,
-            use: loaders.null(),
+            use: loaders.null()
           },
           {
             test: /miniraf/,
-            use: loaders.null(),
+            use: loaders.null()
           },
           {
             test: /scrollreveal/,
-            use: loaders.null(),
-          },
-        ],
-      },
+            use: loaders.null()
+          }
+        ]
+      }
     })
   }
 
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '@components': path.resolve(__dirname, 'src/components'),
-      },
-    },
+        '@components': path.resolve(__dirname, 'src/components')
+      }
+    }
   })
 }
 

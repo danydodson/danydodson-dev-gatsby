@@ -16,7 +16,7 @@ const config = {
     { name: `About`, url: `/#about` },
     { name: `Experience`, url: `/#jobs` },
     { name: `Work`, url: `/#featured` },
-    { name: `Contact`, url: `/#contact` },
+    { name: `Contact`, url: `/#contact` }
   ],
 
   socialLinks: [
@@ -24,7 +24,7 @@ const config = {
     { name: `Instagram`, url: `https://www.instagram.com/dany_dodson` },
     { name: `Twitter`, url: `https://twitter.com/danydodson` },
     { name: `Linkedin`, url: `https://www.linkedin.com/in/danydodson` },
-    { name: `Codepen`, url: `https://codepen.io/danydodson` },
+    { name: `Codepen`, url: `https://codepen.io/danydodson` }
   ],
 
   hello: `
@@ -65,7 +65,7 @@ const config = {
     appId: `${process.env.ALGOLIA_APP_ID}`,
     apiKey: process.env.ALGOLIA_API_KEY,
     searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
-    indexName: process.env.ALGOLIA_INDEX_NAME,
+    indexName: process.env.ALGOLIA_INDEX_NAME
   },
 
   // author: {
@@ -105,8 +105,8 @@ const config = {
     reset: false,
     useDelay: `always`,
     viewFactor,
-    viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
-  }),
+    viewOffset: { top: 0, right: 0, bottom: 0, left: 0 }
+  })
 }
 
 module.exports = config

@@ -35,8 +35,8 @@ module.exports = async (graphql, actions) => {
         prevPath: i <= 1 ? postsSlug : `${postsSlug}/page/${i - 1}`,
         nextPath: `${postsSlug}/page/${i + 1}`,
         hasPrev: i !== 0,
-        hasNext: i !== numPages - 1,
-      },
+        hasNext: i !== numPages - 1
+      }
     })
   }
 }

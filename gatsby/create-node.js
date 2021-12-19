@@ -9,23 +9,23 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: node.frontmatter.slug,
+        value: node.frontmatter.slug
       })
     } else {
       const value = createFilePath({ node, getNode })
       createNodeField({
         node,
         name: 'slug',
-        value,
+        value
       })
     }
 
     if (node.frontmatter.tags) {
-      const tagSlugs = node.frontmatter.tags.map((tag) => `/tag/${tag}`)
+      const tagSlugs = node.frontmatter.tags.map(tag => `/tag/${tag}`)
       createNodeField({
         node,
         name: 'tagSlugs',
-        value: tagSlugs,
+        value: tagSlugs
       })
     }
 
@@ -34,7 +34,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'categorySlug',
-        value: categorySlug,
+        value: categorySlug
       })
     }
   }

@@ -4,7 +4,7 @@ import { Layout, Hero, About, Featured, Projects, Jobs, Posts, Contact } from '.
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
-    <main id="content">
+    <main id='content'>
       <Hero />
       <About />
       <Featured />
@@ -17,7 +17,7 @@ const IndexPage = ({ location }) => (
 )
 
 IndexPage.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 }
 
 export default IndexPage

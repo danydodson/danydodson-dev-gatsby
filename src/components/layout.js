@@ -16,7 +16,7 @@ const Layout = ({ children, location }) => {
   function handleLinks() {
     const links = Array.from(document.querySelectorAll('a'))
     if (links.length > 0) {
-      links.forEach((ln) => {
+      links.forEach(ln => {
         if (ln.host !== window.location.host) {
           ln.setAttribute('rel', 'noopener noreferrer')
           ln.setAttribute('target', '_blank')
@@ -45,18 +45,18 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Head />
-      <div id="root">
+      <div id='root'>
         <ThemeProvider theme={theme}>
           <Styles />
 
-          <a className="skip-to-content" href="#content">
+          <a className='skip-to-content' href='#content'>
             Skip to Content
           </a>
 
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
-            <div className="layout">
+            <div className='layout'>
               <Nav isHome={isHome} />
               <Social isHome={isHome} />
               <Email isHome={isHome} />
@@ -72,7 +72,7 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 }
 
 export default Layout

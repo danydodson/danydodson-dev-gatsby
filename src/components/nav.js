@@ -37,21 +37,21 @@ const Nav = ({ isHome }) => {
   const fadeDownClass = isHome ? 'fadedown' : ''
 
   const Logo = (
-    <div className="logo" tabIndex="-1">
+    <div className='logo' tabIndex='-1'>
       {isHome ? (
-        <a href="/#" aria-label="home">
-          <Icon name="Logo" />
+        <a href='/#' aria-label='home'>
+          <Icon name='Logo' />
         </a>
       ) : (
-        <Link to="/" aria-label="home">
-          <Icon name="Logo" />
+        <Link to='/' aria-label='home'>
+          <Icon name='Logo' />
         </Link>
       )}
     </div>
   )
 
   const ResumeLink = (
-    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+    <a className='resume-button' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
       Resume
     </a>
   )
@@ -59,7 +59,7 @@ const Nav = ({ isHome }) => {
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
-        <div className="nav">
+        <div className='nav'>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
@@ -106,7 +106,7 @@ const Nav = ({ isHome }) => {
 }
 
 Nav.propTypes = {
-  isHome: PropTypes.bool,
+  isHome: PropTypes.bool
 }
 
 export default Nav
@@ -129,7 +129,7 @@ const StyledHeader = styled.header`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${(props) =>
+    ${props =>
       props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
@@ -139,7 +139,7 @@ const StyledHeader = styled.header`
         box-shadow: 0 10px 30px -10px var(--_grey-2);
       `};
 
-    ${(props) =>
+    ${props =>
       props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`

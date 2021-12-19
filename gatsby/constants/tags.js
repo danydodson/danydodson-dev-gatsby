@@ -1,9 +1,9 @@
 module.exports = {
-  getTags: async (graphql) => {
+  getTags: async graphql => {
     const {
       data: {
-        allMarkdownRemark: { group },
-      },
+        allMarkdownRemark: { group }
+      }
     } = await graphql(`
       query TagListQuery {
         allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }) {
@@ -15,8 +15,8 @@ module.exports = {
       }
     `)
 
-    return group.map((tag) => ({
-      ...tag,
+    return group.map(tag => ({
+      ...tag
     }))
-  },
+  }
 }

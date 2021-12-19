@@ -79,7 +79,7 @@ export const TagQuery = graphql`
 TagTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default TagTemplate

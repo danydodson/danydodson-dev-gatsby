@@ -16,7 +16,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
   // site.com/404
   createPage({
     path: '/404',
-    component: path.resolve('./src/templates/not-found.js'),
+    component: path.resolve('./src/templates/not-found.js')
   })
 
   // site.com/tags
@@ -25,8 +25,8 @@ const createPages = async ({ graphql, actions, reporter }) => {
     component: path.resolve('./src/templates/tags.js'),
     context: {
       categories,
-      tags,
-    },
+      tags
+    }
   })
 
   // site.com/categories
@@ -35,8 +35,8 @@ const createPages = async ({ graphql, actions, reporter }) => {
     component: path.resolve('./src/templates/categories.js'),
     context: {
       categories,
-      tags,
-    },
+      tags
+    }
   })
 
   const result = await graphql(`
@@ -65,14 +65,8 @@ const createPages = async ({ graphql, actions, reporter }) => {
 
   const { edges } = result.data.allMarkdownRemark
 
-  edges.map((edge) => {
-    if (
-      edge &&
-      edge.node &&
-      edge.node.frontmatter &&
-      edge.node.frontmatter.template &&
-      edge.node.frontmatter.template === 'post'
-    ) {
+  edges.map(edge => {
+    if (edge && edge.node && edge.node.frontmatter && edge.node.frontmatter.template && edge.node.frontmatter.template === 'post') {
       // site.com/post/<post>
       createPage({
         path: edge.node.fields.slug,
@@ -80,8 +74,8 @@ const createPages = async ({ graphql, actions, reporter }) => {
         context: {
           slug: `${edge.node.fields.slug}`,
           categories,
-          tags,
-        },
+          tags
+        }
       })
     }
 

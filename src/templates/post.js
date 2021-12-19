@@ -80,7 +80,7 @@ export const PostBySlugQuery = graphql`
 PostTemplate.propTypes = {
   data: PropTypes.object,
   pageContext: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default PostTemplate

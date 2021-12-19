@@ -17,7 +17,7 @@ const CategoriesTemplate = ({ data, location }) => {
         <h2>All Catagories</h2>
 
         <ul>
-          {categories.map((category) => (
+          {categories.map(category => (
             <li key={category.fieldValue}>
               <Link to={`/category/${category.fieldValue}/`}>
                 {category.fieldValue} ({category.totalCount})
@@ -43,7 +43,7 @@ export const CategoriesQuery = graphql`
 
 CategoriesTemplate.propTypes = {
   data: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default CategoriesTemplate

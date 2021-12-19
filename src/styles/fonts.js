@@ -87,7 +87,7 @@ const calibreNormalWeights = {
   500: [CalibreMediumWoff, CalibreMediumWoff2, CalibreMediumTtf],
   600: [CalibreSemiboldWoff, CalibreSemiboldWoff2, CalibreSemiboldTtf],
   700: [CalibreBoldWoff, CalibreBoldWoff2, CalibreBoldTtf],
-  900: [CalibreBlackWoff, CalibreBlackWoff2, CalibreBlackTtf],
+  900: [CalibreBlackWoff, CalibreBlackWoff2, CalibreBlackTtf]
 }
 
 const calibreItalicWeights = {
@@ -97,31 +97,31 @@ const calibreItalicWeights = {
   500: [CalibreMediumItalicWoff, CalibreMediumItalicWoff2, CalibreMediumItalicTtf],
   600: [CalibreSemiboldItalicWoff, CalibreSemiboldItalicWoff2, CalibreSemiboldItalicTtf],
   700: [CalibreBoldItalicWoff, CalibreBoldItalicWoff2, CalibreBoldItalicTtf],
-  900: [CalibreBlackItalicWoff, CalibreBlackItalicWoff2, CalibreBlackItalicTtf],
+  900: [CalibreBlackItalicWoff, CalibreBlackItalicWoff2, CalibreBlackItalicTtf]
 }
 
 const sfMonoNormalWeights = {
   400: [SFMonoRegularWoff, SFMonoRegularWoff2, SFMonoRegularTtf],
   500: [SFMonoMediumWoff, SFMonoMediumWoff2, SFMonoMediumTtf],
-  600: [SFMonoSemiboldWoff, SFMonoSemiboldWoff2, SFMonoSemiboldTtf],
+  600: [SFMonoSemiboldWoff, SFMonoSemiboldWoff2, SFMonoSemiboldTtf]
 }
 
 const sfMonoItalicWeights = {
   400: [SFMonoRegularItalicWoff, SFMonoRegularItalicWoff2, SFMonoRegularItalicTtf],
   500: [SFMonoMediumItalicWoff, SFMonoMediumItalicWoff2, SFMonoMediumItalicTtf],
-  600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2, SFMonoSemiboldItalicTtf],
+  600: [SFMonoSemiboldItalicWoff, SFMonoSemiboldItalicWoff2, SFMonoSemiboldItalicTtf]
 }
 
 const calibre = {
   name: 'Calibre',
   normal: calibreNormalWeights,
-  italic: calibreItalicWeights,
+  italic: calibreItalicWeights
 }
 
 const sfmono = {
   name: 'SF Mono',
   normal: sfMonoNormalWeights,
-  italic: sfMonoItalicWeights,
+  italic: sfMonoItalicWeights
 }
 
 const createFontFaces = (family, style = 'normal') => {

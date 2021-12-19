@@ -6,7 +6,7 @@ import { Icon } from '../components/icons'
 import { socialLinks } from '../config'
 
 const Social = ({ isHome }) => (
-  <Side isHome={isHome} orientation="left">
+  <Side isHome={isHome} orientation='left'>
     <StyledSocials>
       {socialLinks &&
         socialLinks.map(({ url, name }, i) => (
@@ -21,7 +21,7 @@ const Social = ({ isHome }) => (
 )
 
 Social.propTypes = {
-  isHome: PropTypes.bool,
+  isHome: PropTypes.bool
 }
 
 export default Social

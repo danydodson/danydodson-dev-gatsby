@@ -27,21 +27,21 @@ const Menu = () => {
     lastFocusableEl = menuFocusables[menuFocusables.length - 1]
   }
 
-  const handleBackwardTab = (e) => {
+  const handleBackwardTab = e => {
     if (document.activeElement === firstFocusableEl) {
       e.preventDefault()
       lastFocusableEl.focus()
     }
   }
 
-  const handleForwardTab = (e) => {
+  const handleForwardTab = e => {
     if (document.activeElement === lastFocusableEl) {
       e.preventDefault()
       firstFocusableEl.focus()
     }
   }
 
-  const onKeyDown = (e) => {
+  const onKeyDown = e => {
     switch (e.key) {
       case keys.ESCAPE:
       case keys.ESCAPE_IE11: {
@@ -67,7 +67,7 @@ const Menu = () => {
     }
   }
 
-  const onResize = (e) => {
+  const onResize = e => {
     if (e.currentTarget.innerWidth > 768) {
       setMenuOpen(false)
     }
@@ -92,9 +92,9 @@ const Menu = () => {
       </Helmet>
 
       <div ref={wrapperRef}>
-        <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen} ref={buttonRef} aria-label="Menu">
-          <div className="ham-box">
-            <div className="ham-box-inner" />
+        <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen} ref={buttonRef} aria-label='Menu'>
+          <div className='ham-box'>
+            <div className='ham-box-inner' />
           </div>
         </StyledHamburgerButton>
 
@@ -111,7 +111,7 @@ const Menu = () => {
                 ))}
               </ol>
             )}
-            <a href="/resume.pdf" className="resume-link">
+            <a href='/resume.pdf' className='resume-link'>
               Resume
             </a>
           </nav>
@@ -164,11 +164,9 @@ const StyledHamburgerButton = styled.button`
     border-radius: var(--border-radius);
     transition-duration: 0.22s;
     transition-property: transform;
-    transition-delay: ${(props) => (props.menuOpen ? `0.12s` : `0s`)};
-    transform: rotate(${(props) => (props.menuOpen ? `225deg` : `0deg`)});
-    transition-timing-function: cubic-bezier(
-      ${(props) => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)}
-    );
+    transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
+    transform: rotate(${props => (props.menuOpen ? `225deg` : `0deg`)});
+    transition-timing-function: cubic-bezier(${props => (props.menuOpen ? `0.215, 0.61, 0.355, 1` : `0.55, 0.055, 0.675, 0.19`)});
 
     &:before,
     &:after {
@@ -187,16 +185,16 @@ const StyledHamburgerButton = styled.button`
     }
 
     &:before {
-      width: ${(props) => (props.menuOpen ? `100%` : `120%`)};
-      top: ${(props) => (props.menuOpen ? `0` : `-10px`)};
-      opacity: ${(props) => (props.menuOpen ? 0 : 1)};
+      width: ${props => (props.menuOpen ? `100%` : `120%`)};
+      top: ${props => (props.menuOpen ? `0` : `-10px`)};
+      opacity: ${props => (props.menuOpen ? 0 : 1)};
       transition: ${({ menuOpen }) => (menuOpen ? 'var(--ham-before-active)' : 'var(--ham-before)')};
     }
 
     &:after {
-      width: ${(props) => (props.menuOpen ? `100%` : `80%`)};
-      bottom: ${(props) => (props.menuOpen ? `0` : `-10px`)};
-      transform: rotate(${(props) => (props.menuOpen ? `-90deg` : `0`)});
+      width: ${props => (props.menuOpen ? `100%` : `80%`)};
+      bottom: ${props => (props.menuOpen ? `0` : `-10px`)};
+      transform: rotate(${props => (props.menuOpen ? `-90deg` : `0`)});
       transition: ${({ menuOpen }) => (menuOpen ? 'var(--ham-after-active)' : 'var(--ham-after)')};
     }
   }
@@ -216,10 +214,10 @@ const StyledSidebar = styled.aside`
     width: min(75vw, 400px);
     padding: 50px 10px;
     ${({ theme }) => theme.mixins.flexCenter};
-    visibility: ${(props) => (props.menuOpen ? 'visible' : 'hidden')};
+    visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
     background-color: var(--_pink-1);
     box-shadow: -10px 0px 30px -15px var(--_black-2);
-    transform: translateX(${(props) => (props.menuOpen ? 0 : 100)}vw);
+    transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
     transition: var(--transition);
   }
 

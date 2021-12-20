@@ -1,4 +1,4 @@
-<main style='position:absolute;top:0;left:0;width:100%;font-weight:bold;'>
+;<main style='position:absolute;top:0;left:0;width:100%;font-weight:bold;'>
   <section style='display:flex;flex-direction:column;line-height:11;text-align:center;'>
     <div style='background:#ffffff;height:160px;color:#343434;'>_white-1</div>
     <div style='background:#fafffd;height:160px;color:#343434;'>_white-2</div>

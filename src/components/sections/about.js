@@ -34,14 +34,7 @@ const About = () => {
           <StyledPic className='image'>
             <div className='inner' />
             <div className='wrapper'>
-              <StaticImage
-                className='me'
-                width={500}
-                quality={95}
-                src='./../../../static/cards/og@2.png'
-                formats={['AUTO', 'WEBP', 'AVIF']}
-                alt='Headshot'
-              />
+              <StaticImage className='me' width={500} quality={95} src='./../../../static/cards/og@2.png' formats={['AUTO', 'WEBP', 'AVIF']} alt='Headshot' />
             </div>
           </StyledPic>
         </div>

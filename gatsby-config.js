@@ -80,7 +80,9 @@ module.exports = {
                   language: `superscript`,
                   extend: `javascript`,
                   definition: { superscript_types: /(SuperType)/ },
-                  insertBefore: { function: { superscript_keywords: /(superif|superelse)/ } }
+                  insertBefore: {
+                    function: { superscript_keywords: /(superif|superelse)/ }
+                  }
                 }
               ],
               prompt: {

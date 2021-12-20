@@ -73,3 +73,7 @@
 ![Adobe Illustrator](https://img.shields.io/badge/adobeillustrator-%23FF9A00.svg?style=for-the-badge&logo=adobeillustrator&logoColor=white)
 
 ## Technologies I want to explore
+
+```js
+const dd = "k";
+```

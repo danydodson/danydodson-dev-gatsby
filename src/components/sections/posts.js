@@ -115,7 +115,13 @@ const Posts = () => {
             {postsToShow &&
               postsToShow.map(({ node }, i) => (
                 <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
-                  <StyledPost key={i} ref={el => (revealPosts.current[i] = el)} style={{ transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms` }}>
+                  <StyledPost
+                    key={i}
+                    ref={el => (revealPosts.current[i] = el)}
+                    style={{
+                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`
+                    }}
+                  >
                     {postInner(node)}
                   </StyledPost>
                 </CSSTransition>

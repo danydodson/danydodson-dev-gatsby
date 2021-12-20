@@ -6,9 +6,9 @@ draft: false
 slug: engineer
 cover: cover.jpg
 company: Upstatement
-location: 'Boston, MA'
+location: Boston, MA
 range: May 2018 - Present
-url: 'https://www.upstatement.com/'
+url: https://www.upstatement.com/
 ---
 
 # Engineer

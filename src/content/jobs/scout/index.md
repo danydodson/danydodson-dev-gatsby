@@ -8,7 +8,7 @@ cover: cover.jpg
 company: Scout
 location: Northeastern University
 range: January - April 2018
-url: 'https://web.northeastern.edu/scout/'
+url: https://web.northeastern.edu/scout/
 description: Worked with a team of three designers to build a marketing website and e-commerce platform for
 ---
 

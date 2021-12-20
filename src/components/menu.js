@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { Link } from 'gatsby'
 import React, { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet'

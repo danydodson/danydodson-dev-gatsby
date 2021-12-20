@@ -6,9 +6,9 @@ draft: false
 slug: /job-creative-technologist-op
 cover: cover.jpg
 company: MullenLowe
-location: 'Boston, MA'
+location: Boston, MA
 range: July - December 2015
-url: 'https://us.mullenlowe.com/'
+url: https://us.mullenlowe.com/
 preview: /content/projects/octo-profile/cover.png
 ---
 

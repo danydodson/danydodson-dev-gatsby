@@ -12,10 +12,24 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "eslint './src/**/*.js'",
-    "lint-fix": "eslint --fix './src/**/*.js'",
+    "lint": "eslint \"**/*.js\" --ignore-path .gitignore",
+    "lint:fix": "eslint --fix \"**/*.js\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,json,md,css}\"",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
+  },
+  "engines": {
+    "node": "14.18.1",
+    "npm": "8.1.0",
+    "yarn": "1.22.17"
+  },
+  "lint-staged": {
+    "**/*.{js,json,md,css}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -40,6 +54,7 @@
     "gatsby-plugin-sitemap": "^4.10.0",
     "gatsby-plugin-styled-components": "^4.14.0",
     "gatsby-react-router-scroll": "^4.14.0",
+    "gatsby-remark-code-titles": "^1.1.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^5.11.0",
     "gatsby-remark-prismjs": "^5.11.0",
@@ -61,7 +76,7 @@
     "@babel/core": "^7.15.8",
     "@babel/eslint-parser": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
-    "@danydodson/eslint-config-react": "1.7.0",
+    "@danydodson/eslint-config-react": "2.4.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^1.14.0",
     "eslint": "^8.5.0",
@@ -71,23 +86,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "gatsby-remark-code-titles": "^1.1.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
-    "prettier": "^2.4.1"
-  },
-  "lint-staged": {
-    "**/*.{js,css,json,md}": [
-      "prettier --write"
-    ],
-    "*.js": [
-      "eslint --fix"
-    ]
-  },
-  "engines": {
-    "node": "14.18.1",
-    "npm": "8.1.0",
-    "yarn": "1.22.17"
+    "prettier": "^2.5.1"
   },
   "repository": {
     "type": "git",

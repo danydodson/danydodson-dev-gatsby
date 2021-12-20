@@ -16,19 +16,17 @@ const Form = () => {
           <div className='box'>
             <form onSubmit={handleSubmit}>
               <div className='field'>
-                <label className='label' htmlFor='email-id'>
-                  Email Address
-                </label>
+                <input className='input' type='email' name='email' onChange={handleChange} required />
                 <div className='control'>
-                  <input className='input' id='email-id' type='email' name='email' onChange={handleChange} required />
+                  <label className='label'>Email Address</label>
                 </div>
               </div>
               <div className='field'>
-                <label className='label' htmlFor='p-id'>
-                  Password
-                </label>
                 <div className='control'>
-                  <input className='input' id='p-id' type='password' name='password' onChange={handleChange} required />
+                  <label className='label'>
+                    <input className='input' type='password' name='password' onChange={handleChange} required />
+                    Password
+                  </label>
                 </div>
               </div>
               <button type='submit' className='button is-block is-info is-fullwidth'>

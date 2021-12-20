@@ -6,9 +6,9 @@ draft: false
 slug: /ui-engineer-op/
 cover: cover.jpg
 company: Apple
-location: 'Cupertino, CA'
+location: "Cupertino, CA"
 range: July - December 2017
-url: 'https://www.apple.com/music/'
+url: https://www.apple.com/music/
 description: Developed and shipped highly interactive web applications for Apple Music using Ember.js
 preview: /content/projects/weather-widget/cover.png
 ---

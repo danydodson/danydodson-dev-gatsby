@@ -7,8 +7,8 @@ lastmod: 2018-05-01T00:00:00.000Z
 draft: false
 cover: cover.png
 description: Custom WordPress theme and e-commerce site built with Timber and WooCommerce
-github: 'https://github.com/danydodson'
-external: 'https://blistabloc.com/'
+github: https://github.com/danydodson
+external: https://blistabloc.com/
 ios: null
 android: null
 tech:

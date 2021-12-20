@@ -6,8 +6,8 @@ title: OctoProfile
 draft: false
 cover: cover.png
 description: null
-github: 'https://github.com/bchiang7/octoprofile'
-external: 'https://octoprofile.now.sh'
+github: https://github.com/bchiang7/octoprofile
+external: https://octoprofile.now.sh
 ios: null
 android: null
 tech:

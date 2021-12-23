@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { useLocation } from '@reach/router'
+// import { useLocation } from '@reach/router'
 
 const Head = ({ title, description, image }) => {
-  const { pathname } = useLocation()
+  // const { pathname } = useLocation()
 
   const { site } = useStaticQuery(graphql`
     query {
@@ -27,7 +27,7 @@ const Head = ({ title, description, image }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`
+    url: `${siteUrl}`
   }
 
   return (

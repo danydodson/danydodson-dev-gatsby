@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import { Layout, Head, Paging } from '../components'
+import { Layout, Head, Paging } from 'components'
 
 // site.com/posts
 
 const PostTemplate = ({ data, pageContext, location }) => {
+
   const { categories, currentPage, hasPrev, prevPath, hasNext, nextPath } = pageContext
   const { edges } = data.allMarkdownRemark
 

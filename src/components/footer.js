@@ -2,8 +2,9 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import footer from '../assets/svg/footer.svg'
-import { Icon } from '../components/icons'
+import { Icon, IconStar } from '../components/icons'
 import { socialLinks } from '../config'
+
 
 const Footer = () => {
   const [githubInfo, setGitHubInfo] = useState({
@@ -15,8 +16,8 @@ const Footer = () => {
     // if (process.env.NODE_ENV !== 'production') {
     //   return
     // }
-    fetch('https://api.github.com/repos/bchiang7/v4')
-      .then(response => response.json())
+    fetch('https://api.github.com/repos/danydodson/danydodson-dev')
+      .then(res => res.json())
       .then(json => {
         const { stargazers_count, forks_count } = json
         setGitHubInfo({
@@ -42,9 +43,9 @@ const Footer = () => {
           ))}
       </StyledSocialLinks>
       <StyledCredit>
-        <a href='https://github.com/bchiang7/v4'>
+        <a href='https://api.github.com/repos/danydodson/danydodson-dev'>
           <div>Designed &amp; Built by Dany Dodson</div>
-          {githubInfo.stars && githubInfo.forks && (
+          {githubInfo.stars || githubInfo.forks && (
             <div className='github-stats'>
               <span>
                 <Icon name='Star' />
@@ -55,6 +56,7 @@ const Footer = () => {
                 <span>{githubInfo.forks.toLocaleString()}</span>
               </span>
             </div>
+
           )}
         </a>
       </StyledCredit>

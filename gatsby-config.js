@@ -2,14 +2,23 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
+const path = require('path')
 const config = require('./src/config')
 
 module.exports = {
   siteMetadata: config,
 
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-graphql-config`,
+    {
+      resolve: 'gatsby-plugin-resolve-src',
+      options: {
+        srcPath: path.resolve(__dirname, 'src'),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -95,7 +104,6 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,

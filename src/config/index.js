@@ -11,7 +11,7 @@ const config = {
   copyright: `© 2021 | Dany Dodson ♡`,
 
   postsPerPage: 10,
-
+  
   navLinks: [
     { name: `About`, url: `/#about` },
     { name: `Experience`, url: `/#jobs` },
